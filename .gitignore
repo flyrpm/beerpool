@@ -15,3 +15,6 @@ data/hist/
 data/predictions/
 data/grades/
 data/evaluation/
+data/lake/
+data/lake.db
+data/context/
