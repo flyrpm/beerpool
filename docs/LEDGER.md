@@ -29,8 +29,9 @@ python3 backtest/predictions_ledger.py record \
 Use the actual week/deadline. A naive timestamp means Eastern; explicit offsets
 are supported. Prediction information is cut off at **recording start**, not the
 later submission deadline. No CLI backdating option exists. Recording and saving
-a prospective entry must happen before the deadline and before predicted games
-kick off. Earlier-locked games are excluded; the initial foundation supports one
+a prospective entry must happen before the earliest applicable submission/game lock
+and before predicted games kick off. Per-game effective locks are frozen in the
+entry and rechecked after serialization/fsync, immediately before atomic publication. Earlier-locked games are excluded; the initial foundation supports one
 submission per week, not multiple early-game decisions. `--historical` explicitly
 labels past scenarios; they must never be pooled with prospective evidence.
 
@@ -42,7 +43,9 @@ orientation and submission rules remain the operator's responsibility.
 
 New `snapshots.py take` captures add timezone-qualified `received_utc` after fetching
 and parsing. Prospective ledger entries reject selected legacy captures with no
-receipt timestamp. Existing snapshot files remain unchanged and historical replay
+receipt timestamp. Capture filenames include microseconds and a random ID; exclusive atomic publication
+prevents overwrite even if both clock and ID collide. Existing snapshot files remain
+unchanged and historical replay
 can still inspect them. A positive finite age limit is required for the ledger;
 choose and hold this data-quality policy fixed before evaluation.
 
@@ -58,7 +61,7 @@ Each `SEASON-wkWEEK.json` contains:
   and frozen expected points for Ronnie and the benchmark.
 - A canonical SHA-256 checksum of the complete payload, verified before grading.
 
-Writes are exclusive, with one file per season/week. Existing entries cannot be
+Writes are atomic and exclusive, with one file per season/week. Existing entries cannot be
 silently overwritten by the command. This guards accidental edits; it is **not** a
 signed, independently timestamped or tamper-proof registry. Keep private backups
 of entries, original sheet, frozen config, raw snapshots and actual submissions.
@@ -133,3 +136,15 @@ push losses, benchmark settings, receipt requirements, deadline checks and
 nonmutating reproducible grading. GitHub Actions runs the full suite on Python
 3.10–3.13 for pushes and pull requests. CI success checks software behavior; it is
 not proof of predictive edge or profitability.
+
+## Merge review hardening
+
+Replay hashes the exact compressed bytes it parses, without a second filesystem
+read. Ronnie and the benchmark share a single in-memory snapshot read set and
+separate detached configurations. Receipts earlier than capture and truncated
+gzip files become explicit input errors. The snapshot inspection command chooses
+by payload availability time, including receipt, rather than filename order.
+Grading reports fingerprint the grader source in addition to the results and
+ledger hashes. Existing manifests from a different replay source revision still
+require their original checkout; create a new manifest before starting a new
+evaluation, without refitting the calibration table.

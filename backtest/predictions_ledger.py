@@ -11,6 +11,8 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import math
+import os
+import tempfile
 from pathlib import Path
 import sys
 
@@ -31,6 +33,8 @@ def now_utc():
 
 def record(board, manifest, snapshots, deadline, season, week, max_age_hours, historical=False):
     """Record one weekly decision. CLI supplies real clock; no backdating option."""
+    board = json.loads(json.dumps(board))
+    manifest = json.loads(json.dumps(manifest))
     started = now_utc()
     end = sr.utc(deadline)
     if not historical and started >= end:
@@ -45,19 +49,26 @@ def record(board, manifest, snapshots, deadline, season, week, max_age_hours, hi
     # Retrospective scenarios explicitly use the requested past decision. Prospective
     # predictions use information already available now, not later before deadline.
     decision = end if historical else started
-    ronnie = sr.replay(board, manifest, snapshots, decision.isoformat(), max_age_hours)
+    snapshot_data = sr.load_snapshots(snapshots)
+    ronnie = sr.replay(board, manifest, snapshots, decision.isoformat(), max_age_hours, snapshot_data)
     benchmark_manifest = json.loads(json.dumps(manifest))
     benchmark = bp.Config(**benchmark_manifest['config']).with_(
         calibration=None, total_shrink=1.0, spread_shrink=1.0, huge_edge_p=None)
     benchmark_manifest['config'] = asdict(benchmark)
-    market = sr.replay(board, benchmark_manifest, snapshots, decision.isoformat(), max_age_hours)
+    market = sr.replay(board, benchmark_manifest, snapshots, decision.isoformat(), max_age_hours, snapshot_data)
     if ronnie['games'] != market['games'] or ronnie['snapshot_errors'] != market['snapshot_errors']:
         raise ValueError('snapshot inputs changed during recording; retry with a stable snapshot directory')
     metadata = []
     for g in board['games']:
         if not g.get('kickoff'):
             raise ValueError(f"missing kickoff for game {g['num']}")
-        metadata.append({k: g[k] for k in ('num', 'league', 'home', 'away', 'kickoff')})
+        item = {k: g[k] for k in ('num', 'league', 'home', 'away', 'kickoff')}
+        limits = [end, sr.utc(g['kickoff'])]
+        lock = g.get('lock') or board.get('default_lock')
+        if lock:
+            limits.append(sr.utc(lock))
+        item['effective_lock_utc'] = min(limits).isoformat()
+        metadata.append(item)
     if not historical and any(g.get('receipt_verified') is False for g in ronnie['games']):
         raise ValueError('prospective ledger requires receipt timestamps; take fresh snapshots')
     # Store machine-gradeable predictions, including sheet lines, for every candidate
@@ -70,9 +81,9 @@ def record(board, manifest, snapshots, deadline, season, week, max_age_hours, hi
     if not historical and finished >= end:
         raise ValueError('recording finished after deadline; no prospective ledger written')
     if not historical:
-        played = {g['num'] for g in metadata if sr.utc(g['kickoff']) <= finished}
+        played = {g['num'] for g in metadata if sr.utc(g['effective_lock_utc']) <= finished}
         if any(c['game'] in played for v in (ronnie, market) for c in v['candidates']):
-            raise ValueError('a predicted game kicked off before recording finished')
+            raise ValueError('a predicted game locked before recording finished')
     payload = dict(schema=1, season=int(season), week=str(week), mode='historical' if historical else 'prospective',
                    recorded_utc=finished.isoformat(), decision_utc=decision.isoformat(),
                    submission_deadline_utc=end.isoformat(), games=metadata,
@@ -87,26 +98,38 @@ def save_entry(directory, entry):
     # One entry per week prevents quietly replacing the official evaluation card.
     verify(entry)
     payload = entry['payload']
-    if payload['mode'] == 'prospective':
-        current = now_utc()
-        if current >= sr.utc(payload['submission_deadline_utc']):
-            raise ValueError('cannot persist a prospective ledger after deadline')
-        predicted = {c['game'] for v in payload['variants'].values() for c in v['candidates']}
-        if any(g['num'] in predicted and sr.utc(g['kickoff']) <= current for g in payload['games']):
-            raise ValueError('cannot persist predictions after kickoff')
+    def before_publish():
+        if payload['mode'] == 'prospective':
+            current = now_utc()
+            if current < sr.utc(payload['recorded_utc']):
+                raise ValueError('clock precedes recording time')
+            if current >= sr.utc(payload['submission_deadline_utc']):
+                raise ValueError('cannot persist a prospective ledger after deadline')
+            predicted = {c['game'] for v in payload['variants'].values() for c in v['candidates']}
+            if any(g['num'] in predicted and sr.utc(g['effective_lock_utc']) <= current for g in payload['games']):
+                raise ValueError('cannot persist predictions after game lock')
+    before_publish()
     week = payload['week']
     if not week or not all(ch.isalnum() or ch in '-_' for ch in week):
         raise ValueError('invalid week identifier')
     path = Path(directory) / f"{payload['season']}-wk{week}.json"
     path.parent.mkdir(parents=True, exist_ok=True)
-    write_new(path, entry)
+    write_new(path, entry, before_publish)
     return path
 
 
-def write_new(path, value):
+def write_new(path, value, before_publish=None):
     data = json.dumps(value, indent=2, allow_nan=False) + '\n'
-    with open(path, 'x') as f:
-        f.write(data)
+    path = Path(path)
+    # Serialize and fsync privately before validating the actual publication time.
+    # Hard-link publication is atomic and exclusive; failed writes leave no entry.
+    with tempfile.NamedTemporaryFile(dir=path.parent, suffix='.tmp') as tmp:
+        tmp.write(data.encode())
+        tmp.flush()
+        os.fsync(tmp.fileno())
+        if before_publish:
+            before_publish()
+        os.link(tmp.name, path)
 
 
 def verify(entry):
@@ -115,6 +138,8 @@ def verify(entry):
 
 
 def grade_pick(pick, game, result):
+    if not math.isfinite(pick['sheet_line']):
+        raise ValueError('invalid frozen sheet line')
     if pick['side'] == 'OVER':
         delta = result['home_score'] + result['away_score'] - pick['sheet_line']
     elif pick['side'] == 'UNDER':
@@ -139,6 +164,8 @@ def metrics(predictions):
 
 
 def grade(entry, results):
+    entry = json.loads(json.dumps(entry))
+    results = json.loads(json.dumps(results))
     verify(entry)
     payload = entry['payload']
     games = {g['num']: g for g in payload['games']}
@@ -191,7 +218,8 @@ def grade(entry, results):
                              candidate_metrics=metrics(candidates), coverage=v['coverage'])
     comparable = all(v['card_metrics']['complete_card'] and v['card_metrics']['all_picks_final'] for v in reports.values())
     difference = (reports['ronnie']['card_metrics']['earned_points'] - reports['market_only']['card_metrics']['earned_points']) if comparable else None
-    return dict(schema=1, ledger_sha256=entry['sha256'], season=payload['season'], week=payload['week'],
+    return dict(schema=1, grader_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                ledger_sha256=entry['sha256'], season=payload['season'], week=payload['week'],
                 mode=payload['mode'], results_sha256=digest(results), variants=reports,
                 result_issues=problems, matched_final_games=len(matched),
                 ronnie_minus_market_points=difference,

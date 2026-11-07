@@ -159,6 +159,62 @@ class Ledger(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'age limit'):
             pl.record(self.board, self.cfg, self.root, '2027-11-07T12:00', 2026, '9', float('nan'))
 
+    def test_benchmark_isolation_and_single_snapshot_read(self):
+        from dataclasses import asdict
+        before = copy.deepcopy(self.cfg)
+        production_before = asdict(bp.Config.production())
+        with patch.object(sr, 'load_snapshots', wraps=sr.load_snapshots) as load:
+            entry = self.entry()
+        self.assertEqual(load.call_count, 1)
+        self.assertEqual(self.cfg, before)
+        self.assertEqual(asdict(bp.Config.production()), production_before)
+        variants = entry['payload']['variants']
+        for name, variant in variants.items():
+            self.assertEqual(variant['games'], variants['ronnie']['games'])
+        variants['market_only']['frozen_model']['config']['total_shrink'] = .25
+        self.assertEqual(variants['ronnie']['frozen_model']['config'], before['config'])
+
+    def test_earlier_lock_crossed_during_recording_rejected(self):
+        self.board['default_lock'] = '2026-11-07T11:31'
+        late = datetime(2026, 11, 7, 16, 32, tzinfo=timezone.utc)
+        with patch.object(pl, 'now_utc', side_effect=[self.clock, late]):
+            with self.assertRaisesRegex(ValueError, 'locked before recording'):
+                pl.record(self.board, self.cfg, self.root, '2026-11-07T13:00', 2026, '9', 24)
+
+    def test_earlier_lock_crossed_during_persistence_rejected_atomically(self):
+        self.board['default_lock'] = '2026-11-07T11:31'
+        entry = self.entry()
+        late = datetime(2026, 11, 7, 16, 31, tzinfo=timezone.utc)
+        with patch.object(pl, 'now_utc', side_effect=[self.clock, late]):
+            with self.assertRaisesRegex(ValueError, 'after game lock'):
+                pl.save_entry(self.root / 'ledger', entry)
+        self.assertEqual(list((self.root / 'ledger').iterdir()), [])
+
+    def test_future_snapshot_not_used_even_before_submission_deadline(self):
+        self.snap['taken_utc'] = '2026-11-07T16:31:00Z'
+        self.snap['received_utc'] = '2026-11-07T16:31:01Z'
+        self.write_snapshot()
+        entry = self.entry()
+        for variant in entry['payload']['variants'].values():
+            self.assertEqual(variant['candidates'], [])
+            self.assertEqual(variant['coverage']['covered_games'], 0)
+
+    def test_grading_does_not_reprice_and_reports_correct_push_losses(self):
+        entry = self.entry()
+        # Create a valid independently hashed fixture with integer sheet lines.
+        for variant in entry['payload']['variants'].values():
+            for prediction in variant['card'] + variant['candidates']:
+                prediction['sheet_line'] = -4 if prediction['side'].startswith('H') else 4
+        entry['sha256'] = pl.digest(entry['payload'])
+        with patch.object(sr, 'replay', side_effect=AssertionError('must never reprice')):
+            report = self.grade(entry, self.results())
+        for variant in report['variants'].values():
+            self.assertEqual(variant['card_metrics']['earned_points'], 0)
+            self.assertEqual(variant['card_metrics']['wins'], 0)
+            self.assertEqual(variant['card_metrics']['pushes'], 5)
+        self.assertEqual(report['ronnie_minus_market_points'], 0)
+        self.assertIn('grader_source_sha256', report)
+
     def test_snapshot_capture_records_receipt_time(self):
         with patch.object(snapshots, 'SNAP_DIR', str(self.root / 'capture')), \
              patch.object(snapshots, 'fetch', return_value='html'), \

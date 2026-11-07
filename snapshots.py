@@ -10,7 +10,7 @@ pool's Saturday-noon deadline. Snapshots taken before the deadline (Thu sheet da
 night, Sat 9:00 and 11:30 ET) let us measure what we could actually have known, and
 later train the line-move model.
 
-Storage: data/snapshots/YYYY-MM-DD/<UTC HHMM>_<league>.json.gz (committed by the cloud job;
+Storage: data/snapshots/YYYY-MM-DD/<UTC HHMMSSffffff>_<league>_<unique id>.json.gz (committed by the cloud job;
 ~25 KB per snapshot). data/odds.db is derived from them. Mac fallback: ./schedule_mac.sh.
 """
 from __future__ import annotations
@@ -22,6 +22,8 @@ import json
 import os
 import sqlite3
 import sys
+import tempfile
+from uuid import uuid4
 import urllib.request
 from datetime import datetime, timezone
 
@@ -43,6 +45,9 @@ def fetch(url: str) -> str:
 
 def take(now: datetime | None = None) -> list[str]:
     now = now or datetime.now(timezone.utc)
+    if now.tzinfo is None:
+        raise ValueError("capture time must include a timezone")
+    now = now.astimezone(timezone.utc)
     day = now.strftime("%Y-%m-%d")
     os.makedirs(os.path.join(SNAP_DIR, day), exist_ok=True)
     written = []
@@ -55,12 +60,18 @@ def take(now: datetime | None = None) -> list[str]:
         if not parsed["rows"]:
             print(f"warning: {league}: page parsed to 0 rows (layout change?)", file=sys.stderr)
             continue
-        snap = {"taken_utc": now.isoformat(timespec="seconds"), "league": league,
+        snap = {"taken_utc": now.isoformat(), "league": league,
                 "received_utc": datetime.now(timezone.utc).isoformat(),
                 "source": url, "books": BOOKS, "rows": parsed["rows"]}
-        path = os.path.join(SNAP_DIR, day, f"{now.strftime('%H%M')}_{league}.json.gz")
-        with gzip.open(path, "wt", encoding="utf-8") as f:
-            json.dump(snap, f, separators=(",", ":"))
+        path = os.path.join(SNAP_DIR, day,
+                            f"{now.strftime('%H%M%S%f')}_{league}_{uuid4().hex}.json.gz")
+        # Publish a complete capture exclusively. Readers never see partial gzip
+        # files, and even an identical clock/UUID cannot replace an existing file.
+        with tempfile.NamedTemporaryFile(dir=os.path.dirname(path), suffix=".tmp") as tmp:
+            tmp.write(gzip.compress(json.dumps(snap, separators=(",", ":")).encode()))
+            tmp.flush()
+            os.fsync(tmp.fileno())
+            os.link(tmp.name, path)
         written.append(path)
         print(f"{league}: {len(parsed['rows'])} rows -> {os.path.relpath(path, ROOT)}")
     return written
@@ -105,14 +116,17 @@ def market_at(t: str, league: str | None = None) -> dict:
     ts = datetime.fromisoformat(t.replace("Z", "+00:00"))
     if ts.tzinfo is None:
         ts = ts.replace(tzinfo=ZoneInfo("America/New_York"))
-    best = {}
+    best, latest = {}, {}
     for path in sorted(glob.glob(os.path.join(SNAP_DIR, "*", "*.json.gz"))):
-        lg = os.path.basename(path).split("_")[1].split(".")[0]
+        with gzip.open(path, "rt", encoding="utf-8") as f:
+            snap = json.load(f)
+        lg = snap["league"]
         if league and lg != league:
             continue
-        snap = json.load(gzip.open(path, "rt", encoding="utf-8"))
-        if datetime.fromisoformat(snap["taken_utc"]) <= ts:
-            best[lg] = snap
+        captured = datetime.fromisoformat(snap["taken_utc"])
+        available = max(captured, datetime.fromisoformat(snap.get("received_utc", snap["taken_utc"])))
+        if available <= ts and (lg not in latest or available > latest[lg]):
+            best[lg], latest[lg] = snap, available
     return best
 
 
