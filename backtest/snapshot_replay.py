@@ -66,6 +66,7 @@ def load_snapshots(directory):
 
 
 def replay(board, manifest, directory, deadline, max_age_hours=None):
+    manifest = json.loads(json.dumps(manifest))
     # Fail closed if a different implementation would reinterpret frozen settings.
     if manifest.get('schema') != 1 or manifest['source_sha256'] != fingerprint():
         raise ValueError('frozen configuration source mismatch; use its original checkout')
@@ -150,6 +151,9 @@ def replay(board, manifest, directory, deadline, max_age_hours=None):
                 'uncovered_games': len(records) - covered}, games=records, snapshot_errors=errors,
                 warnings=warnings, sweep=sweep, thin=thin,
                 expected_points=sum((5 if i < 2 else 3) * c.p for i, c in enumerate(card)),
+                candidates=[dict(game=c.game, side=c.side, label=c.label, sheet_line=c.sheet_line,
+                                 market_line=c.market_line, probability=c.p,
+                                 five_eligible=c.five_eligible) for c in candidates],
                 card=[dict(slot=i + 1, points=5 if i < 2 else 3, game=c.game,
                            side=c.side, label=c.label, probability=c.p) for i, c in enumerate(card)])
 

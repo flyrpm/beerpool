@@ -56,6 +56,7 @@ def take(now: datetime | None = None) -> list[str]:
             print(f"warning: {league}: page parsed to 0 rows (layout change?)", file=sys.stderr)
             continue
         snap = {"taken_utc": now.isoformat(timespec="seconds"), "league": league,
+                "received_utc": datetime.now(timezone.utc).isoformat(),
                 "source": url, "books": BOOKS, "rows": parsed["rows"]}
         path = os.path.join(SNAP_DIR, day, f"{now.strftime('%H%M')}_{league}.json.gz")
         with gzip.open(path, "wt", encoding="utf-8") as f:

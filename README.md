@@ -113,3 +113,11 @@ The weekly `./run.sh` command stays the same. An independent offline replay comm
 freezes settings and uses only pre-submission snapshots, reporting missing observations
 without substituting closing odds. See [Phase 2 implementation](docs/PHASE_2_IMPLEMENTATION.md)
 for commands, behavior changes and evidence limitations.
+
+## Frozen forward evaluation
+
+The opt-in [predictions ledger](docs/LEDGER.md) freezes weekly Ronnie and raw-market
+benchmark cards before the deadline, then grades explicit final results without
+rerunning pricing. It keeps missing observations/results visible, rejects late
+prospective records, and never fits probabilities. GitHub Actions runs the full
+unit suite on pushes and pull requests. The live weekly command stays unchanged.
