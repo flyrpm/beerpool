@@ -1,0 +1,3350 @@
+{
+ "week": "Week 9",
+ "default_lock": "2026-11-07T12:00",
+ "mega": null,
+ "as_of": "2026-11-07T14:48",
+ "games": [
+  {
+   "num": 1,
+   "league": "CFB",
+   "away": "OHIO",
+   "home": "AKR",
+   "kickoff": "2026-11-03T19:00",
+   "sheet_fav": "OHIO",
+   "sheet_spread": 13.5,
+   "sheet_total": 51.5,
+   "names": "Ohio at Akron",
+   "market": {
+    "fav": "OHIO",
+    "spread": 12.5,
+    "fav_price": -109,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      12.5,
+      12.0,
+      12.5,
+      12.5,
+      12.5,
+      13.5
+     ],
+     "total": [
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      51.5,
+      51.5
+     ]
+    },
+    "open_home": 12.5,
+    "total": 52.5,
+    "over_price": -108,
+    "under_price": -112,
+    "open_total": 49.5
+   }
+  },
+  {
+   "num": 2,
+   "league": "CFB",
+   "away": "BUFF",
+   "home": "M-OH",
+   "kickoff": "2026-11-03T20:00",
+   "sheet_fav": "M-OH",
+   "sheet_spread": 6.5,
+   "sheet_total": 44.5,
+   "names": "Buffalo at Miami (OH)",
+   "market": {
+    "fav": "M-OH",
+    "spread": 6.5,
+    "fav_price": -119,
+    "dog_price": -101,
+    "books": {
+     "spread": [
+      -6.5,
+      -7.0,
+      -6.5,
+      -6.5,
+      -6.5,
+      -7.0
+     ],
+     "total": [
+      45.5,
+      45.5,
+      45.5,
+      45.5,
+      45.5,
+      45.0
+     ]
+    },
+    "open_home": -6.5,
+    "total": 45.5,
+    "over_price": -104,
+    "under_price": -115,
+    "open_total": 45.5
+   }
+  },
+  {
+   "num": 3,
+   "league": "CFB",
+   "away": "BALL",
+   "home": "MASS",
+   "kickoff": "2026-11-04T19:00",
+   "sheet_fav": "MASS",
+   "sheet_spread": 3.5,
+   "sheet_total": 49.5,
+   "names": "Ball State at Massachusetts",
+   "market": {
+    "fav": "MASS",
+    "spread": 2.5,
+    "fav_price": -115,
+    "dog_price": -105,
+    "books": {
+     "spread": [
+      -2.5,
+      -3.0,
+      -2.5,
+      -2.5,
+      -2.5,
+      -2.5
+     ],
+     "total": [
+      48.5,
+      48.5,
+      48.5,
+      48.5,
+      48.5,
+      49.0
+     ]
+    },
+    "open_home": -4.5,
+    "ml_home": -142.0,
+    "ml_away": 120.0,
+    "total": 48.5,
+    "over_price": -112,
+    "under_price": -107,
+    "open_total": 48.5
+   }
+  },
+  {
+   "num": 4,
+   "league": "CFB",
+   "away": "TOL",
+   "home": "SAC",
+   "kickoff": "2026-11-04T19:00",
+   "sheet_fav": "TOL",
+   "sheet_spread": 25.5,
+   "sheet_total": 52.5,
+   "names": "Toledo at Sacramento State",
+   "market": {
+    "fav": "TOL",
+    "spread": 25.5,
+    "fav_price": -109,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      25.5,
+      26.0,
+      25.5,
+      25.5,
+      25.5,
+      25.0
+     ],
+     "total": [
+      52.5,
+      53.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5
+     ]
+    },
+    "open_home": 26.5,
+    "total": 52.5,
+    "over_price": -109,
+    "under_price": -111,
+    "open_total": 51.5
+   }
+  },
+  {
+   "num": 5,
+   "league": "CFB",
+   "away": "CMU",
+   "home": "EMU",
+   "kickoff": "2026-11-04T19:30",
+   "sheet_fav": "EMU",
+   "sheet_spread": 1.5,
+   "sheet_total": 44.5,
+   "names": "Central Michigan at Eastern Michigan",
+   "market": {
+    "fav": "CMU",
+    "spread": 2.5,
+    "fav_price": -117,
+    "dog_price": -103,
+    "books": {
+     "spread": [
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5
+     ],
+     "total": [
+      44.5,
+      44.5,
+      44.5,
+      44.5,
+      44.5,
+      44.5
+     ]
+    },
+    "open_home": -1.5,
+    "ml_home": 116.5,
+    "ml_away": -139.0,
+    "total": 44.5,
+    "over_price": -111,
+    "under_price": -109,
+    "open_total": 46.5
+   }
+  },
+  {
+   "num": 6,
+   "league": "CFB",
+   "away": "UTSA",
+   "home": "FAU",
+   "kickoff": "2026-11-05T19:30",
+   "sheet_fav": "UTSA",
+   "sheet_spread": 7.0,
+   "sheet_total": 72.5,
+   "names": "UTSA at Florida Atlantic",
+   "market": {
+    "fav": "UTSA",
+    "spread": 7.5,
+    "fav_price": -103,
+    "dog_price": -121,
+    "books": {
+     "spread": [
+      7.5,
+      7.0,
+      7.0,
+      7.0,
+      7.5,
+      7.5
+     ],
+     "total": [
+      72.5,
+      72.5,
+      72.5,
+      72.5,
+      72.5,
+      71.5
+     ]
+    },
+    "open_home": 6.5,
+    "total": 72.5,
+    "over_price": -108,
+    "under_price": -112,
+    "open_total": 70.5
+   }
+  },
+  {
+   "num": 7,
+   "league": "CFB",
+   "away": "JMU",
+   "home": "USM",
+   "kickoff": "2026-11-05T20:00",
+   "sheet_fav": "JMU",
+   "sheet_spread": 14.5,
+   "sheet_total": 58.5,
+   "names": "James Madison at Southern Miss",
+   "market": {
+    "fav": "JMU",
+    "spread": 13.5,
+    "fav_price": -109,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      13.5,
+      13.0,
+      13.5,
+      13.5,
+      13.5,
+      15.5
+     ],
+     "total": [
+      58.5,
+      59.5,
+      58.5,
+      58.5,
+      59.5,
+      57.5
+     ]
+    },
+    "open_home": 15.5,
+    "total": 58.5,
+    "over_price": -111,
+    "under_price": -109,
+    "open_total": 56.5
+   }
+  },
+  {
+   "num": 8,
+   "league": "CFB",
+   "away": "VT",
+   "home": "SMU",
+   "kickoff": "2026-11-06T19:00",
+   "sheet_fav": "SMU",
+   "sheet_spread": 5.5,
+   "sheet_total": 56.5,
+   "names": "Virginia Tech at SMU",
+   "market": {
+    "fav": "SMU",
+    "spread": 6.0,
+    "fav_price": -109,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      -5.5,
+      -6.5,
+      -6.0,
+      -6.0,
+      -5.5,
+      -6.5,
+      -5.5
+     ],
+     "total": [
+      56.5,
+      56.5,
+      57.5,
+      56.5,
+      56.5,
+      56.5,
+      56.5
+     ]
+    },
+    "open_home": -7.5,
+    "total": 56.5,
+    "over_price": -113,
+    "under_price": -107,
+    "open_total": 57.5
+   }
+  },
+  {
+   "num": 9,
+   "league": "CFB",
+   "away": "USF",
+   "home": "ECU",
+   "kickoff": "2026-11-06T19:30",
+   "sheet_fav": "USF",
+   "sheet_spread": 1.5,
+   "sheet_total": 39.5,
+   "names": "South Florida at East Carolina",
+   "market": {
+    "fav": "ECU",
+    "spread": 1.5,
+    "fav_price": -108,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      -1.5,
+      -1.5,
+      -1.5,
+      -1.5,
+      -1.5,
+      -1.5,
+      -1.0
+     ],
+     "total": [
+      39.5,
+      39.5,
+      39.5,
+      39.5,
+      39.5,
+      38.5,
+      39.5
+     ]
+    },
+    "open_home": 1.5,
+    "ml_home": -117.0,
+    "ml_away": -103.0,
+    "total": 39.5,
+    "over_price": -108,
+    "under_price": -111,
+    "open_total": 45.5
+   }
+  },
+  {
+   "num": 10,
+   "league": "CFB",
+   "away": "NEB",
+   "home": "ILL",
+   "kickoff": "2026-11-06T20:00",
+   "sheet_fav": "NEB",
+   "sheet_spread": 4.0,
+   "sheet_total": 50.5,
+   "names": "Nebraska at Illinois",
+   "market": {
+    "fav": "NEB",
+    "spread": 4.5,
+    "fav_price": -110,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      4.5,
+      5.0,
+      4.5,
+      4.5,
+      4.5,
+      4.5,
+      4.0
+     ],
+     "total": [
+      52.5,
+      51.5,
+      52.5,
+      52.5,
+      52.5,
+      49.5,
+      52.0
+     ]
+    },
+    "open_home": 6.0,
+    "total": 52.5,
+    "over_price": -105,
+    "under_price": -115,
+    "open_total": 50.5
+   }
+  },
+  {
+   "num": 11,
+   "league": "CFB",
+   "away": "UNM",
+   "home": "NEV",
+   "kickoff": "2026-11-06T21:00",
+   "sheet_fav": "UNM",
+   "sheet_spread": 10.0,
+   "sheet_total": 38.5,
+   "names": "New Mexico at Nevada",
+   "market": {
+    "fav": "UNM",
+    "spread": 10.5,
+    "fav_price": -108,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      10.5,
+      10.5,
+      10.5,
+      10.5,
+      9.5,
+      9.5,
+      17.5
+     ],
+     "total": [
+      39.5,
+      39.5,
+      39.5,
+      38.5,
+      39.5,
+      38.5,
+      38.5
+     ]
+    },
+    "open_home": 12.5,
+    "total": 39.5,
+    "over_price": -109,
+    "under_price": -111,
+    "open_total": 43.5
+   }
+  },
+  {
+   "num": 12,
+   "league": "CFB",
+   "away": "TCU",
+   "home": "ARIZ",
+   "kickoff": "2026-11-06T22:15",
+   "sheet_fav": "ARIZ",
+   "sheet_spread": 7.0,
+   "sheet_total": 46.5,
+   "names": "TCU at Arizona",
+   "market": {
+    "fav": "ARIZ",
+    "spread": 6.0,
+    "fav_price": -110,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      -6.5,
+      -6.0,
+      -6.0,
+      -6.0,
+      -5.5,
+      -6.5,
+      -6.0
+     ],
+     "total": [
+      46.5,
+      46.5,
+      46.5,
+      46.5,
+      46.5,
+      46.5,
+      46.5
+     ]
+    },
+    "open_home": -9.5,
+    "total": 46.5,
+    "over_price": -113,
+    "under_price": -107,
+    "open_total": 44.5
+   }
+  },
+  {
+   "num": 13,
+   "league": "CFB",
+   "away": "BYU",
+   "home": "UTAH",
+   "kickoff": "2026-11-07T12:00",
+   "sheet_fav": "UTAH",
+   "sheet_spread": 4.5,
+   "sheet_total": 48.5,
+   "names": "BYU at Utah",
+   "market": {
+    "fav": "UTAH",
+    "spread": 4.5,
+    "fav_price": -105,
+    "dog_price": -115,
+    "books": {
+     "spread": [
+      -4.5,
+      -4.0,
+      -4.5,
+      -4.5,
+      -4.5,
+      -4.5
+     ],
+     "total": [
+      49.5,
+      49.5,
+      48.5,
+      49.5,
+      49.5,
+      48.5,
+      49.0
+     ]
+    },
+    "open_home": -3.0,
+    "total": 49.5,
+    "over_price": -105,
+    "under_price": -114,
+    "open_total": 51.5
+   }
+  },
+  {
+   "num": 14,
+   "league": "CFB",
+   "away": "UCLA",
+   "home": "MINN",
+   "kickoff": "2026-11-07T12:00",
+   "sheet_fav": "UCLA",
+   "sheet_spread": 4.0,
+   "sheet_total": 38.5,
+   "names": "UCLA at Minnesota",
+   "market": {
+    "fav": "UCLA",
+    "spread": 4.0,
+    "fav_price": -110,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      3.5,
+      4.0,
+      4.0,
+      4.0,
+      3.5,
+      4.5,
+      4.0
+     ],
+     "total": [
+      38.5,
+      39.5,
+      38.5,
+      38.5,
+      38.5,
+      38.5,
+      38.5
+     ]
+    },
+    "open_home": 6.5,
+    "total": 38.5,
+    "over_price": -111,
+    "under_price": -108,
+    "open_total": 42.5
+   },
+   "notes": {
+    "UCLA": {
+     "tags": [
+      "model_only"
+     ],
+     "note": "backup QB; 4 in a 38.5 total is a coin flip on exactly 4"
+    }
+   }
+  },
+  {
+   "num": 15,
+   "league": "CFB",
+   "away": "TEX",
+   "home": "MIZ",
+   "kickoff": "2026-11-07T12:00",
+   "sheet_fav": "TEX",
+   "sheet_spread": 2.5,
+   "sheet_total": 42.5,
+   "names": "Texas at Missouri",
+   "market": {
+    "fav": "TEX",
+    "spread": 2.5,
+    "fav_price": -116,
+    "dog_price": -103,
+    "books": {
+     "spread": [
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5
+     ],
+     "total": [
+      42.5,
+      42.5,
+      42.5,
+      42.5,
+      42.5,
+      42.5,
+      43.0
+     ]
+    },
+    "open_home": 3.5,
+    "ml_home": 115.5,
+    "ml_away": -137.0,
+    "total": 42.5,
+    "over_price": -110,
+    "under_price": -109,
+    "open_total": 49.5
+   }
+  },
+  {
+   "num": 16,
+   "league": "CFB",
+   "away": "ISU",
+   "home": "BAY",
+   "kickoff": "2026-11-07T12:00",
+   "sheet_fav": "BAY",
+   "sheet_spread": 9.5,
+   "sheet_total": 51.5,
+   "names": "Iowa State at Baylor",
+   "market": {
+    "fav": "BAY",
+    "spread": 9.5,
+    "fav_price": -117,
+    "dog_price": -104,
+    "books": {
+     "spread": [
+      -9.5,
+      -9.5,
+      -10.0,
+      -10.0,
+      -9.5,
+      -9.5,
+      -10.0
+     ],
+     "total": [
+      50.5,
+      50.5,
+      51.5,
+      51.0,
+      50.5,
+      50.5,
+      51.0
+     ]
+    },
+    "open_home": -9.5,
+    "total": 50.5,
+    "over_price": -114,
+    "under_price": -106,
+    "open_total": 50.5
+   }
+  },
+  {
+   "num": 17,
+   "league": "CFB",
+   "away": "CLEM",
+   "home": "SYR",
+   "kickoff": "2026-11-07T12:00",
+   "sheet_fav": "CLEM",
+   "sheet_spread": 2.5,
+   "sheet_total": 49.5,
+   "names": "Clemson at Syracuse",
+   "market": {
+    "fav": "CLEM",
+    "spread": 1.5,
+    "fav_price": -109,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      2.5,
+      2.5,
+      2.0
+     ],
+     "total": [
+      49.5,
+      49.5,
+      49.5,
+      49.5,
+      49.5,
+      49.5,
+      49.5
+     ]
+    },
+    "open_home": 1.5,
+    "ml_home": 105.0,
+    "ml_away": -125.0,
+    "total": 49.5,
+    "over_price": -111,
+    "under_price": -108,
+    "open_total": 49.5
+   }
+  },
+  {
+   "num": 18,
+   "league": "CFB",
+   "away": "FSU",
+   "home": "BC",
+   "kickoff": "2026-11-07T12:00",
+   "sheet_fav": "FSU",
+   "sheet_spread": 6.5,
+   "sheet_total": 52.5,
+   "names": "Florida State at Boston College",
+   "market": {
+    "fav": "FSU",
+    "spread": 6.0,
+    "fav_price": -109,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      6.5,
+      6.0,
+      6.0,
+      6.0,
+      5.5,
+      6.5,
+      6.0
+     ],
+     "total": [
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5
+     ]
+    },
+    "open_home": 6.5,
+    "total": 52.5,
+    "over_price": -107,
+    "under_price": -113,
+    "open_total": 51.5
+   }
+  },
+  {
+   "num": 19,
+   "league": "CFB",
+   "away": "UNC",
+   "home": "CONN",
+   "kickoff": "2026-11-07T12:00",
+   "sheet_fav": "UNC",
+   "sheet_spread": 7.5,
+   "sheet_total": 54.5,
+   "names": "North Carolina at UConn",
+   "market": {
+    "fav": "UNC",
+    "spread": 7.5,
+    "fav_price": -111,
+    "dog_price": -108,
+    "books": {
+     "spread": [
+      7.5,
+      8.0,
+      7.5,
+      7.5,
+      7.5,
+      7.5,
+      7.5
+     ],
+     "total": [
+      54.5,
+      54.5,
+      54.5,
+      54.5,
+      55.5,
+      54.5,
+      54.5
+     ]
+    },
+    "open_home": 8.5,
+    "total": 54.5,
+    "over_price": -111,
+    "under_price": -108,
+    "open_total": 51.5
+   }
+  },
+  {
+   "num": 20,
+   "league": "CFB",
+   "away": "TLSA",
+   "home": "TULN",
+   "kickoff": "2026-11-07T12:00",
+   "sheet_fav": "TLSA",
+   "sheet_spread": 2.5,
+   "sheet_total": 50.5,
+   "names": "Tulsa at Tulane",
+   "market": {
+    "fav": "TLSA",
+    "spread": 2.5,
+    "fav_price": -117,
+    "dog_price": -102,
+    "books": {
+     "spread": [
+      2.5,
+      2.5,
+      3.0,
+      2.5,
+      2.5,
+      2.5,
+      2.5
+     ],
+     "total": [
+      49.5,
+      50.5,
+      50.5,
+      50.0,
+      50.5,
+      49.5,
+      50.5
+     ]
+    },
+    "open_home": 3.0,
+    "ml_home": 120.0,
+    "ml_away": -143.0,
+    "total": 50.5,
+    "over_price": -108,
+    "under_price": -111,
+    "open_total": 48.5
+   }
+  },
+  {
+   "num": 21,
+   "league": "CFB",
+   "away": "DUKE",
+   "home": "NCSU",
+   "kickoff": "2026-11-07T12:30",
+   "sheet_fav": "DUKE",
+   "sheet_spread": 4.0,
+   "sheet_total": 51.5,
+   "names": "Duke at NC State",
+   "market": {
+    "fav": "DUKE",
+    "spread": 4.5,
+    "fav_price": -108,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      4.5,
+      4.5,
+      4.0,
+      4.5,
+      4.5,
+      5.5,
+      4.5
+     ],
+     "total": [
+      51.5,
+      51.5,
+      51.5,
+      52.0,
+      51.5,
+      51.5,
+      51.5
+     ]
+    },
+    "open_home": 5.5,
+    "total": 51.5,
+    "over_price": -113,
+    "under_price": -106,
+    "open_total": 49.5
+   }
+  },
+  {
+   "num": 22,
+   "league": "CFB",
+   "away": "MD",
+   "home": "PUR",
+   "kickoff": "2026-11-07T12:30",
+   "sheet_fav": "PUR",
+   "sheet_spread": 5.5,
+   "sheet_total": 56.5,
+   "names": "Maryland at Purdue",
+   "market": {
+    "fav": "PUR",
+    "spread": 5.0,
+    "fav_price": -109,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      -5.5,
+      -5.0,
+      -5.5,
+      -5.0,
+      -4.5,
+      -5.5,
+      -5.0
+     ],
+     "total": [
+      57.5,
+      57.5,
+      57.5,
+      57.5,
+      56.5,
+      56.5,
+      57.0
+     ]
+    },
+    "open_home": -7.0,
+    "total": 57.5,
+    "over_price": -106,
+    "under_price": -113,
+    "open_total": 57.5
+   }
+  },
+  {
+   "num": 23,
+   "league": "CFB",
+   "away": "ARK",
+   "home": "AUB",
+   "kickoff": "2026-11-07T12:45",
+   "sheet_fav": "AUB",
+   "sheet_spread": 10.5,
+   "sheet_total": 54.5,
+   "names": "Arkansas at Auburn",
+   "market": {
+    "fav": "AUB",
+    "spread": 10.5,
+    "fav_price": -108,
+    "dog_price": -112,
+    "books": {
+     "spread": [
+      -10.5,
+      -10.0,
+      -10.5,
+      -10.5,
+      -10.5,
+      -10.5
+     ],
+     "total": [
+      53.5,
+      54.5,
+      54.5,
+      54.0,
+      53.5,
+      54.0
+     ]
+    },
+    "open_home": -12.5,
+    "total": 54.0,
+    "over_price": -108,
+    "under_price": -112,
+    "open_total": 50.5
+   }
+  },
+  {
+   "num": 24,
+   "league": "CFB",
+   "away": "OKST",
+   "home": "KSU",
+   "kickoff": "2026-11-07T13:00",
+   "sheet_fav": "OKST",
+   "sheet_spread": 6.5,
+   "sheet_total": 62.5,
+   "names": "Oklahoma State at Kansas State",
+   "market": {
+    "fav": "OKST",
+    "spread": 6.5,
+    "fav_price": -117,
+    "dog_price": -105,
+    "books": {
+     "spread": [
+      6.5,
+      6.5,
+      6.5,
+      6.5,
+      6.5,
+      7.5,
+      6.5
+     ],
+     "total": [
+      62.5,
+      62.5,
+      62.5,
+      62.5,
+      62.5,
+      63.5,
+      62.5
+     ]
+    },
+    "open_home": 6.5,
+    "total": 62.5,
+    "over_price": -108,
+    "under_price": -112,
+    "open_total": 60.5
+   }
+  },
+  {
+   "num": 25,
+   "league": "CFB",
+   "away": "ODU",
+   "home": "CCU",
+   "kickoff": "2026-11-07T13:00",
+   "sheet_fav": "CCU",
+   "sheet_spread": 6.5,
+   "sheet_total": 44.5,
+   "names": "Old Dominion at Coastal Carolina",
+   "market": {
+    "fav": "CCU",
+    "spread": 6.5,
+    "fav_price": -115,
+    "dog_price": -105,
+    "books": {
+     "spread": [
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5
+     ],
+     "total": [
+      44.5,
+      44.5,
+      45.5,
+      45.0,
+      44.5,
+      43.5,
+      45.0
+     ]
+    },
+    "open_home": -7.0,
+    "total": 44.5,
+    "over_price": -115,
+    "under_price": -105,
+    "open_total": 45.5
+   }
+  },
+  {
+   "num": 26,
+   "league": "CFB",
+   "away": "GAST",
+   "home": "APP",
+   "kickoff": "2026-11-07T14:30",
+   "sheet_fav": "APP",
+   "sheet_spread": 6.5,
+   "sheet_total": 54.5,
+   "names": "Georgia State at App State",
+   "market": {
+    "fav": "APP",
+    "spread": 6.5,
+    "fav_price": -110,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5
+     ],
+     "total": [
+      54.5,
+      54.5,
+      54.5,
+      54.5,
+      54.5,
+      54.5,
+      54.0
+     ]
+    },
+    "open_home": -3.5,
+    "total": 54.5,
+    "over_price": -107,
+    "under_price": -114,
+    "open_total": 57.5
+   }
+  },
+  {
+   "num": 27,
+   "league": "CFB",
+   "away": "TA&M",
+   "home": "SC",
+   "kickoff": "2026-11-07T15:00",
+   "sheet_fav": "SC",
+   "sheet_spread": 7.0,
+   "sheet_total": 52.5,
+   "names": "Texas A&M at South Carolina",
+   "market": {
+    "fav": "SC",
+    "spread": 6.5,
+    "fav_price": -116,
+    "dog_price": -104,
+    "books": {
+     "spread": [
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5,
+      -6.5,
+      -7.5,
+      -7.0
+     ],
+     "total": [
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      51.5,
+      53.0
+     ]
+    },
+    "open_home": -6.5,
+    "total": 52.5,
+    "over_price": -107,
+    "under_price": -113,
+    "open_total": 51.5
+   }
+  },
+  {
+   "num": 28,
+   "league": "CFB",
+   "away": "ULM",
+   "home": "ARST",
+   "kickoff": "2026-11-07T15:00",
+   "sheet_fav": "ARST",
+   "sheet_spread": 14.5,
+   "sheet_total": 53.5,
+   "names": "UL Monroe at Arkansas State",
+   "market": {
+    "fav": "ARST",
+    "spread": 14.5,
+    "fav_price": -110,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      -14.5,
+      -14.5,
+      -14.5,
+      -14.5,
+      -14.5,
+      -14.5,
+      -14.5
+     ],
+     "total": [
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5
+     ]
+    },
+    "open_home": -14.5,
+    "total": 52.5,
+    "over_price": -110,
+    "under_price": -110,
+    "open_total": 51.5
+   }
+  },
+  {
+   "num": 29,
+   "league": "CFB",
+   "away": "DEL",
+   "home": "KENN",
+   "kickoff": "2026-11-07T15:00",
+   "sheet_fav": "DEL",
+   "sheet_spread": 1.5,
+   "sheet_total": 57.5,
+   "names": "Delaware at Kennesaw State",
+   "market": {
+    "fav": "DEL",
+    "spread": 1.5,
+    "fav_price": -110,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.5,
+      1.0
+     ],
+     "total": [
+      56.5,
+      57.5,
+      57.5,
+      57.0,
+      56.5,
+      55.5,
+      57.0
+     ]
+    },
+    "open_home": 3.0,
+    "ml_home": 100.0,
+    "ml_away": -120.0,
+    "total": 57.0,
+    "over_price": -112,
+    "under_price": -108,
+    "open_total": 51.5
+   }
+  },
+  {
+   "num": 30,
+   "league": "CFB",
+   "away": "ALA",
+   "home": "LSU",
+   "kickoff": "2026-11-07T15:30",
+   "sheet_fav": "LSU",
+   "sheet_spread": 6.0,
+   "sheet_total": 52.5,
+   "names": "Alabama at LSU",
+   "market": {
+    "fav": "LSU",
+    "spread": 6.0,
+    "fav_price": -109,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      -6.5,
+      -6.0,
+      -6.0,
+      -6.0,
+      -6.5,
+      -5.5,
+      -6.0
+     ],
+     "total": [
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5
+     ]
+    },
+    "open_home": -4.0,
+    "total": 52.5,
+    "over_price": -110,
+    "under_price": -110,
+    "open_total": 54.5
+   }
+  },
+  {
+   "num": 31,
+   "league": "CFB",
+   "away": "ORE",
+   "home": "OSU",
+   "kickoff": "2026-11-07T15:30",
+   "sheet_fav": "OSU",
+   "sheet_spread": 7.5,
+   "sheet_total": 45.5,
+   "names": "Oregon at Ohio State",
+   "market": {
+    "fav": "OSU",
+    "spread": 7.5,
+    "fav_price": -111,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      -7.5,
+      -7.5,
+      -7.5,
+      -7.5,
+      -7.5,
+      -8.0
+     ],
+     "total": [
+      45.5,
+      44.5,
+      45.5,
+      45.5,
+      45.5,
+      45.5,
+      45.0
+     ]
+    },
+    "open_home": -6.0,
+    "total": 45.5,
+    "over_price": -106,
+    "under_price": -114,
+    "open_total": 52.5
+   }
+  },
+  {
+   "num": 32,
+   "league": "CFB",
+   "away": "MRMK",
+   "home": "WAKE",
+   "kickoff": "2026-11-07T15:30",
+   "sheet_fav": "WAKE",
+   "sheet_spread": 47.5,
+   "sheet_total": 58.5,
+   "names": "Merrimack at Wake Forest",
+   "market": {
+    "fav": "WAKE",
+    "spread": 46.5,
+    "fav_price": -111,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      -46.5,
+      -46.5,
+      -46.5,
+      -47.5,
+      -48.5,
+      -47.5
+     ],
+     "total": [
+      57.5,
+      57.5,
+      57.5,
+      58.5,
+      58.5,
+      58.0
+     ]
+    },
+    "open_home": -47.5,
+    "total": 58.0,
+    "over_price": -120,
+    "under_price": -100,
+    "open_total": 59.5
+   }
+  },
+  {
+   "num": 33,
+   "league": "CFB",
+   "away": "CIN",
+   "home": "HOU",
+   "kickoff": "2026-11-07T15:30",
+   "sheet_fav": "HOU",
+   "sheet_spread": 10.5,
+   "sheet_total": 61.5,
+   "names": "Cincinnati at Houston",
+   "market": {
+    "fav": "HOU",
+    "spread": 10.5,
+    "fav_price": -111,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      -10.5,
+      -10.5,
+      -10.5,
+      -10.5,
+      -10.5,
+      -10.5,
+      -10.5
+     ],
+     "total": [
+      61.5,
+      61.5,
+      61.5,
+      61.5,
+      60.5,
+      61.5,
+      61.0
+     ]
+    },
+    "open_home": -10.5,
+    "total": 61.5,
+    "over_price": -109,
+    "under_price": -110,
+    "open_total": 61.5
+   }
+  },
+  {
+   "num": 34,
+   "league": "CFB",
+   "away": "PSU",
+   "home": "WASH",
+   "kickoff": "2026-11-07T15:30",
+   "sheet_fav": "WASH",
+   "sheet_spread": 2.5,
+   "sheet_total": 44.5,
+   "names": "Penn State at Washington",
+   "market": {
+    "fav": "WASH",
+    "spread": 2.5,
+    "fav_price": -108,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      -2.5,
+      -2.5,
+      -2.5,
+      -2.5,
+      -2.5,
+      -1.5,
+      -2.5
+     ],
+     "total": [
+      44.5,
+      44.5,
+      43.5,
+      44.0,
+      44.5,
+      43.5,
+      44.0
+     ]
+    },
+    "open_home": -2.5,
+    "ml_home": -130.0,
+    "ml_away": 110.0,
+    "total": 44.0,
+    "over_price": -110,
+    "under_price": -109,
+    "open_total": 44.5
+   }
+  },
+  {
+   "num": 35,
+   "league": "CFB",
+   "away": "CLT",
+   "home": "UAB",
+   "kickoff": "2026-11-07T15:30",
+   "sheet_fav": "UAB",
+   "sheet_spread": 8.5,
+   "sheet_total": 47.5,
+   "names": "Charlotte at UAB",
+   "market": {
+    "fav": "UAB",
+    "spread": 8.5,
+    "fav_price": -109,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      -8.5,
+      -8.0,
+      -8.5,
+      -8.5,
+      -8.5,
+      -8.5,
+      -8.5
+     ],
+     "total": [
+      47.5,
+      47.5,
+      47.5,
+      47.5,
+      46.5,
+      47.5,
+      47.5
+     ]
+    },
+    "open_home": -10.0,
+    "total": 47.5,
+    "over_price": -109,
+    "under_price": -110,
+    "open_total": 51.5
+   }
+  },
+  {
+   "num": 36,
+   "league": "CFB",
+   "away": "TEM",
+   "home": "NAVY",
+   "kickoff": "2026-11-07T15:30",
+   "sheet_fav": "NAVY",
+   "sheet_spread": 7.5,
+   "sheet_total": 54.5,
+   "names": "Temple at Navy",
+   "market": {
+    "fav": "NAVY",
+    "spread": 7.0,
+    "fav_price": -115,
+    "dog_price": -105,
+    "books": {
+     "spread": [
+      -7.5,
+      -7.0,
+      -7.0,
+      -7.0,
+      -7.5,
+      -7.5,
+      -7.0
+     ],
+     "total": [
+      54.5,
+      54.5,
+      54.5,
+      54.5,
+      54.5,
+      53.5,
+      54.5
+     ]
+    },
+    "open_home": -7.5,
+    "total": 54.5,
+    "over_price": -111,
+    "under_price": -109,
+    "open_total": 52.5
+   }
+  },
+  {
+   "num": 37,
+   "league": "CFB",
+   "away": "MRSH",
+   "home": "GASO",
+   "kickoff": "2026-11-07T15:30",
+   "sheet_fav": "GASO",
+   "sheet_spread": 10.5,
+   "sheet_total": 54.5,
+   "names": "Marshall at Georgia Southern",
+   "market": {
+    "fav": "GASO",
+    "spread": 7.5,
+    "fav_price": -109,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      -7.5,
+      -7.0,
+      -7.0,
+      -7.5,
+      -7.5,
+      -10.5,
+      -8.0
+     ],
+     "total": [
+      54.5,
+      54.5,
+      54.5,
+      54.5,
+      54.5,
+      52.5,
+      54.5
+     ]
+    },
+    "open_home": -8.5,
+    "total": 54.5,
+    "over_price": -111,
+    "under_price": -110,
+    "open_total": 53.5
+   },
+   "notes": {
+    "MRSH": {
+     "note": "6 of 7 books 8.5 since open; only Hard Rock at 10.5"
+    }
+   }
+  },
+  {
+   "num": 38,
+   "league": "CFB",
+   "away": "WKU",
+   "home": "MTSU",
+   "kickoff": "2026-11-07T15:30",
+   "sheet_fav": "WKU",
+   "sheet_spread": 2.5,
+   "sheet_total": 53.5,
+   "names": "Western Kentucky at Middle Tennessee",
+   "market": {
+    "fav": "WKU",
+    "spread": 2.5,
+    "fav_price": -111,
+    "dog_price": -108,
+    "books": {
+     "spread": [
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      1.5,
+      2.5
+     ],
+     "total": [
+      53.5,
+      53.5,
+      53.5,
+      53.5,
+      53.5,
+      52.5,
+      53.5
+     ]
+    },
+    "open_home": -1.5,
+    "ml_home": 114.0,
+    "ml_away": -134.0,
+    "total": 53.5,
+    "over_price": -109,
+    "under_price": -111,
+    "open_total": 52.5
+   }
+  },
+  {
+   "num": 39,
+   "league": "CFB",
+   "away": "UCF",
+   "home": "KU",
+   "kickoff": "2026-11-07T15:45",
+   "sheet_fav": "KU",
+   "sheet_spread": 3.0,
+   "sheet_total": 47.5,
+   "names": "UCF at Kansas",
+   "market": {
+    "fav": "KU",
+    "spread": 3.5,
+    "fav_price": -110,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      -3.5,
+      -3.5,
+      -4.0,
+      -3.5,
+      -3.5,
+      -2.5,
+      -3.5
+     ],
+     "total": [
+      48.5,
+      48.5,
+      48.5,
+      48.5,
+      48.5,
+      47.5,
+      48.0
+     ]
+    },
+    "open_home": -2.5,
+    "ml_home": -178.0,
+    "ml_away": 149.0,
+    "total": 48.5,
+    "over_price": -105,
+    "under_price": -115,
+    "open_total": 48.5
+   }
+  },
+  {
+   "num": 40,
+   "league": "CFB",
+   "away": "RICE",
+   "home": "UNT",
+   "kickoff": "2026-11-07T16:00",
+   "sheet_fav": "UNT",
+   "sheet_spread": 16.5,
+   "sheet_total": 64.5,
+   "names": "Rice at North Texas",
+   "market": {
+    "fav": "UNT",
+    "spread": 16.5,
+    "fav_price": -112,
+    "dog_price": -107,
+    "books": {
+     "spread": [
+      -16.5,
+      -16.0,
+      -16.5,
+      -16.5,
+      -16.5,
+      -16.5,
+      -15.5
+     ],
+     "total": [
+      64.5,
+      64.5,
+      64.5,
+      64.5,
+      64.5,
+      64.5,
+      64.5
+     ]
+    },
+    "open_home": -16.5,
+    "total": 64.5,
+    "over_price": -112,
+    "under_price": -108,
+    "open_total": 64.5
+   }
+  },
+  {
+   "num": 41,
+   "league": "CFB",
+   "away": "NIU",
+   "home": "SJSU",
+   "kickoff": "2026-11-07T16:00",
+   "sheet_fav": "SJSU",
+   "sheet_spread": 11.5,
+   "sheet_total": 52.5,
+   "names": "Northern Illinois at San Jos\u00e9 State",
+   "market": {
+    "fav": "SJSU",
+    "spread": 11.5,
+    "fav_price": -109,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      -11.5,
+      -12.0,
+      -11.5,
+      -11.5,
+      -11.5,
+      -11.5,
+      -12.0
+     ],
+     "total": [
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      51.5,
+      52.5
+     ]
+    },
+    "open_home": -11.5,
+    "total": 52.5,
+    "over_price": -108,
+    "under_price": -112,
+    "open_total": 50.5
+   }
+  },
+  {
+   "num": 42,
+   "league": "CFB",
+   "away": "MOST",
+   "home": "FIU",
+   "kickoff": "2026-11-07T16:00",
+   "sheet_fav": "FIU",
+   "sheet_spread": 4.5,
+   "sheet_total": 49.5,
+   "names": "Missouri State at Florida International",
+   "market": {
+    "fav": "FIU",
+    "spread": 4.5,
+    "fav_price": -111,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      -4.5,
+      -5.0,
+      -4.5,
+      -4.5,
+      -5.5,
+      -4.5,
+      -5.0
+     ],
+     "total": [
+      49.5,
+      49.5,
+      49.5,
+      49.5,
+      49.5,
+      50.5,
+      49.5
+     ]
+    },
+    "open_home": -4.5,
+    "total": 49.5,
+    "over_price": -113,
+    "under_price": -106,
+    "open_total": 49.5
+   }
+  },
+  {
+   "num": 43,
+   "league": "CFB",
+   "away": "LT",
+   "home": "TROY",
+   "kickoff": "2026-11-07T16:00",
+   "sheet_fav": "LT",
+   "sheet_spread": 5.5,
+   "sheet_total": 47.5,
+   "names": "Louisiana Tech at Troy",
+   "market": {
+    "fav": "LT",
+    "spread": 6.0,
+    "fav_price": -110,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      5.5,
+      6.0,
+      6.0,
+      6.0,
+      5.5,
+      5.5,
+      6.0
+     ],
+     "total": [
+      47.5,
+      47.5,
+      47.5,
+      47.5,
+      48.5,
+      46.5,
+      48.0
+     ]
+    },
+    "open_home": 6.5,
+    "total": 47.5,
+    "over_price": -110,
+    "under_price": -109,
+    "open_total": 45.5
+   }
+  },
+  {
+   "num": 44,
+   "league": "CFB",
+   "away": "VAN",
+   "home": "MSST",
+   "kickoff": "2026-11-07T16:15",
+   "sheet_fav": "MSST",
+   "sheet_spread": 3.0,
+   "sheet_total": 48.5,
+   "names": "Vanderbilt at Mississippi State",
+   "market": {
+    "fav": "MSST",
+    "spread": 2.5,
+    "fav_price": -117,
+    "dog_price": -103,
+    "books": {
+     "spread": [
+      -2.5,
+      -2.5,
+      -3.0,
+      -2.5,
+      -2.5,
+      -2.5,
+      -2.5
+     ],
+     "total": [
+      48.5,
+      48.5,
+      48.5,
+      48.5,
+      48.5,
+      48.5,
+      48.5
+     ]
+    },
+    "open_home": -3.0,
+    "ml_home": -142.0,
+    "ml_away": 120.0,
+    "total": 48.5,
+    "over_price": -109,
+    "under_price": -111,
+    "open_total": 48.5
+   }
+  },
+  {
+   "num": 45,
+   "league": "CFB",
+   "away": "RUTG",
+   "home": "WIS",
+   "kickoff": "2026-11-07T16:15",
+   "sheet_fav": "WIS",
+   "sheet_spread": 17.5,
+   "sheet_total": 45.5,
+   "names": "Rutgers at Wisconsin",
+   "market": {
+    "fav": "WIS",
+    "spread": 19.5,
+    "fav_price": -108,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      -19.0,
+      -19.5,
+      -19.5,
+      -19.5,
+      -18.5,
+      -19.5
+     ],
+     "total": [
+      45.5,
+      45.5,
+      45.5,
+      45.5,
+      46.5,
+      46.5
+     ]
+    },
+    "open_home": -16.5,
+    "total": 45.5,
+    "over_price": -109,
+    "under_price": -110,
+    "open_total": 46.5
+   },
+   "notes": {
+    "WIS": {
+     "adj": -0.015,
+     "note": "freshman QB laying 17.5"
+    }
+   }
+  },
+  {
+   "num": 46,
+   "league": "CFB",
+   "away": "USA",
+   "home": "UL",
+   "kickoff": "2026-11-07T17:00",
+   "sheet_fav": "UL",
+   "sheet_spread": 8.5,
+   "sheet_total": 57.5,
+   "names": "South Alabama at Louisiana",
+   "market": {
+    "fav": "UL",
+    "spread": 7.0,
+    "fav_price": -114,
+    "dog_price": -105,
+    "books": {
+     "spread": [
+      -7.5,
+      -7.0,
+      -7.0,
+      -7.0,
+      -7.5,
+      -7.5,
+      -7.0
+     ],
+     "total": [
+      56.5,
+      56.5,
+      56.5,
+      57.0,
+      56.5,
+      57.5,
+      57.0
+     ]
+    },
+    "open_home": -5.5,
+    "total": 56.5,
+    "over_price": -112,
+    "under_price": -107,
+    "open_total": 57.5
+   }
+  },
+  {
+   "num": 47,
+   "league": "CFB",
+   "away": "BOIS",
+   "home": "CSU",
+   "kickoff": "2026-11-07T18:00",
+   "sheet_fav": "BOIS",
+   "sheet_spread": 17.5,
+   "sheet_total": 68.5,
+   "names": "Boise State at Colorado State",
+   "market": {
+    "fav": "BOIS",
+    "spread": 17.0,
+    "fav_price": -109,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      16.5,
+      17.0,
+      16.5,
+      17.0,
+      16.5,
+      17.5,
+      17.0
+     ],
+     "total": [
+      68.5,
+      68.5,
+      68.5,
+      68.5,
+      68.5,
+      68.5,
+      69.0
+     ]
+    },
+    "open_home": 19.5,
+    "total": 68.5,
+    "over_price": -113,
+    "under_price": -107,
+    "open_total": 68.5
+   }
+  },
+  {
+   "num": 48,
+   "league": "CFB",
+   "away": "UK",
+   "home": "TENN",
+   "kickoff": "2026-11-07T18:15",
+   "sheet_fav": "TENN",
+   "sheet_spread": 5.5,
+   "sheet_total": 49.5,
+   "names": "Kentucky at Tennessee",
+   "market": {
+    "fav": "TENN",
+    "spread": 6.0,
+    "fav_price": -109,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      -6.5,
+      -6.5,
+      -6.0,
+      -6.0,
+      -5.5,
+      -6.5,
+      -6.0
+     ],
+     "total": [
+      49.5,
+      49.5,
+      49.5,
+      49.5,
+      49.5,
+      50.5,
+      49.5
+     ]
+    },
+    "open_home": -6.0,
+    "total": 49.5,
+    "over_price": -109,
+    "under_price": -111,
+    "open_total": 50.5
+   },
+   "notes": {
+    "TENN": {
+     "note": "mostly number; Kentucky the better team on the season"
+    }
+   }
+  },
+  {
+   "num": 49,
+   "league": "CFB",
+   "away": "SHSU",
+   "home": "JXST",
+   "kickoff": "2026-11-07T19:00",
+   "sheet_fav": "JXST",
+   "sheet_spread": 16.5,
+   "sheet_total": 48.5,
+   "names": "Sam Houston at Jacksonville State",
+   "market": {
+    "fav": "JXST",
+    "spread": 16.5,
+    "fav_price": -113,
+    "dog_price": -106,
+    "books": {
+     "spread": [
+      -16.5,
+      -16.5,
+      -16.5,
+      -16.5,
+      -16.5,
+      -16.5,
+      -16.0
+     ],
+     "total": [
+      46.5,
+      45.5,
+      45.5,
+      45.5,
+      45.5,
+      46.5,
+      45.5
+     ]
+    },
+    "open_home": -14.0,
+    "total": 45.5,
+    "over_price": -111,
+    "under_price": -108,
+    "open_total": 47.5
+   }
+  },
+  {
+   "num": 50,
+   "league": "CFB",
+   "away": "MIA",
+   "home": "ND",
+   "kickoff": "2026-11-07T19:30",
+   "sheet_fav": "ND",
+   "sheet_spread": 7.0,
+   "sheet_total": 54.5,
+   "names": "Miami at Notre Dame",
+   "market": {
+    "fav": "ND",
+    "spread": 7.5,
+    "fav_price": -101,
+    "dog_price": -119,
+    "books": {
+     "spread": [
+      -7.5,
+      -7.0,
+      -7.0,
+      -7.0,
+      -7.5,
+      -7.5,
+      -7.5
+     ],
+     "total": [
+      54.5,
+      54.5,
+      54.5,
+      54.5,
+      55.5,
+      50.5,
+      55.0
+     ]
+    },
+    "open_home": -7.5,
+    "total": 54.5,
+    "over_price": -111,
+    "under_price": -108,
+    "open_total": 54.5
+   }
+  },
+  {
+   "num": 51,
+   "league": "CFB",
+   "away": "UGA",
+   "home": "MISS",
+   "kickoff": "2026-11-07T19:30",
+   "sheet_fav": "UGA",
+   "sheet_spread": 3.5,
+   "sheet_total": 56.5,
+   "names": "Georgia at Ole Miss",
+   "market": {
+    "fav": "UGA",
+    "spread": 3.5,
+    "fav_price": -111,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5,
+      3.5
+     ],
+     "total": [
+      56.5,
+      56.5,
+      56.5,
+      56.5,
+      56.5,
+      56.5,
+      56.5
+     ]
+    },
+    "open_home": 5.5,
+    "ml_home": 145.5,
+    "ml_away": -175.0,
+    "total": 56.5,
+    "over_price": -110,
+    "under_price": -110,
+    "open_total": 55.5
+   }
+  },
+  {
+   "num": 52,
+   "league": "CFB",
+   "away": "IOWA",
+   "home": "NU",
+   "kickoff": "2026-11-07T19:30",
+   "sheet_fav": "IOWA",
+   "sheet_spread": 2.5,
+   "sheet_total": 43.5,
+   "names": "Iowa at Northwestern",
+   "market": {
+    "fav": "IOWA",
+    "spread": 2.5,
+    "fav_price": -113,
+    "dog_price": -107,
+    "books": {
+     "spread": [
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5,
+      2.5
+     ],
+     "total": [
+      42.5,
+      43.5,
+      42.5,
+      43.0,
+      42.5,
+      43.5,
+      43.0
+     ]
+    },
+    "open_home": -2.5,
+    "ml_home": 113.0,
+    "ml_away": -133.0,
+    "total": 43.0,
+    "over_price": -111,
+    "under_price": -109,
+    "open_total": 42.5
+   }
+  },
+  {
+   "num": 53,
+   "league": "CFB",
+   "away": "COLO",
+   "home": "ASU",
+   "kickoff": "2026-11-07T19:30",
+   "sheet_fav": "ASU",
+   "sheet_spread": 3.0,
+   "sheet_total": 49.5,
+   "names": "Colorado at Arizona State",
+   "market": {
+    "fav": "ASU",
+    "spread": 3.5,
+    "fav_price": -104,
+    "dog_price": -117,
+    "books": {
+     "spread": [
+      -3.5,
+      -3.0,
+      -3.5,
+      -3.5,
+      -3.5,
+      -3.5,
+      -3.0
+     ],
+     "total": [
+      48.5,
+      48.5,
+      48.5,
+      48.0,
+      48.5,
+      47.5,
+      48.0
+     ]
+    },
+    "open_home": -4.0,
+    "ml_home": -162.0,
+    "ml_away": 136.0,
+    "total": 48.5,
+    "over_price": -106,
+    "under_price": -114,
+    "open_total": 49.5
+   }
+  },
+  {
+   "num": 54,
+   "league": "CFB",
+   "away": "LOU",
+   "home": "GT",
+   "kickoff": "2026-11-07T19:30",
+   "sheet_fav": "LOU",
+   "sheet_spread": 14.5,
+   "sheet_total": 62.5,
+   "names": "Louisville at Georgia Tech",
+   "market": {
+    "fav": "LOU",
+    "spread": 14.5,
+    "fav_price": -110,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      14.5,
+      14.5,
+      14.5,
+      14.5,
+      14.5,
+      14.5,
+      14.5
+     ],
+     "total": [
+      62.5,
+      62.5,
+      62.5,
+      62.5,
+      62.5,
+      61.5,
+      62.5
+     ]
+    },
+    "open_home": 13.5,
+    "total": 62.5,
+    "over_price": -108,
+    "under_price": -112,
+    "open_total": 59.5
+   }
+  },
+  {
+   "num": 55,
+   "league": "CFB",
+   "away": "MSU",
+   "home": "MICH",
+   "kickoff": "2026-11-07T19:30",
+   "sheet_fav": "MICH",
+   "sheet_spread": 12.5,
+   "sheet_total": 39.5,
+   "names": "Michigan State at Michigan",
+   "market": {
+    "fav": "MICH",
+    "spread": 14.5,
+    "fav_price": -102,
+    "dog_price": -118,
+    "books": {
+     "spread": [
+      -14.5,
+      -14.0,
+      -14.0,
+      -14.5,
+      -14.5,
+      -14.5
+     ],
+     "total": [
+      39.5,
+      39.5,
+      39.5,
+      40.0,
+      39.5,
+      39.5,
+      40.0
+     ]
+    },
+    "open_home": null,
+    "total": 39.5,
+    "over_price": -113,
+    "under_price": -107,
+    "open_total": 50.5
+   },
+   "notes": {
+    "MICH": {
+     "adj": 0.015,
+     "env": "big-ten-night",
+     "note": "MSU 13 out incl. both RBs, QB Milivojevic questionable; good in both QB branches"
+    }
+   }
+  },
+  {
+   "num": 56,
+   "league": "CFB",
+   "away": "AFA",
+   "home": "ARMY",
+   "kickoff": "2026-11-07T19:30",
+   "sheet_fav": "ARMY",
+   "sheet_spread": 4.0,
+   "sheet_total": 44.5,
+   "names": "Air Force at Army",
+   "market": {
+    "fav": "ARMY",
+    "spread": 3.5,
+    "fav_price": -110,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      -3.5,
+      -4.0,
+      -4.0,
+      -4.0,
+      -3.5,
+      -3.5,
+      -3.0
+     ],
+     "total": [
+      43.5,
+      43.5,
+      43.5,
+      43.5,
+      43.5,
+      43.5,
+      44.5
+     ]
+    },
+    "open_home": -6.0,
+    "ml_home": -179.0,
+    "ml_away": 150.0,
+    "total": 43.5,
+    "over_price": -112,
+    "under_price": -107,
+    "open_total": 52.5
+   }
+  },
+  {
+   "num": 57,
+   "league": "CFB",
+   "away": "OU",
+   "home": "FLA",
+   "kickoff": "2026-11-07T19:45",
+   "sheet_fav": "FLA",
+   "sheet_spread": 6.0,
+   "sheet_total": 45.5,
+   "names": "Oklahoma at Florida",
+   "market": {
+    "fav": "FLA",
+    "spread": 5.5,
+    "fav_price": -114,
+    "dog_price": -107,
+    "books": {
+     "spread": [
+      -5.5,
+      -6.0,
+      -5.5,
+      -5.5,
+      -5.5,
+      -5.5,
+      -6.5
+     ],
+     "total": [
+      45.5,
+      44.5,
+      45.5,
+      45.5,
+      44.5,
+      44.5,
+      45.0
+     ]
+    },
+    "open_home": -4.0,
+    "total": 45.0,
+    "over_price": -110,
+    "under_price": -110,
+    "open_total": 48.5
+   }
+  },
+  {
+   "num": 58,
+   "league": "CFB",
+   "away": "LIB",
+   "home": "NMSU",
+   "kickoff": "2026-11-07T20:00",
+   "sheet_fav": "LIB",
+   "sheet_spread": 17.5,
+   "sheet_total": 47.5,
+   "names": "Liberty at New Mexico State",
+   "market": {
+    "fav": "LIB",
+    "spread": 15.5,
+    "fav_price": -112,
+    "dog_price": -107,
+    "books": {
+     "spread": [
+      16.5,
+      15.5,
+      15.5,
+      15.5,
+      15.5,
+      17.5,
+      16.5
+     ],
+     "total": [
+      46.5,
+      46.5,
+      46.5,
+      46.5,
+      46.5,
+      46.5,
+      46.5
+     ]
+    },
+    "open_home": 12.5,
+    "total": 46.5,
+    "over_price": -109,
+    "under_price": -110,
+    "open_total": 47.5
+   },
+   "notes": {
+    "NMSU": {
+     "adj": -0.01,
+     "note": "number only; Liberty steamed since open"
+    }
+   }
+  },
+  {
+   "num": 59,
+   "league": "CFB",
+   "away": "WVU",
+   "home": "TTU",
+   "kickoff": "2026-11-07T21:30",
+   "sheet_fav": "TTU",
+   "sheet_spread": 16.5,
+   "sheet_total": 65.5,
+   "names": "West Virginia at Texas Tech",
+   "market": {
+    "fav": "TTU",
+    "spread": 16.5,
+    "fav_price": -111,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      -16.5,
+      -16.0,
+      -16.5,
+      -16.5,
+      -16.5,
+      -16.5,
+      -17.0
+     ],
+     "total": [
+      65.5,
+      65.5,
+      65.5,
+      66.0,
+      65.5,
+      65.5,
+      65.5
+     ]
+    },
+    "open_home": -17.5,
+    "total": 65.5,
+    "over_price": -110,
+    "under_price": -110,
+    "open_total": 63.5
+   }
+  },
+  {
+   "num": 60,
+   "league": "CFB",
+   "away": "FRES",
+   "home": "USU",
+   "kickoff": "2026-11-07T21:30",
+   "sheet_fav": "FRES",
+   "sheet_spread": 2.5,
+   "sheet_total": 42.5,
+   "names": "Fresno State at Utah State",
+   "market": {
+    "fav": "FRES",
+    "spread": 1.5,
+    "fav_price": -104,
+    "dog_price": -116,
+    "books": {
+     "spread": [
+      1.5,
+      1.0,
+      1.5,
+      1.0,
+      1.5,
+      2.5,
+      2.5
+     ],
+     "total": [
+      43.5,
+      43.5,
+      43.5,
+      43.0,
+      43.5,
+      42.5,
+      42.5
+     ]
+    },
+    "open_home": 2.5,
+    "ml_home": -102.0,
+    "ml_away": -118.0,
+    "total": 43.5,
+    "over_price": -107,
+    "under_price": -112,
+    "open_total": 41.5
+   }
+  },
+  {
+   "num": 61,
+   "league": "CFB",
+   "away": "HAW",
+   "home": "UTEP",
+   "kickoff": "2026-11-07T21:30",
+   "sheet_fav": "HAW",
+   "sheet_spread": 9.5,
+   "sheet_total": 48.5,
+   "names": "Hawai'i at UTEP",
+   "market": {
+    "fav": "HAW",
+    "spread": 7.5,
+    "fav_price": -110,
+    "dog_price": -110,
+    "books": {
+     "spread": [
+      7.5,
+      7.5,
+      7.5,
+      7.5,
+      8.5,
+      8.5,
+      9.5
+     ],
+     "total": [
+      48.5,
+      48.5,
+      48.5,
+      49.0,
+      48.5,
+      48.5,
+      49.5
+     ]
+    },
+    "open_home": 11.5,
+    "total": 48.5,
+    "over_price": -110,
+    "under_price": -110,
+    "open_total": 49.5
+   },
+   "notes": {
+    "UTEP": {
+     "note": "Hawaii opened -11.5; 4-pt move, cause unverified"
+    }
+   }
+  },
+  {
+   "num": 62,
+   "league": "CFB",
+   "away": "TXST",
+   "home": "ORST",
+   "kickoff": "2026-11-07T22:30",
+   "sheet_fav": "ORST",
+   "sheet_spread": 6.5,
+   "sheet_total": 71.5,
+   "names": "Texas State at Oregon State",
+   "market": {
+    "fav": "ORST",
+    "spread": 6.0,
+    "fav_price": -109,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      -5.5,
+      -5.5,
+      -6.0,
+      -5.5,
+      -6.5,
+      -6.5,
+      -6.0
+     ],
+     "total": [
+      70.5,
+      71.5,
+      71.5,
+      71.0,
+      70.5,
+      70.5,
+      71.0
+     ]
+    },
+    "open_home": -8.5,
+    "total": 71.0,
+    "over_price": -112,
+    "under_price": -108,
+    "open_total": 66.5
+   }
+  },
+  {
+   "num": 63,
+   "league": "CFB",
+   "away": "WYO",
+   "home": "UNLV",
+   "kickoff": "2026-11-07T22:30",
+   "sheet_fav": "UNLV",
+   "sheet_spread": 6.5,
+   "sheet_total": 47.5,
+   "names": "Wyoming at UNLV",
+   "market": {
+    "fav": "UNLV",
+    "spread": 4.5,
+    "fav_price": -106,
+    "dog_price": -112,
+    "books": {
+     "spread": [
+      -4.5,
+      -4.0,
+      -4.0,
+      -4.0,
+      -4.5,
+      -4.5,
+      -5.5
+     ],
+     "total": [
+      48.5,
+      48.5,
+      48.5,
+      48.5,
+      49.5,
+      47.5,
+      48.5
+     ]
+    },
+    "open_home": -8.5,
+    "total": 48.5,
+    "over_price": -111,
+    "under_price": -108,
+    "open_total": 45.5
+   },
+   "notes": {
+    "WYO": {
+     "note": "3 straight wins, QB Hughes running well; line moved toward WYO (cause unverified)"
+    }
+   }
+  },
+  {
+   "num": 64,
+   "league": "NFL",
+   "away": "JAX",
+   "home": "BAL",
+   "kickoff": "2026-11-05T20:15",
+   "sheet_fav": "JAX",
+   "sheet_spread": 8.5,
+   "sheet_total": 43.5,
+   "names": "Jacksonville Jaguars at Baltimore Ravens",
+   "market": {
+    "fav": "JAX",
+    "spread": 9.5,
+    "fav_price": -109,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      9.5,
+      9.5,
+      9.5,
+      9.5,
+      9.5,
+      9.5,
+      9.0
+     ],
+     "total": [
+      39.5,
+      40.0,
+      40.5,
+      39.5,
+      39.5,
+      40.0,
+      40.0
+     ]
+    },
+    "open_home": -4.5,
+    "total": 40.0,
+    "over_price": -109,
+    "under_price": -110,
+    "open_total": 49.5
+   }
+  },
+  {
+   "num": 65,
+   "league": "NFL",
+   "away": "CIN",
+   "home": "ATL",
+   "kickoff": "2026-11-08T09:30",
+   "sheet_fav": "CIN",
+   "sheet_spread": 3.0,
+   "sheet_total": 52.5,
+   "names": "Cincinnati Bengals at Atlanta Falcons",
+   "market": {
+    "fav": "CIN",
+    "spread": 3.0,
+    "fav_price": -119,
+    "dog_price": -102,
+    "books": {
+     "spread": [
+      3.5,
+      3.0,
+      3.0,
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "total": [
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      52.5,
+      53.0,
+      53.0
+     ]
+    },
+    "open_home": 4.5,
+    "ml_home": 145.0,
+    "ml_away": -175.0,
+    "total": 52.5,
+    "over_price": -109,
+    "under_price": -111,
+    "open_total": 48.5
+   }
+  },
+  {
+   "num": 66,
+   "league": "NFL",
+   "away": "DEN",
+   "home": "CAR",
+   "kickoff": "2026-11-08T13:00",
+   "sheet_fav": "DEN",
+   "sheet_spread": 2.5,
+   "sheet_total": 44.5,
+   "names": "Denver Broncos at Carolina Panthers",
+   "market": {
+    "fav": "DEN",
+    "spread": 2.5,
+    "fav_price": -119,
+    "dog_price": -101,
+    "books": {
+     "spread": [
+      2.5,
+      2.5,
+      3.0,
+      2.5,
+      2.5,
+      3.0,
+      2.5
+     ],
+     "total": [
+      44.5,
+      44.5,
+      44.5,
+      44.5,
+      44.5,
+      44.0,
+      44.5
+     ]
+    },
+    "open_home": 3.0,
+    "ml_home": 125.0,
+    "ml_away": -148.0,
+    "total": 44.5,
+    "over_price": -108,
+    "under_price": -111,
+    "open_total": 42.5
+   }
+  },
+  {
+   "num": 67,
+   "league": "NFL",
+   "away": "NYJ",
+   "home": "KC",
+   "kickoff": "2026-11-08T13:00",
+   "sheet_fav": "KC",
+   "sheet_spread": 9.5,
+   "sheet_total": 48.5,
+   "names": "New York Jets at Kansas City Chiefs",
+   "market": {
+    "fav": "KC",
+    "spread": 9.5,
+    "fav_price": -111,
+    "dog_price": -108,
+    "books": {
+     "spread": [
+      -9.5,
+      -8.5,
+      -8.5,
+      -9.5,
+      -9.5,
+      -9.5,
+      -8.5
+     ],
+     "total": [
+      47.5,
+      48.0,
+      47.5,
+      48.0,
+      47.5,
+      47.5,
+      48.0
+     ]
+    },
+    "open_home": -9.5,
+    "total": 47.5,
+    "over_price": -113,
+    "under_price": -107,
+    "open_total": 41.5
+   }
+  },
+  {
+   "num": 68,
+   "league": "NFL",
+   "away": "DAL",
+   "home": "IND",
+   "kickoff": "2026-11-08T13:00",
+   "sheet_fav": "DAL",
+   "sheet_spread": 5.5,
+   "sheet_total": 51.5,
+   "names": "Dallas Cowboys at Indianapolis Colts",
+   "market": {
+    "fav": "DAL",
+    "spread": 4.5,
+    "fav_price": -112,
+    "dog_price": -108,
+    "books": {
+     "spread": [
+      4.5,
+      4.5,
+      4.5,
+      4.5,
+      5.5,
+      5.0,
+      4.5
+     ],
+     "total": [
+      51.5,
+      51.5,
+      51.5,
+      51.5,
+      51.5,
+      52.0,
+      51.5
+     ]
+    },
+    "open_home": 1.5,
+    "total": 51.5,
+    "over_price": -110,
+    "under_price": -109,
+    "open_total": 52.5
+   }
+  },
+  {
+   "num": 69,
+   "league": "NFL",
+   "away": "NYG",
+   "home": "PHI",
+   "kickoff": "2026-11-08T13:00",
+   "sheet_fav": "NYG",
+   "sheet_spread": 3.0,
+   "sheet_total": 38.5,
+   "names": "New York Giants at Philadelphia Eagles",
+   "market": {
+    "fav": "NYG",
+    "spread": 3.0,
+    "fav_price": -118,
+    "dog_price": -103,
+    "books": {
+     "spread": [
+      3.5,
+      3.0,
+      3.0,
+      3.0,
+      3.0,
+      3.5,
+      3.0
+     ],
+     "total": [
+      38.5,
+      38.5,
+      38.5,
+      38.5,
+      38.5,
+      39.0,
+      38.5
+     ]
+    },
+    "open_home": -5.5,
+    "ml_home": 140.0,
+    "ml_away": -170.0,
+    "total": 38.5,
+    "over_price": -113,
+    "under_price": -107,
+    "open_total": 44.5
+   }
+  },
+  {
+   "num": 70,
+   "league": "NFL",
+   "away": "DET",
+   "home": "MIA",
+   "kickoff": "2026-11-08T13:00",
+   "sheet_fav": "DET",
+   "sheet_spread": 6.5,
+   "sheet_total": 50.5,
+   "names": "Detroit Lions at Miami Dolphins",
+   "market": {
+    "fav": "DET",
+    "spread": 6.5,
+    "fav_price": -111,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      6.5,
+      6.5,
+      6.5,
+      6.5,
+      6.5,
+      6.5,
+      6.5
+     ],
+     "total": [
+      49.5,
+      50.0,
+      49.5,
+      50.0,
+      49.5,
+      50.0,
+      50.0
+     ]
+    },
+    "open_home": 6.5,
+    "total": 50.0,
+    "over_price": -109,
+    "under_price": -110,
+    "open_total": 47.5
+   }
+  },
+  {
+   "num": 71,
+   "league": "NFL",
+   "away": "LAR",
+   "home": "WAS",
+   "kickoff": "2026-11-08T13:00",
+   "sheet_fav": "LAR",
+   "sheet_spread": 4.5,
+   "sheet_total": 47.5,
+   "names": "Los Angeles Rams at Washington Commanders",
+   "market": {
+    "fav": "LAR",
+    "spread": 4.5,
+    "fav_price": -112,
+    "dog_price": -108,
+    "books": {
+     "spread": [
+      4.5,
+      4.5,
+      4.5,
+      4.5,
+      4.5,
+      5.0,
+      4.5
+     ],
+     "total": [
+      47.5,
+      47.5,
+      47.5,
+      47.5,
+      47.5,
+      48.0,
+      48.0
+     ]
+    },
+    "open_home": 4.5,
+    "total": 47.5,
+    "over_price": -113,
+    "under_price": -107,
+    "open_total": 50.5
+   }
+  },
+  {
+   "num": 72,
+   "league": "NFL",
+   "away": "CLE",
+   "home": "NO",
+   "kickoff": "2026-11-08T13:00",
+   "sheet_fav": "NO",
+   "sheet_spread": 3.5,
+   "sheet_total": 42.5,
+   "names": "Cleveland Browns at New Orleans Saints",
+   "market": {
+    "fav": "NO",
+    "spread": 3.0,
+    "fav_price": -116,
+    "dog_price": -104,
+    "books": {
+     "spread": [
+      -3.5,
+      -3.0,
+      -3.5,
+      -3.5,
+      -3.0,
+      -3.0,
+      -3.0
+     ],
+     "total": [
+      42.5,
+      42.5,
+      42.5,
+      42.5,
+      42.5,
+      42.5,
+      42.5
+     ]
+    },
+    "open_home": -3.5,
+    "ml_home": -173.0,
+    "ml_away": 145.0,
+    "total": 42.5,
+    "over_price": -110,
+    "under_price": -110,
+    "open_total": 41.5
+   }
+  },
+  {
+   "num": 73,
+   "league": "NFL",
+   "away": "HOU",
+   "home": "LAC",
+   "kickoff": "2026-11-08T16:05",
+   "sheet_fav": "HOU",
+   "sheet_spread": 6.0,
+   "sheet_total": 40.5,
+   "names": "Houston Texans at Los Angeles Chargers",
+   "market": {
+    "fav": "HOU",
+    "spread": 6.0,
+    "fav_price": -108,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      5.5,
+      6.0,
+      6.0,
+      6.0,
+      5.5,
+      5.5,
+      6.0
+     ],
+     "total": [
+      40.5,
+      40.5,
+      40.5,
+      40.5,
+      40.5,
+      40.5,
+      40.5
+     ]
+    },
+    "open_home": -1.5,
+    "total": 40.5,
+    "over_price": -112,
+    "under_price": -108,
+    "open_total": 43.5
+   }
+  },
+  {
+   "num": 74,
+   "league": "NFL",
+   "away": "LV",
+   "home": "SF",
+   "kickoff": "2026-11-08T16:25",
+   "sheet_fav": "SF",
+   "sheet_spread": 10.0,
+   "sheet_total": 51.5,
+   "names": "Las Vegas Raiders at San Francisco 49ers",
+   "market": {
+    "fav": "SF",
+    "spread": 9.5,
+    "fav_price": -112,
+    "dog_price": -107,
+    "books": {
+     "spread": [
+      -9.5,
+      -9.5,
+      -10.0,
+      -9.5,
+      -9.5,
+      -9.5,
+      -9.5
+     ],
+     "total": [
+      52.5,
+      52.0,
+      51.5,
+      52.0,
+      51.5,
+      52.0,
+      51.5
+     ]
+    },
+    "open_home": -8.5,
+    "total": 52.0,
+    "over_price": -108,
+    "under_price": -111,
+    "open_total": 46.5
+   }
+  },
+  {
+   "num": 75,
+   "league": "NFL",
+   "away": "GB",
+   "home": "NE",
+   "kickoff": "2026-11-08T16:25",
+   "sheet_fav": "NE",
+   "sheet_spread": 3.0,
+   "sheet_total": 44.5,
+   "names": "Green Bay Packers at New England Patriots",
+   "market": {
+    "fav": "NE",
+    "spread": 3.0,
+    "fav_price": -113,
+    "dog_price": -107,
+    "books": {
+     "spread": [
+      -3.5,
+      -3.0,
+      -3.0,
+      -3.0,
+      -3.0,
+      -3.0,
+      -3.5
+     ],
+     "total": [
+      44.5,
+      44.5,
+      44.5,
+      44.5,
+      44.5,
+      45.0,
+      44.5
+     ]
+    },
+    "open_home": -1.5,
+    "ml_home": -170.0,
+    "ml_away": 142.0,
+    "total": 44.5,
+    "over_price": -111,
+    "under_price": -109,
+    "open_total": 46.5
+   }
+  },
+  {
+   "num": 76,
+   "league": "NFL",
+   "away": "ARI",
+   "home": "SEA",
+   "kickoff": "2026-11-08T16:25",
+   "sheet_fav": "SEA",
+   "sheet_spread": 8.5,
+   "sheet_total": 39.5,
+   "names": "Arizona Cardinals at Seattle Seahawks",
+   "market": {
+    "fav": "SEA",
+    "spread": 8.5,
+    "fav_price": -109,
+    "dog_price": -111,
+    "books": {
+     "spread": [
+      -8.5,
+      -8.5,
+      -8.5,
+      -8.5,
+      -8.5,
+      -8.5,
+      -8.5
+     ],
+     "total": [
+      39.5,
+      39.5,
+      39.5,
+      39.5,
+      39.5,
+      39.5,
+      39.5
+     ]
+    },
+    "open_home": -13.5,
+    "total": 39.5,
+    "over_price": -111,
+    "under_price": -109,
+    "open_total": 45.5
+   }
+  },
+  {
+   "num": 77,
+   "league": "NFL",
+   "away": "TB",
+   "home": "CHI",
+   "kickoff": "2026-11-08T20:20",
+   "sheet_fav": "CHI",
+   "sheet_spread": 6.0,
+   "sheet_total": 47.5,
+   "names": "Tampa Bay Buccaneers at Chicago Bears",
+   "market": {
+    "fav": "CHI",
+    "spread": 6.0,
+    "fav_price": -111,
+    "dog_price": -109,
+    "books": {
+     "spread": [
+      -6.5,
+      -6.0,
+      -6.0,
+      -6.0,
+      -6.5,
+      -6.0,
+      -6.0
+     ],
+     "total": [
+      47.5,
+      47.5,
+      47.5,
+      47.5,
+      47.5,
+      47.5,
+      47.5
+     ]
+    },
+    "open_home": -3.5,
+    "total": 47.5,
+    "over_price": -109,
+    "under_price": -111,
+    "open_total": 48.5
+   }
+  },
+  {
+   "num": 78,
+   "league": "NFL",
+   "away": "BUF",
+   "home": "MIN",
+   "kickoff": "2026-11-09T20:15",
+   "sheet_fav": "BUF",
+   "sheet_spread": 3.0,
+   "sheet_total": 43.5,
+   "names": "Buffalo Bills at Minnesota Vikings",
+   "market": {
+    "fav": "BUF",
+    "spread": 3.0,
+    "fav_price": -116,
+    "dog_price": -104,
+    "books": {
+     "spread": [
+      3.5,
+      3.0,
+      3.0,
+      3.0,
+      3.0,
+      3.0,
+      3.0
+     ],
+     "total": [
+      44.5,
+      44.0,
+      43.5,
+      44.0,
+      44.5,
+      44.5,
+      44.0
+     ]
+    },
+    "open_home": 3.0,
+    "ml_home": 145.0,
+    "ml_away": -173.0,
+    "total": 44.0,
+    "over_price": -109,
+    "under_price": -110,
+    "open_total": 48.5
+   }
+  }
+ ]
+}

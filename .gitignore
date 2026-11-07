@@ -6,7 +6,7 @@ board.txt
 *.pdf
 __pycache__/
 cache/
-board.json
+/board.json
 backtest/cache/
 data/odds.db
 data/*.log
