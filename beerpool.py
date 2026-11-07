@@ -172,13 +172,18 @@ def calibrate_total(league: str, mkt_total: float, p_over_fair: float) -> float:
 
 BANNED_TEAMS = {"DAL"}           # Bert will not pick the Cowboys.
 NO_FIVE_TAGS = {"qb_uncertain", "model_only", "starter_uncertain",
-                "big_move", "steam_against"}
+                "big_move", "steam_against", "huge_edge"}
 # Tunables. Backtest (backtest/run_backtest.py, fitted on 2025, checked on 2026):
 # totals edges were overrated by about half, so totals are shrunk toward 50%; spreads
 # needed no correction; big moves TOWARD our side did not hurt, so they only warn.
 TOTAL_SHRINK = 0.5     # totals: p -> 0.5 + TOTAL_SHRINK * (p - 0.5)
 SPREAD_SHRINK = 1.0    # spreads: same idea (>1 stretches, <1 shrinks)
 BIG_MOVE_CAPS = False  # True: big_move also caps at 3 pts (steam_against always does)
+# Huge edges (sheet beats the market by 3.5+) covered only ~51% in the backtest (59 picks):
+# they are usually news (QB/injury) the market has already priced. OFF until confirmed on
+# pre-deadline snapshots; set HUGE_EDGE_P = 0.52 to treat them as ~no edge and 3-pt max.
+HUGE_EDGE = 3.5
+HUGE_EDGE_P = None
 BOOK_SPREAD_TOLERANCE = 1.0      # wider spread among books => no call
 BOOK_TOTAL_TOLERANCE = 1.5
 BIG_MOVE = 3.0                   # open->now move this big = news we haven't verified
@@ -359,6 +364,11 @@ def build_candidates(board: dict, now: datetime | None,
 
     # Hard constraint: never pick Dallas.
     kept = [c for c in cands if c.side not in BANNED_TEAMS]
+    if HUGE_EDGE_P is not None:
+        for c in kept:
+            if c.number_edge >= HUGE_EDGE:
+                c.adj = min(c.adj, HUGE_EDGE_P - c.p_market)
+                c.tags.add("huge_edge")
     return kept, sweep
 
 

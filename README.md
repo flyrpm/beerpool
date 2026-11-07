@@ -12,6 +12,8 @@ NOW=2026-11-07T09:00 ./run.sh              # pretend it's a given time (lock che
 python3 -m unittest test_beerpool          # tests
 ```
 
+See **LEARNINGS.md** for what the backtests have shown so far.
+
 ## Pipeline
 
 | Step | File | What it does |

@@ -131,8 +131,10 @@ def pool_points(xlsx: str) -> dict:
 
 
 # --------------------------------------------------------------------- engine settings
-def configure(total_shrink: float, spread_shrink: float, big_move_caps: bool):
+def configure(total_shrink: float, spread_shrink: float, big_move_caps: bool,
+              huge_edge_p: float | None = None):
     bp.TOTAL_SHRINK, bp.SPREAD_SHRINK, bp.BIG_MOVE_CAPS = total_shrink, spread_shrink, big_move_caps
+    bp.HUGE_EDGE_P = huge_edge_p
 
 
 def candidates_by_week(weeks: dict) -> dict:
@@ -181,7 +183,7 @@ def report_pricing(cbw: dict, title: str):
             e = c.number_edge
             if e > 0:
                 typ = "total " if c.side in ("OVER", "UNDER") else "spread"
-                eb = ">=2" if e >= 2 else "1-1.5" if e >= 1 else "0.5"
+                eb = "3.5+" if e >= 3.5 else "2-3" if e >= 2 else "1-1.5" if e >= 1 else "0.5"
                 for k in (f"{typ} {eb}", "any move tag: " + (
                         "steam_against" if "steam_against" in c.tags else
                         "big_move with us" if "big_move" in c.tags else "none")):
@@ -242,7 +244,8 @@ def main():
     ts, ss = fit(train)
     print(f"  -> TOTAL_SHRINK={ts}  SPREAD_SHRINK={ss}")
 
-    variants = {"baseline": (1.0, 1.0, True), "tuned": (ts, ss, False)}
+    variants = {"baseline": (1.0, 1.0, True), "tuned": (ts, ss, False),
+                "tuned+cap": (ts, ss, False, 0.52)}
     cards = {}
     for name, cfg in variants.items():
         configure(*cfg)
@@ -254,7 +257,7 @@ def main():
         cards[name] = run_cards(cbw)
 
     print("\n== WEEKLY CARDS: engine vs Bert vs pool ==")
-    print(f"{'week':<9} {'games':>5} {'base':>5} {'tuned':>6} {'Bert':>5} {'avg':>5} {'best':>5}")
+    print(f"{'week':<9} {'games':>5} {'base':>5} {'tuned':>6} {'+cap':>5} {'Bert':>5} {'avg':>5} {'best':>5}")
     totals = defaultdict(lambda: defaultdict(float))
     for key in sorted(weeks, key=wkey):
         p = pool.get(key[0], {}).get(key[1], {})
@@ -262,13 +265,15 @@ def main():
         bert = p.get("Bert")
         avg = statistics.mean(p.values()) if p else None
         best = max(p.values()) if p else None
-        print(f"{key[0]}-{key[1]:<4} {len(weeks[key]):>5} {b['pts']:>5} {t['pts']:>6} "
+        print(f"{key[0]}-{key[1]:<4} {len(weeks[key]):>5} {b['pts']:>5} {t['pts']:>6} {cards['tuned+cap'][key]['pts']:>5} "
               f"{bert if bert is not None else '-':>5} {f'{avg:.1f}' if avg else '-':>5} {best if best else '-':>5}"
               + ("  thin" if t["thin"] else ""))
         s = totals[key[0]]
         s["weeks"] += 1
         s["base"] += b["pts"]
         s["tuned"] += t["pts"]
+        s["cap"] += cards["tuned+cap"][key]["pts"]
+        s["wins"] += sum(t["five"])
         s["five_w"] += t["five"][0]
         s["three_w"] += t["five"][1]
         s["picks"] += len(t["picks"])
@@ -285,7 +290,9 @@ def main():
     for season, s in sorted(totals.items()):
         print(f"{season}: {int(s['weeks'])} weeks  baseline {s['base']:.0f} ({s['base'] / s['weeks']:.2f}/wk)  "
               f"tuned {s['tuned']:.0f} ({s['tuned'] / s['weeks']:.2f}/wk)  "
-              f"5-pt picks {s['five_w']:.0f}/{2 * s['weeks']:.0f}  3-pt picks {s['three_w']:.0f}/{s['picks'] - 2 * s['weeks']:.0f}")
+              f"tuned+cap {s['cap']:.0f}  |  tuned record {s['wins']:.0f}-{s['picks'] - s['wins']:.0f} "
+              f"({s['wins'] / s['picks']:.1%})  5-pt {s['five_w']:.0f}/{2 * s['weeks']:.0f}  "
+              f"3-pt {s['three_w']:.0f}/{s['picks'] - 2 * s['weeks']:.0f}")
         if s["pool_weeks"]:
             n = s["pool_weeks"]
             print(f"   weeks with pool data {n:.0f}: tuned {s['tuned_pw']:.0f}  baseline {s['base_pw']:.0f}  "
