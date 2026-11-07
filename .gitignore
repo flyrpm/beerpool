@@ -11,3 +11,6 @@ backtest/cache/
 data/odds.db
 data/*.log
 data/hist/
+# Private prospective evaluation artifacts (retain in private durable storage)
+data/predictions/
+data/grades/

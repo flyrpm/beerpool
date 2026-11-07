@@ -1,5 +1,7 @@
 import copy
 import gzip
+import hashlib
+from unittest.mock import patch
 import json
 from pathlib import Path
 import tempfile
@@ -110,6 +112,26 @@ class Replay(unittest.TestCase):
         bad['source_sha256']['beerpool.py'] = 'different'
         with self.assertRaisesRegex(ValueError, 'source mismatch'):
             sr.replay(self.board, bad, self.path, '2026-11-07T12:00')
+
+    def test_provenance_hash_matches_bytes_parsed_not_later_replacement(self):
+        self.snapshot('x.json.gz', '2026-11-07T16:00:00Z')
+        path = self.path / 'x.json.gz'
+        original = path.read_bytes()
+        real_market_for = sr.bb.market_for
+        def replace_after_read(game, snap):
+            path.write_bytes(b'replaced after ingestion')
+            return real_market_for(game, snap)
+        with patch.object(sr.bb, 'market_for', side_effect=replace_after_read):
+            report = self.run_replay()
+        self.assertEqual(report['games'][0]['snapshot_sha256'], hashlib.sha256(original).hexdigest())
+        self.assertEqual(report['sweep'][0]['market'], 'NYG -4')
+
+    def test_truncated_gzip_and_reversed_receipt_are_coverage_errors(self):
+        (self.path / 'broken.json.gz').write_bytes(b'\x1f\x8b')
+        self.snapshot('reversed.json.gz', '2026-11-07T16:00:00Z', received='2026-11-07T15:59:00Z')
+        result = self.run_replay()
+        self.assertEqual(len(result['snapshot_errors']), 2)
+        self.assertEqual(result['coverage']['covered_games'], 0)
 
     def test_determinism_no_input_mutation_or_notes(self):
         self.snapshot('x.json.gz', '2026-11-07T16:00:00Z')

@@ -51,27 +51,32 @@ def load_snapshots(directory):
     good, errors = [], []
     for path in sorted(Path(directory).rglob('*.json.gz')):
         try:
-            with gzip.open(path, 'rt') as f:
-                s = json.load(f)
+            raw = path.read_bytes()
+            s = json.loads(gzip.decompress(raw))
+            sha = hashlib.sha256(raw).hexdigest()
             taken = utc(s['taken_utc'], require_zone=True)
             received = utc(s.get('received_utc', s['taken_utc']), require_zone=True)
+            if received < taken:
+                raise ValueError('receipt precedes capture')
             if s['books'] != vi_parse.BOOKS:
                 raise ValueError('unsupported book column order')
             if s['league'] not in ('NFL', 'CFB') or not isinstance(s['rows'], list):
                 raise ValueError('invalid league/rows')
-            good.append((max(taken, received), str(path), s))
-        except (OSError, ValueError, KeyError, TypeError) as e:
+            good.append((max(taken, received), str(path), s, sha))
+        except (OSError, EOFError, ValueError, KeyError, TypeError) as e:
             errors.append({'path': str(path), 'error': str(e)})
     return sorted(good, key=lambda x: (x[0], x[1]), reverse=True), errors
 
 
-def replay(board, manifest, directory, deadline, max_age_hours=None):
+def replay(board, manifest, directory, deadline, max_age_hours=None, snapshot_data=None):
+    board = json.loads(json.dumps(board))
+    manifest = json.loads(json.dumps(manifest))
     # Fail closed if a different implementation would reinterpret frozen settings.
     if manifest.get('schema') != 1 or manifest['source_sha256'] != fingerprint():
         raise ValueError('frozen configuration source mismatch; use its original checkout')
     cfg = bp.Config(**json.loads(json.dumps(manifest['config'])))
     decision = utc(deadline)
-    snapshots, errors = load_snapshots(directory)
+    snapshots, errors = load_snapshots(directory) if snapshot_data is None else snapshot_data
     warnings = ['Replay does not establish out-of-sample performance: verify model training cutoff.',
                 'Embedded board markets, notes and MEGA requests are ignored.']
     if utc(manifest['created_utc'], require_zone=True) >= decision:
@@ -105,7 +110,7 @@ def replay(board, manifest, directory, deadline, max_age_hours=None):
             continue
         g['away_name'], g['home_name'] = away, home
         chosen = None
-        for observed, path, snap in snapshots:
+        for observed, path, snap, sha in snapshots:
             if snap['league'] != rec['league'] or observed >= cutoff:
                 continue
             if max_age_hours is not None and cutoff - observed > timedelta(hours=max_age_hours):
@@ -113,13 +118,13 @@ def replay(board, manifest, directory, deadline, max_age_hours=None):
             # Do not combine markets from different snapshots or backfill missing markets.
             market = bb.market_for(g, snap)
             if market:
-                chosen = observed, path, snap, market
+                chosen = observed, path, snap, sha, market
                 break
         if chosen is None:
             rec['status'] = 'no_matching_pre_deadline_snapshot'
             records.append(rec)
             continue
-        observed, path, snap, market = chosen
+        observed, path, snap, sha, market = chosen
         market['fav'] = (g['home'] if market.get('fav') == 'HOME' else
                          g['away'] if market.get('fav') == 'AWAY' else None)
         g['market'] = market
@@ -129,7 +134,7 @@ def replay(board, manifest, directory, deadline, max_age_hours=None):
         rec.update(status='covered', snapshot=path, taken_utc=snap['taken_utc'],
                    available_utc=observed.isoformat(), age_seconds=(cutoff - observed).total_seconds(),
                    receipt_verified='received_utc' in snap,
-                   snapshot_sha256=hashlib.sha256(Path(path).read_bytes()).hexdigest())
+                   snapshot_sha256=sha)
         rec['markets'] = {'spread': market.get('spread') is not None,
                           'total': market.get('total') is not None}
         records.append(rec)
@@ -150,6 +155,9 @@ def replay(board, manifest, directory, deadline, max_age_hours=None):
                 'uncovered_games': len(records) - covered}, games=records, snapshot_errors=errors,
                 warnings=warnings, sweep=sweep, thin=thin,
                 expected_points=sum((5 if i < 2 else 3) * c.p for i, c in enumerate(card)),
+                candidates=[dict(game=c.game, side=c.side, label=c.label, sheet_line=c.sheet_line,
+                                 market_line=c.market_line, probability=c.p,
+                                 five_eligible=c.five_eligible) for c in candidates],
                 card=[dict(slot=i + 1, points=5 if i < 2 else 3, game=c.game,
                            side=c.side, label=c.label, probability=c.p) for i, c in enumerate(card)])
 

@@ -77,7 +77,7 @@ totals edges are worth about half what the raw model says (`TOTAL_SHRINK = 0.5`)
 ## Odds snapshots (Phase 1 of the redesign)
 
 `snapshots.py take` saves every book's spread, total and moneyline for the NFL and college slates
-to `data/snapshots/YYYY-MM-DD/<UTC HHMM>_<league>.json.gz`. A cloud scheduled task runs it
+to `data/snapshots/YYYY-MM-DD/<UTC HHMMSSffffff>_<league>_<unique id>.json.gz`. A cloud scheduled task runs it
 Thu/Fri/Sat/Sun at 8:13, 11:13, 18:13 and 21:13 ET and commits the files, so `git pull` brings
 them down. `snapshots.py build-db` builds `data/odds.db` (SQLite) from them, and
 `snapshots.py at "2026-11-07T11:30"` shows the market as it stood before the noon lock.
@@ -113,3 +113,11 @@ The weekly `./run.sh` command stays the same. An independent offline replay comm
 freezes settings and uses only pre-submission snapshots, reporting missing observations
 without substituting closing odds. See [Phase 2 implementation](docs/PHASE_2_IMPLEMENTATION.md)
 for commands, behavior changes and evidence limitations.
+
+## Frozen forward evaluation
+
+The opt-in [predictions ledger](docs/LEDGER.md) freezes weekly Ronnie and raw-market
+benchmark cards before the deadline, then grades explicit final results without
+rerunning pricing. It keeps missing observations/results visible, rejects late
+prospective records, and never fits probabilities. GitHub Actions runs the full
+unit suite on pushes and pull requests. The live weekly command stays unchanged.
