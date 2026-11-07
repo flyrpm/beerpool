@@ -4,7 +4,8 @@ Weekly sweep for the BPN picks pool: prices every spread and total on the commis
 frozen sheet against the live multi-book market.
 
 ```bash
-./run.sh "BP Wk Niner.pdf" "13-63,65-78"   # board PDF, open game-number ranges
+./run.sh                                  # newest BP*.pdf in ~/Downloads, all games
+./run.sh "BP Wk Niner.pdf" "13-63,65-78"  # explicit board PDF + open game-number ranges
 ```
 
 - `vi_parse.py`: parses VegasInsider spread/total/moneyline tables (7 books + Kalshi + consensus).

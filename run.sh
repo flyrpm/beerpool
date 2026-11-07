@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 # Weekly beer pool sweep.
-# Usage: ./run.sh board.pdf "13-63,65-78"   (open game ranges)
+# Usage: ./run.sh [board.pdf] ["13-63,65-78"]   (open game-number ranges; default all)
+#   No PDF given -> newest BP*.pdf in ~/Downloads.
 # Output: sweep.json (every game priced at the sheet number) + ranked list on stdout.
 set -euo pipefail
+PDF="${1:-}"; OPEN="${2:-1-99}"
+if [ -z "$PDF" ]; then
+  PDF="$(ls -t "$HOME"/Downloads/BP*.pdf 2>/dev/null | head -1 || true)"
+  if [ -z "$PDF" ]; then
+    echo "usage: ./run.sh path/to/board.pdf [\"13-63,65-78\"]" >&2
+    echo "(no BP*.pdf found in ~/Downloads)" >&2
+    exit 1
+  fi
+  echo "Using board: $PDF" >&2
+fi
+[ -f "$PDF" ] || { echo "not found: $PDF" >&2; exit 1; }
+PDF="$(cd "$(dirname "$PDF")" && pwd)/$(basename "$PDF")"
 cd "$(dirname "$0")"
-PDF="$1"; OPEN="${2:-1-99}"
 pdftotext -layout "$PDF" board.txt
 for k in nfl college-football; do
   curl -sS --compressed -m 30 "https://www.vegasinsider.com/$k/odds/las-vegas/" -o "vi_$k.html"
