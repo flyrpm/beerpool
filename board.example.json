@@ -1,0 +1,49 @@
+{
+  "week": "Week 10",
+  "now": "2026-11-07T09:00",
+  "default_lock": "2026-11-07T12:00",
+  "mega": null,
+  "games": [
+    {"num": 12, "league": "CFB", "away": "M-OH", "home": "BUFF", "kickoff": "2026-11-06T19:30",
+     "sheet_fav": "M-OH", "sheet_spread": 6.5, "sheet_total": 44.5,
+     "market": {"fav": "M-OH", "spread": 7.5, "total": 43.5}},
+
+    {"num": 28, "league": "CFB", "away": "TENN", "home": "BAMA", "kickoff": "2026-11-07T15:30",
+     "sheet_fav": "BAMA", "sheet_spread": 3, "sheet_total": 55.5,
+     "market": {"fav": "BAMA", "spread": 2.5, "fav_price": -115, "dog_price": -105,
+                "total": 56.5, "books": {"spread": [2.5, 2.5, 3.0], "total": [56.5, 56.5, 57.0]},
+                "as_of": "2026-11-07T08:30"}},
+
+    {"num": 56, "league": "CFB", "away": "UTAH", "home": "BOIS", "kickoff": "2026-11-07T22:00",
+     "sheet_fav": "UTAH", "sheet_spread": 6.5, "sheet_total": 49.5,
+     "market": {"fav": "UTAH", "spread": 8.5, "total": 49.0,
+                "books": {"spread": [8.5, 8.5, 8.0, 9.0]}},
+     "notes": {"UTAH": {"thesis": "utah-defense", "note": "2 pts of stale value"}}},
+
+    {"num": 62, "league": "NFL", "away": "BAL", "home": "CIN", "kickoff": "2026-11-08T13:00",
+     "sheet_fav": "CIN", "sheet_spread": 1.5, "sheet_total": 47.5,
+     "market": {"fav": "BAL", "spread": 1.5, "fav_price": -110, "dog_price": -110,
+                "ml_home": 105, "ml_away": -125, "total": 47.5},
+     "notes": {"BAL": {"tags": ["qb_uncertain"], "note": "Lamar status unknown at lock"}}},
+
+    {"num": 64, "league": "NFL", "away": "TEN", "home": "IND", "kickoff": "2026-11-08T13:00",
+     "sheet_fav": "IND", "sheet_spread": 3.5, "sheet_total": 43.5,
+     "market": {"fav": "IND", "spread": 3, "fav_price": -120, "dog_price": 100, "total": 42.5,
+                "books": {"spread": [2.5, 2.5, 3, 4, 4.5]}}},
+
+    {"num": 66, "league": "NFL", "away": "DAL", "home": "PHI", "kickoff": "2026-11-08T16:25",
+     "sheet_fav": "PHI", "sheet_spread": 7, "sheet_total": 46.5,
+     "market": {"fav": "PHI", "spread": 5.5, "total": 46.5}},
+
+    {"num": 69, "league": "NFL", "away": "LAR", "home": "SEA", "kickoff": "2026-11-08T16:05",
+     "sheet_fav": "SEA", "sheet_spread": 2.5, "sheet_total": 44.5,
+     "market": {"fav": "SEA", "spread": 3, "fav_price": -105, "dog_price": -115, "total": 45.5},
+     "notes": {"SEA": {"thesis": "sea-pass-rush"}}},
+
+    {"num": 71, "league": "NFL", "away": "PIT", "home": "TB", "kickoff": "2026-11-08T13:00",
+     "sheet_fav": "TB", "sheet_spread": 3, "sheet_total": 41.5,
+     "market": {"fav": "TB", "spread": 3, "fav_price": -110, "dog_price": -110, "total": 39.5,
+                "over_price": -105, "under_price": -115},
+     "notes": {"UNDER": {"env": "weather-tampa", "note": "wind 20+"}}}
+  ]
+}

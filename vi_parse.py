@@ -33,8 +33,7 @@ def parse_cell(c):
     return out
 
 
-def main(path):
-    s = open(path, encoding="utf-8", errors="replace").read()
+def parse(s):
     rows = []
     for market, body in re.findall(
             r'<tbody id="odds-table-(spread|total|moneyline)--\d+"[^>]*>(.*?)</tbody>', s, re.S):
@@ -49,8 +48,9 @@ def main(path):
             cells = [parse_cell(c) for c in tds[1:]]
             rows.append({"market": market, "rot": int(m.group(1)),
                          "team": m.group(2).strip(), "cells": cells})
-    json.dump({"books": BOOKS, "rows": rows}, sys.stdout, indent=0)
+    return {"books": BOOKS, "rows": rows}
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    src = open(sys.argv[1], encoding="utf-8", errors="replace").read()
+    json.dump(parse(src), sys.stdout, indent=0)

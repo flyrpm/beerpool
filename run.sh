@@ -1,41 +1,24 @@
 #!/usr/bin/env bash
-# Weekly beer pool sweep.
-# Usage: ./run.sh [board.pdf] ["13-63,65-78"]   (open game-number ranges; default all)
-#   No PDF given -> newest BP*.pdf in ~/Downloads.
-# Output: sweep.json (every game priced at the sheet number) + ranked list on stdout.
+# Weekly beer pool card.
+# Usage: ./run.sh [board.pdf] [notes.json]
+#   board.pdf  default: newest BP*.pdf in ~/Downloads
+#   notes.json default: newest notes/*.json (football layer for the week)
+# Extra flags go to beerpool.py, e.g.  NOW=2026-11-07T09:00 ./run.sh
 set -euo pipefail
-PDF="${1:-}"; OPEN="${2:-1-99}"
+PDF="${1:-}"; NOTES="${2:-}"
 if [ -z "$PDF" ]; then
   PDF="$(ls -t "$HOME"/Downloads/BP*.pdf 2>/dev/null | head -1 || true)"
-  if [ -z "$PDF" ]; then
-    echo "usage: ./run.sh path/to/board.pdf [\"13-63,65-78\"]" >&2
-    echo "(no BP*.pdf found in ~/Downloads)" >&2
-    exit 1
-  fi
+  [ -n "$PDF" ] || { echo "usage: ./run.sh path/to/board.pdf [notes.json]" >&2
+                     echo "(no BP*.pdf found in ~/Downloads)" >&2; exit 1; }
   echo "Using board: $PDF" >&2
 fi
 [ -f "$PDF" ] || { echo "not found: $PDF" >&2; exit 1; }
 PDF="$(cd "$(dirname "$PDF")" && pwd)/$(basename "$PDF")"
+[ -z "$NOTES" ] || NOTES="$(cd "$(dirname "$NOTES")" && pwd)/$(basename "$NOTES")"
 cd "$(dirname "$0")"
-pdftotext -layout "$PDF" board.txt
-for k in nfl college-football; do
-  curl -sS --compressed -m 30 "https://www.vegasinsider.com/$k/odds/las-vegas/" -o "vi_$k.html"
-  python3 -I vi_parse.py "vi_$k.html" > "vi_$k.json"
-done
-python3 -I analyze.py board.txt vi_nfl.json vi_college-football.json --open "$OPEN" > sweep.json
-python3 -I - <<'EOF'
-import json
-c = []
-for g in json.load(open("sweep.json")):
-    if "mkt_home" not in g:
-        print("UNMATCHED", g["num"], g["away"], "@", g["home"]); continue
-    H, A = g["home"], g["away"]
-    c += [(g["p_home_sheet"], g["num"], f"{H} {g['sheet_home']:+}", g["mkt_home"]),
-          (g["p_away_sheet"], g["num"], f"{A} {-g['sheet_home']:+}", -g["mkt_home"])]
-    if "p_over_sheet" in g:
-        c += [(g["p_over_sheet"], g["num"], f"{A}/{H} OVER {g['total']}", g["mkt_total"]),
-              (g["p_under_sheet"], g["num"], f"{A}/{H} UNDER {g['total']}", g["mkt_total"])]
-print("cover%  #   pick (at sheet number, push=loss)            market")
-for p, n, s, m in sorted(c, reverse=True)[:25]:
-    print(f"{p:.3f}  {n:>3}  {s:<45} {m}")
-EOF
+if [ -z "$NOTES" ]; then
+  NOTES="$(ls notes/*.json 2>/dev/null | sort | tail -1 || true)"
+  [ -z "$NOTES" ] || echo "Using notes: $NOTES" >&2
+fi
+python3 build_board.py --pdf "$PDF" ${NOTES:+--notes "$NOTES"} > board.json
+python3 beerpool.py board.json --pdf "$PDF" ${NOW:+--now "$NOW"}

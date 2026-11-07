@@ -5,3 +5,5 @@ sweep.json
 board.txt
 *.pdf
 __pycache__/
+cache/
+board.json

@@ -1,0 +1,16 @@
+{
+  "week": "Week 9",
+  "mega": null,
+  "_doc": "Football layer. Keys: game number -> side (team abbr as printed on the card, or OVER/UNDER). adj = probability nudge (keep within +/-0.02); tags: qb_uncertain, starter_uncertain, model_only (3-pt max); clear_tags removes auto tags (big_move, steam_against) once the cause is verified; thesis/env stop stacking one idea.",
+  "games": {
+    "55": {"MICH": {"adj": 0.015, "env": "big-ten-night",
+                    "note": "MSU 13 out incl. both RBs, QB Milivojevic questionable; good in both QB branches"}},
+    "48": {"TENN": {"note": "mostly number; Kentucky the better team on the season"}},
+    "63": {"WYO":  {"note": "3 straight wins, QB Hughes running well; line moved toward WYO (cause unverified)"}},
+    "58": {"NMSU": {"adj": -0.01, "note": "number only; Liberty steamed since open"}},
+    "14": {"UCLA": {"tags": ["model_only"], "note": "backup QB; 4 in a 38.5 total is a coin flip on exactly 4"}},
+    "45": {"WIS":  {"adj": -0.015, "note": "freshman QB laying 17.5"}},
+    "61": {"UTEP": {"note": "Hawaii opened -11.5; 4-pt move, cause unverified"}},
+    "37": {"MRSH": {"note": "6 of 7 books 8.5 since open; only Hard Rock at 10.5"}}
+  }
+}
