@@ -121,3 +121,11 @@ benchmark cards before the deadline, then grades explicit final results without
 rerunning pricing. It keeps missing observations/results visible, rejects late
 prospective records, and never fits probabilities. GitHub Actions runs the full
 unit suite on pushes and pull requests. The live weekly command stays unchanged.
+
+## Week 10 operating procedure
+
+[Week 10 operations](docs/WEEK_10_OPERATIONS.md) documents the November 14, 2026
+capture/record/verify/report process. `backtest/evaluation.py` enforces a versioned
+baseline and generates JSON/Markdown reports with cumulative paired prospective
+points, while excluding historical, incomplete and different-baseline weeks.
+Private records remain outside public Git; no probability tuning is performed.
