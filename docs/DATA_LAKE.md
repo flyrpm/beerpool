@@ -50,7 +50,10 @@ Prints the frozen engine's report unchanged, then adds two live-only pieces:
 
 ## Thursday sheet intake
 
-The existing "Beer pool daily picks tracker" scheduled task (it has Gmail) saves
-Chris's line PDFs into `data-lake/raw/sheets/` with the message id, receipt time and
-checksum, then pushes. New scheduled tasks can't be granted Gmail in this account, so
-the intake rides on that task.
+**Not automated yet.** The plan: the existing "Beer pool daily picks tracker" scheduled
+task (it has Gmail) runs `lake.py add-email` on Chris's line emails and `lake.py sync`.
+Changing that task's instructions needs the owner's approval, which hasn't been given yet,
+and new scheduled tasks can't be granted Gmail in this account. Until then, intake is
+manual: any session with Gmail fetches the message (get_message, RAW), writes
+`{id, raw}` to a file, then runs `lake.py add-email FILE --season S --week N` and
+`lake.py sync`.
