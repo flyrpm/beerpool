@@ -3,6 +3,7 @@
 
   python3 lake.py init                                   # check out the data-lake branch at data/lake
   python3 lake.py add-sheet BOARD.pdf --season 2026 --week 9 [--message-id ID --received ISO]
+  python3 lake.py add-email message.json --season 2026 --week 10   # Gmail RAW JSON -> PDFs
   python3 lake.py add-workbook Beer_Pool_2026-27.xlsx --season 2026
   python3 lake.py add-file PATH --kind ledger|grades|evaluation|other
   python3 lake.py build                                  # (re)build data/lake.db from everything
@@ -116,6 +117,37 @@ def add_file(path: str, kind: str) -> str:
     sub = {"ledger": "ledger/predictions", "grades": "ledger/grades",
            "evaluation": "ledger/evaluation"}.get(kind, f"raw/{kind}")
     return _add(path, os.path.join(LAKE, sub), {"kind": kind})
+
+
+def add_email(raw_json: str, season: int, week: str) -> list[str]:
+    """Store every PDF attached to a Gmail message.
+
+    raw_json: the JSON a Gmail get_message(messageFormat=RAW) call returns (fields 'id'
+    and base64url 'raw'). Keeps the message id and Date header as provenance."""
+    import base64
+    import email
+    import tempfile
+    from email.utils import parsedate_to_datetime
+    msg_json = load_json(raw_json)
+    raw = msg_json["raw"]
+    msg = email.message_from_bytes(base64.urlsafe_b64decode(raw + "=" * (-len(raw) % 4)))
+    received = None
+    if msg.get("Date"):
+        try:
+            received = parsedate_to_datetime(msg["Date"]).astimezone(timezone.utc).isoformat()
+        except (TypeError, ValueError):
+            received = msg["Date"]
+    out = []
+    for part in msg.walk():
+        name = part.get_filename()
+        if not name or not name.lower().endswith(".pdf"):
+            continue
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, name)
+            with open(path, "wb") as f:
+                f.write(part.get_payload(decode=True))
+            out.append(add_sheet(path, season, week, msg_json.get("id"), received))
+    return out or ["no PDF attachment in that message"]
 
 
 def sync(message: str = "Data lake update") -> str:
@@ -275,6 +307,10 @@ def main():
     p.add_argument("--week", required=True)
     p.add_argument("--message-id")
     p.add_argument("--received")
+    p = sub.add_parser("add-email", help="store PDF attachments from a Gmail RAW message JSON")
+    p.add_argument("raw_json")
+    p.add_argument("--season", type=int, required=True)
+    p.add_argument("--week", required=True)
     p = sub.add_parser("add-workbook")
     p.add_argument("xlsx")
     p.add_argument("--season", type=int, required=True)
@@ -291,6 +327,8 @@ def main():
         print(init())
     elif a.cmd == "add-sheet":
         print(add_sheet(a.pdf, a.season, a.week, a.message_id, a.received))
+    elif a.cmd == "add-email":
+        print("\n".join(add_email(a.raw_json, a.season, a.week)))
     elif a.cmd == "add-workbook":
         print(add_workbook(a.xlsx, a.season))
     elif a.cmd == "add-file":

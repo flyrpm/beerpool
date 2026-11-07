@@ -144,6 +144,30 @@ class Lake(unittest.TestCase):
             finally:
                 lake.LAKE = old
 
+    def test_add_email_extracts_pdf_with_provenance(self):
+        import base64
+        from email.message import EmailMessage
+        m = EmailMessage()
+        m["Date"] = "Thu, 12 Nov 2026 16:40:00 -0500"
+        m["Subject"] = "BP Week 10"
+        m.set_content("lines attached")
+        m.add_attachment(b"%PDF-1.4 week ten", maintype="application", subtype="pdf",
+                         filename="BP Wk Tenner.pdf")
+        with tempfile.TemporaryDirectory() as tmp:
+            old = lake.LAKE
+            try:
+                lake.LAKE = tmp
+                rj = Path(tmp) / "msg.json"
+                rj.write_text(json.dumps({"id": "abc123",
+                                          "raw": base64.urlsafe_b64encode(m.as_bytes()).decode()}))
+                out = lake.add_email(str(rj), 2026, "10")
+                self.assertTrue(out[0].startswith("stored raw/sheets/2026-wk10/"))
+                meta = lake.load_json(next(Path(tmp).rglob("*.meta.json")))
+                self.assertEqual(meta["gmail_message_id"], "abc123")
+                self.assertEqual(meta["received"], "2026-11-12T21:40:00+00:00")
+            finally:
+                lake.LAKE = old
+
 
 if __name__ == "__main__":
     unittest.main()

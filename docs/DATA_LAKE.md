@@ -20,6 +20,7 @@ The `data-lake` branch survives container resets and stays private. It solves th
 python3 lake.py init                                     # once per checkout
 python3 lake.py add-sheet "BP Wk Tenner.pdf" --season 2026 --week 10 \
     --message-id <gmail id> --received 2026-11-12T21:40:00Z
+python3 lake.py add-email msg.json --season 2026 --week 10   # Gmail get_message RAW JSON
 python3 lake.py build                                    # data/lake.db
 python3 lake.py sql "select * from picks"
 python3 lake.py sync                                     # commit + push data-lake
