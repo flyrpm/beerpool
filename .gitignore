@@ -1,0 +1,7 @@
+# per-run scrape output
+vi_*.html
+vi_*.json
+sweep.json
+board.txt
+*.pdf
+__pycache__/
