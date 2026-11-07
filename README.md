@@ -80,3 +80,12 @@ Thu/Fri/Sat/Sun at 8:13, 11:13, 18:13 and 21:13 ET and commits the files, so `gi
 them down. `snapshots.py build-db` builds `data/odds.db` (SQLite) from them, and
 `snapshots.py at "2026-11-07T11:30"` shows the market as it stood before the noon lock.
 `./schedule_mac.sh install` runs the same job on the Mac instead, as a fallback.
+
+## Margin model check (Phase 3)
+
+`python3 margin_model.py eval` downloads nflverse's results and closing lines (1999 to now),
+fits an empirical "P(margin | closing spread)" model on 2006–2021, and scores it against the
+engine's hand-tuned key-number model on 2022+ games it never saw. As of Nov 2026 the hand-tuned
+model wins on both spreads (Brier 0.2433 vs 0.2435–0.2438) and totals (0.2465 vs 0.2472–0.2475),
+so the engine keeps it. NFL totals spread of 13 also beat Fable's 10.5 on the same test.
+Re-run it each off-season.

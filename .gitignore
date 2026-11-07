@@ -10,3 +10,4 @@ board.json
 backtest/cache/
 data/odds.db
 data/*.log
+data/hist/
