@@ -24,7 +24,11 @@ hashes detect accidental modification; they are not external timestamp attestati
 
 ## Before November 14, 2026
 
-1. Obtain the commissioner's actual Week 10 PDF and confirm the submission rule.
+1. Retrieve the commissioner's actual Week 10 PDF from Gmail's Thursday delivery
+   (expected November 12, per the operator) and confirm the submission rule.
+   Gmail has not been accessed by this workflow. Save the original attachment
+   privately with message ID, received timestamp, filename and attachment SHA-256.
+   Verify it is this week's sheet; do not automatically select a prior PDF.
    Based on the existing rules, the expected main lock is **Saturday, November 14,
    2026 at noon Eastern (17:00 UTC)**. This is a planning assumption until checked
    against the actual commissioner instructions; do not quietly move a deadline.

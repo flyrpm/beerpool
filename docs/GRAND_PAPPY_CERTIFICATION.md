@@ -104,8 +104,16 @@ Checks:
 
 The summary says `SYNTHETIC REHEARSAL — NOT PROSPECTIVE EVIDENCE`. No raw synthetic
 inputs or records are committed as real observations. No real Week 10 predictions
-or scores were created. Clean-checkout execution and the full 76-test matrix are
-required for the certification additions as well as the original PR #2 checks.
+or scores were created. The rehearsal and all 76 tests were also executed from a second clean clone at
+`61d2039c95db1f5f212ddd02bd5df0fa2c08b465`, leaving its Git status unchanged.
+The certification additions passed all four Python versions in both push and
+pull-request CI:
+
+- https://github.com/flyrpm/beerpool/actions/runs/42396252753
+- https://github.com/flyrpm/beerpool/actions/runs/42396266907
+
+These additions are delivered in PR #3; PR #2 is already merged. Subsequent
+checklist/evidence-only updates do not change any rehearsed Python source.
 
 ## Research CLI report
 
@@ -133,6 +141,12 @@ paths or deliberate `git add -f`.
 
 Confirmed: frozen configuration/benchmark/source integrity, Python/pdftotext in
 this environment, repeatable record/grade/report commands and ignored staging.
+
+Operator clarification: PDFs arrive via Gmail on Thursdays; Week 10 is expected
+November 12. This establishes the intake channel, not receipt of an actual
+attachment. Gmail was not accessed, no message/attachment was downloaded, and no
+mail-monitoring or automated retrieval was installed. Retain email/attachment
+provenance privately when the real PDF arrives.
 
 Pending: actual Week 10 commissioner PDF; actual deadline and early exceptions;
 fresh genuine Week 10 captures; named durable private storage and verified backup.

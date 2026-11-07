@@ -6,7 +6,10 @@ is a planning assumption, not verified commissioner instructions.
 
 Before lock:
 
-- [ ] Obtain the actual commissioner Week 10 PDF; retain original privately.
+- [ ] Retrieve the actual Week 10 PDF from the Thursday Gmail delivery (expected
+      November 12, per the operator). No attachment has been accessed or verified yet.
+      Save it privately; retain message ID, received timestamp, attachment filename
+      and SHA-256 alongside the original PDF and parsed board. Do not use a prior week's attachment.
 - [ ] Verify the actual submission deadline and early-game exceptions. Expected
       main lock: Nov 14 noon Eastern / 17:00 UTC. Do not infer confirmation from a filename.
 - [ ] Confirm a private durable storage destination AND backup/restore procedure.
