@@ -57,3 +57,21 @@ and new scheduled tasks can't be granted Gmail in this account. Until then, inta
 manual: any session with Gmail fetches the message (get_message, RAW), writes
 `{id, raw}` to a file, then runs `lake.py add-email FILE --season S --week N` and
 `lake.py sync`.
+
+## Pool standings page (shareable)
+
+Page: https://claude.ai/artifact/K2ZYGcnzA1ifMFkdaUsBjp ("Beer Pool Standings"). It is private
+until it's shared from the page's Share menu. It shows only the commissioner's standings (leaderboard, race chart, weekly
+pool scores, KPI tiles); no model output or picks, so it is safe to share with the pool.
+
+Weekly update, once the commissioner's graded workbook arrives:
+
+```bash
+python3 standings.py Beer_Pool_2026-27.xlsx --season 2026 --out data/api   # the standings "API" JSON
+```
+
+Then upload `data/api/weekly_points.json` to the page (Artifact asset upload) and point the
+`weekly_points` source at the new file (or ask Claude to "update the standings page").
+`data/api/standings.json` is the same table in ready-to-use form for anything else.
+Future weeks are pre-filled with zeros in the workbook; standings.py only counts a week
+once someone has scored in it.
