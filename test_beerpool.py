@@ -3,10 +3,13 @@ import unittest
 from datetime import datetime
 from pathlib import Path
 
+import beerpool
 from beerpool import (book_range, build_candidates, build_card, calibrate_margin,
                       devig, margin_pmf, mega_gain, movement_tags, p_strict_above,
                       p_strict_below, submission_block)
 
+# Rule tests run with the strict settings; tuning is covered by the backtest.
+beerpool.TOTAL_SHRINK, beerpool.BIG_MOVE_CAPS = 1.0, True
 BOARD = json.loads((Path(__file__).parent / "board.example.json").read_text())
 NOW = datetime.fromisoformat(BOARD["now"])
 

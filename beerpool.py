@@ -173,6 +173,12 @@ def calibrate_total(league: str, mkt_total: float, p_over_fair: float) -> float:
 BANNED_TEAMS = {"DAL"}           # Bert will not pick the Cowboys.
 NO_FIVE_TAGS = {"qb_uncertain", "model_only", "starter_uncertain",
                 "big_move", "steam_against"}
+# Tunables. Backtest (backtest/run_backtest.py, fitted on 2025, checked on 2026):
+# totals edges were overrated by about half, so totals are shrunk toward 50%; spreads
+# needed no correction; big moves TOWARD our side did not hurt, so they only warn.
+TOTAL_SHRINK = 0.5     # totals: p -> 0.5 + TOTAL_SHRINK * (p - 0.5)
+SPREAD_SHRINK = 1.0    # spreads: same idea (>1 stretches, <1 shrinks)
+BIG_MOVE_CAPS = False  # True: big_move also caps at 3 pts (steam_against always does)
 BOOK_SPREAD_TOLERANCE = 1.0      # wider spread among books => no call
 BOOK_TOTAL_TOLERANCE = 1.5
 BIG_MOVE = 3.0                   # open->now move this big = news we haven't verified
@@ -238,9 +244,14 @@ class Candidate:
 
     @property
     def five_eligible(self) -> bool:
-        return not (self.tags & NO_FIVE_TAGS)
+        blocking = NO_FIVE_TAGS if BIG_MOVE_CAPS else NO_FIVE_TAGS - {"big_move"}
+        return not (self.tags & blocking)
 
     move: str = ""
+
+
+def shrink(p: float, k: float) -> float:
+    return 0.5 + k * (p - 0.5)
 
 
 def parse_time(s: str | None) -> datetime | None:
@@ -302,8 +313,8 @@ def build_candidates(board: dict, now: datetime | None,
                 p_home_ml = devig(mkt["ml_home"], mkt["ml_away"])
             mu = calibrate_margin(lg, mkt_h, p_home, p_home_ml)
             pmf = margin_pmf(mu, lg)
-            p_home_sheet = p_strict_above(pmf, -sheet_h)   # home covers sheet
-            p_away_sheet = p_strict_below(pmf, -sheet_h)
+            p_home_sheet = shrink(p_strict_above(pmf, -sheet_h), SPREAD_SHRINK)  # home covers sheet
+            p_away_sheet = shrink(p_strict_below(pmf, -sheet_h), SPREAD_SHRINK)
             row.update(sheet=f"{g['sheet_fav']} -{fmt_line(g['sheet_spread'], False)}",
                        market=f"{mkt['fav']} -{fmt_line(mkt['spread'], False)}",
                        spread_edge=round(mkt_h - sheet_h, 2),  # + favors home
@@ -330,7 +341,8 @@ def build_candidates(board: dict, now: datetime | None,
             p_over = devig(mkt.get("over_price", -110), mkt.get("under_price", -110))
             mu_t = calibrate_total(lg, mt, p_over)
             tpmf = total_pmf(mu_t, lg)
-            po, pu = p_strict_above(tpmf, st), p_strict_below(tpmf, st)
+            po = shrink(p_strict_above(tpmf, st), TOTAL_SHRINK)
+            pu = shrink(p_strict_below(tpmf, st), TOTAL_SHRINK)
             row.update(sheet_total=st, market_total=mt, total_edge=round(st - mt, 2),
                        p_over=round(po, 4), p_under=round(pu, 4))
             open_t = mkt.get("open_total")

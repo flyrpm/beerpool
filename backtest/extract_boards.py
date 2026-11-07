@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Pull every week's board out of the commissioner's standings workbook.
 
-  python3 backtest/extract_boards.py Beer_Pool_2026-27.xlsx > backtest/boards.json
+  python3 backtest/extract_boards.py BP-Week_21.xlsx Beer_Pool_2026-27.xlsx > backtest/boards.json
+Several workbooks may be given; the first one listed wins for any (season, week, game #).
 
 Handles the three layouts the workbook uses:
   A) Wk A-2 (2026):  num | away | "@/v" + home | time | "Line: ABBR -x"  (+ "O/U: x" row)
@@ -104,7 +105,18 @@ def layout_c(ws, week):
     return out
 
 
-def main(path):
+def main(paths):
+    games, seen = [], set()
+    for path in paths:
+        for g in extract(path):
+            k = (g["season"], g["week"], g["num"])
+            if k not in seen:
+                seen.add(k)
+                games.append(g)
+    json.dump(games, sys.stdout, indent=0)
+
+
+def extract(path):
     wb = openpyxl.load_workbook(path, data_only=True)
     games = []
     for ws in wb.worksheets:
@@ -125,8 +137,8 @@ def main(path):
             g["season"] = season
             g["draft"] = "DRAFT" in ws.title
         games += rows
-    json.dump(games, sys.stdout, indent=0)
+    return games
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1:])

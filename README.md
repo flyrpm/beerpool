@@ -45,9 +45,9 @@ Requires `pdftotext` (poppler-utils) and Python 3.9+. Nothing to pip install.
 ## Backtest
 
 ```bash
-python3 backtest/extract_boards.py path/to/Beer_Pool_2026-27.xlsx > backtest/cache/boards.json
+python3 backtest/extract_boards.py BP-Week_21.xlsx Beer_Pool_2026-27.xlsx > backtest/cache/boards.json
 python3 backtest/fetch_results.py backtest/cache/boards.json > backtest/cache/results.json
-python3 backtest/run_backtest.py backtest/cache/results.json path/to/Beer_Pool_2026-27.xlsx
+python3 backtest/run_backtest.py --pool 2025=BP-Week_21.xlsx --pool 2026=Beer_Pool_2026-27.xlsx [--cards]
 ```
 
 Takes every board in the standings workbook (2026 Weeks A–9, plus last season's Weeks 10–21) and
@@ -57,3 +57,17 @@ with push = loss, and the engine's weekly card is compared with the pool's actua
 The close comes after the Saturday-noon deadline, so treat the results as an upper bound.
 Everything is cached in `backtest/cache/`, which is git-ignored because the workbook holds the
 pool's private data.
+
+Tuning is fitted on one season (`--train`, default 2025) and reported on the other (`--test`, 2026).
+Results as of Week 9, 2026 (1,908 games):
+
+| | 2025 (22 wks) | 2026 (A–8) |
+|---|---|---|
+| Engine card, pts/week | 10.95 | 12.44 |
+| Bert, pts/week | 9.91 | 11.11 |
+| Pool average, pts/week | 8.83 | 9.34 |
+| Model ≥56% picks covered | 63% | 67% |
+| All positive-edge sides covered | ~51% | ~56% |
+
+Only the top of the ranking carries signal. Mid-range "edges" are close to coin flips, and
+totals edges are worth about half what the raw model says (`TOTAL_SHRINK = 0.5`).
