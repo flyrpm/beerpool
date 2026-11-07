@@ -43,6 +43,15 @@ class Evaluation(unittest.TestCase):
         with patch.object(pl, 'now_utc', return_value=self.clock):
             return ev.report(self.baseline, self.ledger, results or [], 2026, weeks)
 
+    def test_committed_baseline_matches_pinned_sources(self):
+        baseline = ev.read(ev.ROOT / 'evaluation/baselines/ronnie-v1.json')
+        ev.verify_baseline(baseline, check_sources=True)
+        self.assertEqual(baseline['payload']['id'], 'ronnie-v1-2026-11-07')
+        output = self.fixture.root / 'baseline.json'
+        pl.write_new(output, baseline)
+        with self.assertRaises(FileExistsError):
+            pl.write_new(output, baseline)
+
     def test_baseline_contains_pinned_policies_and_hashes(self):
         ev.verify_baseline(self.baseline)
         p = self.baseline['payload']

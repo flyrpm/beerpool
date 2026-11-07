@@ -9,7 +9,10 @@ review findings. Production pricing, calibration and selection settings are unch
 The versioned `evaluation/baselines/ronnie-v1.json` pins the evaluation's exact
 Git revision, source hashes, full frozen configuration/calibration, benchmark,
 24-hour freshness policy, deadline policy and scoring/eligibility rules. The
-baseline is public configuration only. Prediction records, sheets, original
+baseline is public configuration only. Its pinned tooling/model revision is
+`6411fe24f9f1dd4cd23398d12f9daa0e6b311816`, with manifest checksum
+`34c0e939c58c25ef0d15c9434bc164b3e632b218e36e909316b8d7939806a1f3`. The manifest
+is committed separately from the source revision to avoid a self-referential hash. Prediction records, sheets, original
 snapshots, result exports and reports belong in **private durable storage**.
 Default `data/predictions/`, `data/grades/` and `data/evaluation/` paths are ignored.
 
