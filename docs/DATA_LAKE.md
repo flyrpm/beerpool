@@ -9,7 +9,7 @@ still verifies (`evaluation.verify_baseline(..., check_sources=True)`).
 | Layer | Where | What |
 |---|---|---|
 | Raw, append-only | branch `data-lake` of this private repo, checked out at `data/lake/` | commissioner PDFs, standings workbooks, ESPN context pulls, ledger/grades/evaluation files. Each stored file has a `.meta.json` (sha256, source, received time). Duplicates are refused. |
-| Odds snapshots | `data/snapshots/` on `main` | committed by the cloud snapshot runner (unchanged) |
+| Odds snapshots | `data/snapshots/` on `main` | committed by the **GitHub Action** `.github/workflows/snapshots.yml` (no Claude usage, so no usage limits); the Claude runner session is the backup |
 | Query layer | `data/lake.db` (SQLite, git-ignored) | rebuilt from the two above with `python3 lake.py build` |
 
 The `data-lake` branch survives container resets and stays private. It solves the
