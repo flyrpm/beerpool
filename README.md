@@ -138,3 +138,6 @@ from Week 10 input/storage gates and predictive evidence. Run
 [operator checklist](docs/WEEK_10_CHECKLIST.md) includes the additive
 `backtest/research_report.py` CLI for sample-sized win rates, calibration and
 weekly/cumulative Beer Points. The original frozen baseline remains unchanged.
+
+BeerPool is in [maintenance mode](docs/MAINTENANCE.md) through the first Week 10
+forward evaluation: no additional feature work or model tuning.
