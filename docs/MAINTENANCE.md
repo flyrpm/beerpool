@@ -45,3 +45,11 @@ prospective weeks available here; no predictive superiority/profitability claim.
 See [certification](GRAND_PAPPY_CERTIFICATION.md) for evidence and limitations.
 Future checkpoints are not proof that future data will exist or that a run will
 succeed. Any scheduled run must report NO-GO when access, storage or data is missing.
+
+## Checkpoint scheduling status
+
+Attempts to create the November 12 intake and November 14 recording checkpoints
+were rejected because the account is already at its five-scheduled-task limit.
+No existing task was disabled or changed. **Neither checkpoint is scheduled.**
+Treat the dates above as operator actions unless scheduling is explicitly arranged
+later. Gmail is also unconnected; do not expect an automatic attachment download.
