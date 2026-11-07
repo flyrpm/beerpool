@@ -23,6 +23,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import re
 import subprocess
 import sys
@@ -184,6 +185,37 @@ BIG_MOVE_CAPS = False  # True: big_move also caps at 3 pts (steam_against always
 # pre-deadline snapshots; set HUGE_EDGE_P = 0.52 to treat them as ~no edge and 3-pt max.
 HUGE_EDGE = 3.5
 HUGE_EDGE_P = None
+
+# Calibration layer (improvement #1). Learned from graded history by run_backtest.py
+# --fit-calibration: cover rate by market type x edge-size bucket. When loaded it REPLACES
+# the shrinks/cap above: p = bucket cover rate + 0.5 * (raw model p - bucket's mean raw p),
+# so the bucket sets the level and the model still orders picks within a bucket.
+CALIBRATION_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models", "calibration.json")
+CALIBRATION = json.load(open(CALIBRATION_PATH)) if os.path.exists(CALIBRATION_PATH) else None
+EDGE_BUCKETS = (("<=0", -99, 0.0), ("0.5", 0.5, 0.5), ("1-1.5", 1.0, 1.5),
+                ("2-3", 2.0, 3.0), ("3.5+", 3.5, 99))
+
+# 5-point slot rule (improvement #2): 5-pointers must be spreads whose sheet number beats the
+# market by FIVE_MIN_EDGE..FIVE_MAX_EDGE points (the backtest's sweet spot). None = off.
+FIVE_MIN_EDGE = 1.5
+FIVE_MAX_EDGE = 3.0
+FIVE_SPREADS_ONLY = True
+
+
+def edge_bucket(edge: float) -> str:
+    for name, lo, hi in EDGE_BUCKETS:
+        if lo <= edge <= hi:
+            return name
+    return "<=0"
+
+
+def calibrate(p_raw: float, kind: str, edge: float) -> float:
+    if not CALIBRATION:
+        return p_raw
+    cell = CALIBRATION.get(kind, {}).get(edge_bucket(edge))
+    if not cell:
+        return p_raw
+    return min(0.75, max(0.25, cell["rate"] + 0.5 * (p_raw - cell["mean_p"])))
 BOOK_SPREAD_TOLERANCE = 1.0      # wider spread among books => no call
 BOOK_TOTAL_TOLERANCE = 1.5
 BIG_MOVE = 3.0                   # open->now move this big = news we haven't verified
@@ -318,8 +350,12 @@ def build_candidates(board: dict, now: datetime | None,
                 p_home_ml = devig(mkt["ml_home"], mkt["ml_away"])
             mu = calibrate_margin(lg, mkt_h, p_home, p_home_ml)
             pmf = margin_pmf(mu, lg)
-            p_home_sheet = shrink(p_strict_above(pmf, -sheet_h), SPREAD_SHRINK)  # home covers sheet
-            p_away_sheet = shrink(p_strict_below(pmf, -sheet_h), SPREAD_SHRINK)
+            k = 1.0 if CALIBRATION else SPREAD_SHRINK
+            p_home_sheet = shrink(p_strict_above(pmf, -sheet_h), k)  # home covers sheet
+            p_away_sheet = shrink(p_strict_below(pmf, -sheet_h), k)
+            if CALIBRATION:
+                p_home_sheet = calibrate(p_home_sheet, "spread", sheet_h - mkt_h)
+                p_away_sheet = calibrate(p_away_sheet, "spread", mkt_h - sheet_h)
             row.update(sheet=f"{g['sheet_fav']} -{fmt_line(g['sheet_spread'], False)}",
                        market=f"{mkt['fav']} -{fmt_line(mkt['spread'], False)}",
                        spread_edge=round(mkt_h - sheet_h, 2),  # + favors home
@@ -346,8 +382,11 @@ def build_candidates(board: dict, now: datetime | None,
             p_over = devig(mkt.get("over_price", -110), mkt.get("under_price", -110))
             mu_t = calibrate_total(lg, mt, p_over)
             tpmf = total_pmf(mu_t, lg)
-            po = shrink(p_strict_above(tpmf, st), TOTAL_SHRINK)
-            pu = shrink(p_strict_below(tpmf, st), TOTAL_SHRINK)
+            k = 1.0 if CALIBRATION else TOTAL_SHRINK
+            po = shrink(p_strict_above(tpmf, st), k)
+            pu = shrink(p_strict_below(tpmf, st), k)
+            if CALIBRATION:
+                po, pu = calibrate(po, "total", mt - st), calibrate(pu, "total", st - mt)
             row.update(sheet_total=st, market_total=mt, total_edge=round(st - mt, 2),
                        p_over=round(po, 4), p_under=round(pu, 4))
             open_t = mkt.get("open_total")
@@ -383,7 +422,7 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53):
     card: list[Candidate] = []
     used_games, used_theses, used_envs = set(), set(), set()
 
-    def ok(c: Candidate, five: bool) -> bool:
+    def ok(c: Candidate, five: bool, sweet_spot: bool = True) -> bool:
         if c.game in used_games:
             return False                      # one pick per game (never both sides)
         if c.thesis and c.thesis in used_theses:
@@ -391,6 +430,11 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53):
         if five:
             if not c.five_eligible:
                 return False                  # unresolved starter / model-only
+            if FIVE_MIN_EDGE is not None and sweet_spot:
+                if FIVE_SPREADS_ONLY and c.side in ("OVER", "UNDER"):
+                    return False              # 5-pointers: spreads only
+                if not (FIVE_MIN_EDGE <= c.number_edge <= FIVE_MAX_EDGE):
+                    return False              # 5-pointers: sweet-spot edge only
             env = c.env or f"game{c.game}"
             if env in used_envs:
                 return False                  # 5-pointers in different environments
@@ -404,11 +448,14 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53):
         if five:
             used_envs.add(c.env or f"game{c.game}")
 
-    for _ in range(2):
-        for c in ranked:
-            if ok(c, True):
-                take(c, True)
+    # 5-pt slots: sweet-spot picks first; if fewer than two exist, fill the rest
+    # under the ordinary 5-pt rules rather than leave a slot empty.
+    for sweet in (True, False):
+        while len(card) < 2:
+            pick = next((c for c in ranked if c not in card and ok(c, True, sweet)), None)
+            if pick is None:
                 break
+            take(pick, True)
     for _ in range(3):
         for c in ranked:
             if c not in card and ok(c, False):

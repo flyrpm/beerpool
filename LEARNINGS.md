@@ -54,11 +54,27 @@ about 9.
 - **Engine vs Bert, week by week:** the engine is steadier (9–16 every 2026 week). Bert's NFL
   picks beat it in weeks where the board had no college edges (2026 Week 1, Week 5).
 
+## Improvements applied (Nov 7 2026)
+
+1. **Calibration layer** (`models/calibration.json`, built by
+   `run_backtest.py --no-fit --train 0 --save-calibration`). Each pick's probability is set by
+   what that *type* of pick (spread or total) with that *size* of edge actually did
+   historically, shrunk toward the model with 40 pseudo-picks. The model still orders picks
+   within a bucket. It replaces the hand-set totals shrink and makes the huge-edge cap
+   unnecessary (3.5+ edges now calibrate to 55% spreads / 57% totals instead of 59–60%).
+   Current table: spreads 1–1.5 → 54.8%, 2–3 → 58.6%; totals 1–1.5 → 51.9%, 2–3 → 53.6%.
+2. **5-point sweet-spot rule.** The two 5-pointers must be spreads with a 1.5–3 point edge,
+   falling back to the old rules only if fewer than two exist.
+
+Held-out test (calibration fitted on 2025, scored on 2026): current engine 115 pts (31-14) →
+calibration 119 → **calibration + 5-pt rule 123 (33-12, 73.3%)**. 2025, in-sample: 232 → 256.
+The 5-pt thresholds came from looking at both seasons, so part of that gain is in-sample.
+Refit the calibration each time a season's results are added.
+
 ## Open questions / next steps
 
-- **Huge-edge cap** (`HUGE_EDGE_P = 0.52`, off by default): +9 pts in 2025 and +10 in 2026 in
-  the backtest, but the threshold was chosen after seeing the data. Turn it on once the
-  pre-deadline snapshots confirm it.
+- **Huge-edge cap** (`HUGE_EDGE_P`, off): superseded by the calibration layer; kept for
+  comparison in the backtest.
 - **Spreads of 21+ points** in the engine's card won only 54% (37 picks), against 62–68% for
   smaller spreads. Watch it; no rule yet.
 - **Phase 4:** pool simulator. Use the standings, payouts and 34 entrants' histories to maximize

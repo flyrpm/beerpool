@@ -132,9 +132,36 @@ def pool_points(xlsx: str) -> dict:
 
 # --------------------------------------------------------------------- engine settings
 def configure(total_shrink: float, spread_shrink: float, big_move_caps: bool,
-              huge_edge_p: float | None = None):
+              huge_edge_p: float | None = None, calibration: dict | None = None,
+              five_rule: bool = False):
     bp.TOTAL_SHRINK, bp.SPREAD_SHRINK, bp.BIG_MOVE_CAPS = total_shrink, spread_shrink, big_move_caps
     bp.HUGE_EDGE_P = huge_edge_p
+    bp.CALIBRATION = calibration
+    bp.FIVE_MIN_EDGE = 1.5 if five_rule else None
+
+
+PRIOR = 40  # pseudo-picks pulling each bucket's cover rate toward the model's own mean
+
+
+def fit_calibration(weeks: dict) -> dict:
+    """Cover rate by market type x edge bucket, from RAW model p (no shrinks)."""
+    configure(1.0, 1.0, False)
+    cells = {}
+    for pairs in candidates_by_week(weeks).values():
+        for c, w in pairs:
+            kind = "total" if c.side in ("OVER", "UNDER") else "spread"
+            cell = cells.setdefault(kind, {}).setdefault(bp.edge_bucket(c.number_edge), [0, 0, 0.0])
+            cell[0] += w
+            cell[1] += 1
+            cell[2] += c.p
+    out = {}
+    for kind, buckets in cells.items():
+        for b, (w, n, ps) in buckets.items():
+            mean_p = ps / n
+            out.setdefault(kind, {})[b] = {"rate": round((w + PRIOR * mean_p) / (n + PRIOR), 4),
+                                           "mean_p": round(mean_p, 4), "n": n,
+                                           "raw_rate": round(w / n, 4)}
+    return out
 
 
 def candidates_by_week(weeks: dict) -> dict:
@@ -222,9 +249,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--results", default=os.path.join(HERE, "cache", "results.json"))
     ap.add_argument("--pool", action="append", default=[], help="SEASON=workbook.xlsx")
-    ap.add_argument("--train", type=int, default=2025)
+    ap.add_argument("--train", type=int, default=2025, help="season to fit on; 0 = all seasons")
     ap.add_argument("--test", type=int, default=2026)
     ap.add_argument("--cards", action="store_true", help="print every weekly card")
+    ap.add_argument("--no-fit", action="store_true",
+                    help="skip the slow shrink grid; use TOTAL_SHRINK=0.5, SPREAD_SHRINK=1.0")
+    ap.add_argument("--save-calibration", action="store_true",
+                    help="write the train-season calibration to models/calibration.json")
     a = ap.parse_args()
 
     games = [g for g in json.load(open(a.results))
@@ -232,7 +263,8 @@ def main():
     weeks = defaultdict(list)
     for g in games:
         weeks[(g["season"], g["week"])].append(g)
-    train = {k: v for k, v in weeks.items() if k[0] == a.train}
+    # --train 0 = every season (for the production calibration; no held-out test then)
+    train = {k: v for k, v in weeks.items() if a.train == 0 or k[0] == a.train}
     pool = {}
     for spec in a.pool:
         season, path = spec.split("=", 1)
@@ -240,12 +272,29 @@ def main():
 
     print(f"Games graded: {sum(len(v) for v in weeks.values())} "
           f"({', '.join(f'{s}: {sum(len(v) for k, v in weeks.items() if k[0] == s)}' for s in sorted({k[0] for k in weeks}))})")
-    print(f"\n== FIT on {a.train} only (Brier score, lower is better) ==")
-    ts, ss = fit(train)
-    print(f"  -> TOTAL_SHRINK={ts}  SPREAD_SHRINK={ss}")
+    if a.no_fit:
+        ts, ss = 0.5, 1.0
+    else:
+        print(f"\n== FIT on {a.train} only (Brier score, lower is better) ==")
+        ts, ss = fit(train)
+        print(f"  -> TOTAL_SHRINK={ts}  SPREAD_SHRINK={ss}")
+    cal = fit_calibration(train)
+    print(f"\n== CALIBRATION fitted on {a.train or 'all seasons'} (cover rate by type x edge; shrunk toward model) ==")
+    for kind in ("spread", "total"):
+        for b, _, _ in bp.EDGE_BUCKETS:
+            c = cal.get(kind, {}).get(b)
+            if c:
+                print(f"  {kind:<6} {b:<6} n={c['n']:>5}  model {c['mean_p']:.3f}  actual {c['raw_rate']:.3f}  -> {c['rate']:.3f}")
+    if a.save_calibration:
+        path = bp.CALIBRATION_PATH
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        json.dump({**cal, "_meta": {"train_season": a.train, "prior": PRIOR}}, open(path, "w"), indent=1)
+        print(f"  saved -> {path}")
 
     variants = {"baseline": (1.0, 1.0, True), "tuned": (ts, ss, False),
-                "tuned+cap": (ts, ss, False, 0.52)}
+                "tuned+cap": (ts, ss, False, 0.52),
+                "calibrated": (ts, ss, False, None, cal),
+                "calib+5pt": (ts, ss, False, None, cal, True)}
     cards = {}
     for name, cfg in variants.items():
         configure(*cfg)
@@ -255,6 +304,18 @@ def main():
             tag = "train" if season == a.train else "TEST (out of sample)" if season == a.test else ""
             report_pricing(sub, f"{name} / {season} {tag}")
         cards[name] = run_cards(cbw)
+
+    print("\n== SEASON TOTALS BY VARIANT (points, record) ==")
+    for season in sorted({k[0] for k in weeks}):
+        tag = "train" if season == a.train else "TEST" if season == a.test else ""
+        line = []
+        for name in variants:
+            ks = [k for k in cards[name] if k[0] == season]
+            pts = sum(cards[name][k]["pts"] for k in ks)
+            w = sum(sum(cards[name][k]["five"]) for k in ks)
+            n = sum(len(cards[name][k]["picks"]) for k in ks)
+            line.append(f"{name} {pts} ({w}-{n - w}, {w / n:.1%})")
+        print(f"  {season} {tag:<5} " + " | ".join(line))
 
     print("\n== WEEKLY CARDS: engine vs Bert vs pool ==")
     print(f"{'week':<9} {'games':>5} {'base':>5} {'tuned':>6} {'+cap':>5} {'Bert':>5} {'avg':>5} {'best':>5}")

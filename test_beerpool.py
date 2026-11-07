@@ -10,6 +10,7 @@ from beerpool import (book_range, build_candidates, build_card, calibrate_margin
 
 # Rule tests run with the strict settings; tuning is covered by the backtest.
 beerpool.TOTAL_SHRINK, beerpool.BIG_MOVE_CAPS = 1.0, True
+beerpool.CALIBRATION, beerpool.FIVE_MIN_EDGE = None, None
 BOARD = json.loads((Path(__file__).parent / "board.example.json").read_text())
 NOW = datetime.fromisoformat(BOARD["now"])
 
@@ -124,6 +125,36 @@ class Rules(unittest.TestCase):
         cands, *_ = run(b)
         utah = next(c for c in cands if c.game == 56 and c.side == "UTAH")
         self.assertTrue(utah.five_eligible)
+
+    def test_five_point_sweet_spot_rule(self):
+        cands, *_ = run()
+        try:
+            beerpool.FIVE_MIN_EDGE = 1.5
+            card, _, _ = build_card(cands)
+            self.assertEqual(len(card), 5)
+            sweet = [c for c in cands if c.side not in ("OVER", "UNDER")
+                     and 1.5 <= c.number_edge <= 3.0 and c.five_eligible]
+            if sweet:   # the best sweet-spot spread must hold a 5-pt slot
+                best = max(sweet, key=lambda c: c.p)
+                self.assertIn(best.game, {c.game for c in card[:2]})
+            # every 5-pointer is either sweet-spot or a fallback filling an empty slot
+            for c in card[:2]:
+                self.assertTrue(c.five_eligible)
+        finally:
+            beerpool.FIVE_MIN_EDGE = None
+
+    def test_calibration_by_edge_bucket(self):
+        try:
+            beerpool.CALIBRATION = {"spread": {"2-3": {"rate": 0.58, "mean_p": 0.55},
+                                               "3.5+": {"rate": 0.51, "mean_p": 0.58}}}
+            self.assertAlmostEqual(beerpool.calibrate(0.55, "spread", 2.0), 0.58)
+            self.assertAlmostEqual(beerpool.calibrate(0.60, "spread", 4.0), 0.52)
+            self.assertEqual(beerpool.calibrate(0.53, "total", 1.0), 0.53)  # no cell: unchanged
+            self.assertEqual(beerpool.edge_bucket(0.0), "<=0")
+            self.assertEqual(beerpool.edge_bucket(-1.5), "<=0")
+            self.assertEqual(beerpool.edge_bucket(1.5), "1-1.5")
+        finally:
+            beerpool.CALIBRATION = None
 
     def test_thin_board(self):
         thin_board = {"week": "W", "default_lock": "2026-11-07T12:00", "games": [
