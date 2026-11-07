@@ -247,7 +247,10 @@ class Config:
 
     @staticmethod
     def production() -> "Config":
-        cal = json.load(open(CALIBRATION_PATH)) if os.path.exists(CALIBRATION_PATH) else None
+        cal = None
+        if os.path.exists(CALIBRATION_PATH):
+            with open(CALIBRATION_PATH) as f:
+                cal = json.load(f)
         return Config(calibration=cal)
 
     @staticmethod
@@ -490,55 +493,64 @@ def build_candidates(board: dict, now: datetime | None, warnings: list[str],
 # ---------------------------------------------------------------------------
 
 def build_card(cands: list[Candidate], thin_threshold: float = 0.53, cfg: Config | None = None):
-    """Greedy is optimal here: points per slot are fixed, so the highest
-    probabilities go to the highest-value slots, subject to constraints."""
+    """Exact search: fill legal slots, preserve sweet-spot priority, then maximize EV.
+
+    The first two entries always satisfy five-point eligibility. If no legal pair
+    exists return no card; otherwise return the largest feasible card (up to five).
+    Stable input order breaks equal-EV ties, preserving optimal historical cards.
+    """
     cfg = cfg or Config.production()
     ranked = sorted(cands, key=lambda c: c.p, reverse=True)
-    card: list[Candidate] = []
-    used_games, used_theses, used_envs = set(), set(), set()
-
-    def ok(c: Candidate, five: bool, sweet_spot: bool = True) -> bool:
-        if c.game in used_games:
-            return False                      # one pick per game (never both sides)
-        if c.thesis and c.thesis in used_theses:
-            return False                      # don't stack one thesis
-        if five:
-            if not c.five_eligible:
-                return False                  # unresolved starter / model-only
-            if cfg.five_min_edge is not None and sweet_spot:
-                if cfg.five_spreads_only and c.side in ("OVER", "UNDER"):
-                    return False              # 5-pointers: spreads only
-                if not (cfg.five_min_edge <= c.number_edge <= cfg.five_max_edge):
-                    return False              # 5-pointers: sweet-spot edge only
-            env = c.env or f"game{c.game}"
-            if env in used_envs:
-                return False                  # 5-pointers in different environments
-        return True
-
-    def take(c: Candidate, five: bool):
-        card.append(c)
-        used_games.add(c.game)
-        if c.thesis:
-            used_theses.add(c.thesis)
-        if five:
-            used_envs.add(c.env or f"game{c.game}")
-
-    # 5-pt slots: sweet-spot picks first; if fewer than two exist, fill the rest
-    # under the ordinary 5-pt rules rather than leave a slot empty.
-    for sweet in (True, False):
-        while len(card) < 2:
-            pick = next((c for c in ranked if c not in card and ok(c, True, sweet)), None)
-            if pick is None:
-                break
-            take(pick, True)
-    for _ in range(3):
-        for c in ranked:
-            if c not in card and ok(c, False):
-                take(c, False)
-                break
-
     thin = not ranked or ranked[0].p < thin_threshold
-    return card, thin, ranked
+
+    def sweet(c):
+        return (cfg.five_min_edge is not None
+                and (not cfg.five_spreads_only or c.side not in ("OVER", "UNDER"))
+                and cfg.five_min_edge <= c.number_edge <= cfg.five_max_edge)
+
+    def compatible(c, chosen):
+        return all(c.game != x.game and not (c.thesis and c.thesis == x.thesis)
+                   for x in chosen)
+
+    # First seek a full card. Only an infeasible full board permits fewer slots.
+    fives = [c for c in ranked if c.five_eligible]
+    for size in range(5, 1, -1):
+        best, best_ev = None, float("-inf")
+        best_sweet = -1
+        for i, a in enumerate(fives):
+            for b in fives[i + 1:]:
+                if not compatible(b, [a]):
+                    continue
+                if (a.env or f"game{a.game}") == (b.env or f"game{b.game}"):
+                    continue
+                ns = int(sweet(a)) + int(sweet(b))
+                if ns < best_sweet:
+                    continue
+                rest = [c for c in ranked if compatible(c, [a, b])]
+                need = size - 2
+                base = 5 * (a.p + b.p)
+
+                def search(start, picked, value):
+                    nonlocal best, best_ev, best_sweet
+                    left = need - len(picked)
+                    if len(rest) - start < left:
+                        return
+                    # Optimistic bound ignores conflicts among remaining candidates.
+                    upper = value + 3 * sum(c.p for c in rest[start:start + left])
+                    if ns == best_sweet and upper <= best_ev + 1e-12:
+                        return
+                    if left == 0:
+                        best, best_ev, best_sweet = [a, b] + picked, value, ns
+                        return
+                    for j in range(start, len(rest) - left + 1):
+                        c = rest[j]
+                        if compatible(c, picked):
+                            search(j + 1, picked + [c], value + 3 * c.p)
+
+                search(0, [], base)
+        if best is not None:
+            return best, thin, ranked
+    return [], thin, ranked
 
 
 def mega_gain(p: float) -> float:

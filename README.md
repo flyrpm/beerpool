@@ -104,3 +104,12 @@ Re-run it each off-season.
   lower-division namesakes, and it never guesses: an ambiguous name returns None with a reason.
   The live board and backtest matchers will move onto it next. (A first try at the backtest
   matcher dropped 21 games; parked until the tier fix is verified.)
+
+## Exact selection and snapshot-only replay
+
+Card selection now searches legal slot assignments exactly, preserving the five-point
+sweet-spot preference, and maximizes expected pool points within those constraints.
+The weekly `./run.sh` command stays the same. An independent offline replay command
+freezes settings and uses only pre-submission snapshots, reporting missing observations
+without substituting closing odds. See [Phase 2 implementation](docs/PHASE_2_IMPLEMENTATION.md)
+for commands, behavior changes and evidence limitations.
