@@ -129,3 +129,15 @@ capture/record/verify/report process. `backtest/evaluation.py` enforces a versio
 baseline and generates JSON/Markdown reports with cumulative paired prospective
 points, while excluding historical, incomplete and different-baseline weeks.
 Private records remain outside public Git; no probability tuning is performed.
+
+## Grand Pappy operational certification
+
+[Certification](docs/GRAND_PAPPY_CERTIFICATION.md) separates engineering readiness
+from Week 10 input/storage gates and predictive evidence. Run
+`python3 backtest/certify.py` for a temporary synthetic rehearsal. The
+[operator checklist](docs/WEEK_10_CHECKLIST.md) includes the additive
+`backtest/research_report.py` CLI for sample-sized win rates, calibration and
+weekly/cumulative Beer Points. The original frozen baseline remains unchanged.
+
+BeerPool is in [maintenance mode](docs/MAINTENANCE.md) through the first Week 10
+forward evaluation: no additional feature work or model tuning.
