@@ -8,3 +8,5 @@ __pycache__/
 cache/
 board.json
 backtest/cache/
+data/odds.db
+data/*.log

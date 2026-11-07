@@ -71,3 +71,12 @@ Results as of Week 9, 2026 (1,908 games):
 
 Only the top of the ranking carries signal. Mid-range "edges" are close to coin flips, and
 totals edges are worth about half what the raw model says (`TOTAL_SHRINK = 0.5`).
+
+## Odds snapshots (Phase 1 of the redesign)
+
+`snapshots.py take` saves every book's spread, total and moneyline for the NFL and college slates
+to `data/snapshots/YYYY-MM-DD/<UTC HHMM>_<league>.json.gz`. A cloud scheduled task runs it
+Thu/Fri/Sat/Sun at 8:13, 11:13, 18:13 and 21:13 ET and commits the files, so `git pull` brings
+them down. `snapshots.py build-db` builds `data/odds.db` (SQLite) from them, and
+`snapshots.py at "2026-11-07T11:30"` shows the market as it stood before the noon lock.
+`./schedule_mac.sh install` runs the same job on the Mac instead, as a fallback.
