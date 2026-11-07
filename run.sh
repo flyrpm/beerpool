@@ -21,4 +21,4 @@ if [ -z "$NOTES" ]; then
   [ -z "$NOTES" ] || echo "Using notes: $NOTES" >&2
 fi
 python3 build_board.py --pdf "$PDF" ${NOTES:+--notes "$NOTES"} > board.json
-python3 beerpool.py board.json --pdf "$PDF" ${NOW:+--now "$NOW"}
+python3 beerpool.py board.json --pdf "$PDF" --save-run runs ${NOW:+--now "$NOW"}

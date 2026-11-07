@@ -44,8 +44,9 @@ def main():
     ap.add_argument("--workbook", help="that season's standings workbook (for Bert + pool)")
     ap.add_argument("--cap", action="store_true")
     a = ap.parse_args()
+    cfg = bp.Config.production()
     if a.cap:
-        bp.HUGE_EDGE_P = 0.52
+        cfg = cfg.with_(huge_edge_p=0.52)
 
     games = [g for g in json.load(open(a.results))
              if g.get("event_id") and g.get("status") == "STATUS_FINAL"
@@ -54,7 +55,7 @@ def main():
         sys.exit("no graded games for that season/week")
     idx = {g["num"]: g for g in games}
     board = rb.board_for(games)
-    cands, _ = bp.build_candidates(board, None, [])
+    cands, _ = bp.build_candidates(board, None, [], cfg)
     res = {id(c): rb.grade(c, idx[c.game]) for c in cands}
 
     def final(c):
@@ -65,6 +66,7 @@ def main():
         return bp.fmt_line(c.market_line, c.side not in ("OVER", "UNDER"))
 
     n_cfb = sum(1 for g in board["games"] if g["league"] == "CFB")
+    print(f"engine: {cfg.describe()}")
     print(f"{a.season} Week {a.week}: {len(board['games'])} games priced ({n_cfb} college, "
           f"{len(board['games']) - n_cfb} NFL)")
     for lg in ("CFB", "NFL"):
@@ -72,7 +74,7 @@ def main():
         for c in sorted((c for c in cands if c.league == lg), key=lambda c: c.p, reverse=True)[:5]:
             print(f"  {c.p:.3f} {c.game:>3} {c.label:<26} close {mkt(c):<6} edge {c.number_edge:+g} "
                   f"[{','.join(sorted(c.tags)) or '-'}] {final(c):<20} {'WIN' if res[id(c)] else 'loss'}")
-    card, thin, _ = bp.build_card(cands)
+    card, thin, _ = bp.build_card(cands, cfg=cfg)
     pts = 0
     print("-- ENGINE CARD --" + ("  (thin board)" if thin else ""))
     for i, c in enumerate(card, 1):

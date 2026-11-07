@@ -27,7 +27,8 @@ import os
 import re
 import subprocess
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
+from functools import lru_cache
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -92,9 +93,53 @@ def p_strict_below(pmf: dict[int, float], x: float) -> float:
     return sum(v for k, v in pmf.items() if k < x)
 
 
-def _bisect(f, lo: float, hi: float, target: float, iters: int = 60) -> float:
-    """f increasing in its argument; find x with f(x) = target."""
-    for _ in range(iters):
+# Fast path: cumulative tables cached on the mean rounded to 0.01 pt. Pricing a board
+# calls these thousands of times; the dict versions above stay for tools and tests.
+class _Cum:
+    __slots__ = ("lo", "cum")
+
+    def __init__(self, pmf: dict[int, float]):
+        self.lo = min(pmf)
+        acc, out = 0.0, []
+        for k in range(self.lo, max(pmf) + 1):
+            acc += pmf.get(k, 0.0)
+            out.append(acc)
+        self.cum = out
+
+    def le(self, k: int) -> float:          # P(X <= k)
+        i = k - self.lo
+        if i < 0:
+            return 0.0
+        return self.cum[min(i, len(self.cum) - 1)]
+
+    def above(self, x: float) -> float:     # P(X > x), push = loss
+        return 1.0 - self.le(math.floor(x))
+
+    def below(self, x: float) -> float:     # P(X < x)
+        return self.le(math.ceil(x) - 1)
+
+
+@lru_cache(maxsize=8192)
+def _margin_cum(mu_q: float, league: str) -> _Cum:
+    return _Cum(margin_pmf(mu_q, league))
+
+
+@lru_cache(maxsize=8192)
+def _total_cum(mu_q: float, league: str) -> _Cum:
+    return _Cum(total_pmf(mu_q, league))
+
+
+def margin_cum(mu: float, league: str) -> _Cum:
+    return _margin_cum(round(mu, 2), league)
+
+
+def total_cum(mu: float, league: str) -> _Cum:
+    return _total_cum(round(mu, 2), league)
+
+
+def _bisect(f, lo: float, hi: float, target: float, tol: float = 0.005) -> float:
+    """f increasing in its argument; find x with f(x) = target (to tol points)."""
+    while hi - lo > tol:
         mid = (lo + hi) / 2
         if f(mid) < target:
             lo = mid
@@ -144,16 +189,15 @@ def calibrate_margin(league: str, mkt_home_line: float, p_home_fair: float,
     P(home covers) / (P(home covers) + P(away covers)).
     """
     def cond_cover(mu: float) -> float:
-        pmf = margin_pmf(mu, league)
-        win = p_strict_above(pmf, -mkt_home_line)
-        lose = p_strict_below(pmf, -mkt_home_line)
+        c = margin_cum(mu, league)
+        win, lose = c.above(-mkt_home_line), c.below(-mkt_home_line)
         return win / (win + lose)
 
     mu = _bisect(cond_cover, -70, 70, p_home_fair)
     if p_home_ml is not None:
         def cond_win(m: float) -> float:
-            pmf = margin_pmf(m, league)
-            w, l = p_strict_above(pmf, 0), p_strict_below(pmf, 0)
+            c = margin_cum(m, league)
+            w, l = c.above(0), c.below(0)
             return w / (w + l)
         mu = (mu + _bisect(cond_win, -70, 70, p_home_ml)) / 2
     return mu
@@ -161,8 +205,8 @@ def calibrate_margin(league: str, mkt_home_line: float, p_home_fair: float,
 
 def calibrate_total(league: str, mkt_total: float, p_over_fair: float) -> float:
     def cond_over(mu: float) -> float:
-        pmf = total_pmf(mu, league)
-        o, u = p_strict_above(pmf, mkt_total), p_strict_below(pmf, mkt_total)
+        c = total_cum(mu, league)
+        o, u = c.above(mkt_total), c.below(mkt_total)
         return o / (o + u)
     return _bisect(cond_over, 10, 130, p_over_fair)
 
@@ -174,32 +218,54 @@ def calibrate_total(league: str, mkt_total: float, p_over_fair: float) -> float:
 BANNED_TEAMS = {"DAL"}           # Bert will not pick the Cowboys.
 NO_FIVE_TAGS = {"qb_uncertain", "model_only", "starter_uncertain",
                 "big_move", "steam_against", "huge_edge"}
-# Tunables. Backtest (backtest/run_backtest.py, fitted on 2025, checked on 2026):
-# totals edges were overrated by about half, so totals are shrunk toward 50%; spreads
-# needed no correction; big moves TOWARD our side did not hurt, so they only warn.
-TOTAL_SHRINK = 0.5     # totals: p -> 0.5 + TOTAL_SHRINK * (p - 0.5)
-SPREAD_SHRINK = 1.0    # spreads: same idea (>1 stretches, <1 shrinks)
-BIG_MOVE_CAPS = False  # True: big_move also caps at 3 pts (steam_against always does)
-# Huge edges (sheet beats the market by 3.5+) covered only ~51% in the backtest (59 picks):
-# they are usually news (QB/injury) the market has already priced. OFF until confirmed on
-# pre-deadline snapshots; set HUGE_EDGE_P = 0.52 to treat them as ~no edge and 3-pt max.
-HUGE_EDGE = 3.5
-HUGE_EDGE_P = None
-
-# Calibration layer (improvement #1). Learned from graded history by run_backtest.py
-# --fit-calibration: cover rate by market type x edge-size bucket. When loaded it REPLACES
-# the shrinks/cap above: p = bucket cover rate + 0.5 * (raw model p - bucket's mean raw p),
-# so the bucket sets the level and the model still orders picks within a bucket.
 CALIBRATION_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models", "calibration.json")
-CALIBRATION = json.load(open(CALIBRATION_PATH)) if os.path.exists(CALIBRATION_PATH) else None
 EDGE_BUCKETS = (("<=0", -99, 0.0), ("0.5", 0.5, 0.5), ("1-1.5", 1.0, 1.5),
                 ("2-3", 2.0, 3.0), ("3.5+", 3.5, 99))
 
-# 5-point slot rule (improvement #2): 5-pointers must be spreads whose sheet number beats the
-# market by FIVE_MIN_EDGE..FIVE_MAX_EDGE points (the backtest's sweet spot). None = off.
-FIVE_MIN_EDGE = 1.5
-FIVE_MAX_EDGE = 3.0
-FIVE_SPREADS_ONLY = True
+
+@dataclass(frozen=True)
+class Config:
+    """Every tunable in one place. Pass it to build_candidates / build_card / report.
+    Nothing in the engine reads module-level settings, so a backtest variant can never
+    leak into the next one or into the live card."""
+    # Totals/spreads shrink toward 50% (used only when no calibration table is loaded).
+    total_shrink: float = 0.5
+    spread_shrink: float = 1.0
+    # big_move (3+ pt open->now move toward us) caps at 3 pts? Backtest: no.
+    big_move_caps: bool = False
+    # Huge-edge cap: edges >= huge_edge priced at huge_edge_p and 3-pt max. None = off.
+    huge_edge: float = 3.5
+    huge_edge_p: float | None = None
+    # Calibration table (type x edge bucket -> cover rate). Replaces the shrinks when set.
+    calibration: dict | None = None
+    # 5-pt slot rule: spreads with a five_min_edge..five_max_edge pt edge. None = off.
+    five_min_edge: float | None = 1.5
+    five_max_edge: float = 3.0
+    five_spreads_only: bool = True
+    # Weekly-notes probability nudges are clamped to +/- this.
+    note_adj_cap: float = 0.02
+
+    @staticmethod
+    def production() -> "Config":
+        cal = json.load(open(CALIBRATION_PATH)) if os.path.exists(CALIBRATION_PATH) else None
+        return Config(calibration=cal)
+
+    @staticmethod
+    def legacy() -> "Config":
+        """The engine as first merged: no calibration/5-pt rule, big moves cap, no shrink."""
+        return Config(total_shrink=1.0, big_move_caps=True, five_min_edge=None)
+
+    def with_(self, **kw) -> "Config":
+        return replace(self, **kw)
+
+    def describe(self) -> str:
+        bits = ["calibrated" if self.calibration else f"shrink totals {self.total_shrink}"]
+        if self.five_min_edge is not None:
+            bits.append(f"5-pt = spreads w/ {self.five_min_edge:g}-{self.five_max_edge:g} pt edge")
+        if self.huge_edge_p is not None:
+            bits.append(f"huge-edge cap {self.huge_edge_p}")
+        bits.append("big moves cap" if self.big_move_caps else "big moves warn")
+        return ", ".join(bits)
 
 
 def edge_bucket(edge: float) -> str:
@@ -209,10 +275,12 @@ def edge_bucket(edge: float) -> str:
     return "<=0"
 
 
-def calibrate(p_raw: float, kind: str, edge: float) -> float:
-    if not CALIBRATION:
+def calibrate(p_raw: float, kind: str, edge: float, table: dict | None) -> float:
+    """p = bucket cover rate + 0.5 * (raw p - bucket's mean raw p): the bucket sets the
+    level, the model still orders picks within the bucket."""
+    if not table:
         return p_raw
-    cell = CALIBRATION.get(kind, {}).get(edge_bucket(edge))
+    cell = table.get(kind, {}).get(edge_bucket(edge))
     if not cell:
         return p_raw
     return min(0.75, max(0.25, cell["rate"] + 0.5 * (p_raw - cell["mean_p"])))
@@ -279,12 +347,13 @@ class Candidate:
             return self.market_line - self.sheet_line
         return self.sheet_line - self.market_line
 
+    move: str = ""
+    big_move_caps: bool = False   # copied from the Config that built this candidate
+
     @property
     def five_eligible(self) -> bool:
-        blocking = NO_FIVE_TAGS if BIG_MOVE_CAPS else NO_FIVE_TAGS - {"big_move"}
+        blocking = NO_FIVE_TAGS if self.big_move_caps else NO_FIVE_TAGS - {"big_move"}
         return not (self.tags & blocking)
-
-    move: str = ""
 
 
 def shrink(p: float, k: float) -> float:
@@ -307,8 +376,10 @@ def game_lock(game: dict, board: dict) -> datetime | None:
     return default
 
 
-def build_candidates(board: dict, now: datetime | None,
-                     warnings: list[str]) -> tuple[list[Candidate], list[dict]]:
+def build_candidates(board: dict, now: datetime | None, warnings: list[str],
+                     cfg: Config | None = None) -> tuple[list[Candidate], list[dict]]:
+    cfg = cfg or Config.production()
+    cal = cfg.calibration
     cands: list[Candidate] = []
     sweep: list[dict] = []
     for g in board["games"]:
@@ -326,8 +397,11 @@ def build_candidates(board: dict, now: datetime | None,
                p: float, key: str, auto_tags: set = frozenset(), move: str = "") -> Candidate:
             n = notes.get(key, {})
             tags = (set(auto_tags) | set(n.get("tags", []))) - set(n.get("clear_tags", []))
+            adj = max(-cfg.note_adj_cap, min(cfg.note_adj_cap, n.get("adj", 0.0)))
+            if adj != n.get("adj", 0.0):
+                warnings.append(f"note adj for {num} {key} clamped to {adj:+.3f}")
             c = Candidate(num, lg, side, label, sheet_l, mkt_l, p,
-                          adj=n.get("adj", 0.0), tags=tags,
+                          adj=adj, tags=tags, big_move_caps=cfg.big_move_caps,
                           thesis=n.get("thesis"), env=n.get("env") or g.get("env"),
                           note=n.get("note", ""))
             c.move = move
@@ -340,7 +414,7 @@ def build_candidates(board: dict, now: datetime | None,
             sheet_h = home_spread(g["sheet_fav"], g["sheet_spread"], home)
             mkt_h = home_spread(mkt["fav"], mkt["spread"], home)
             books = mkt.get("books", {}).get("spread")
-            conflict = books and book_range(books) > BOOK_SPREAD_TOLERANCE
+            conflict = bool(books) and book_range(books) > BOOK_SPREAD_TOLERANCE
             if mkt["fav"] == home:
                 p_home = devig(mkt.get("fav_price", -110), mkt.get("dog_price", -110))
             else:
@@ -349,13 +423,13 @@ def build_candidates(board: dict, now: datetime | None,
             if mkt.get("ml_home") is not None and mkt.get("ml_away") is not None:
                 p_home_ml = devig(mkt["ml_home"], mkt["ml_away"])
             mu = calibrate_margin(lg, mkt_h, p_home, p_home_ml)
-            pmf = margin_pmf(mu, lg)
-            k = 1.0 if CALIBRATION else SPREAD_SHRINK
-            p_home_sheet = shrink(p_strict_above(pmf, -sheet_h), k)  # home covers sheet
-            p_away_sheet = shrink(p_strict_below(pmf, -sheet_h), k)
-            if CALIBRATION:
-                p_home_sheet = calibrate(p_home_sheet, "spread", sheet_h - mkt_h)
-                p_away_sheet = calibrate(p_away_sheet, "spread", mkt_h - sheet_h)
+            cum = margin_cum(mu, lg)
+            k = 1.0 if cal else cfg.spread_shrink
+            p_home_sheet = shrink(cum.above(-sheet_h), k)  # home covers sheet
+            p_away_sheet = shrink(cum.below(-sheet_h), k)
+            if cal:
+                p_home_sheet = calibrate(p_home_sheet, "spread", sheet_h - mkt_h, cal)
+                p_away_sheet = calibrate(p_away_sheet, "spread", mkt_h - sheet_h, cal)
             row.update(sheet=f"{g['sheet_fav']} -{fmt_line(g['sheet_spread'], False)}",
                        market=f"{mkt['fav']} -{fmt_line(mkt['spread'], False)}",
                        spread_edge=round(mkt_h - sheet_h, 2),  # + favors home
@@ -378,15 +452,15 @@ def build_candidates(board: dict, now: datetime | None,
         if g.get("sheet_total") is not None and mkt.get("total") is not None:
             st, mt = g["sheet_total"], mkt["total"]
             books = mkt.get("books", {}).get("total")
-            conflict = books and book_range(books) > BOOK_TOTAL_TOLERANCE
+            conflict = bool(books) and book_range(books) > BOOK_TOTAL_TOLERANCE
             p_over = devig(mkt.get("over_price", -110), mkt.get("under_price", -110))
             mu_t = calibrate_total(lg, mt, p_over)
-            tpmf = total_pmf(mu_t, lg)
-            k = 1.0 if CALIBRATION else TOTAL_SHRINK
-            po = shrink(p_strict_above(tpmf, st), k)
-            pu = shrink(p_strict_below(tpmf, st), k)
-            if CALIBRATION:
-                po, pu = calibrate(po, "total", mt - st), calibrate(pu, "total", st - mt)
+            tcum = total_cum(mu_t, lg)
+            k = 1.0 if cal else cfg.total_shrink
+            po = shrink(tcum.above(st), k)
+            pu = shrink(tcum.below(st), k)
+            if cal:
+                po, pu = calibrate(po, "total", mt - st, cal), calibrate(pu, "total", st - mt, cal)
             row.update(sheet_total=st, market_total=mt, total_edge=round(st - mt, 2),
                        p_over=round(po, 4), p_under=round(pu, 4))
             open_t = mkt.get("open_total")
@@ -403,10 +477,10 @@ def build_candidates(board: dict, now: datetime | None,
 
     # Hard constraint: never pick Dallas.
     kept = [c for c in cands if c.side not in BANNED_TEAMS]
-    if HUGE_EDGE_P is not None:
+    if cfg.huge_edge_p is not None:
         for c in kept:
-            if c.number_edge >= HUGE_EDGE:
-                c.adj = min(c.adj, HUGE_EDGE_P - c.p_market)
+            if c.number_edge >= cfg.huge_edge:
+                c.adj = min(c.adj, cfg.huge_edge_p - c.p_market)
                 c.tags.add("huge_edge")
     return kept, sweep
 
@@ -415,9 +489,10 @@ def build_candidates(board: dict, now: datetime | None,
 # Card construction
 # ---------------------------------------------------------------------------
 
-def build_card(cands: list[Candidate], thin_threshold: float = 0.53):
+def build_card(cands: list[Candidate], thin_threshold: float = 0.53, cfg: Config | None = None):
     """Greedy is optimal here: points per slot are fixed, so the highest
     probabilities go to the highest-value slots, subject to constraints."""
+    cfg = cfg or Config.production()
     ranked = sorted(cands, key=lambda c: c.p, reverse=True)
     card: list[Candidate] = []
     used_games, used_theses, used_envs = set(), set(), set()
@@ -430,10 +505,10 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53):
         if five:
             if not c.five_eligible:
                 return False                  # unresolved starter / model-only
-            if FIVE_MIN_EDGE is not None and sweet_spot:
-                if FIVE_SPREADS_ONLY and c.side in ("OVER", "UNDER"):
+            if cfg.five_min_edge is not None and sweet_spot:
+                if cfg.five_spreads_only and c.side in ("OVER", "UNDER"):
                     return False              # 5-pointers: spreads only
-                if not (FIVE_MIN_EDGE <= c.number_edge <= FIVE_MAX_EDGE):
+                if not (cfg.five_min_edge <= c.number_edge <= cfg.five_max_edge):
                     return False              # 5-pointers: sweet-spot edge only
             env = c.env or f"game{c.game}"
             if env in used_envs:
@@ -506,11 +581,14 @@ def verify_against_pdf(card: list[Candidate], pdf_path: str) -> list[str]:
 # Reporting
 # ---------------------------------------------------------------------------
 
-def report(board: dict, now: datetime | None, pdf: str | None) -> str:
-    warnings: list[str] = []
-    cands, sweep = build_candidates(board, now, warnings)
-    card, thin, ranked = build_card(cands)
-    out = []
+def report(board: dict, now: datetime | None, pdf: str | None, cfg: Config | None = None) -> str:
+    cfg = cfg or Config.production()
+    warnings: list[str] = list(board.get("warnings", []))
+    cands, sweep = build_candidates(board, now, warnings, cfg)
+    card, thin, ranked = build_card(cands, cfg=cfg)
+    out = [f"{board.get('week', 'Week ?')} | market as of {board.get('as_of', 'unknown')}"
+           f" | run at {now:%Y-%m-%d %H:%M} ET" if now else "",
+           f"engine: {cfg.describe()}", ""]
 
     out.append("== SWEEP (sheet vs consensus; probabilities at SHEET number, push = loss) ==")
     for r in sweep:
@@ -573,7 +651,9 @@ def report(board: dict, now: datetime | None, pdf: str | None) -> str:
     if pdf:
         out.append("\n== PDF CHECK (sheet line -> our side) ==")
         out.extend(verify_against_pdf(card, pdf))
-    out.extend(warnings)
+    if warnings:
+        out.append("\n== WARNINGS ==")
+        out.extend("  " + w for w in warnings)
     return "\n".join(out)
 
 
@@ -583,13 +663,24 @@ def main(argv=None):
     ap.add_argument("board")
     ap.add_argument("--pdf")
     ap.add_argument("--now", help="ISO time for lock checks (default: board 'now' or real time)")
+    ap.add_argument("--legacy", action="store_true", help="run the engine as first merged")
+    ap.add_argument("--save-run", metavar="DIR",
+                    help="archive board.json + card.txt under DIR/<timestamp>/ (reproducible)")
     a = ap.parse_args(argv)
     with open(a.board) as f:
         board = json.load(f)
     # Board times are Eastern; compare against Eastern wall-clock time.
     now = parse_time(a.now or board.get("now")) or \
         datetime.now(ZoneInfo("America/New_York")).replace(tzinfo=None)
-    print(report(board, now, a.pdf))
+    cfg = Config.legacy() if a.legacy else Config.production()
+    text = report(board, now, a.pdf, cfg)
+    print(text)
+    if a.save_run:
+        d = os.path.join(a.save_run, now.strftime("%Y-%m-%d_%H%M"))
+        os.makedirs(d, exist_ok=True)
+        json.dump(board, open(os.path.join(d, "board.json"), "w"), indent=1)
+        open(os.path.join(d, "card.txt"), "w").write(text + "\n")
+        print(f"\n(saved {d}/board.json + card.txt)")
 
 
 if __name__ == "__main__":

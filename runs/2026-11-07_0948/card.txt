@@ -1,0 +1,125 @@
+Week 9 | market as of 2026-11-07T14:48 | run at 2026-11-07 09:48 ET
+engine: calibrated, 5-pt = spreads w/ 1.5-3 pt edge, big moves warn
+
+== SWEEP (sheet vs consensus; probabilities at SHEET number, push = loss) ==
+   1 OHIO@AKR     LOCKED (Tue 19:00)
+   2 BUFF@M-OH    LOCKED (Tue 20:00)
+   3 BALL@MASS    LOCKED (Wed 19:00)
+   4 TOL@SAC      LOCKED (Wed 19:00)
+   5 CMU@EMU      LOCKED (Wed 19:30)
+   6 UTSA@FAU     LOCKED (Thu 19:30)
+   7 JMU@USM      LOCKED (Thu 20:00)
+   8 VT@SMU       LOCKED (Fri 19:00)
+   9 USF@ECU      LOCKED (Fri 19:30)
+  10 NEB@ILL      LOCKED (Fri 20:00)
+  11 UNM@NEV      LOCKED (Fri 21:00)
+  12 TCU@ARIZ     LOCKED (Fri 22:15)
+  13 BYU@UTAH      sprd UTAH -4.5  mkt UTAH -4.5  home 0.476 away 0.487  | tot 48.5 mkt 49.5 O 0.514 U 0.488
+  14 UCLA@MINN     sprd UCLA -4    mkt UCLA -4    home 0.475 away 0.476  | tot 38.5 mkt 38.5 O 0.497 U 0.494
+  15 TEX@MIZ       sprd TEX -2.5   mkt TEX -2.5   home 0.475 away 0.489  | tot 42.5 mkt 42.5 O 0.496 U 0.495
+  16 ISU@BAY       sprd BAY -9.5   mkt BAY -9.5   home 0.489 away 0.475  | tot 51.5 mkt 50.5 O 0.487 U 0.516
+  17 CLEM@SYR      sprd CLEM -2.5  mkt CLEM -1.5  home 0.544 away 0.475  | tot 49.5 mkt 49.5 O 0.497 U 0.494
+  18 FSU@BC        sprd FSU -6.5   mkt FSU -6     home 0.503 away 0.475  | tot 52.5 mkt 52.5 O 0.492 U 0.499
+  19 UNC@CONN      sprd UNC -7.5   mkt UNC -7.5   home 0.480 away 0.483  | tot 54.5 mkt 54.5 O 0.497 U 0.494
+  20 TLSA@TULN     sprd TLSA -2.5  mkt TLSA -2.5  home 0.472 away 0.492  | tot 50.5 mkt 50.5 O 0.494 U 0.497
+  21 DUKE@NCSU     sprd DUKE -4    mkt DUKE -4.5  home 0.471 away 0.495  | tot 51.5 mkt 51.5 O 0.499 U 0.492
+  22 MD@PUR        sprd PUR -5.5   mkt PUR -5     home 0.476 away 0.502  | tot 56.5 mkt 57.5 O 0.515 U 0.487
+  23 ARK@AUB       sprd AUB -10.5  mkt AUB -10.5  home 0.480 away 0.484  | tot 54.5 mkt 54 O 0.487 U 0.520
+  24 OKST@KSU      sprd OKST -6.5  mkt OKST -6.5  home 0.475 away 0.488  | tot 62.5 mkt 62.5 O 0.494 U 0.498
+  25 ODU@CCU       sprd CCU -6.5   mkt CCU -6.5   home 0.487 away 0.476  | tot 44.5 mkt 44.5 O 0.501 U 0.490
+  26 GAST@APP      sprd APP -6.5   mkt APP -6.5   home 0.482 away 0.481  | tot 54.5 mkt 54.5 O 0.492 U 0.500
+  27 TA&M@SC       sprd SC -7      mkt SC -6.5    home 0.469 away 0.490  | tot 52.5 mkt 52.5 O 0.492 U 0.499
+  28 ULM@ARST      sprd ARST -14.5 mkt ARST -14.5 home 0.482 away 0.482  | tot 53.5 mkt 52.5 O 0.483 U 0.519
+  29 DEL@KENN      sprd DEL -1.5   mkt DEL -1.5   home 0.481 away 0.483  | tot 57.5 mkt 57 O 0.492 U 0.516
+  30 ALA@LSU       sprd LSU -6     mkt LSU -6     home 0.475 away 0.476  | tot 52.5 mkt 52.5 O 0.496 U 0.496
+  31 ORE@OSU       sprd OSU -7.5   mkt OSU -7.5   home 0.483 away 0.481  | tot 45.5 mkt 45.5 O 0.491 U 0.500
+  32 MRMK@WAKE     sprd WAKE -47.5 mkt WAKE -46.5 home 0.470 away 0.549  | tot 58.5 mkt 58 O 0.500 U 0.507
+  33 CIN@HOU       sprd HOU -10.5  mkt HOU -10.5  home 0.483 away 0.481  | tot 61.5 mkt 61.5 O 0.495 U 0.496
+  34 PSU@WASH      sprd WASH -2.5  mkt WASH -2.5  home 0.482 away 0.482  | tot 44.5 mkt 44 O 0.490 U 0.518
+  35 CLT@UAB       sprd UAB -8.5   mkt UAB -8.5   home 0.481 away 0.483  | tot 47.5 mkt 47.5 O 0.495 U 0.496
+  36 TEM@NAVY      sprd NAVY -7.5  mkt NAVY -7    home 0.478 away 0.501  | tot 54.5 mkt 54.5 O 0.497 U 0.495
+  37 MRSH@GASO     sprd GASO -10.5 mkt GASO -7.5  home 0.444 away 0.600  | tot 54.5 mkt 54.5 O 0.496 U 0.495
+  38 WKU@MTSU      sprd WKU -2.5   mkt WKU -2.5   home 0.478 away 0.485  | tot 53.5 mkt 53.5 O 0.495 U 0.497
+  39 UCF@KU        sprd KU -3      mkt KU -3.5    home 0.505 away 0.452  | tot 47.5 mkt 48.5 O 0.515 U 0.488
+  40 RICE@UNT      sprd UNT -16.5  mkt UNT -16.5  home 0.485 away 0.479  | tot 64.5 mkt 64.5 O 0.498 U 0.494
+  41 NIU@SJSU      sprd SJSU -11.5 mkt SJSU -11.5 home 0.481 away 0.483  | tot 52.5 mkt 52.5 O 0.493 U 0.498
+  42 MOST@FIU      sprd FIU -4.5   mkt FIU -4.5   home 0.483 away 0.481  | tot 49.5 mkt 49.5 O 0.500 U 0.492
+  43 LT@TROY       sprd LT -5.5    mkt LT -6      home 0.475 away 0.503  | tot 47.5 mkt 47.5 O 0.496 U 0.495
+  44 VAN@MSST      sprd MSST -3    mkt MSST -2.5  home 0.471 away 0.487  | tot 48.5 mkt 48.5 O 0.494 U 0.497
+  45 RUTG@WIS      sprd WIS -17.5  mkt WIS -19.5  home 0.582 away 0.461  | tot 45.5 mkt 45.5 O 0.495 U 0.496
+  46 USA@UL        sprd UL -8.5    mkt UL -7      home 0.466 away 0.553  | tot 57.5 mkt 56.5 O 0.486 U 0.517
+  47 BOIS@CSU      sprd BOIS -17.5 mkt BOIS -17   home 0.505 away 0.474  | tot 68.5 mkt 68.5 O 0.499 U 0.492
+  48 UK@TENN       sprd TENN -5.5  mkt TENN -6    home 0.502 away 0.477  | tot 49.5 mkt 49.5 O 0.495 U 0.497
+  49 SHSU@JXST     sprd JXST -16.5 mkt JXST -16.5 home 0.486 away 0.478  | tot 48.5 mkt 45.5 O 0.460 U 0.545
+  50 MIA@ND        sprd ND -7      mkt ND -7.5    home 0.487 away 0.473  | tot 54.5 mkt 54.5 O 0.497 U 0.494
+  51 UGA@MISS      sprd UGA -3.5   mkt UGA -3.5   home 0.474 away 0.490  | tot 56.5 mkt 56.5 O 0.496 U 0.496
+  52 IOWA@NU       sprd IOWA -2.5  mkt IOWA -2.5  home 0.478 away 0.486  | tot 43.5 mkt 43 O 0.491 U 0.517
+  53 COLO@ASU      sprd ASU -3     mkt ASU -3.5   home 0.496 away 0.461  | tot 49.5 mkt 48.5 O 0.479 U 0.524
+  54 LOU@GT        sprd LOU -14.5  mkt LOU -14.5  home 0.482 away 0.482  | tot 62.5 mkt 62.5 O 0.494 U 0.498
+  55 MSU@MICH      sprd MICH -12.5 mkt MICH -14.5 home 0.580 away 0.463  | tot 39.5 mkt 39.5 O 0.499 U 0.492
+  56 AFA@ARMY      sprd ARMY -4    mkt ARMY -3.5  home 0.478 away 0.488  | tot 44.5 mkt 43.5 O 0.485 U 0.518
+  57 OU@FLA        sprd FLA -6     mkt FLA -5.5   home 0.473 away 0.493  | tot 45.5 mkt 45 O 0.489 U 0.519
+  58 LIB@NMSU      sprd LIB -17.5  mkt LIB -15.5  home 0.585 away 0.459  | tot 47.5 mkt 46.5 O 0.483 U 0.520
+  59 WVU@TTU       sprd TTU -16.5  mkt TTU -16.5  home 0.483 away 0.481  | tot 65.5 mkt 65.5 O 0.496 U 0.496
+  60 FRES@USU      sprd FRES -2.5  mkt FRES -1.5  home 0.551 away 0.468  NO CALL: books disagree [1.5, 1.0, 1.5, 1.0, 1.5, 2.5, 2.5]  | tot 42.5 mkt 43.5 O 0.517 U 0.486
+  61 HAW@UTEP      sprd HAW -9.5   mkt HAW -7.5   home 0.584 away 0.460  | tot 48.5 mkt 48.5 O 0.496 U 0.496
+  62 TXST@ORST     sprd ORST -6.5  mkt ORST -6    home 0.475 away 0.504  | tot 71.5 mkt 71 O 0.492 U 0.516
+  63 WYO@UNLV      sprd UNLV -6.5  mkt UNLV -4.5  home 0.456 away 0.587  | tot 47.5 mkt 48.5 O 0.522 U 0.481
+  64 JAX@BAL      LOCKED (Thu 20:15)
+  65 CIN@ATL       sprd CIN -3     mkt CIN -3     home 0.454 away 0.475  | tot 52.5 mkt 52.5 O 0.495 U 0.497
+  66 DEN@CAR       sprd DEN -2.5   mkt DEN -2.5   home 0.471 away 0.492  | tot 44.5 mkt 44.5 O 0.494 U 0.497
+  67 NYJ@KC        sprd KC -9.5    mkt KC -9.5    home 0.483 away 0.480  | tot 48.5 mkt 47.5 O 0.483 U 0.520
+  68 DAL@IND       sprd DAL -5.5   mkt DAL -4.5   home 0.546 away 0.473  | tot 51.5 mkt 51.5 O 0.496 U 0.495
+  69 NYG@PHI       sprd NYG -3     mkt NYG -3     home 0.457 away 0.473  | tot 38.5 mkt 38.5 O 0.499 U 0.492
+  70 DET@MIA       sprd DET -6.5   mkt DET -6.5   home 0.481 away 0.483  | tot 50.5 mkt 50 O 0.488 U 0.520
+  71 LAR@WAS       sprd LAR -4.5   mkt LAR -4.5   home 0.480 away 0.484  | tot 47.5 mkt 47.5 O 0.499 U 0.492
+  72 CLE@NO        sprd NO -3.5    mkt NO -3      home 0.474 away 0.505  | tot 42.5 mkt 42.5 O 0.496 U 0.496
+  73 HOU@LAC       sprd HOU -6     mkt HOU -6     home 0.475 away 0.472  | tot 40.5 mkt 40.5 O 0.498 U 0.493
+  74 LV@SF         sprd SF -10     mkt SF -9.5    home 0.465 away 0.494  | tot 51.5 mkt 52 O 0.518 U 0.490
+  75 GB@NE         sprd NE -3      mkt NE -3      home 0.471 away 0.458  | tot 44.5 mkt 44.5 O 0.497 U 0.495
+  76 ARI@SEA       sprd SEA -8.5   mkt SEA -8.5   home 0.481 away 0.483  | tot 39.5 mkt 39.5 O 0.497 U 0.494
+  77 TB@CHI        sprd CHI -6     mkt CHI -6     home 0.474 away 0.472  | tot 47.5 mkt 47.5 O 0.495 U 0.497
+  78 BUF@MIN       sprd BUF -3     mkt BUF -3     home 0.456 away 0.474  | tot 43.5 mkt 44 O 0.521 U 0.487
+
+== TOP CANDIDATES (ranked by cover probability) ==
+  0.600    37 MRSH +10.5                 +3 pts vs mkt +7.5 | open +8.5
+  0.595    55 MICH -12.5                 adj +0.015 | +2 pts vs mkt -14.5
+  0.587    63 WYO +6.5                   +2 pts vs mkt +4.5 | open +8.5
+  0.584    61 UTEP +9.5                  +2 pts vs mkt +7.5 | open +11.5
+  0.575    58 NMSU +17.5                 adj -0.010 | 3-pt max (big_move,steam_against) | +2 pts vs mkt +15.5 | open +12.5
+  0.567    45 WIS -17.5                  adj -0.015 | +2 pts vs mkt -19.5 | open -16.5
+  0.553    46 USA +8.5                   +1.5 pts vs mkt +7 | open +5.5
+  0.549    32 MRMK +47.5                 +1 pts vs mkt +46.5 | open +47.5
+  0.546    68 IND +5.5                   3-pt max (big_move,steam_against) | +1 pts vs mkt +4.5 | open +1.5
+  0.545    49 SHSU/JXST UNDER 48.5       +3 pts vs mkt 45.5 | open 47.5
+  0.544    17 SYR +2.5                   +1 pts vs mkt +1.5 | open +1.5
+  0.524    53 COLO/ASU UNDER 49.5        +1 pts vs mkt 48.5 | open 49.5
+  0.522    63 WYO/UNLV OVER 47.5         +1 pts vs mkt 48.5 | open 45.5
+  0.521    78 BUF/MIN OVER 43.5          3-pt max (big_move,steam_against) | +0.5 pts vs mkt 44 | open 48.5
+  0.520    23 ARK/AUB UNDER 54.5         3-pt max (big_move,steam_against) | +0.5 pts vs mkt 54 | open 50.5
+
+== CARD ==
+  Pick 1 (5) 37 MRSH +10.5                 p=0.600  [6 of 7 books 8.5 since open; only Hard Rock at 10.5]
+  Pick 2 (5) 55 MICH -12.5                 p=0.595  [MSU 13 out incl. both RBs, QB Milivojevic questionable; good in both QB branches]
+  Pick 3 (3) 63 WYO +6.5                   p=0.587  [3 straight wins, QB Hughes running well; line moved toward WYO (cause unverified)]
+  Pick 4 (3) 61 UTEP +9.5                  p=0.584  [Hawaii opened -11.5; 4-pt move, cause unverified]
+  Pick 5 (3) 58 NMSU +17.5                 p=0.575  [number only; Liberty steamed since open]
+  Expected points: 11.21 / 19
+  MEGA on Pick 1 would add +1.00 pts EV (fire only on a genuine information edge).
+
+== SUBMISSION ==
+```
+Ronnie - Week 9
+1. 37 MRSH +10.5
+2. 55 MICH -12.5
+3. 63 WYO +6.5
+4. 61 UTEP +9.5
+5. 58 NMSU +17.5
+```
+
+== PDF CHECK (sheet line -> our side) ==
+OK  37 MRSH +10.5                 <- sheet: 37    Sat, Nov 7, 2026    3:30 PM                 Marshall           at         Georgia Southern         ESPN+       GASO -10.5    54.5
+OK  55 MICH -12.5                 <- sheet: 55    Sat, Nov 7, 2026    7:30 PM             Michigan State         at             Michigan             Peacock     MICH -12.5    39.5
+OK  63 WYO +6.5                   <- sheet: 63    Sat, Nov 7, 2026   10:30 PM                Wyoming             at              UNLV                CBSSN       UNLV -6.5     47.5
+OK  61 UTEP +9.5                  <- sheet: 61    Sat, Nov 7, 2026    9:30 PM                  Hawai'i           at               UTEP                 FS1        HAW -9.5     48.5
+OK  58 NMSU +17.5                 <- sheet: 58    Sat, Nov 7, 2026    8:00 PM                  Liberty           at        New Mexico State          ESPNU         LIB -17.5   47.5

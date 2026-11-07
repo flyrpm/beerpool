@@ -8,16 +8,15 @@ from beerpool import (book_range, build_candidates, build_card, calibrate_margin
                       devig, margin_pmf, mega_gain, movement_tags, p_strict_above,
                       p_strict_below, submission_block)
 
-# Rule tests run with the strict settings; tuning is covered by the backtest.
-beerpool.TOTAL_SHRINK, beerpool.BIG_MOVE_CAPS = 1.0, True
-beerpool.CALIBRATION, beerpool.FIVE_MIN_EDGE = None, None
+# Rule tests run with the legacy settings; tuning is covered by the backtest.
+LEGACY = beerpool.Config.legacy()
 BOARD = json.loads((Path(__file__).parent / "board.example.json").read_text())
 NOW = datetime.fromisoformat(BOARD["now"])
 
 
-def run(board=BOARD, now=NOW):
-    cands, sweep = build_candidates(board, now, [])
-    card, thin, ranked = build_card(cands)
+def run(board=BOARD, now=NOW, cfg=LEGACY):
+    cands, sweep = build_candidates(board, now, [], cfg)
+    card, thin, ranked = build_card(cands, cfg=cfg)
     return cands, sweep, card, thin
 
 
@@ -128,9 +127,8 @@ class Rules(unittest.TestCase):
 
     def test_five_point_sweet_spot_rule(self):
         cands, *_ = run()
-        try:
-            beerpool.FIVE_MIN_EDGE = 1.5
-            card, _, _ = build_card(cands)
+        if True:
+            card, _, _ = build_card(cands, cfg=LEGACY.with_(five_min_edge=1.5))
             self.assertEqual(len(card), 5)
             sweet = [c for c in cands if c.side not in ("OVER", "UNDER")
                      and 1.5 <= c.number_edge <= 3.0 and c.five_eligible]
@@ -140,21 +138,50 @@ class Rules(unittest.TestCase):
             # every 5-pointer is either sweet-spot or a fallback filling an empty slot
             for c in card[:2]:
                 self.assertTrue(c.five_eligible)
-        finally:
-            beerpool.FIVE_MIN_EDGE = None
 
     def test_calibration_by_edge_bucket(self):
-        try:
-            beerpool.CALIBRATION = {"spread": {"2-3": {"rate": 0.58, "mean_p": 0.55},
-                                               "3.5+": {"rate": 0.51, "mean_p": 0.58}}}
-            self.assertAlmostEqual(beerpool.calibrate(0.55, "spread", 2.0), 0.58)
-            self.assertAlmostEqual(beerpool.calibrate(0.60, "spread", 4.0), 0.52)
-            self.assertEqual(beerpool.calibrate(0.53, "total", 1.0), 0.53)  # no cell: unchanged
-            self.assertEqual(beerpool.edge_bucket(0.0), "<=0")
-            self.assertEqual(beerpool.edge_bucket(-1.5), "<=0")
-            self.assertEqual(beerpool.edge_bucket(1.5), "1-1.5")
-        finally:
-            beerpool.CALIBRATION = None
+        table = {"spread": {"2-3": {"rate": 0.58, "mean_p": 0.55},
+                            "3.5+": {"rate": 0.51, "mean_p": 0.58}}}
+        self.assertAlmostEqual(beerpool.calibrate(0.55, "spread", 2.0, table), 0.58)
+        self.assertAlmostEqual(beerpool.calibrate(0.60, "spread", 4.0, table), 0.52)
+        self.assertEqual(beerpool.calibrate(0.53, "total", 1.0, table), 0.53)  # no cell
+        self.assertEqual(beerpool.calibrate(0.53, "spread", 2.0, None), 0.53)  # no table
+        self.assertEqual(beerpool.edge_bucket(0.0), "<=0")
+        self.assertEqual(beerpool.edge_bucket(-1.5), "<=0")
+        self.assertEqual(beerpool.edge_bucket(1.5), "1-1.5")
+
+    def test_configs_do_not_leak(self):
+        """Building with one config must not change what another config produces."""
+        a1 = [round(c.p, 6) for c in run(cfg=LEGACY)[0]]
+        run(cfg=LEGACY.with_(total_shrink=0.1, huge_edge_p=0.5, big_move_caps=False))
+        a2 = [round(c.p, 6) for c in run(cfg=LEGACY)[0]]
+        self.assertEqual(a1, a2)
+
+    def test_fast_pricing_matches_slow(self):
+        for lg in ("NFL", "CFB"):
+            for mu in (-17.3, -3.0, 0.0, 2.5, 6.8):
+                pmf, cum = margin_pmf(mu, lg), beerpool.margin_cum(mu, lg)
+                for x in (-7, -3.5, -3, 0, 2.5, 3, 10.5):
+                    self.assertAlmostEqual(p_strict_above(pmf, x), cum.above(x), places=3)
+                    self.assertAlmostEqual(p_strict_below(pmf, x), cum.below(x), places=3)
+
+    def test_moneyline_blend_moves_small_spreads(self):
+        """With ML given, the fair margin blends spread-implied and ML-implied means."""
+        mu_spread = calibrate_margin("NFL", -1.5, 0.5)
+        mu_ml_fav = calibrate_margin("NFL", -1.5, 0.5, p_home_ml=0.62)
+        mu_ml_dog = calibrate_margin("NFL", -1.5, 0.5, p_home_ml=0.45)
+        self.assertGreater(mu_ml_fav, mu_spread)
+        self.assertLess(mu_ml_dog, mu_spread)
+
+    def test_note_adj_is_clamped(self):
+        b = json.loads(json.dumps(BOARD))
+        g = next(x for x in b["games"] if x["num"] == 56)
+        g["notes"]["UTAH"]["adj"] = 0.10
+        warns = []
+        cands, _ = build_candidates(b, NOW, warns, LEGACY)
+        utah = next(c for c in cands if c.game == 56 and c.side == "UTAH")
+        self.assertAlmostEqual(utah.adj, 0.02)
+        self.assertTrue(any("clamped" in w for w in warns))
 
     def test_thin_board(self):
         thin_board = {"week": "W", "default_lock": "2026-11-07T12:00", "games": [

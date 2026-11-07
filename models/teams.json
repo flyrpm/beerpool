@@ -1,0 +1,7120 @@
+{
+"CFB": {
+"101": {
+"abbreviation": "ERKA",
+"displayName": "Eureka Red Devils",
+"location": "Eureka",
+"name": "Red Devils",
+"nickname": "Eureka",
+"shortDisplayName": "Eureka",
+"tier": "lower"
+},
+"101161": {
+"abbreviation": "LYON",
+"displayName": "Lyon Scots",
+"location": "Lyon",
+"name": "Scots",
+"nickname": "Lyon",
+"shortDisplayName": "Lyon",
+"tier": "lower"
+},
+"101442": {
+"abbreviation": "CTLA",
+"displayName": "Centenary (LA) Gentlemen",
+"location": "Centenary (LA)",
+"name": "Gentlemen",
+"nickname": "Centenary (LA)",
+"shortDisplayName": "Centenary (LA)",
+"tier": "lower"
+},
+"101784": {
+"abbreviation": "ERSK",
+"displayName": "Erskine Flying Fleet",
+"location": "Erskine",
+"name": "Flying Fleet",
+"nickname": "Erskine",
+"shortDisplayName": "Erskine",
+"tier": "lower"
+},
+"103": {
+"abbreviation": "BC",
+"displayName": "Boston College Eagles",
+"location": "Boston College",
+"name": "Eagles",
+"nickname": "Boston College",
+"shortDisplayName": "Boston College",
+"tier": "FBS"
+},
+"107": {
+"abbreviation": "HC",
+"displayName": "Holy Cross Crusaders",
+"location": "Holy Cross",
+"name": "Crusaders",
+"nickname": "Holy Cross",
+"shortDisplayName": "Holy Cross",
+"tier": "FCS"
+},
+"108": {
+"abbreviation": "HARV",
+"displayName": "Harvard Crimson",
+"location": "Harvard",
+"name": "Crimson",
+"nickname": "Harvard",
+"shortDisplayName": "Harvard",
+"tier": "FCS"
+},
+"108354": {
+"abbreviation": "HOL",
+"displayName": "Holland College Hurricanes",
+"location": "Holland College",
+"name": "Hurricanes",
+"nickname": "Holland College",
+"shortDisplayName": "Holland College",
+"tier": "lower"
+},
+"108358": {
+"abbreviation": "AZCH",
+"displayName": "Arizona Christian Firestorm",
+"location": "Arizona Christian",
+"name": "Firestorm",
+"nickname": "AZ Christian",
+"shortDisplayName": "AZ Christian",
+"tier": "lower"
+},
+"108382": {
+"abbreviation": "COI",
+"displayName": "College of Idaho Yotes",
+"location": "College of Idaho",
+"name": "Yotes",
+"nickname": "Coll. of Idaho",
+"shortDisplayName": "Coll. of Idaho",
+"tier": "lower"
+},
+"109": {
+"abbreviation": "MIT",
+"displayName": "MIT Engineers",
+"location": "MIT",
+"name": "Engineers",
+"nickname": "MIT",
+"shortDisplayName": "MIT",
+"tier": "lower"
+},
+"11": {
+"abbreviation": "COMU",
+"displayName": "Colorado Mesa Mavericks",
+"location": "Colorado Mesa",
+"name": "Mavericks",
+"nickname": "Colorado Mesa",
+"shortDisplayName": "Colorado Mesa",
+"tier": "lower"
+},
+"110": {
+"abbreviation": "MMT",
+"displayName": "Mass Maritime Buccaneers",
+"location": "Mass Maritime",
+"name": "Buccaneers",
+"nickname": "Mass Maritime",
+"shortDisplayName": "Mass Maritime",
+"tier": "lower"
+},
+"110242": {
+"abbreviation": "UWF",
+"displayName": "West Florida Argonauts",
+"location": "West Florida",
+"name": "Argonauts",
+"nickname": "West Florida",
+"shortDisplayName": "West Florida",
+"tier": "FCS"
+},
+"110243": {
+"abbreviation": "UTPB",
+"displayName": "UT Permian Basin Falcons",
+"location": "UT Permian Basin",
+"name": "Falcons",
+"nickname": "UT Prmian Basn",
+"shortDisplayName": "UT Prmian Basn",
+"tier": "lower"
+},
+"110438": {
+"abbreviation": "DEAN",
+"displayName": "Dean Bulldogs",
+"location": "Dean",
+"name": "Bulldogs",
+"nickname": "Dean",
+"shortDisplayName": "Dean",
+"tier": "lower"
+},
+"111610": {
+"abbreviation": "STAU",
+"displayName": "St. Andrews Knights",
+"location": "St. Andrews",
+"name": "Knights",
+"nickname": "St Andrews",
+"shortDisplayName": "St Andrews",
+"tier": "lower"
+},
+"111674": {
+"abbreviation": "ALVR",
+"displayName": "Alvernia Golden Wolves",
+"location": "Alvernia",
+"name": "Golden Wolves",
+"nickname": "Alvernia",
+"shortDisplayName": "Alvernia",
+"tier": "lower"
+},
+"111675": {
+"abbreviation": "UNE",
+"displayName": "New England Nor'easters",
+"location": "New England",
+"name": "Nor'easters",
+"nickname": "New England",
+"shortDisplayName": "New England",
+"tier": "lower"
+},
+"111756": {
+"abbreviation": "INWESL",
+"displayName": "Indiana Wesleyan Wildcats",
+"location": "Indiana Wesleyan",
+"name": "Wildcats",
+"nickname": "INDWESLYAN",
+"shortDisplayName": "INDWESLYAN",
+"tier": "lower"
+},
+"112": {
+"abbreviation": "TUFT",
+"displayName": "Tufts Jumbos",
+"location": "Tufts",
+"name": "Jumbos",
+"nickname": "Tufts",
+"shortDisplayName": "Tufts",
+"tier": "lower"
+},
+"112334": {
+"abbreviation": "FP",
+"displayName": "Franklin Pierce Ravens",
+"location": "Franklin Pierce",
+"name": "Ravens",
+"nickname": "Franklin Pierce",
+"shortDisplayName": "Franklin Pierce",
+"tier": "lower"
+},
+"112335": {
+"abbreviation": "WHLG",
+"displayName": "Wheeling Cardinals",
+"location": "Wheeling",
+"name": "Cardinals",
+"nickname": "Wheeling",
+"shortDisplayName": "Wheeling",
+"tier": "lower"
+},
+"113": {
+"abbreviation": "MASS",
+"displayName": "Massachusetts Minutemen",
+"location": "Massachusetts",
+"name": "Minutemen",
+"nickname": "UMass",
+"shortDisplayName": "UMass",
+"tier": "FBS"
+},
+"114": {
+"abbreviation": "FBSU",
+"displayName": "Fitchburg State Falcons",
+"location": "Fitchburg State",
+"name": "Falcons",
+"nickname": "Fitchburg St",
+"shortDisplayName": "Fitchburg St",
+"tier": "lower"
+},
+"118": {
+"abbreviation": "JHU",
+"displayName": "Johns Hopkins Blue Jays",
+"location": "Johns Hopkins",
+"name": "Blue Jays",
+"nickname": "Johns Hopkins",
+"shortDisplayName": "Johns Hopkins",
+"tier": "lower"
+},
+"119": {
+"abbreviation": "TOW",
+"displayName": "Towson Tigers",
+"location": "Towson",
+"name": "Tigers",
+"nickname": "Towson",
+"shortDisplayName": "Towson",
+"tier": "FCS"
+},
+"12": {
+"abbreviation": "ARIZ",
+"displayName": "Arizona Wildcats",
+"location": "Arizona",
+"name": "Wildcats",
+"nickname": "Arizona",
+"shortDisplayName": "Arizona",
+"tier": "FBS"
+},
+"120": {
+"abbreviation": "MD",
+"displayName": "Maryland Terrapins",
+"location": "Maryland",
+"name": "Terrapins",
+"nickname": "Maryland",
+"shortDisplayName": "Maryland",
+"tier": "FBS"
+},
+"121": {
+"abbreviation": "BATE",
+"displayName": "Bates Bobcats",
+"location": "Bates",
+"name": "Bobcats",
+"nickname": "Bates",
+"shortDisplayName": "Bates",
+"tier": "lower"
+},
+"122666": {
+"abbreviation": "BART",
+"displayName": "Barton Bulldogs",
+"location": "Barton",
+"name": "Bulldogs",
+"nickname": "Barton",
+"shortDisplayName": "Barton",
+"tier": "lower"
+},
+"122774": {
+"abbreviation": "KYSN",
+"displayName": "Keystone Giants",
+"location": "Keystone",
+"name": "Giants",
+"nickname": "Keystone",
+"shortDisplayName": "Keystone",
+"tier": "lower"
+},
+"122775": {
+"abbreviation": "JUDSO",
+"displayName": "Elgin Eagles",
+"location": "Elgin",
+"name": "Eagles",
+"nickname": "JUDSON",
+"shortDisplayName": "JUDSON",
+"tier": "lower"
+},
+"123086": {
+"abbreviation": "NAMU",
+"displayName": "North American Stallions",
+"location": "North American",
+"name": "Stallions",
+"nickname": "N American",
+"shortDisplayName": "N American",
+"tier": "lower"
+},
+"124": {
+"abbreviation": "AUGS",
+"displayName": "Augsburg Auggies",
+"location": "Augsburg",
+"name": "Auggies",
+"nickname": "Augsburg",
+"shortDisplayName": "Augsburg",
+"tier": "lower"
+},
+"124179": {
+"abbreviation": "LNCA",
+"displayName": "Lincoln (CA) Oaklanders",
+"location": "Lincoln (CA)",
+"name": "Oaklanders",
+"nickname": "Lincoln (CA)",
+"shortDisplayName": "Lincoln (CA)",
+"tier": "lower"
+},
+"124180": {
+"abbreviation": "BLUS",
+"displayName": "Bluefield State Big Blue",
+"location": "Bluefield State",
+"name": "Big Blue",
+"nickname": "Bluefield St",
+"shortDisplayName": "Bluefield St",
+"tier": "lower"
+},
+"124386": {
+"abbreviation": "ARBA",
+"displayName": "Arkansas Baptist Buffaloes",
+"location": "Arkansas Baptist",
+"name": "Buffaloes",
+"nickname": "Ark Baptist",
+"shortDisplayName": "Ark Baptist",
+"tier": "lower"
+},
+"125": {
+"abbreviation": "GVSU",
+"displayName": "Grand Valley State Lakers",
+"location": "Grand Valley State",
+"name": "Lakers",
+"nickname": "Grand Val St",
+"shortDisplayName": "Grand Val St",
+"tier": "lower"
+},
+"125762": {
+"abbreviation": "FMU",
+"displayName": "Florida Memorial Lions",
+"location": "Florida Memorial",
+"name": "Lions",
+"nickname": "FL Memorial",
+"shortDisplayName": "FL Memorial",
+"tier": "lower"
+},
+"125974": {
+"abbreviation": "HLBT",
+"displayName": "Hilbert Hawks",
+"location": "Hilbert",
+"name": "Hawks",
+"nickname": "Hilbert",
+"shortDisplayName": "Hilbert",
+"tier": "lower"
+},
+"126": {
+"abbreviation": "KALC",
+"displayName": "Kalamazoo Hornets",
+"location": "Kalamazoo",
+"name": "Hornets",
+"nickname": "Kalamazoo",
+"shortDisplayName": "Kalamazoo",
+"tier": "lower"
+},
+"126086": {
+"abbreviation": "POST",
+"displayName": "Post Eagles",
+"location": "Post",
+"name": "Eagles",
+"nickname": "Post",
+"shortDisplayName": "Post",
+"tier": "lower"
+},
+"126110": {
+"abbreviation": "KEISER",
+"displayName": "Keiser University Keiser",
+"location": "Keiser University",
+"name": "Keiser",
+"nickname": "Keiser Univers",
+"shortDisplayName": "Keiser Univers",
+"tier": "lower"
+},
+"126146": {
+"abbreviation": "MDNN",
+"displayName": "Madonna Crusaders",
+"location": "Madonna",
+"name": "Crusaders",
+"nickname": "Madonna",
+"shortDisplayName": "Madonna",
+"tier": "lower"
+},
+"127": {
+"abbreviation": "MSU",
+"displayName": "Michigan State Spartans",
+"location": "Michigan State",
+"name": "Spartans",
+"nickname": "Michigan St",
+"shortDisplayName": "Michigan St",
+"tier": "FBS"
+},
+"127954": {
+"abbreviation": "EU",
+"displayName": "Eastern Eagles",
+"location": "Eastern",
+"name": "Eagles",
+"nickname": "Eastern",
+"shortDisplayName": "Eastern",
+"tier": "lower"
+},
+"127991": {
+"abbreviation": "RSVT",
+"displayName": "Roosevelt Lakers",
+"location": "Roosevelt",
+"name": "Lakers",
+"nickname": "Roosevelt",
+"shortDisplayName": "Roosevelt",
+"tier": "lower"
+},
+"128": {
+"abbreviation": "NMI",
+"displayName": "Northern Michigan Wildcats",
+"location": "Northern Michigan",
+"name": "Wildcats",
+"nickname": "N Michigan",
+"shortDisplayName": "N Michigan",
+"tier": "lower"
+},
+"129": {
+"abbreviation": "SVSU",
+"displayName": "Saginaw Valley State Cardinals",
+"location": "Saginaw Valley State",
+"name": "Cardinals",
+"nickname": "Saginaw Valley",
+"shortDisplayName": "Saginaw Valley",
+"tier": "lower"
+},
+"129469": {
+"abbreviation": "ANSC",
+"displayName": "Anderson (SC) Trojans",
+"location": "Anderson (SC)",
+"name": "Trojans",
+"nickname": "Anderson (SC)",
+"shortDisplayName": "Anderson (SC)",
+"tier": "lower"
+},
+"129738": {
+"abbreviation": "CALU",
+"displayName": "Calvin Knights",
+"location": "Calvin",
+"name": "Knights",
+"nickname": "Calvin",
+"shortDisplayName": "Calvin",
+"tier": "lower"
+},
+"129741": {
+"abbreviation": "WLWD",
+"displayName": "William Woods Owls",
+"location": "William Woods",
+"name": "Owls",
+"nickname": "William Woods",
+"shortDisplayName": "William Woods",
+"tier": "lower"
+},
+"129758": {
+"abbreviation": "SUCA",
+"displayName": "Simpson (CA) Red Hawks",
+"location": "Simpson (CA)",
+"name": "Red Hawks",
+"nickname": "Simpson (CA)",
+"shortDisplayName": "Simpson (CA)",
+"tier": "lower"
+},
+"13": {
+"abbreviation": "CP",
+"displayName": "Cal Poly Mustangs",
+"location": "Cal Poly",
+"name": "Mustangs",
+"nickname": "Cal Poly",
+"shortDisplayName": "Cal Poly",
+"tier": "FCS"
+},
+"130": {
+"abbreviation": "MICH",
+"displayName": "Michigan Wolverines",
+"location": "Michigan",
+"name": "Wolverines",
+"nickname": "Michigan",
+"shortDisplayName": "Michigan",
+"tier": "FBS"
+},
+"131": {
+"abbreviation": "WSMI",
+"displayName": "Wayne State (MI) Warriors",
+"location": "Wayne State (MI)",
+"name": "Warriors",
+"nickname": "Wayne St (MI)",
+"shortDisplayName": "Wayne St (MI)",
+"tier": "lower"
+},
+"132": {
+"abbreviation": "BST",
+"displayName": "Bemidji State Beavers",
+"location": "Bemidji State",
+"name": "Beavers",
+"nickname": "Bemidji St",
+"shortDisplayName": "Bemidji St",
+"tier": "lower"
+},
+"133": {
+"abbreviation": "OLAF",
+"displayName": "St. Olaf Oles",
+"location": "St. Olaf",
+"name": "Oles",
+"nickname": "St Olaf",
+"shortDisplayName": "St Olaf",
+"tier": "lower"
+},
+"134": {
+"abbreviation": "UMD",
+"displayName": "Minnesota Duluth Bulldogs",
+"location": "Minnesota Duluth",
+"name": "Bulldogs",
+"nickname": "Minn Duluth",
+"shortDisplayName": "Minn Duluth",
+"tier": "lower"
+},
+"134000": {
+"abbreviation": "THO",
+"displayName": "Thomas Night Hawks",
+"location": "Thomas",
+"name": "Night Hawks",
+"nickname": "Thomas",
+"shortDisplayName": "Thomas",
+"tier": "lower"
+},
+"134001": {
+"abbreviation": "MONR",
+"displayName": "Monroe (NY) Mustangs",
+"location": "Monroe (NY)",
+"name": "Mustangs",
+"nickname": "Monroe",
+"shortDisplayName": "Monroe",
+"tier": "lower"
+},
+"134002": {
+"abbreviation": "ANDR",
+"displayName": "Andrew Fighting Tigers",
+"location": "Andrew",
+"name": "Fighting Tigers",
+"nickname": "Andrew",
+"shortDisplayName": "Andrew",
+"tier": "lower"
+},
+"134087": {
+"abbreviation": "WGCU",
+"displayName": "Westgate Christian Ravens",
+"location": "Westgate Christian",
+"name": "Ravens",
+"nickname": "Westgate Chris",
+"shortDisplayName": "Westgate Chris",
+"tier": "lower"
+},
+"135": {
+"abbreviation": "MINN",
+"displayName": "Minnesota Golden Gophers",
+"location": "Minnesota",
+"name": "Golden Gophers",
+"nickname": "Minnesota",
+"shortDisplayName": "Minnesota",
+"tier": "FBS"
+},
+"137": {
+"abbreviation": "MOWE",
+"displayName": "Missouri Western Griffons",
+"location": "Missouri Western",
+"name": "Griffons",
+"nickname": "MO Western",
+"shortDisplayName": "MO Western",
+"tier": "lower"
+},
+"138": {
+"abbreviation": "MWMO",
+"displayName": "Northwest Missouri State Bearcats",
+"location": "Northwest Missouri State",
+"name": "Bearcats",
+"nickname": "NW Missouri St",
+"shortDisplayName": "NW Missouri St",
+"tier": "lower"
+},
+"142": {
+"abbreviation": "MIZ",
+"displayName": "Missouri Tigers",
+"location": "Missouri",
+"name": "Tigers",
+"nickname": "Missouri",
+"shortDisplayName": "Missouri",
+"tier": "FBS"
+},
+"143": {
+"abbreviation": "WUMO",
+"displayName": "Washington St. Louis Bears",
+"location": "Washington St. Louis",
+"name": "Bears",
+"nickname": "Wash St Louis",
+"shortDisplayName": "Wash St Louis",
+"tier": "lower"
+},
+"145": {
+"abbreviation": "MISS",
+"displayName": "Ole Miss Rebels",
+"location": "Ole Miss",
+"name": "Rebels",
+"nickname": "Ole Miss",
+"shortDisplayName": "Ole Miss",
+"tier": "FBS"
+},
+"146": {
+"abbreviation": "GRO",
+"displayName": "Grove City Wolverines",
+"location": "Grove City",
+"name": "Wolverines",
+"nickname": "Grove City",
+"shortDisplayName": "Grove City",
+"tier": "lower"
+},
+"147": {
+"abbreviation": "MTST",
+"displayName": "Montana State Bobcats",
+"location": "Montana State",
+"name": "Bobcats",
+"nickname": "Montana St",
+"shortDisplayName": "Montana St",
+"tier": "FCS"
+},
+"149": {
+"abbreviation": "MONT",
+"displayName": "Montana Grizzlies",
+"location": "Montana",
+"name": "Grizzlies",
+"nickname": "Montana",
+"shortDisplayName": "Montana",
+"tier": "FCS"
+},
+"150": {
+"abbreviation": "DUKE",
+"displayName": "Duke Blue Devils",
+"location": "Duke",
+"name": "Blue Devils",
+"nickname": "Duke",
+"shortDisplayName": "Duke",
+"tier": "FBS"
+},
+"151": {
+"abbreviation": "ECU",
+"displayName": "East Carolina Pirates",
+"location": "East Carolina",
+"name": "Pirates",
+"nickname": "East Carolina",
+"shortDisplayName": "East Carolina",
+"tier": "FBS"
+},
+"152": {
+"abbreviation": "NCSU",
+"displayName": "NC State Wolfpack",
+"location": "NC State",
+"name": "Wolfpack",
+"nickname": "NC State",
+"shortDisplayName": "NC State",
+"tier": "FBS"
+},
+"153": {
+"abbreviation": "UNC",
+"displayName": "North Carolina Tar Heels",
+"location": "North Carolina",
+"name": "Tar Heels",
+"nickname": "North Carolina",
+"shortDisplayName": "North Carolina",
+"tier": "FBS"
+},
+"154": {
+"abbreviation": "WAKE",
+"displayName": "Wake Forest Demon Deacons",
+"location": "Wake Forest",
+"name": "Demon Deacons",
+"nickname": "Wake Forest",
+"shortDisplayName": "Wake Forest",
+"tier": "FBS"
+},
+"155": {
+"abbreviation": "UND",
+"displayName": "North Dakota Fighting Hawks",
+"location": "North Dakota",
+"name": "Fighting Hawks",
+"nickname": "North Dakota",
+"shortDisplayName": "North Dakota",
+"tier": "FCS"
+},
+"158": {
+"abbreviation": "NEB",
+"displayName": "Nebraska Cornhuskers",
+"location": "Nebraska",
+"name": "Cornhuskers",
+"nickname": "Nebraska",
+"shortDisplayName": "Nebraska",
+"tier": "FBS"
+},
+"159": {
+"abbreviation": "DART",
+"displayName": "Dartmouth Big Green",
+"location": "Dartmouth",
+"name": "Big Green",
+"nickname": "Dartmouth",
+"shortDisplayName": "Dartmouth",
+"tier": "FCS"
+},
+"16": {
+"abbreviation": "SAC",
+"displayName": "Sacramento State Hornets",
+"location": "Sacramento State",
+"name": "Hornets",
+"nickname": "Sacramento St",
+"shortDisplayName": "Sacramento St",
+"tier": "FBS"
+},
+"160": {
+"abbreviation": "UNH",
+"displayName": "New Hampshire Wildcats",
+"location": "New Hampshire",
+"name": "Wildcats",
+"nickname": "New Hampshire",
+"shortDisplayName": "New Hampshire",
+"tier": "FCS"
+},
+"16111": {
+"abbreviation": "BENC",
+"displayName": "Benedictine College Ravens",
+"location": "Benedictine College",
+"name": "Ravens",
+"nickname": "Bndctn Col",
+"shortDisplayName": "Bndctn Col",
+"tier": "lower"
+},
+"162": {
+"abbreviation": "HMLN",
+"displayName": "Hamline Pipers",
+"location": "Hamline",
+"name": "Pipers",
+"nickname": "Hamline",
+"shortDisplayName": "Hamline",
+"tier": "lower"
+},
+"163": {
+"abbreviation": "PRIN",
+"displayName": "Princeton Tigers",
+"location": "Princeton",
+"name": "Tigers",
+"nickname": "Princeton",
+"shortDisplayName": "Princeton",
+"tier": "FCS"
+},
+"164": {
+"abbreviation": "RUTG",
+"displayName": "Rutgers Scarlet Knights",
+"location": "Rutgers",
+"name": "Scarlet Knights",
+"nickname": "Rutgers",
+"shortDisplayName": "Rutgers",
+"tier": "FBS"
+},
+"166": {
+"abbreviation": "NMSU",
+"displayName": "New Mexico State Aggies",
+"location": "New Mexico State",
+"name": "Aggies",
+"nickname": "New Mexico St",
+"shortDisplayName": "New Mexico St",
+"tier": "FBS"
+},
+"167": {
+"abbreviation": "UNM",
+"displayName": "New Mexico Lobos",
+"location": "New Mexico",
+"name": "Lobos",
+"nickname": "New Mexico",
+"shortDisplayName": "New Mexico",
+"tier": "FBS"
+},
+"17": {
+"abbreviation": "CMS",
+"displayName": "Claremont Mudd Scripps Stags",
+"location": "Claremont Mudd Scripps",
+"name": "Stags",
+"nickname": "Claremont-M-S",
+"shortDisplayName": "Claremont-M-S",
+"tier": "lower"
+},
+"171": {
+"abbreviation": "COLU",
+"displayName": "Columbia Lions",
+"location": "Columbia",
+"name": "Lions",
+"nickname": "Columbia",
+"shortDisplayName": "Columbia",
+"tier": "FCS"
+},
+"172": {
+"abbreviation": "COR",
+"displayName": "Cornell Big Red",
+"location": "Cornell",
+"name": "Big Red",
+"nickname": "Cornell",
+"shortDisplayName": "Cornell",
+"tier": "FCS"
+},
+"173": {
+"abbreviation": "HRTW",
+"displayName": "Hartwick Hawks",
+"location": "Hartwick",
+"name": "Hawks",
+"nickname": "Hartwick",
+"shortDisplayName": "Hartwick",
+"tier": "lower"
+},
+"174": {
+"abbreviation": "HBRT",
+"displayName": "Hobart Statesmen",
+"location": "Hobart",
+"name": "Statesmen",
+"nickname": "Hobart",
+"shortDisplayName": "Hobart",
+"tier": "lower"
+},
+"175": {
+"abbreviation": "ITH",
+"displayName": "Ithaca Bombers",
+"location": "Ithaca",
+"name": "Bombers",
+"nickname": "Ithaca",
+"shortDisplayName": "Ithaca",
+"tier": "lower"
+},
+"18": {
+"abbreviation": "BRIS",
+"displayName": "Bridgewater State Bears",
+"location": "Bridgewater State",
+"name": "Bears",
+"nickname": "Bridgewater St",
+"shortDisplayName": "Bridgewater St",
+"tier": "lower"
+},
+"183": {
+"abbreviation": "SYR",
+"displayName": "Syracuse Orange",
+"location": "Syracuse",
+"name": "Orange",
+"nickname": "Syracuse",
+"shortDisplayName": "Syracuse",
+"tier": "FBS"
+},
+"184": {
+"abbreviation": "URNY",
+"displayName": "Rochester (NY) Yellow Jackets",
+"location": "Rochester (NY)",
+"name": "Yellow Jackets",
+"nickname": "Rochester (NY)",
+"shortDisplayName": "Rochester (NY)",
+"tier": "lower"
+},
+"188": {
+"abbreviation": "BW",
+"displayName": "Baldwin Wallace Yellow Jackets",
+"location": "Baldwin Wallace",
+"name": "Yellow Jackets",
+"nickname": "Baldwin Wall",
+"shortDisplayName": "Baldwin Wall",
+"tier": "lower"
+},
+"189": {
+"abbreviation": "BGSU",
+"displayName": "Bowling Green Falcons",
+"location": "Bowling Green",
+"name": "Falcons",
+"nickname": "Bowling Green",
+"shortDisplayName": "Bowling Green",
+"tier": "FBS"
+},
+"190": {
+"abbreviation": "DEF",
+"displayName": "Defiance College Yellow Jackets",
+"location": "Defiance College",
+"name": "Yellow Jackets",
+"nickname": "Defiance",
+"shortDisplayName": "Defiance",
+"tier": "lower"
+},
+"191": {
+"abbreviation": "HDBG",
+"displayName": "Heidelberg Student Princes",
+"location": "Heidelberg",
+"name": "Student Princes",
+"nickname": "Heidelberg",
+"shortDisplayName": "Heidelberg",
+"tier": "lower"
+},
+"193": {
+"abbreviation": "M-OH",
+"displayName": "Miami (OH) RedHawks",
+"location": "Miami (OH)",
+"name": "RedHawks",
+"nickname": "Miami OH",
+"shortDisplayName": "Miami OH",
+"tier": "FBS"
+},
+"194": {
+"abbreviation": "OSU",
+"displayName": "Ohio State Buckeyes",
+"location": "Ohio State",
+"name": "Buckeyes",
+"nickname": "Ohio State",
+"shortDisplayName": "Ohio State",
+"tier": "FBS"
+},
+"195": {
+"abbreviation": "OHIO",
+"displayName": "Ohio Bobcats",
+"location": "Ohio",
+"name": "Bobcats",
+"nickname": "Ohio",
+"shortDisplayName": "Ohio",
+"tier": "FBS"
+},
+"196": {
+"abbreviation": "NESU",
+"displayName": "Northeastern State RiverHawks",
+"location": "Northeastern State",
+"name": "RiverHawks",
+"nickname": "NE State",
+"shortDisplayName": "NE State",
+"tier": "lower"
+},
+"197": {
+"abbreviation": "OKST",
+"displayName": "Oklahoma State Cowboys",
+"location": "Oklahoma State",
+"name": "Cowboys",
+"nickname": "Oklahoma St",
+"shortDisplayName": "Oklahoma St",
+"tier": "FBS"
+},
+"199": {
+"abbreviation": "SEOK",
+"displayName": "Southeastern Oklahoma State Savage Storm",
+"location": "Southeastern Oklahoma State",
+"name": "Savage Storm",
+"nickname": "SE Oklahoma St",
+"shortDisplayName": "SE Oklahoma St",
+"tier": "lower"
+},
+"2": {
+"abbreviation": "AUB",
+"displayName": "Auburn Tigers",
+"location": "Auburn",
+"name": "Tigers",
+"nickname": "Auburn",
+"shortDisplayName": "Auburn",
+"tier": "FBS"
+},
+"200": {
+"abbreviation": "SNU",
+"displayName": "Southern Nazarene Crimson Storm",
+"location": "Southern Nazarene",
+"name": "Crimson Storm",
+"nickname": "S Nazarene",
+"shortDisplayName": "S Nazarene",
+"tier": "lower"
+},
+"2000": {
+"abbreviation": "ACU",
+"displayName": "Abilene Christian Wildcats",
+"location": "Abilene Christian",
+"name": "Wildcats",
+"nickname": "Abilene Chrstn",
+"shortDisplayName": "Abilene Chrstn",
+"tier": "FCS"
+},
+"2001": {
+"abbreviation": "ADSU",
+"displayName": "Adams State Grizzlies",
+"location": "Adams State",
+"name": "Grizzlies",
+"nickname": "Adams St",
+"shortDisplayName": "Adams St",
+"tier": "lower"
+},
+"2003": {
+"abbreviation": "ADR",
+"displayName": "Adrian Bulldogs",
+"location": "Adrian",
+"name": "Bulldogs",
+"nickname": "Adrian",
+"shortDisplayName": "Adrian",
+"tier": "lower"
+},
+"2005": {
+"abbreviation": "AF",
+"displayName": "Air Force Falcons",
+"location": "Air Force",
+"name": "Falcons",
+"nickname": "Air Force",
+"shortDisplayName": "Air Force",
+"tier": "FBS"
+},
+"2006": {
+"abbreviation": "AKR",
+"displayName": "Akron Zips",
+"location": "Akron",
+"name": "Zips",
+"nickname": "Akron",
+"shortDisplayName": "Akron",
+"tier": "FBS"
+},
+"201": {
+"abbreviation": "OU",
+"displayName": "Oklahoma Sooners",
+"location": "Oklahoma",
+"name": "Sooners",
+"nickname": "Oklahoma",
+"shortDisplayName": "Oklahoma",
+"tier": "FBS"
+},
+"2010": {
+"abbreviation": "AAMU",
+"displayName": "Alabama A&M Bulldogs",
+"location": "Alabama A&M",
+"name": "Bulldogs",
+"nickname": "Alabama A&M",
+"shortDisplayName": "Alabama A&M",
+"tier": "FCS"
+},
+"2011": {
+"abbreviation": "ALST",
+"displayName": "Alabama State Hornets",
+"location": "Alabama State",
+"name": "Hornets",
+"nickname": "Alabama St",
+"shortDisplayName": "Alabama St",
+"tier": "FCS"
+},
+"2013": {
+"abbreviation": "ABSU",
+"displayName": "Albany State Golden Rams",
+"location": "Albany State",
+"name": "Golden Rams",
+"nickname": "Albany St",
+"shortDisplayName": "Albany St",
+"tier": "lower"
+},
+"2015": {
+"abbreviation": "ALBR",
+"displayName": "Albright Lions",
+"location": "Albright",
+"name": "Lions",
+"nickname": "Albright",
+"shortDisplayName": "Albright",
+"tier": "lower"
+},
+"2016": {
+"abbreviation": "ALCN",
+"displayName": "Alcorn State Braves",
+"location": "Alcorn State",
+"name": "Braves",
+"nickname": "Alcorn St",
+"shortDisplayName": "Alcorn St",
+"tier": "FCS"
+},
+"2018": {
+"abbreviation": "ALLG",
+"displayName": "Allegheny Gators",
+"location": "Allegheny",
+"name": "Gators",
+"nickname": "Allegheny",
+"shortDisplayName": "Allegheny",
+"tier": "lower"
+},
+"2019": {
+"abbreviation": "ALNU",
+"displayName": "Allen Yellow Jackets",
+"location": "Allen",
+"name": "Yellow Jackets",
+"nickname": "Allen",
+"shortDisplayName": "Allen",
+"tier": "lower"
+},
+"202": {
+"abbreviation": "TLSA",
+"displayName": "Tulsa Golden Hurricane",
+"location": "Tulsa",
+"name": "Golden Hurricane",
+"nickname": "Tulsa",
+"shortDisplayName": "Tulsa",
+"tier": "FBS"
+},
+"2022": {
+"abbreviation": "AIC",
+"displayName": "American International Yellow Jackets",
+"location": "American International",
+"name": "Yellow Jackets",
+"nickname": "American Int'l",
+"shortDisplayName": "American Int'l",
+"tier": "lower"
+},
+"2023": {
+"abbreviation": "ANIN",
+"displayName": "Anderson (IN) Ravens",
+"location": "Anderson (IN)",
+"name": "Ravens",
+"nickname": "Anderson (IN)",
+"shortDisplayName": "Anderson (IN)",
+"tier": "lower"
+},
+"2025": {
+"abbreviation": "AGSU",
+"displayName": "Angelo State Rams",
+"location": "Angelo State",
+"name": "Rams",
+"nickname": "Angelo St",
+"shortDisplayName": "Angelo St",
+"tier": "lower"
+},
+"2026": {
+"abbreviation": "APP",
+"displayName": "App State Mountaineers",
+"location": "App State",
+"name": "Mountaineers",
+"nickname": "App State",
+"shortDisplayName": "App State",
+"tier": "FBS"
+},
+"2028": {
+"abbreviation": "UAM",
+"displayName": "Arkansas Monticello Boll Weevils",
+"location": "Arkansas Monticello",
+"name": "Boll Weevils",
+"nickname": "UA Monticello",
+"shortDisplayName": "UA Monticello",
+"tier": "lower"
+},
+"2029": {
+"abbreviation": "UAPB",
+"displayName": "Arkansas-Pine Bluff Golden Lions",
+"location": "Arkansas-Pine Bluff",
+"name": "Golden Lions",
+"nickname": "AR-Pine Bluff",
+"shortDisplayName": "AR-Pine Bluff",
+"tier": "FCS"
+},
+"203": {
+"abbreviation": "LINF",
+"displayName": "Linfield Wildcats",
+"location": "Linfield",
+"name": "Wildcats",
+"nickname": "Linfield",
+"shortDisplayName": "Linfield",
+"tier": "lower"
+},
+"2032": {
+"abbreviation": "ARST",
+"displayName": "Arkansas State Red Wolves",
+"location": "Arkansas State",
+"name": "Red Wolves",
+"nickname": "Arkansas St",
+"shortDisplayName": "Arkansas St",
+"tier": "FBS"
+},
+"2033": {
+"abbreviation": "ARTE",
+"displayName": "Arkansas Tech Wonder Boys",
+"location": "Arkansas Tech",
+"name": "Wonder Boys",
+"nickname": "Arkansas Tech",
+"shortDisplayName": "Arkansas Tech",
+"tier": "lower"
+},
+"2038": {
+"abbreviation": "ASP",
+"displayName": "Assumption Greyhounds",
+"location": "Assumption",
+"name": "Greyhounds",
+"nickname": "Assumption",
+"shortDisplayName": "Assumption",
+"tier": "lower"
+},
+"204": {
+"abbreviation": "ORST",
+"displayName": "Oregon State Beavers",
+"location": "Oregon State",
+"name": "Beavers",
+"nickname": "Oregon St",
+"shortDisplayName": "Oregon St",
+"tier": "FBS"
+},
+"2042": {
+"abbreviation": "AUGC",
+"displayName": "Augustana (IL) Vikings",
+"location": "Augustana (IL)",
+"name": "Vikings",
+"nickname": "Augustana (IL)",
+"shortDisplayName": "Augustana (IL)",
+"tier": "lower"
+},
+"2043": {
+"abbreviation": "AUSD",
+"displayName": "Augustana (SD) Vikings",
+"location": "Augustana (SD)",
+"name": "Vikings",
+"nickname": "Augustana (SD)",
+"shortDisplayName": "Augustana (SD)",
+"tier": "lower"
+},
+"2044": {
+"abbreviation": "AUR",
+"displayName": "Aurora Spartans",
+"location": "Aurora",
+"name": "Spartans",
+"nickname": "Aurora",
+"shortDisplayName": "Aurora",
+"tier": "lower"
+},
+"2045": {
+"abbreviation": "AUS",
+"displayName": "Austin 'Roos",
+"location": "Austin",
+"name": "'Roos",
+"nickname": "Austin",
+"shortDisplayName": "Austin",
+"tier": "lower"
+},
+"2046": {
+"abbreviation": "APSU",
+"displayName": "Austin Peay Governors",
+"location": "Austin Peay",
+"name": "Governors",
+"nickname": "Austin Peay",
+"shortDisplayName": "Austin Peay",
+"tier": "FCS"
+},
+"2047": {
+"abbreviation": "AVER",
+"displayName": "Averett Cougars",
+"location": "Averett",
+"name": "Cougars",
+"nickname": "Averett",
+"shortDisplayName": "Averett",
+"tier": "lower"
+},
+"2048": {
+"abbreviation": "AVILA",
+"displayName": "Avila University Eagles",
+"location": "Avila University",
+"name": "Eagles",
+"nickname": "Avila",
+"shortDisplayName": "Avila",
+"tier": "lower"
+},
+"2049": {
+"abbreviation": "APU",
+"displayName": "Azusa Pacific Cougars",
+"location": "Azusa Pacific",
+"name": "Cougars",
+"nickname": "Azusa Pacific",
+"shortDisplayName": "Azusa Pacific",
+"tier": "lower"
+},
+"205": {
+"abbreviation": "PCOR",
+"displayName": "Pacific (OR) Boxers",
+"location": "Pacific (OR)",
+"name": "Boxers",
+"nickname": "Pacific (OR)",
+"shortDisplayName": "Pacific (OR)",
+"tier": "lower"
+},
+"2050": {
+"abbreviation": "BALL",
+"displayName": "Ball State Cardinals",
+"location": "Ball State",
+"name": "Cardinals",
+"nickname": "Ball State",
+"shortDisplayName": "Ball State",
+"tier": "FBS"
+},
+"2056": {
+"abbreviation": "BELH",
+"displayName": "Belhaven Blazers",
+"location": "Belhaven",
+"name": "Blazers",
+"nickname": "Belhaven",
+"shortDisplayName": "Belhaven",
+"tier": "lower"
+},
+"2060": {
+"abbreviation": "BENT",
+"displayName": "Bentley Falcons",
+"location": "Bentley",
+"name": "Falcons",
+"nickname": "Bentley",
+"shortDisplayName": "Bentley",
+"tier": "lower"
+},
+"2062": {
+"abbreviation": "BCWV",
+"displayName": "Bethany (WV) Bison",
+"location": "Bethany (WV)",
+"name": "Bison",
+"nickname": "Bethany (WV)",
+"shortDisplayName": "Bethany (WV)",
+"tier": "lower"
+},
+"2064": {
+"abbreviation": "BTTN",
+"displayName": "Bethel (TN) Wildcats",
+"location": "Bethel (TN)",
+"name": "Wildcats",
+"nickname": "Bethel (TN)",
+"shortDisplayName": "Bethel (TN)",
+"tier": "lower"
+},
+"2065": {
+"abbreviation": "BCU",
+"displayName": "Bethune-Cookman Wildcats",
+"location": "Bethune-Cookman",
+"name": "Wildcats",
+"nickname": "Bethune",
+"shortDisplayName": "Bethune",
+"tier": "FCS"
+},
+"2069": {
+"abbreviation": "BHSU",
+"displayName": "Black Hills State Yellow Jackets",
+"location": "Black Hills State",
+"name": "Yellow Jackets",
+"nickname": "Black Hills St",
+"shortDisplayName": "Black Hills St",
+"tier": "lower"
+},
+"2071": {
+"abbreviation": "BBU",
+"displayName": "Bloomsburg Huskies",
+"location": "Bloomsburg",
+"name": "Huskies",
+"nickname": "Bloomsburg",
+"shortDisplayName": "Bloomsburg",
+"tier": "lower"
+},
+"2074": {
+"abbreviation": "BLF",
+"displayName": "Bluffton Beavers",
+"location": "Bluffton",
+"name": "Beavers",
+"nickname": "Bluffton",
+"shortDisplayName": "Bluffton",
+"tier": "lower"
+},
+"2075": {
+"abbreviation": "BOWE",
+"displayName": "Bowie State Bulldogs",
+"location": "Bowie State",
+"name": "Bulldogs",
+"nickname": "Bowie St",
+"shortDisplayName": "Bowie St",
+"tier": "lower"
+},
+"2079": {
+"abbreviation": "BRI",
+"displayName": "Bridgewater Eagles",
+"location": "Bridgewater",
+"name": "Eagles",
+"nickname": "Bridgewater",
+"shortDisplayName": "Bridgewater",
+"tier": "lower"
+},
+"2080": {
+"abbreviation": "BBM",
+"displayName": "British Columbia British Col",
+"location": "British Columbia",
+"name": "British Col",
+"nickname": "Britsh Col",
+"shortDisplayName": "Britsh Col",
+"tier": "lower"
+},
+"2083": {
+"abbreviation": "BUCK",
+"displayName": "Bucknell Bison",
+"location": "Bucknell",
+"name": "Bison",
+"nickname": "Bucknell",
+"shortDisplayName": "Bucknell",
+"tier": "FCS"
+},
+"2084": {
+"abbreviation": "BUF",
+"displayName": "Buffalo Bulls",
+"location": "Buffalo",
+"name": "Bulls",
+"nickname": "Buffalo",
+"shortDisplayName": "Buffalo",
+"tier": "FBS"
+},
+"2085": {
+"abbreviation": "BSU",
+"displayName": "Buffalo State Bengals",
+"location": "Buffalo State",
+"name": "Bengals",
+"nickname": "Buffalo St",
+"shortDisplayName": "Buffalo St",
+"tier": "lower"
+},
+"2086": {
+"abbreviation": "BTLR",
+"displayName": "Butler Bulldogs",
+"location": "Butler",
+"name": "Bulldogs",
+"nickname": "Butler",
+"shortDisplayName": "Butler",
+"tier": "FCS"
+},
+"209": {
+"abbreviation": "LHU",
+"displayName": "Lock Haven Bald Eagles",
+"location": "Lock Haven",
+"name": "Bald Eagles",
+"nickname": "Lock Haven",
+"shortDisplayName": "Lock Haven",
+"tier": "lower"
+},
+"2094": {
+"abbreviation": "CLU",
+"displayName": "Cal Lutheran Kingsmen",
+"location": "Cal Lutheran",
+"name": "Kingsmen",
+"nickname": "Cal Lutheran",
+"shortDisplayName": "Cal Lutheran",
+"tier": "lower"
+},
+"2097": {
+"abbreviation": "CAM",
+"displayName": "Campbell Fighting Camels",
+"location": "Campbell",
+"name": "Fighting Camels",
+"nickname": "Campbell",
+"shortDisplayName": "Campbell",
+"tier": "FCS"
+},
+"2098": {
+"abbreviation": "CBVU",
+"displayName": "Campbellsville Tigers",
+"location": "Campbellsville",
+"name": "Tigers",
+"nickname": "Campbellsville",
+"shortDisplayName": "Campbellsville",
+"tier": "lower"
+},
+"21": {
+"abbreviation": "SDSU",
+"displayName": "San Diego State Aztecs",
+"location": "San Diego State",
+"name": "Aztecs",
+"nickname": "San Diego St",
+"shortDisplayName": "San Diego St",
+"tier": "FBS"
+},
+"210": {
+"abbreviation": "MILL",
+"displayName": "Millersville Marauders",
+"location": "Millersville",
+"name": "Marauders",
+"nickname": "Millersville",
+"shortDisplayName": "Millersville",
+"tier": "lower"
+},
+"2101": {
+"abbreviation": "CAR",
+"displayName": "Carleton Knights",
+"location": "Carleton",
+"name": "Knights",
+"nickname": "Carleton",
+"shortDisplayName": "Carleton",
+"tier": "lower"
+},
+"2102": {
+"abbreviation": "CGMU",
+"displayName": "Carnegie Mellon Tartans",
+"location": "Carnegie Mellon",
+"name": "Tartans",
+"nickname": "Carn Mellon",
+"shortDisplayName": "Carn Mellon",
+"tier": "lower"
+},
+"2105": {
+"abbreviation": "CN",
+"displayName": "Carson Newman Eagles",
+"location": "Carson Newman",
+"name": "Eagles",
+"nickname": "Carson Newman",
+"shortDisplayName": "Carson Newman",
+"tier": "lower"
+},
+"2106": {
+"abbreviation": "CCW",
+"displayName": "Carthage Firebirds",
+"location": "Carthage",
+"name": "Firebirds",
+"nickname": "Carthage",
+"shortDisplayName": "Carthage",
+"tier": "lower"
+},
+"2107": {
+"abbreviation": "CAT",
+"displayName": "Catawba Indians",
+"location": "Catawba",
+"name": "Indians",
+"nickname": "Catawba",
+"shortDisplayName": "Catawba",
+"tier": "lower"
+},
+"2108": {
+"abbreviation": "CATH",
+"displayName": "Catholic Cardinals",
+"location": "Catholic",
+"name": "Cardinals",
+"nickname": "Catholic",
+"shortDisplayName": "Catholic",
+"tier": "lower"
+},
+"2110": {
+"abbreviation": "CARK",
+"displayName": "Central Arkansas Bears",
+"location": "Central Arkansas",
+"name": "Bears",
+"nickname": "C Arkansas",
+"shortDisplayName": "C Arkansas",
+"tier": "FCS"
+},
+"2115": {
+"abbreviation": "CCSU",
+"displayName": "Central Connecticut Blue Devils",
+"location": "Central Connecticut",
+"name": "Blue Devils",
+"nickname": "C Connecticut",
+"shortDisplayName": "C Connecticut",
+"tier": "FCS"
+},
+"2116": {
+"abbreviation": "UCF",
+"displayName": "UCF Knights",
+"location": "UCF",
+"name": "Knights",
+"nickname": "UCF",
+"shortDisplayName": "UCF",
+"tier": "FBS"
+},
+"2117": {
+"abbreviation": "CMU",
+"displayName": "Central Michigan Chippewas",
+"location": "Central Michigan",
+"name": "Chippewas",
+"nickname": "C Michigan",
+"shortDisplayName": "C Michigan",
+"tier": "FBS"
+},
+"2118": {
+"abbreviation": "UCM",
+"displayName": "Central Missouri Mules",
+"location": "Central Missouri",
+"name": "Mules",
+"nickname": "C Missouri",
+"shortDisplayName": "C Missouri",
+"tier": "lower"
+},
+"2119": {
+"abbreviation": "CNSU",
+"displayName": "Central State Marauders",
+"location": "Central State",
+"name": "Marauders",
+"nickname": "Central St",
+"shortDisplayName": "Central St",
+"tier": "lower"
+},
+"2120": {
+"abbreviation": "CWAU",
+"displayName": "Central Washington Wildcats",
+"location": "Central Washington",
+"name": "Wildcats",
+"nickname": "C Washington",
+"shortDisplayName": "C Washington",
+"tier": "lower"
+},
+"2121": {
+"abbreviation": "CCO",
+"displayName": "Centre Colonels",
+"location": "Centre",
+"name": "Colonels",
+"nickname": "Centre",
+"shortDisplayName": "Centre",
+"tier": "lower"
+},
+"2122": {
+"abbreviation": "UCO",
+"displayName": "Central Oklahoma Bronchos",
+"location": "Central Oklahoma",
+"name": "Bronchos",
+"nickname": "C Oklahoma",
+"shortDisplayName": "C Oklahoma",
+"tier": "lower"
+},
+"2123": {
+"abbreviation": "CHAD",
+"displayName": "Chadron State Eagles",
+"location": "Chadron State",
+"name": "Eagles",
+"nickname": "Chadron St",
+"shortDisplayName": "Chadron St",
+"tier": "lower"
+},
+"2127": {
+"abbreviation": "CHSO",
+"displayName": "Charleston Southern Buccaneers",
+"location": "Charleston Southern",
+"name": "Buccaneers",
+"nickname": "Charleston So",
+"shortDisplayName": "Charleston So",
+"tier": "FCS"
+},
+"2128": {
+"abbreviation": "UCWV",
+"displayName": "Charleston (WV) Golden Eagles",
+"location": "Charleston (WV)",
+"name": "Golden Eagles",
+"nickname": "Charleston WV",
+"shortDisplayName": "Charleston WV",
+"tier": "lower"
+},
+"213": {
+"abbreviation": "PSU",
+"displayName": "Penn State Nittany Lions",
+"location": "Penn State",
+"name": "Nittany Lions",
+"nickname": "Penn State",
+"shortDisplayName": "Penn State",
+"tier": "FBS"
+},
+"2130": {
+"abbreviation": "CHST",
+"displayName": "Chicago State Cougars",
+"location": "Chicago State",
+"name": "Cougars",
+"nickname": "Chicago St",
+"shortDisplayName": "Chicago St",
+"tier": "FCS"
+},
+"2132": {
+"abbreviation": "CIN",
+"displayName": "Cincinnati Bearcats",
+"location": "Cincinnati",
+"name": "Bearcats",
+"nickname": "Cincinnati",
+"shortDisplayName": "Cincinnati",
+"tier": "FBS"
+},
+"2134": {
+"abbreviation": "CLRN",
+"displayName": "Clarion Golden Eagles",
+"location": "Clarion",
+"name": "Golden Eagles",
+"nickname": "Clarion",
+"shortDisplayName": "Clarion",
+"tier": "lower"
+},
+"2141": {
+"abbreviation": "COE",
+"displayName": "Coe Kohawks",
+"location": "Coe",
+"name": "Kohawks",
+"nickname": "Coe",
+"shortDisplayName": "Coe",
+"tier": "lower"
+},
+"2142": {
+"abbreviation": "COLG",
+"displayName": "Colgate Raiders",
+"location": "Colgate",
+"name": "Raiders",
+"nickname": "Colgate",
+"shortDisplayName": "Colgate",
+"tier": "FCS"
+},
+"2146": {
+"abbreviation": "CMIN",
+"displayName": "Colorado School of Mines Orediggers",
+"location": "Colorado School of Mines",
+"name": "Orediggers",
+"nickname": "Colorado Mines",
+"shortDisplayName": "Colorado Mines",
+"tier": "lower"
+},
+"2148": {
+"abbreviation": "CONC",
+"displayName": "Concord Mountain Lions",
+"location": "Concord",
+"name": "Mountain Lions",
+"nickname": "Concord",
+"shortDisplayName": "Concord",
+"tier": "lower"
+},
+"215": {
+"abbreviation": "SRU",
+"displayName": "Slippery Rock The Rock",
+"location": "Slippery Rock",
+"name": "The Rock",
+"nickname": "Slippery Rock",
+"shortDisplayName": "Slippery Rock",
+"tier": "lower"
+},
+"2151": {
+"abbreviation": "CUC",
+"displayName": "Concordia Chicago Cougars",
+"location": "Concordia Chicago",
+"name": "Cougars",
+"nickname": "Concordia Chi",
+"shortDisplayName": "Concordia Chi",
+"tier": "lower"
+},
+"2152": {
+"abbreviation": "CCMN",
+"displayName": "Concordia (MN) Cobbers",
+"location": "Concordia (MN)",
+"name": "Cobbers",
+"nickname": "Concordia (MN)",
+"shortDisplayName": "Concordia (MN)",
+"tier": "lower"
+},
+"2155": {
+"abbreviation": "CNIA",
+"displayName": "Cornell (IA) Rams",
+"location": "Cornell (IA)",
+"name": "Rams",
+"nickname": "Cornell (IA)",
+"shortDisplayName": "Cornell (IA)",
+"tier": "lower"
+},
+"216": {
+"abbreviation": "SUSQ",
+"displayName": "Susquehanna River Hawks",
+"location": "Susquehanna",
+"name": "River Hawks",
+"nickname": "Susquehanna",
+"shortDisplayName": "Susquehanna",
+"tier": "lower"
+},
+"2161": {
+"abbreviation": "CUMBTN",
+"displayName": "Cumberland (TN) Bulldogs",
+"location": "Cumberland (TN)",
+"name": "Bulldogs",
+"nickname": "Cmbrlnd TN",
+"shortDisplayName": "Cmbrlnd TN",
+"tier": "lower"
+},
+"2166": {
+"abbreviation": "DAV",
+"displayName": "Davidson Wildcats",
+"location": "Davidson",
+"name": "Wildcats",
+"nickname": "Davidson",
+"shortDisplayName": "Davidson",
+"tier": "FCS"
+},
+"2168": {
+"abbreviation": "DAY",
+"displayName": "Dayton Flyers",
+"location": "Dayton",
+"name": "Flyers",
+"nickname": "Dayton",
+"shortDisplayName": "Dayton",
+"tier": "FCS"
+},
+"2169": {
+"abbreviation": "DSU",
+"displayName": "Delaware State Hornets",
+"location": "Delaware State",
+"name": "Hornets",
+"nickname": "Delaware St",
+"shortDisplayName": "Delaware St",
+"tier": "FCS"
+},
+"2170": {
+"abbreviation": "DLST",
+"displayName": "Delta State Statesmen",
+"location": "Delta State",
+"name": "Statesmen",
+"nickname": "Delta St",
+"shortDisplayName": "Delta St",
+"tier": "lower"
+},
+"2171": {
+"abbreviation": "DSN",
+"displayName": "Denison Big Red",
+"location": "Denison",
+"name": "Big Red",
+"nickname": "Denison",
+"shortDisplayName": "Denison",
+"tier": "lower"
+},
+"2175": {
+"abbreviation": "DKSN",
+"displayName": "Dickinson Red Devils",
+"location": "Dickinson",
+"name": "Red Devils",
+"nickname": "Dickinson",
+"shortDisplayName": "Dickinson",
+"tier": "lower"
+},
+"218": {
+"abbreviation": "TEM",
+"displayName": "Temple Owls",
+"location": "Temple",
+"name": "Owls",
+"nickname": "Temple",
+"shortDisplayName": "Temple",
+"tier": "FBS"
+},
+"2181": {
+"abbreviation": "DRKE",
+"displayName": "Drake Bulldogs",
+"location": "Drake",
+"name": "Bulldogs",
+"nickname": "Drake",
+"shortDisplayName": "Drake",
+"tier": "FCS"
+},
+"2184": {
+"abbreviation": "DUQ",
+"displayName": "Duquesne Dukes",
+"location": "Duquesne",
+"name": "Dukes",
+"nickname": "Duquesne",
+"shortDisplayName": "Duquesne",
+"tier": "FCS"
+},
+"2188": {
+"abbreviation": "ESU",
+"displayName": "East Stroudsburg Warriors",
+"location": "East Stroudsburg",
+"name": "Warriors",
+"nickname": "E Stroudsburg",
+"shortDisplayName": "E Stroudsburg",
+"tier": "lower"
+},
+"219": {
+"abbreviation": "PENN",
+"displayName": "Pennsylvania Quakers",
+"location": "Pennsylvania",
+"name": "Quakers",
+"nickname": "Penn",
+"shortDisplayName": "Penn",
+"tier": "FCS"
+},
+"2191": {
+"abbreviation": "ECNU",
+"displayName": "East Central Tigers",
+"location": "East Central",
+"name": "Tigers",
+"nickname": "East Central",
+"shortDisplayName": "East Central",
+"tier": "lower"
+},
+"2193": {
+"abbreviation": "ETSU",
+"displayName": "East Tennessee State Buccaneers",
+"location": "East Tennessee State",
+"name": "Buccaneers",
+"nickname": "ETSU",
+"shortDisplayName": "ETSU",
+"tier": "FCS"
+},
+"2194": {
+"abbreviation": "ETBU",
+"displayName": "East Texas Baptist Tigers",
+"location": "East Texas Baptist",
+"name": "Tigers",
+"nickname": "E TX Baptist",
+"shortDisplayName": "E TX Baptist",
+"tier": "lower"
+},
+"2197": {
+"abbreviation": "EIU",
+"displayName": "Eastern Illinois Panthers",
+"location": "Eastern Illinois",
+"name": "Panthers",
+"nickname": "E Illinois",
+"shortDisplayName": "E Illinois",
+"tier": "FCS"
+},
+"2198": {
+"abbreviation": "EKU",
+"displayName": "Eastern Kentucky Colonels",
+"location": "Eastern Kentucky",
+"name": "Colonels",
+"nickname": "E Kentucky",
+"shortDisplayName": "E Kentucky",
+"tier": "FCS"
+},
+"2199": {
+"abbreviation": "EMU",
+"displayName": "Eastern Michigan Eagles",
+"location": "Eastern Michigan",
+"name": "Eagles",
+"nickname": "E Michigan",
+"shortDisplayName": "E Michigan",
+"tier": "FBS"
+},
+"2201": {
+"abbreviation": "ENMU",
+"displayName": "Eastern New Mexico Greyhounds",
+"location": "Eastern New Mexico",
+"name": "Greyhounds",
+"nickname": "Eastern NM",
+"shortDisplayName": "Eastern NM",
+"tier": "lower"
+},
+"2202": {
+"abbreviation": "EORE",
+"displayName": "Eastern Oregon",
+"location": "Eastern Oregon",
+"name": "Eastern Oregon",
+"nickname": "E Oregon",
+"shortDisplayName": "E Oregon",
+"tier": "lower"
+},
+"2205": {
+"abbreviation": "EDBR",
+"displayName": "Edinboro Fighting Scots",
+"location": "Edinboro",
+"name": "Fighting Scots",
+"nickname": "Edinboro",
+"shortDisplayName": "Edinboro",
+"tier": "lower"
+},
+"2206": {
+"abbreviation": "EDW",
+"displayName": "Edward Waters Tigers",
+"location": "Edward Waters",
+"name": "Tigers",
+"nickname": "Edward Waters",
+"shortDisplayName": "Edward Waters",
+"tier": "lower"
+},
+"2207": {
+"abbreviation": "ECSU",
+"displayName": "Elizabeth City State Vikings",
+"location": "Elizabeth City State",
+"name": "Vikings",
+"nickname": "Elizabeth City",
+"shortDisplayName": "Elizabeth City",
+"tier": "lower"
+},
+"221": {
+"abbreviation": "PITT",
+"displayName": "Pittsburgh Panthers",
+"location": "Pittsburgh",
+"name": "Panthers",
+"nickname": "Pitt",
+"shortDisplayName": "Pitt",
+"tier": "FBS"
+},
+"2210": {
+"abbreviation": "ELON",
+"displayName": "Elon Phoenix",
+"location": "Elon",
+"name": "Phoenix",
+"nickname": "Elon",
+"shortDisplayName": "Elon",
+"tier": "FCS"
+},
+"2213": {
+"abbreviation": "EHC",
+"displayName": "Emory & Henry Wasps",
+"location": "Emory & Henry",
+"name": "Wasps",
+"nickname": "Emory & Henry",
+"shortDisplayName": "Emory & Henry",
+"tier": "lower"
+},
+"2214": {
+"abbreviation": "EMSU",
+"displayName": "Emporia State Hornets",
+"location": "Emporia State",
+"name": "Hornets",
+"nickname": "Emporia St",
+"shortDisplayName": "Emporia St",
+"tier": "lower"
+},
+"2219": {
+"abbreviation": "FAULKNER",
+"displayName": "Faulkner University Eagles",
+"location": "Faulkner University",
+"name": "Eagles",
+"nickname": "Faulkner",
+"shortDisplayName": "Faulkner",
+"tier": "lower"
+},
+"222": {
+"abbreviation": "VILL",
+"displayName": "Villanova Wildcats",
+"location": "Villanova",
+"name": "Wildcats",
+"nickname": "Villanova",
+"shortDisplayName": "Villanova",
+"tier": "FCS"
+},
+"2220": {
+"abbreviation": "FAYU",
+"displayName": "Fayetteville State Broncos",
+"location": "Fayetteville State",
+"name": "Broncos",
+"nickname": "Fay'ville St",
+"shortDisplayName": "Fay'ville St",
+"tier": "lower"
+},
+"2221": {
+"abbreviation": "FDUF",
+"displayName": "FDU Florham Devils",
+"location": "FDU Florham",
+"name": "Devils",
+"nickname": "FDU Florham",
+"shortDisplayName": "FDU Florham",
+"tier": "lower"
+},
+"2222": {
+"abbreviation": "FRST",
+"displayName": "Ferris State Bulldogs",
+"location": "Ferris State",
+"name": "Bulldogs",
+"nickname": "Ferris St",
+"shortDisplayName": "Ferris St",
+"tier": "lower"
+},
+"2224": {
+"abbreviation": "UF",
+"displayName": "Findlay Oilers",
+"location": "Findlay",
+"name": "Oilers",
+"nickname": "Findlay",
+"shortDisplayName": "Findlay",
+"tier": "lower"
+},
+"2226": {
+"abbreviation": "FAU",
+"displayName": "Florida Atlantic Owls",
+"location": "Florida Atlantic",
+"name": "Owls",
+"nickname": "FAU",
+"shortDisplayName": "FAU",
+"tier": "FBS"
+},
+"2229": {
+"abbreviation": "FIU",
+"displayName": "Florida International Panthers",
+"location": "Florida International",
+"name": "Panthers",
+"nickname": "FIU",
+"shortDisplayName": "FIU",
+"tier": "FBS"
+},
+"223": {
+"abbreviation": "WCHT",
+"displayName": "West Chester Golden Rams",
+"location": "West Chester",
+"name": "Golden Rams",
+"nickname": "West Chester",
+"shortDisplayName": "West Chester",
+"tier": "lower"
+},
+"2230": {
+"abbreviation": "FOR",
+"displayName": "Fordham Rams",
+"location": "Fordham",
+"name": "Rams",
+"nickname": "Fordham",
+"shortDisplayName": "Fordham",
+"tier": "FCS"
+},
+"2231": {
+"abbreviation": "FHSU",
+"displayName": "Fort Hays Tigers",
+"location": "Fort Hays",
+"name": "Tigers",
+"nickname": "Fort Hays",
+"shortDisplayName": "Fort Hays",
+"tier": "lower"
+},
+"2232": {
+"abbreviation": "FVSU",
+"displayName": "Fort Valley State Wildcats",
+"location": "Fort Valley State",
+"name": "Wildcats",
+"nickname": "Fort Valley St",
+"shortDisplayName": "Fort Valley St",
+"tier": "lower"
+},
+"2233": {
+"abbreviation": "FRKL",
+"displayName": "Franklin Grizzlies",
+"location": "Franklin",
+"name": "Grizzlies",
+"nickname": "Franklin",
+"shortDisplayName": "Franklin",
+"tier": "lower"
+},
+"2234": {
+"abbreviation": "FMC",
+"displayName": "Franklin & Marshall Diplomats",
+"location": "Franklin & Marshall",
+"name": "Diplomats",
+"nickname": "Franklin Marsh",
+"shortDisplayName": "Franklin Marsh",
+"tier": "lower"
+},
+"2237": {
+"abbreviation": "FLWC",
+"displayName": "Fort Lewis Skyhawks",
+"location": "Fort Lewis",
+"name": "Skyhawks",
+"nickname": "Fort Lewis",
+"shortDisplayName": "Fort Lewis",
+"tier": "lower"
+},
+"2241": {
+"abbreviation": "GWEB",
+"displayName": "Gardner-Webb Runnin' Bulldogs",
+"location": "Gardner-Webb",
+"name": "Runnin' Bulldogs",
+"nickname": "Gardner-Webb",
+"shortDisplayName": "Gardner-Webb",
+"tier": "FCS"
+},
+"2242": {
+"abbreviation": "GEN",
+"displayName": "Geneva Golden Tornadoes",
+"location": "Geneva",
+"name": "Golden Tornadoes",
+"nickname": "Geneva",
+"shortDisplayName": "Geneva",
+"tier": "lower"
+},
+"2244": {
+"abbreviation": "GMU",
+"displayName": "George Mason University Patriots",
+"location": "George Mason University",
+"name": "Patriots",
+"nickname": "George Mason",
+"shortDisplayName": "George Mason",
+"tier": "lower"
+},
+"2245": {
+"abbreviation": "GTKY",
+"displayName": "Georgetown (KY) Tigers",
+"location": "Georgetown (KY)",
+"name": "Tigers",
+"nickname": "Georgetown KY",
+"shortDisplayName": "Georgetown KY",
+"tier": "lower"
+},
+"2247": {
+"abbreviation": "GAST",
+"displayName": "Georgia State Panthers",
+"location": "Georgia State",
+"name": "Panthers",
+"nickname": "Georgia St",
+"shortDisplayName": "Georgia St",
+"tier": "FBS"
+},
+"2248": {
+"abbreviation": "GTYB",
+"displayName": "Gettysburg Bullets",
+"location": "Gettysburg",
+"name": "Bullets",
+"nickname": "Gettysburg",
+"shortDisplayName": "Gettysburg",
+"tier": "lower"
+},
+"2249": {
+"abbreviation": "GVLS",
+"displayName": "Glenville State Pioneers",
+"location": "Glenville State",
+"name": "Pioneers",
+"nickname": "Glenville St",
+"shortDisplayName": "Glenville St",
+"tier": "lower"
+},
+"225": {
+"abbreviation": "BRWN",
+"displayName": "Brown Bears",
+"location": "Brown",
+"name": "Bears",
+"nickname": "Brown",
+"shortDisplayName": "Brown",
+"tier": "FCS"
+},
+"2254": {
+"abbreviation": "GRANDVIEW",
+"displayName": "Des Moines Vikings",
+"location": "Des Moines",
+"name": "Vikings",
+"nickname": "Grand View",
+"shortDisplayName": "Grand View",
+"tier": "lower"
+},
+"2256": {
+"abbreviation": "GRNB",
+"displayName": "Greensboro Pride",
+"location": "Greensboro",
+"name": "Pride",
+"nickname": "Greensboro",
+"shortDisplayName": "Greensboro",
+"tier": "lower"
+},
+"2257": {
+"abbreviation": "GRNV",
+"displayName": "Greenville Panthers",
+"location": "Greenville",
+"name": "Panthers",
+"nickname": "Greenville",
+"shortDisplayName": "Greenville",
+"tier": "lower"
+},
+"2258": {
+"abbreviation": "GLFD",
+"displayName": "Guilford Quakers",
+"location": "Guilford",
+"name": "Quakers",
+"nickname": "Guilford",
+"shortDisplayName": "Guilford",
+"tier": "lower"
+},
+"2261": {
+"abbreviation": "HAMP",
+"displayName": "Hampton Pirates",
+"location": "Hampton",
+"name": "Pirates",
+"nickname": "Hampton",
+"shortDisplayName": "Hampton",
+"tier": "FCS"
+},
+"2262": {
+"abbreviation": "HNVR",
+"displayName": "Hanover Panthers",
+"location": "Hanover",
+"name": "Panthers",
+"nickname": "Hanover",
+"shortDisplayName": "Hanover",
+"tier": "lower"
+},
+"2264": {
+"abbreviation": "HARD",
+"displayName": "Harding Bisons",
+"location": "Harding",
+"name": "Bisons",
+"nickname": "Harding",
+"shortDisplayName": "Harding",
+"tier": "lower"
+},
+"227": {
+"abbreviation": "URI",
+"displayName": "Rhode Island Rams",
+"location": "Rhode Island",
+"name": "Rams",
+"nickname": "Rhode Island",
+"shortDisplayName": "Rhode Island",
+"tier": "FCS"
+},
+"2271": {
+"abbreviation": "HSTU",
+"displayName": "Henderson State Reddies",
+"location": "Henderson State",
+"name": "Reddies",
+"nickname": "Henderson St",
+"shortDisplayName": "Henderson St",
+"tier": "lower"
+},
+"2273": {
+"abbreviation": "HLDL",
+"displayName": "Hillsdale Chargers",
+"location": "Hillsdale",
+"name": "Chargers",
+"nickname": "Hillsdale",
+"shortDisplayName": "Hillsdale",
+"tier": "lower"
+},
+"2274": {
+"abbreviation": "HIRM",
+"displayName": "Hiram Terriers",
+"location": "Hiram",
+"name": "Terriers",
+"nickname": "Hiram",
+"shortDisplayName": "Hiram",
+"tier": "lower"
+},
+"2277": {
+"abbreviation": "HCU",
+"displayName": "Houston Christian Huskies",
+"location": "Houston Christian",
+"name": "Huskies",
+"nickname": "Hou Christian",
+"shortDisplayName": "Hou Christian",
+"tier": "FCS"
+},
+"228": {
+"abbreviation": "CLEM",
+"displayName": "Clemson Tigers",
+"location": "Clemson",
+"name": "Tigers",
+"nickname": "Clemson",
+"shortDisplayName": "Clemson",
+"tier": "FBS"
+},
+"2280": {
+"abbreviation": "HUSS",
+"displayName": "Husson Eagles",
+"location": "Husson",
+"name": "Eagles",
+"nickname": "Husson",
+"shortDisplayName": "Husson",
+"tier": "lower"
+},
+"2283": {
+"abbreviation": "BNIL",
+"displayName": "Benedictine (IL) Eagles",
+"location": "Benedictine (IL)",
+"name": "Eagles",
+"nickname": "Benedictine IL",
+"shortDisplayName": "Benedictine IL",
+"tier": "lower"
+},
+"2286": {
+"abbreviation": "ILLC",
+"displayName": "Illinois College Blueboys",
+"location": "Illinois College",
+"name": "Blueboys",
+"nickname": "Illinois Col",
+"shortDisplayName": "Illinois Col",
+"tier": "lower"
+},
+"2287": {
+"abbreviation": "ILST",
+"displayName": "Illinois State Redbirds",
+"location": "Illinois State",
+"name": "Redbirds",
+"nickname": "Illinois St",
+"shortDisplayName": "Illinois St",
+"tier": "FCS"
+},
+"2291": {
+"abbreviation": "IUP",
+"displayName": "IU Pennsylvania Crimson Hawks",
+"location": "IU Pennsylvania",
+"name": "Crimson Hawks",
+"nickname": "IU Penn",
+"shortDisplayName": "IU Penn",
+"tier": "lower"
+},
+"2292": {
+"abbreviation": "INDY",
+"displayName": "Indianapolis Greyhounds",
+"location": "Indianapolis",
+"name": "Greyhounds",
+"nickname": "Indianapolis",
+"shortDisplayName": "Indianapolis",
+"tier": "lower"
+},
+"2294": {
+"abbreviation": "IOWA",
+"displayName": "Iowa Hawkeyes",
+"location": "Iowa",
+"name": "Hawkeyes",
+"nickname": "Iowa",
+"shortDisplayName": "Iowa",
+"tier": "FBS"
+},
+"2296": {
+"abbreviation": "JKST",
+"displayName": "Jackson State Tigers",
+"location": "Jackson State",
+"name": "Tigers",
+"nickname": "Jackson St",
+"shortDisplayName": "Jackson St",
+"tier": "FCS"
+},
+"23": {
+"abbreviation": "SJSU",
+"displayName": "San Jos\u00e9 State Spartans",
+"location": "San Jos\u00e9 State",
+"name": "Spartans",
+"nickname": "San Jos\u00e9 St",
+"shortDisplayName": "San Jos\u00e9 St",
+"tier": "FBS"
+},
+"2302": {
+"abbreviation": "JCU",
+"displayName": "John Carroll Blue Streaks",
+"location": "John Carroll",
+"name": "Blue Streaks",
+"nickname": "John Carroll",
+"shortDisplayName": "John Carroll",
+"tier": "lower"
+},
+"2304": {
+"abbreviation": "JCSU",
+"displayName": "Johnson C. Smith Golden Bulls",
+"location": "Johnson C. Smith",
+"name": "Golden Bulls",
+"nickname": "Johnson C Smth",
+"shortDisplayName": "Johnson C Smth",
+"tier": "lower"
+},
+"2305": {
+"abbreviation": "KU",
+"displayName": "Kansas Jayhawks",
+"location": "Kansas",
+"name": "Jayhawks",
+"nickname": "Kansas",
+"shortDisplayName": "Kansas",
+"tier": "FBS"
+},
+"2306": {
+"abbreviation": "KSU",
+"displayName": "Kansas State Wildcats",
+"location": "Kansas State",
+"name": "Wildcats",
+"nickname": "Kansas St",
+"shortDisplayName": "Kansas St",
+"tier": "FBS"
+},
+"2309": {
+"abbreviation": "KENT",
+"displayName": "Kent State Golden Flashes",
+"location": "Kent State",
+"name": "Golden Flashes",
+"nickname": "Kent State",
+"shortDisplayName": "Kent State",
+"tier": "FBS"
+},
+"231": {
+"abbreviation": "FUR",
+"displayName": "Furman Paladins",
+"location": "Furman",
+"name": "Paladins",
+"nickname": "Furman",
+"shortDisplayName": "Furman",
+"tier": "FCS"
+},
+"2310": {
+"abbreviation": "KYSU",
+"displayName": "Kentucky State Thorobreds",
+"location": "Kentucky State",
+"name": "Thorobreds",
+"nickname": "Kentucky St",
+"shortDisplayName": "Kentucky St",
+"tier": "lower"
+},
+"2315": {
+"abbreviation": "KUTZ",
+"displayName": "Kutztown Golden Bears",
+"location": "Kutztown",
+"name": "Golden Bears",
+"nickname": "Kutztown",
+"shortDisplayName": "Kutztown",
+"tier": "lower"
+},
+"2316": {
+"abbreviation": "KWC",
+"displayName": "Kentucky Wesleyan Panthers",
+"location": "Kentucky Wesleyan",
+"name": "Panthers",
+"nickname": "KY Wesleyan",
+"shortDisplayName": "KY Wesleyan",
+"tier": "lower"
+},
+"2318": {
+"abbreviation": "ULV",
+"displayName": "La Verne Leopards",
+"location": "La Verne",
+"name": "Leopards",
+"nickname": "La Verne",
+"shortDisplayName": "La Verne",
+"tier": "lower"
+},
+"2320": {
+"abbreviation": "LAM",
+"displayName": "Lamar Cardinals",
+"location": "Lamar",
+"name": "Cardinals",
+"nickname": "Lamar",
+"shortDisplayName": "Lamar",
+"tier": "FCS"
+},
+"2323": {
+"abbreviation": "LANE",
+"displayName": "Lane College Dragons",
+"location": "Lane College",
+"name": "Dragons",
+"nickname": "Lane College",
+"shortDisplayName": "Lane College",
+"tier": "lower"
+},
+"2324": {
+"abbreviation": "LNGT",
+"displayName": "Langston Lions",
+"location": "Langston",
+"name": "Lions",
+"nickname": "Langston",
+"shortDisplayName": "Langston",
+"tier": "lower"
+},
+"2329": {
+"abbreviation": "LEH",
+"displayName": "Lehigh Mountain Hawks",
+"location": "Lehigh",
+"name": "Mountain Hawks",
+"nickname": "Lehigh",
+"shortDisplayName": "Lehigh",
+"tier": "FCS"
+},
+"233": {
+"abbreviation": "SDAK",
+"displayName": "South Dakota Coyotes",
+"location": "South Dakota",
+"name": "Coyotes",
+"nickname": "South Dakota",
+"shortDisplayName": "South Dakota",
+"tier": "FCS"
+},
+"2331": {
+"abbreviation": "LENR",
+"displayName": "Lenoir Rhyne Bears",
+"location": "Lenoir Rhyne",
+"name": "Bears",
+"nickname": "Lenoir Rhyne",
+"shortDisplayName": "Lenoir Rhyne",
+"tier": "lower"
+},
+"2333": {
+"abbreviation": "LC",
+"displayName": "Lewis & Clark River Otters",
+"location": "Lewis & Clark",
+"name": "River Otters",
+"nickname": "Lewis & Clark",
+"shortDisplayName": "Lewis & Clark",
+"tier": "lower"
+},
+"2335": {
+"abbreviation": "LIB",
+"displayName": "Liberty Flames",
+"location": "Liberty",
+"name": "Flames",
+"nickname": "Liberty",
+"shortDisplayName": "Liberty",
+"tier": "FBS"
+},
+"2339": {
+"abbreviation": "LNPA",
+"displayName": "Lincoln (PA) Lions",
+"location": "Lincoln (PA)",
+"name": "Lions",
+"nickname": "Lincoln (PA)",
+"shortDisplayName": "Lincoln (PA)",
+"tier": "lower"
+},
+"2341": {
+"abbreviation": "LIU",
+"displayName": "Long Island University Sharks",
+"location": "Long Island University",
+"name": "Sharks",
+"nickname": "Long Island",
+"shortDisplayName": "Long Island",
+"tier": "FCS"
+},
+"2347": {
+"abbreviation": "LCHR",
+"displayName": "Louisiana Christian Wildcats",
+"location": "Louisiana Christian",
+"name": "Wildcats",
+"nickname": "LA Christian",
+"shortDisplayName": "LA Christian",
+"tier": "lower"
+},
+"2348": {
+"abbreviation": "LT",
+"displayName": "Louisiana Tech Bulldogs",
+"location": "Louisiana Tech",
+"name": "Bulldogs",
+"nickname": "Louisiana Tech",
+"shortDisplayName": "Louisiana Tech",
+"tier": "FBS"
+},
+"235": {
+"abbreviation": "MEM",
+"displayName": "Memphis Tigers",
+"location": "Memphis",
+"name": "Tigers",
+"nickname": "Memphis",
+"shortDisplayName": "Memphis",
+"tier": "FBS"
+},
+"2354": {
+"abbreviation": "LYCO",
+"displayName": "Lycoming Warriors",
+"location": "Lycoming",
+"name": "Warriors",
+"nickname": "Lycoming",
+"shortDisplayName": "Lycoming",
+"tier": "lower"
+},
+"2355": {
+"abbreviation": "VUL",
+"displayName": "Virginia Lynchburg Dragons",
+"location": "Virginia Lynchburg",
+"name": "Dragons",
+"nickname": "VA Lynchburg",
+"shortDisplayName": "VA Lynchburg",
+"tier": "lower"
+},
+"2359": {
+"abbreviation": "MAC",
+"displayName": "Macalester Scots",
+"location": "Macalester",
+"name": "Scots",
+"nickname": "Macalester",
+"shortDisplayName": "Macalester",
+"tier": "lower"
+},
+"236": {
+"abbreviation": "UTC",
+"displayName": "Chattanooga Mocs",
+"location": "Chattanooga",
+"name": "Mocs",
+"nickname": "Chattanooga",
+"shortDisplayName": "Chattanooga",
+"tier": "FCS"
+},
+"2362": {
+"abbreviation": "MNCH",
+"displayName": "Manchester Spartans",
+"location": "Manchester",
+"name": "Spartans",
+"nickname": "Manchester",
+"shortDisplayName": "Manchester",
+"tier": "lower"
+},
+"2364": {
+"abbreviation": "MNST",
+"displayName": "Minnesota State Mavericks",
+"location": "Minnesota State",
+"name": "Mavericks",
+"nickname": "Minnesota St",
+"shortDisplayName": "Minnesota St",
+"tier": "lower"
+},
+"2365": {
+"abbreviation": "MNFD",
+"displayName": "Mansfield Mountaineers",
+"location": "Mansfield",
+"name": "Mountaineers",
+"nickname": "Mansfield",
+"shortDisplayName": "Mansfield",
+"tier": "lower"
+},
+"2366": {
+"abbreviation": "MUIN",
+"displayName": "Marian (IN) Knights",
+"location": "Marian (IN)",
+"name": "Knights",
+"nickname": "Marian (IN)",
+"shortDisplayName": "Marian (IN)",
+"tier": "lower"
+},
+"2368": {
+"abbreviation": "MRST",
+"displayName": "Marist Red Foxes",
+"location": "Marist",
+"name": "Red Foxes",
+"nickname": "Marist",
+"shortDisplayName": "Marist",
+"tier": "FCS"
+},
+"2369": {
+"abbreviation": "MHU",
+"displayName": "Mars Hill Lions",
+"location": "Mars Hill",
+"name": "Lions",
+"nickname": "Mars Hill",
+"shortDisplayName": "Mars Hill",
+"tier": "lower"
+},
+"237": {
+"abbreviation": "UNNY",
+"displayName": "Union Garnet Chargers",
+"location": "Union",
+"name": "Garnet Chargers",
+"nickname": "Union",
+"shortDisplayName": "Union",
+"tier": "lower"
+},
+"2371": {
+"abbreviation": "MHB",
+"displayName": "Mary Hardin Baylor Crusaders",
+"location": "Mary Hardin Baylor",
+"name": "Crusaders",
+"nickname": "Mary Hardin",
+"shortDisplayName": "Mary Hardin",
+"tier": "lower"
+},
+"2373": {
+"abbreviation": "MCTN",
+"displayName": "Maryville (TN) Scots",
+"location": "Maryville (TN)",
+"name": "Scots",
+"nickname": "Maryville (TN)",
+"shortDisplayName": "Maryville (TN)",
+"tier": "lower"
+},
+"2377": {
+"abbreviation": "MCN",
+"displayName": "McNeese Cowboys",
+"location": "McNeese",
+"name": "Cowboys",
+"nickname": "McNeese",
+"shortDisplayName": "McNeese",
+"tier": "FCS"
+},
+"238": {
+"abbreviation": "VAN",
+"displayName": "Vanderbilt Commodores",
+"location": "Vanderbilt",
+"name": "Commodores",
+"nickname": "Vanderbilt",
+"shortDisplayName": "Vanderbilt",
+"tier": "FBS"
+},
+"2382": {
+"abbreviation": "MER",
+"displayName": "Mercer Bears",
+"location": "Mercer",
+"name": "Bears",
+"nickname": "Mercer",
+"shortDisplayName": "Mercer",
+"tier": "FCS"
+},
+"2383": {
+"abbreviation": "MMA",
+"displayName": "Merchant Marine Mariners",
+"location": "Merchant Marine",
+"name": "Mariners",
+"nickname": "Merch Marine",
+"shortDisplayName": "Merch Marine",
+"tier": "lower"
+},
+"2385": {
+"abbreviation": "MERC",
+"displayName": "Mercyhurst Lakers",
+"location": "Mercyhurst",
+"name": "Lakers",
+"nickname": "Mercyhurst",
+"shortDisplayName": "Mercyhurst",
+"tier": "FCS"
+},
+"239": {
+"abbreviation": "BAY",
+"displayName": "Baylor Bears",
+"location": "Baylor",
+"name": "Bears",
+"nickname": "Baylor",
+"shortDisplayName": "Baylor",
+"tier": "FBS"
+},
+"2390": {
+"abbreviation": "MIA",
+"displayName": "Miami Hurricanes",
+"location": "Miami",
+"name": "Hurricanes",
+"nickname": "Miami",
+"shortDisplayName": "Miami",
+"tier": "FBS"
+},
+"2392": {
+"abbreviation": "MTU",
+"displayName": "Michigan Tech Huskies",
+"location": "Michigan Tech",
+"name": "Huskies",
+"nickname": "Michigan Tech",
+"shortDisplayName": "Michigan Tech",
+"tier": "lower"
+},
+"2393": {
+"abbreviation": "MTSU",
+"displayName": "Middle Tennessee Blue Raiders",
+"location": "Middle Tennessee",
+"name": "Blue Raiders",
+"nickname": "MTSU",
+"shortDisplayName": "MTSU",
+"tier": "FBS"
+},
+"2394": {
+"abbreviation": "MIDB",
+"displayName": "Middlebury Panthers",
+"location": "Middlebury",
+"name": "Panthers",
+"nickname": "Middlebury",
+"shortDisplayName": "Middlebury",
+"tier": "lower"
+},
+"2395": {
+"abbreviation": "MWSU",
+"displayName": "Midwestern State Mustangs",
+"location": "Midwestern State",
+"name": "Mustangs",
+"nickname": "Midwestern St",
+"shortDisplayName": "Midwestern St",
+"tier": "lower"
+},
+"2396": {
+"abbreviation": "MILE",
+"displayName": "Miles Golden Bears",
+"location": "Miles",
+"name": "Golden Bears",
+"nickname": "Miles",
+"shortDisplayName": "Miles",
+"tier": "lower"
+},
+"2398": {
+"abbreviation": "MLSP",
+"displayName": "Millsaps Majors",
+"location": "Millsaps",
+"name": "Majors",
+"nickname": "Millsaps",
+"shortDisplayName": "Millsaps",
+"tier": "lower"
+},
+"2399": {
+"abbreviation": "MNMO",
+"displayName": "Minnesota Morris Cougars",
+"location": "Minnesota Morris",
+"name": "Cougars",
+"nickname": "Minn Morris",
+"shortDisplayName": "Minn Morris",
+"tier": "lower"
+},
+"24": {
+"abbreviation": "STAN",
+"displayName": "Stanford Cardinal",
+"location": "Stanford",
+"name": "Cardinal",
+"nickname": "Stanford",
+"shortDisplayName": "Stanford",
+"tier": "FBS"
+},
+"2400": {
+"abbreviation": "MVSU",
+"displayName": "Mississippi Valley State Delta Devils",
+"location": "Mississippi Valley State",
+"name": "Delta Devils",
+"nickname": "Miss Valley St",
+"shortDisplayName": "Miss Valley St",
+"tier": "FCS"
+},
+"2402": {
+"abbreviation": "MS&T",
+"displayName": "Missouri S&T Miners",
+"location": "Missouri S&T",
+"name": "Miners",
+"nickname": "Missouri S&T",
+"shortDisplayName": "Missouri S&T",
+"tier": "lower"
+},
+"2403": {
+"abbreviation": "MSSU",
+"displayName": "Missouri Southern State Lions",
+"location": "Missouri Southern State",
+"name": "Lions",
+"nickname": "Missouri So St",
+"shortDisplayName": "Missouri So St",
+"tier": "lower"
+},
+"2405": {
+"abbreviation": "MONM",
+"displayName": "Monmouth Hawks",
+"location": "Monmouth",
+"name": "Hawks",
+"nickname": "Monmouth",
+"shortDisplayName": "Monmouth",
+"tier": "FCS"
+},
+"241": {
+"abbreviation": "MCM",
+"displayName": "McMurry War Hawks",
+"location": "McMurry",
+"name": "War Hawks",
+"nickname": "McMurry",
+"shortDisplayName": "McMurry",
+"tier": "lower"
+},
+"2413": {
+"abbreviation": "MORE",
+"displayName": "Morehead State Eagles",
+"location": "Morehead State",
+"name": "Eagles",
+"nickname": "Morehead St",
+"shortDisplayName": "Morehead St",
+"tier": "FCS"
+},
+"2415": {
+"abbreviation": "MORG",
+"displayName": "Morgan State Bears",
+"location": "Morgan State",
+"name": "Bears",
+"nickname": "Morgan St",
+"shortDisplayName": "Morgan St",
+"tier": "FCS"
+},
+"2416": {
+"abbreviation": "MNGS",
+"displayName": "Morningside Chiefs",
+"location": "Morningside",
+"name": "Chiefs",
+"nickname": "Morningside",
+"shortDisplayName": "Morningside",
+"tier": "lower"
+},
+"2419": {
+"abbreviation": "MSJ",
+"displayName": "Mount St Joseph Lions",
+"location": "Mount St Joseph",
+"name": "Lions",
+"nickname": "Mt St Joseph",
+"shortDisplayName": "Mt St Joseph",
+"tier": "lower"
+},
+"242": {
+"abbreviation": "RICE",
+"displayName": "Rice Owls",
+"location": "Rice",
+"name": "Owls",
+"nickname": "Rice",
+"shortDisplayName": "Rice",
+"tier": "FBS"
+},
+"2422": {
+"abbreviation": "MUHL",
+"displayName": "Muhlenberg Mules",
+"location": "Muhlenberg",
+"name": "Mules",
+"nickname": "Muhlenberg",
+"shortDisplayName": "Muhlenberg",
+"tier": "lower"
+},
+"2424": {
+"abbreviation": "NMHU",
+"displayName": "New Mexico Highlands Cowboys",
+"location": "New Mexico Highlands",
+"name": "Cowboys",
+"nickname": "NM Highlands",
+"shortDisplayName": "NM Highlands",
+"tier": "lower"
+},
+"2426": {
+"abbreviation": "NAVY",
+"displayName": "Navy Midshipmen",
+"location": "Navy",
+"name": "Midshipmen",
+"nickname": "Navy",
+"shortDisplayName": "Navy",
+"tier": "FBS"
+},
+"2428": {
+"abbreviation": "NCCU",
+"displayName": "North Carolina Central Eagles",
+"location": "North Carolina Central",
+"name": "Eagles",
+"nickname": "NC Central",
+"shortDisplayName": "NC Central",
+"tier": "FCS"
+},
+"2429": {
+"abbreviation": "CLT",
+"displayName": "Charlotte 49ers",
+"location": "Charlotte",
+"name": "49ers",
+"nickname": "Charlotte",
+"shortDisplayName": "Charlotte",
+"tier": "FBS"
+},
+"2433": {
+"abbreviation": "ULM",
+"displayName": "UL Monroe Warhawks",
+"location": "UL Monroe",
+"name": "Warhawks",
+"nickname": "UL Monroe",
+"shortDisplayName": "UL Monroe",
+"tier": "FBS"
+},
+"2438": {
+"abbreviation": "NEBK",
+"displayName": "Nebraska Kearney Lopers",
+"location": "Nebraska Kearney",
+"name": "Lopers",
+"nickname": "NE Kearney",
+"shortDisplayName": "NE Kearney",
+"tier": "lower"
+},
+"2439": {
+"abbreviation": "UNLV",
+"displayName": "UNLV Rebels",
+"location": "UNLV",
+"name": "Rebels",
+"nickname": "UNLV",
+"shortDisplayName": "UNLV",
+"tier": "FBS"
+},
+"2440": {
+"abbreviation": "NEV",
+"displayName": "Nevada Wolf Pack",
+"location": "Nevada",
+"name": "Wolf Pack",
+"nickname": "Nevada",
+"shortDisplayName": "Nevada",
+"tier": "FBS"
+},
+"2441": {
+"abbreviation": "NHVN",
+"displayName": "New Haven Chargers",
+"location": "New Haven",
+"name": "Chargers",
+"nickname": "New Haven",
+"shortDisplayName": "New Haven",
+"tier": "FCS"
+},
+"2442": {
+"abbreviation": "TCNJ",
+"displayName": "The College of New Jersey Lions",
+"location": "The College of New Jersey",
+"name": "Lions",
+"nickname": "College of NJ",
+"shortDisplayName": "College of NJ",
+"tier": "lower"
+},
+"2444": {
+"abbreviation": "NBRY",
+"displayName": "Newberry Wolves",
+"location": "Newberry",
+"name": "Wolves",
+"nickname": "Newberry",
+"shortDisplayName": "Newberry",
+"tier": "lower"
+},
+"2447": {
+"abbreviation": "NICH",
+"displayName": "Nicholls Colonels",
+"location": "Nicholls",
+"name": "Colonels",
+"nickname": "Nicholls",
+"shortDisplayName": "Nicholls",
+"tier": "FCS"
+},
+"2448": {
+"abbreviation": "NCAT",
+"displayName": "North Carolina A&T Aggies",
+"location": "North Carolina A&T",
+"name": "Aggies",
+"nickname": "NC A&T",
+"shortDisplayName": "NC A&T",
+"tier": "FCS"
+},
+"2449": {
+"abbreviation": "NDSU",
+"displayName": "North Dakota State Bison",
+"location": "North Dakota State",
+"name": "Bison",
+"nickname": "N Dakota St",
+"shortDisplayName": "N Dakota St",
+"tier": "FBS"
+},
+"245": {
+"abbreviation": "TA&M",
+"displayName": "Texas A&M Aggies",
+"location": "Texas A&M",
+"name": "Aggies",
+"nickname": "Texas A&M",
+"shortDisplayName": "Texas A&M",
+"tier": "FBS"
+},
+"2450": {
+"abbreviation": "NORF",
+"displayName": "Norfolk State Spartans",
+"location": "Norfolk State",
+"name": "Spartans",
+"nickname": "Norfolk St",
+"shortDisplayName": "Norfolk St",
+"tier": "FCS"
+},
+"2453": {
+"abbreviation": "UNA",
+"displayName": "North Alabama Lions",
+"location": "North Alabama",
+"name": "Lions",
+"nickname": "North Alabama",
+"shortDisplayName": "North Alabama",
+"tier": "FCS"
+},
+"2458": {
+"abbreviation": "UNCO",
+"displayName": "Northern Colorado Bears",
+"location": "Northern Colorado",
+"name": "Bears",
+"nickname": "N Colorado",
+"shortDisplayName": "N Colorado",
+"tier": "FCS"
+},
+"2459": {
+"abbreviation": "NIU",
+"displayName": "Northern Illinois Huskies",
+"location": "Northern Illinois",
+"name": "Huskies",
+"nickname": "N Illinois",
+"shortDisplayName": "N Illinois",
+"tier": "FBS"
+},
+"246": {
+"abbreviation": "JUN",
+"displayName": "Juniata Eagles",
+"location": "Juniata",
+"name": "Eagles",
+"nickname": "Juniata",
+"shortDisplayName": "Juniata",
+"tier": "lower"
+},
+"2460": {
+"abbreviation": "UNI",
+"displayName": "Northern Iowa Panthers",
+"location": "Northern Iowa",
+"name": "Panthers",
+"nickname": "Northern Iowa",
+"shortDisplayName": "Northern Iowa",
+"tier": "FCS"
+},
+"2464": {
+"abbreviation": "NAU",
+"displayName": "Northern Arizona Lumberjacks",
+"location": "Northern Arizona",
+"name": "Lumberjacks",
+"nickname": "N Arizona",
+"shortDisplayName": "N Arizona",
+"tier": "FCS"
+},
+"2466": {
+"abbreviation": "NWST",
+"displayName": "Northwestern State Demons",
+"location": "Northwestern State",
+"name": "Demons",
+"nickname": "N'Western St",
+"shortDisplayName": "N'Western St",
+"tier": "FCS"
+},
+"2467": {
+"abbreviation": "NWCH",
+"displayName": "Norwich Cadets",
+"location": "Norwich",
+"name": "Cadets",
+"nickname": "Norwich",
+"shortDisplayName": "Norwich",
+"tier": "lower"
+},
+"247": {
+"abbreviation": "KNGS",
+"displayName": "King's Monarchs",
+"location": "King's",
+"name": "Monarchs",
+"nickname": "King's",
+"shortDisplayName": "King's",
+"tier": "lower"
+},
+"2477": {
+"abbreviation": "OHDU",
+"displayName": "Ohio Dominican Panthers",
+"location": "Ohio Dominican",
+"name": "Panthers",
+"nickname": "Ohio Dominican",
+"shortDisplayName": "Ohio Dominican",
+"tier": "lower"
+},
+"248": {
+"abbreviation": "HOU",
+"displayName": "Houston Cougars",
+"location": "Houston",
+"name": "Cougars",
+"nickname": "Houston",
+"shortDisplayName": "Houston",
+"tier": "FBS"
+},
+"2483": {
+"abbreviation": "ORE",
+"displayName": "Oregon Ducks",
+"location": "Oregon",
+"name": "Ducks",
+"nickname": "Oregon",
+"shortDisplayName": "Oregon",
+"tier": "FBS"
+},
+"2486": {
+"abbreviation": "PCLT",
+"displayName": "Pacific Lutheran Lutes",
+"location": "Pacific Lutheran",
+"name": "Lutes",
+"nickname": "Pac Lutheran",
+"shortDisplayName": "Pac Lutheran",
+"tier": "lower"
+},
+"2487": {
+"abbreviation": "PACE",
+"displayName": "Pace Setters",
+"location": "Pace",
+"name": "Setters",
+"nickname": "Pace",
+"shortDisplayName": "Pace",
+"tier": "lower"
+},
+"249": {
+"abbreviation": "UNT",
+"displayName": "North Texas Mean Green",
+"location": "North Texas",
+"name": "Mean Green",
+"nickname": "North Texas",
+"shortDisplayName": "North Texas",
+"tier": "FBS"
+},
+"25": {
+"abbreviation": "CAL",
+"displayName": "California Golden Bears",
+"location": "California",
+"name": "Golden Bears",
+"nickname": "California",
+"shortDisplayName": "California",
+"tier": "FBS"
+},
+"2502": {
+"abbreviation": "PRST",
+"displayName": "Portland State Vikings",
+"location": "Portland State",
+"name": "Vikings",
+"nickname": "Portland St",
+"shortDisplayName": "Portland St",
+"tier": "FCS"
+},
+"2504": {
+"abbreviation": "PV",
+"displayName": "Prairie View A&M Panthers",
+"location": "Prairie View A&M",
+"name": "Panthers",
+"nickname": "Prairie View",
+"shortDisplayName": "Prairie View",
+"tier": "FCS"
+},
+"2506": {
+"abbreviation": "PRES",
+"displayName": "Presbyterian Blue Hose",
+"location": "Presbyterian",
+"name": "Blue Hose",
+"nickname": "Presbyterian",
+"shortDisplayName": "Presbyterian",
+"tier": "FCS"
+},
+"2508": {
+"abbreviation": "PUG",
+"displayName": "Puget Sound Loggers",
+"location": "Puget Sound",
+"name": "Loggers",
+"nickname": "Puget Sound",
+"shortDisplayName": "Puget Sound",
+"tier": "lower"
+},
+"2509": {
+"abbreviation": "PUR",
+"displayName": "Purdue Boilermakers",
+"location": "Purdue",
+"name": "Boilermakers",
+"nickname": "Purdue",
+"shortDisplayName": "Purdue",
+"tier": "FBS"
+},
+"251": {
+"abbreviation": "TEX",
+"displayName": "Texas Longhorns",
+"location": "Texas",
+"name": "Longhorns",
+"nickname": "Texas",
+"shortDisplayName": "Texas",
+"tier": "FBS"
+},
+"2516": {
+"abbreviation": "RMC",
+"displayName": "Randolph Macon Yellow Jackets",
+"location": "Randolph Macon",
+"name": "Yellow Jackets",
+"nickname": "Randolph Macon",
+"shortDisplayName": "Randolph Macon",
+"tier": "lower"
+},
+"2519": {
+"abbreviation": "RHDS",
+"displayName": "Rhodes Lynx",
+"location": "Rhodes",
+"name": "Lynx",
+"nickname": "Rhodes",
+"shortDisplayName": "Rhodes",
+"tier": "lower"
+},
+"252": {
+"abbreviation": "BYU",
+"displayName": "BYU Cougars",
+"location": "BYU",
+"name": "Cougars",
+"nickname": "BYU",
+"shortDisplayName": "BYU",
+"tier": "FBS"
+},
+"2523": {
+"abbreviation": "RMU",
+"displayName": "Robert Morris Colonials",
+"location": "Robert Morris",
+"name": "Colonials",
+"nickname": "Robert Morris",
+"shortDisplayName": "Robert Morris",
+"tier": "FCS"
+},
+"2524": {
+"abbreviation": "RFU",
+"displayName": "Rockford Regents",
+"location": "Rockford",
+"name": "Regents",
+"nickname": "Rockford",
+"shortDisplayName": "Rockford",
+"tier": "lower"
+},
+"2528": {
+"abbreviation": "RPI",
+"displayName": "Rensselaer Engineers",
+"location": "Rensselaer",
+"name": "Engineers",
+"nickname": "Rensselaer",
+"shortDisplayName": "Rensselaer",
+"tier": "lower"
+},
+"2529": {
+"abbreviation": "SHU",
+"displayName": "Sacred Heart Pioneers",
+"location": "Sacred Heart",
+"name": "Pioneers",
+"nickname": "Sacred Heart",
+"shortDisplayName": "Sacred Heart",
+"tier": "FCS"
+},
+"253": {
+"abbreviation": "SUU",
+"displayName": "Southern Utah Thunderbirds",
+"location": "Southern Utah",
+"name": "Thunderbirds",
+"nickname": "Southern Utah",
+"shortDisplayName": "Southern Utah",
+"tier": "FCS"
+},
+"2532": {
+"abbreviation": "SAL",
+"displayName": "Salisbury Sea Gulls",
+"location": "Salisbury",
+"name": "Sea Gulls",
+"nickname": "Salisbury",
+"shortDisplayName": "Salisbury",
+"tier": "lower"
+},
+"2534": {
+"abbreviation": "SHSU",
+"displayName": "Sam Houston Bearkats",
+"location": "Sam Houston",
+"name": "Bearkats",
+"nickname": "Sam Houston",
+"shortDisplayName": "Sam Houston",
+"tier": "FBS"
+},
+"2535": {
+"abbreviation": "SAM",
+"displayName": "Samford Bulldogs",
+"location": "Samford",
+"name": "Bulldogs",
+"nickname": "Samford",
+"shortDisplayName": "Samford",
+"tier": "FCS"
+},
+"254": {
+"abbreviation": "UTAH",
+"displayName": "Utah Utes",
+"location": "Utah",
+"name": "Utes",
+"nickname": "Utah",
+"shortDisplayName": "Utah",
+"tier": "FBS"
+},
+"2542": {
+"abbreviation": "SAV",
+"displayName": "Savannah State Tigers",
+"location": "Savannah State",
+"name": "Tigers",
+"nickname": "Savannah St",
+"shortDisplayName": "Savannah St",
+"tier": "lower"
+},
+"2545": {
+"abbreviation": "SELA",
+"displayName": "SE Louisiana Lions",
+"location": "SE Louisiana",
+"name": "Lions",
+"nickname": "SE Louisiana",
+"shortDisplayName": "SE Louisiana",
+"tier": "FCS"
+},
+"2546": {
+"abbreviation": "SEMO",
+"displayName": "Southeast Missouri State Redhawks",
+"location": "Southeast Missouri State",
+"name": "Redhawks",
+"nickname": "SE Missouri",
+"shortDisplayName": "SE Missouri",
+"tier": "FCS"
+},
+"255": {
+"abbreviation": "KNOX",
+"displayName": "Knox Prairie Fire",
+"location": "Knox",
+"name": "Prairie Fire",
+"nickname": "Knox",
+"shortDisplayName": "Knox",
+"tier": "lower"
+},
+"2551": {
+"abbreviation": "SHAW",
+"displayName": "Shaw Bears",
+"location": "Shaw",
+"name": "Bears",
+"nickname": "Shaw",
+"shortDisplayName": "Shaw",
+"tier": "lower"
+},
+"2553": {
+"abbreviation": "SEWA",
+"displayName": "Sewanee Tigers",
+"location": "Sewanee",
+"name": "Tigers",
+"nickname": "Sewanee",
+"shortDisplayName": "Sewanee",
+"tier": "lower"
+},
+"2557": {
+"abbreviation": "USCG",
+"displayName": "Coast Guard Bears",
+"location": "Coast Guard",
+"name": "Bears",
+"nickname": "Coast Guard",
+"shortDisplayName": "Coast Guard",
+"tier": "lower"
+},
+"2559": {
+"abbreviation": "SHIP",
+"displayName": "Shippensburg Raiders",
+"location": "Shippensburg",
+"name": "Raiders",
+"nickname": "Shippensburg",
+"shortDisplayName": "Shippensburg",
+"tier": "lower"
+},
+"256": {
+"abbreviation": "JMU",
+"displayName": "James Madison Dukes",
+"location": "James Madison",
+"name": "Dukes",
+"nickname": "James Madison",
+"shortDisplayName": "James Madison",
+"tier": "FBS"
+},
+"2560": {
+"abbreviation": "SHOU",
+"displayName": "Shorter Hawks",
+"location": "Shorter",
+"name": "Hawks",
+"nickname": "Shorter",
+"shortDisplayName": "Shorter",
+"tier": "lower"
+},
+"2562": {
+"abbreviation": "SHTU",
+"displayName": "Siena Heights Saints",
+"location": "Siena Heights",
+"name": "Saints",
+"nickname": "Siena Heights",
+"shortDisplayName": "Siena Heights",
+"tier": "lower"
+},
+"2564": {
+"abbreviation": "SCIA",
+"displayName": "Simpson (IA) Storm",
+"location": "Simpson (IA)",
+"name": "Storm",
+"nickname": "Simpson (IA)",
+"shortDisplayName": "Simpson (IA)",
+"tier": "lower"
+},
+"2567": {
+"abbreviation": "SMU",
+"displayName": "SMU Mustangs",
+"location": "SMU",
+"name": "Mustangs",
+"nickname": "SMU",
+"shortDisplayName": "SMU",
+"tier": "FBS"
+},
+"2568": {
+"abbreviation": "SAR",
+"displayName": "Southern Arkansas Muleriders",
+"location": "Southern Arkansas",
+"name": "Muleriders",
+"nickname": "S Arkansas",
+"shortDisplayName": "S Arkansas",
+"tier": "lower"
+},
+"2569": {
+"abbreviation": "SCST",
+"displayName": "South Carolina State Bulldogs",
+"location": "South Carolina State",
+"name": "Bulldogs",
+"nickname": "SC State",
+"shortDisplayName": "SC State",
+"tier": "FCS"
+},
+"257": {
+"abbreviation": "RICH",
+"displayName": "Richmond Spiders",
+"location": "Richmond",
+"name": "Spiders",
+"nickname": "Richmond",
+"shortDisplayName": "Richmond",
+"tier": "FCS"
+},
+"2570": {
+"abbreviation": "CSUP",
+"displayName": "CSU Pueblo ThunderWolves",
+"location": "CSU Pueblo",
+"name": "ThunderWolves",
+"nickname": "CSU Pueblo",
+"shortDisplayName": "CSU Pueblo",
+"tier": "lower"
+},
+"2571": {
+"abbreviation": "SDST",
+"displayName": "South Dakota State Jackrabbits",
+"location": "South Dakota State",
+"name": "Jackrabbits",
+"nickname": "S Dakota St",
+"shortDisplayName": "S Dakota St",
+"tier": "FCS"
+},
+"2572": {
+"abbreviation": "USM",
+"displayName": "Southern Miss Golden Eagles",
+"location": "Southern Miss",
+"name": "Golden Eagles",
+"nickname": "Southern Miss",
+"shortDisplayName": "Southern Miss",
+"tier": "FBS"
+},
+"2579": {
+"abbreviation": "SC",
+"displayName": "South Carolina Gamecocks",
+"location": "South Carolina",
+"name": "Gamecocks",
+"nickname": "South Carolina",
+"shortDisplayName": "South Carolina",
+"tier": "FBS"
+},
+"258": {
+"abbreviation": "UVA",
+"displayName": "Virginia Cavaliers",
+"location": "Virginia",
+"name": "Cavaliers",
+"nickname": "Virginia",
+"shortDisplayName": "Virginia",
+"tier": "FBS"
+},
+"2582": {
+"abbreviation": "SOU",
+"displayName": "Southern Jaguars",
+"location": "Southern",
+"name": "Jaguars",
+"nickname": "Southern",
+"shortDisplayName": "Southern",
+"tier": "FCS"
+},
+"2583": {
+"abbreviation": "SCTS",
+"displayName": "Southern Connecticut State Owls",
+"location": "Southern Connecticut State",
+"name": "Owls",
+"nickname": "S Conn St",
+"shortDisplayName": "S Conn St",
+"tier": "lower"
+},
+"2584": {
+"abbreviation": "SOR",
+"displayName": "Southern Oregon Raiders",
+"location": "Southern Oregon",
+"name": "Raiders",
+"nickname": "S Oregon",
+"shortDisplayName": "S Oregon",
+"tier": "lower"
+},
+"2586": {
+"abbreviation": "SWBU",
+"displayName": "Southwest Baptist Bearcats",
+"location": "Southwest Baptist",
+"name": "Bearcats",
+"nickname": "SW Baptist",
+"shortDisplayName": "SW Baptist",
+"tier": "lower"
+},
+"2587": {
+"abbreviation": "SWMS",
+"displayName": "Southwest Minnesota State Mustangs",
+"location": "Southwest Minnesota State",
+"name": "Mustangs",
+"nickname": "SW Minn St",
+"shortDisplayName": "SW Minn St",
+"tier": "lower"
+},
+"2588": {
+"abbreviation": "SWU",
+"displayName": "Southwestern U Pirates",
+"location": "Southwestern U",
+"name": "Pirates",
+"nickname": "Southwestern",
+"shortDisplayName": "Southwestern",
+"tier": "lower"
+},
+"259": {
+"abbreviation": "VT",
+"displayName": "Virginia Tech Hokies",
+"location": "Virginia Tech",
+"name": "Hokies",
+"nickname": "Virginia Tech",
+"shortDisplayName": "Virginia Tech",
+"tier": "FBS"
+},
+"2591": {
+"abbreviation": "STAM",
+"displayName": "St. Ambrose Fighting Bees",
+"location": "St. Ambrose",
+"name": "Fighting Bees",
+"nickname": "St Ambrose",
+"shortDisplayName": "St Ambrose",
+"tier": "lower"
+},
+"2595": {
+"abbreviation": "SFIL",
+"displayName": "St. Francis (IL) Fighting Saints",
+"location": "St. Francis (IL)",
+"name": "Fighting Saints",
+"nickname": "St Francis IL",
+"shortDisplayName": "St Francis IL",
+"tier": "lower"
+},
+"2598": {
+"abbreviation": "SFPA",
+"displayName": "Saint Francis Red Flash",
+"location": "Saint Francis",
+"name": "Red Flash",
+"nickname": "Saint Francis",
+"shortDisplayName": "Saint Francis",
+"tier": "lower"
+},
+"26": {
+"abbreviation": "UCLA",
+"displayName": "UCLA Bruins",
+"location": "UCLA",
+"name": "Bruins",
+"nickname": "UCLA",
+"shortDisplayName": "UCLA",
+"tier": "FBS"
+},
+"2600": {
+"abbreviation": "STJM",
+"displayName": "Saint John's (MN) Johnnies",
+"location": "Saint John's (MN)",
+"name": "Johnnies",
+"nickname": "St Johns (MN)",
+"shortDisplayName": "St Johns (MN)",
+"tier": "lower"
+},
+"2614": {
+"abbreviation": "SVC",
+"displayName": "Saint Vincent Bearcats",
+"location": "Saint Vincent",
+"name": "Bearcats",
+"nickname": "Saint Vincent",
+"shortDisplayName": "Saint Vincent",
+"tier": "lower"
+},
+"2615": {
+"abbreviation": "STX",
+"displayName": "Saint Xavier Cougars",
+"location": "Saint Xavier",
+"name": "Cougars",
+"nickname": "Saint Xavier",
+"shortDisplayName": "Saint Xavier",
+"tier": "lower"
+},
+"2617": {
+"abbreviation": "SFA",
+"displayName": "Stephen F. Austin Lumberjacks",
+"location": "Stephen F. Austin",
+"name": "Lumberjacks",
+"nickname": "SF Austin",
+"shortDisplayName": "SF Austin",
+"tier": "FCS"
+},
+"2619": {
+"abbreviation": "STBK",
+"displayName": "Stony Brook Seawolves",
+"location": "Stony Brook",
+"name": "Seawolves",
+"nickname": "Stony Brook",
+"shortDisplayName": "Stony Brook",
+"tier": "FCS"
+},
+"262": {
+"abbreviation": "LFC",
+"displayName": "Lake Forest Foresters",
+"location": "Lake Forest",
+"name": "Foresters",
+"nickname": "Lake Forest",
+"shortDisplayName": "Lake Forest",
+"tier": "lower"
+},
+"2623": {
+"abbreviation": "MOST",
+"displayName": "Missouri State Bears",
+"location": "Missouri State",
+"name": "Bears",
+"nickname": "Missouri St",
+"shortDisplayName": "Missouri St",
+"tier": "FBS"
+},
+"2627": {
+"abbreviation": "TAR",
+"displayName": "Tarleton State Texans",
+"location": "Tarleton State",
+"name": "Texans",
+"nickname": "Tarleton St",
+"shortDisplayName": "Tarleton St",
+"tier": "FCS"
+},
+"2628": {
+"abbreviation": "TCU",
+"displayName": "TCU Horned Frogs",
+"location": "TCU",
+"name": "Horned Frogs",
+"nickname": "TCU",
+"shortDisplayName": "TCU",
+"tier": "FBS"
+},
+"263": {
+"abbreviation": "LOR",
+"displayName": "Loras Duhawks",
+"location": "Loras",
+"name": "Duhawks",
+"nickname": "Loras",
+"shortDisplayName": "Loras",
+"tier": "lower"
+},
+"2630": {
+"abbreviation": "UTM",
+"displayName": "UT Martin Skyhawks",
+"location": "UT Martin",
+"name": "Skyhawks",
+"nickname": "UT Martin",
+"shortDisplayName": "UT Martin",
+"tier": "FCS"
+},
+"2633": {
+"abbreviation": "TENN",
+"displayName": "Tennessee Volunteers",
+"location": "Tennessee",
+"name": "Volunteers",
+"nickname": "Tennessee",
+"shortDisplayName": "Tennessee",
+"tier": "FBS"
+},
+"2634": {
+"abbreviation": "TNST",
+"displayName": "Tennessee State Tigers",
+"location": "Tennessee State",
+"name": "Tigers",
+"nickname": "Tennessee St",
+"shortDisplayName": "Tennessee St",
+"tier": "FCS"
+},
+"2635": {
+"abbreviation": "TNTC",
+"displayName": "Tennessee Tech Golden Eagles",
+"location": "Tennessee Tech",
+"name": "Golden Eagles",
+"nickname": "Tennessee Tech",
+"shortDisplayName": "Tennessee Tech",
+"tier": "FCS"
+},
+"2636": {
+"abbreviation": "UTSA",
+"displayName": "UTSA Roadrunners",
+"location": "UTSA",
+"name": "Roadrunners",
+"nickname": "UTSA",
+"shortDisplayName": "UTSA",
+"tier": "FBS"
+},
+"2637": {
+"abbreviation": "TXCL",
+"displayName": "Texas College Steers",
+"location": "Texas College",
+"name": "Steers",
+"nickname": "Texas College",
+"shortDisplayName": "Texas College",
+"tier": "lower"
+},
+"2638": {
+"abbreviation": "UTEP",
+"displayName": "UTEP Miners",
+"location": "UTEP",
+"name": "Miners",
+"nickname": "UTEP",
+"shortDisplayName": "UTEP",
+"tier": "FBS"
+},
+"2639": {
+"abbreviation": "TXLU",
+"displayName": "Texas Lutheran Bulldogs",
+"location": "Texas Lutheran",
+"name": "Bulldogs",
+"nickname": "Texas Lutheran",
+"shortDisplayName": "Texas Lutheran",
+"tier": "lower"
+},
+"264": {
+"abbreviation": "WASH",
+"displayName": "Washington Huskies",
+"location": "Washington",
+"name": "Huskies",
+"nickname": "Washington",
+"shortDisplayName": "Washington",
+"tier": "FBS"
+},
+"2640": {
+"abbreviation": "TXSO",
+"displayName": "Texas Southern Tigers",
+"location": "Texas Southern",
+"name": "Tigers",
+"nickname": "Texas Southern",
+"shortDisplayName": "Texas Southern",
+"tier": "FCS"
+},
+"2641": {
+"abbreviation": "TTU",
+"displayName": "Texas Tech Red Raiders",
+"location": "Texas Tech",
+"name": "Red Raiders",
+"nickname": "Texas Tech",
+"shortDisplayName": "Texas Tech",
+"tier": "FBS"
+},
+"2643": {
+"abbreviation": "CIT",
+"displayName": "The Citadel Bulldogs",
+"location": "The Citadel",
+"name": "Bulldogs",
+"nickname": "The Citadel",
+"shortDisplayName": "The Citadel",
+"tier": "FCS"
+},
+"2644": {
+"abbreviation": "THI",
+"displayName": "Thiel Tomcats",
+"location": "Thiel",
+"name": "Tomcats",
+"nickname": "Thiel",
+"shortDisplayName": "Thiel",
+"tier": "lower"
+},
+"2646": {
+"abbreviation": "TMOR",
+"displayName": "Thomas More Saints",
+"location": "Thomas More",
+"name": "Saints",
+"nickname": "Thomas More",
+"shortDisplayName": "Thomas More",
+"tier": "lower"
+},
+"2649": {
+"abbreviation": "TOL",
+"displayName": "Toledo Rockets",
+"location": "Toledo",
+"name": "Rockets",
+"nickname": "Toledo",
+"shortDisplayName": "Toledo",
+"tier": "FBS"
+},
+"265": {
+"abbreviation": "WSU",
+"displayName": "Washington State Cougars",
+"location": "Washington State",
+"name": "Cougars",
+"nickname": "Washington St",
+"shortDisplayName": "Washington St",
+"tier": "FBS"
+},
+"2651": {
+"abbreviation": "TRNE",
+"displayName": "Trine Thunder",
+"location": "Trine",
+"name": "Thunder",
+"nickname": "Trine",
+"shortDisplayName": "Trine",
+"tier": "lower"
+},
+"2653": {
+"abbreviation": "TROY",
+"displayName": "Troy Trojans",
+"location": "Troy",
+"name": "Trojans",
+"nickname": "Troy",
+"shortDisplayName": "Troy",
+"tier": "FBS"
+},
+"2654": {
+"abbreviation": "TRST",
+"displayName": "Truman State Bulldogs",
+"location": "Truman State",
+"name": "Bulldogs",
+"nickname": "Truman St",
+"shortDisplayName": "Truman St",
+"tier": "lower"
+},
+"2655": {
+"abbreviation": "TULN",
+"displayName": "Tulane Green Wave",
+"location": "Tulane",
+"name": "Green Wave",
+"nickname": "Tulane",
+"shortDisplayName": "Tulane",
+"tier": "FBS"
+},
+"2657": {
+"abbreviation": "TUSK",
+"displayName": "Tuskegee Golden Tigers",
+"location": "Tuskegee",
+"name": "Golden Tigers",
+"nickname": "Tuskegee",
+"shortDisplayName": "Tuskegee",
+"tier": "lower"
+},
+"2658": {
+"abbreviation": "TAMK",
+"displayName": "Texas A&M-Kingsville Javelinas",
+"location": "Texas A&M-Kingsville",
+"name": "Javelinas",
+"nickname": "TAMU-Kingsvlle",
+"shortDisplayName": "TAMU-Kingsvlle",
+"tier": "lower"
+},
+"266": {
+"abbreviation": "BELO",
+"displayName": "Beloit Buccaneers",
+"location": "Beloit",
+"name": "Buccaneers",
+"nickname": "Beloit",
+"shortDisplayName": "Beloit",
+"tier": "lower"
+},
+"2667": {
+"abbreviation": "URSN",
+"displayName": "Ursinus Bears",
+"location": "Ursinus",
+"name": "Bears",
+"nickname": "Ursinus",
+"shortDisplayName": "Ursinus",
+"tier": "lower"
+},
+"267": {
+"abbreviation": "SEU",
+"displayName": "Southeastern Fires",
+"location": "Southeastern",
+"name": "Fires",
+"nickname": "Southeastern",
+"shortDisplayName": "Southeastern",
+"tier": "lower"
+},
+"2673": {
+"abbreviation": "VALD",
+"displayName": "Valdosta State Blazers",
+"location": "Valdosta State",
+"name": "Blazers",
+"nickname": "Valdosta St",
+"shortDisplayName": "Valdosta St",
+"tier": "lower"
+},
+"2674": {
+"abbreviation": "VAL",
+"displayName": "Valparaiso Beacons",
+"location": "Valparaiso",
+"name": "Beacons",
+"nickname": "Valparaiso",
+"shortDisplayName": "Valparaiso",
+"tier": "FCS"
+},
+"2676": {
+"abbreviation": "VUU",
+"displayName": "Virginia Union Panthers",
+"location": "Virginia Union",
+"name": "Panthers",
+"nickname": "Virginia Union",
+"shortDisplayName": "Virginia Union",
+"tier": "lower"
+},
+"2678": {
+"abbreviation": "VMI",
+"displayName": "VMI Keydets",
+"location": "VMI",
+"name": "Keydets",
+"nickname": "VMI",
+"shortDisplayName": "VMI",
+"tier": "FCS"
+},
+"268": {
+"abbreviation": "LAW",
+"displayName": "Lawrence Vikings",
+"location": "Lawrence",
+"name": "Vikings",
+"nickname": "Lawrence",
+"shortDisplayName": "Lawrence",
+"tier": "lower"
+},
+"2681": {
+"abbreviation": "WAG",
+"displayName": "Wagner Seahawks",
+"location": "Wagner",
+"name": "Seahawks",
+"nickname": "Wagner",
+"shortDisplayName": "Wagner",
+"tier": "FCS"
+},
+"2682": {
+"abbreviation": "WLSH",
+"displayName": "Walsh Cavaliers",
+"location": "Walsh",
+"name": "Cavaliers",
+"nickname": "Walsh",
+"shortDisplayName": "Walsh",
+"tier": "lower"
+},
+"2683": {
+"abbreviation": "WRNR",
+"displayName": "Warner Royals",
+"location": "Warner",
+"name": "Royals",
+"nickname": "Warner",
+"shortDisplayName": "Warner",
+"tier": "lower"
+},
+"2685": {
+"abbreviation": "WTBG",
+"displayName": "Wartburg Knights",
+"location": "Wartburg",
+"name": "Knights",
+"nickname": "Wartburg",
+"shortDisplayName": "Wartburg",
+"tier": "lower"
+},
+"2686": {
+"abbreviation": "W&J",
+"displayName": "Washington & Jefferson Presidents",
+"location": "Washington & Jefferson",
+"name": "Presidents",
+"nickname": "Wash & Jeff",
+"shortDisplayName": "Wash & Jeff",
+"tier": "lower"
+},
+"2687": {
+"abbreviation": "WSBN",
+"displayName": "Washburn Ichabods",
+"location": "Washburn",
+"name": "Ichabods",
+"nickname": "Washburn",
+"shortDisplayName": "Washburn",
+"tier": "lower"
+},
+"2688": {
+"abbreviation": "W&L",
+"displayName": "Washington and Lee Generals",
+"location": "Washington and Lee",
+"name": "Generals",
+"nickname": "Wash and Lee",
+"shortDisplayName": "Wash and Lee",
+"tier": "lower"
+},
+"2691": {
+"abbreviation": "WINT",
+"displayName": "Webber International Warriors",
+"location": "Webber International",
+"name": "Warriors",
+"nickname": "Webber Int'l",
+"shortDisplayName": "Webber Int'l",
+"tier": "lower"
+},
+"2692": {
+"abbreviation": "WEB",
+"displayName": "Weber State Wildcats",
+"location": "Weber State",
+"name": "Wildcats",
+"nickname": "Weber St",
+"shortDisplayName": "Weber St",
+"tier": "FCS"
+},
+"2695": {
+"abbreviation": "UWA",
+"displayName": "West Alabama Tigers",
+"location": "West Alabama",
+"name": "Tigers",
+"nickname": "West Alabama",
+"shortDisplayName": "West Alabama",
+"tier": "lower"
+},
+"2698": {
+"abbreviation": "WGA",
+"displayName": "West Georgia Wolves",
+"location": "West Georgia",
+"name": "Wolves",
+"nickname": "West Georgia",
+"shortDisplayName": "West Georgia",
+"tier": "FCS"
+},
+"2699": {
+"abbreviation": "WLU",
+"displayName": "West Liberty Hilltoppers",
+"location": "West Liberty",
+"name": "Hilltoppers",
+"nickname": "West Liberty",
+"shortDisplayName": "West Liberty",
+"tier": "lower"
+},
+"2700": {
+"abbreviation": "MCD",
+"displayName": "McDaniel Green Terror",
+"location": "McDaniel",
+"name": "Green Terror",
+"nickname": "McDaniel",
+"shortDisplayName": "McDaniel",
+"tier": "lower"
+},
+"2701": {
+"abbreviation": "UMW",
+"displayName": "Montana Western Bulldogs",
+"location": "Montana Western",
+"name": "Bulldogs",
+"nickname": "MT Western",
+"shortDisplayName": "MT Western",
+"tier": "lower"
+},
+"2702": {
+"abbreviation": "WNE",
+"displayName": "Western New England Golden Bears",
+"location": "Western New England",
+"name": "Golden Bears",
+"nickname": "W New England",
+"shortDisplayName": "W New England",
+"tier": "lower"
+},
+"2703": {
+"abbreviation": "WNMU",
+"displayName": "Western New Mexico Mustangs",
+"location": "Western New Mexico",
+"name": "Mustangs",
+"nickname": "Western NM",
+"shortDisplayName": "Western NM",
+"tier": "lower"
+},
+"2704": {
+"abbreviation": "WTAM",
+"displayName": "West Texas A&M Buffaloes",
+"location": "West Texas A&M",
+"name": "Buffaloes",
+"nickname": "West Texas",
+"shortDisplayName": "West Texas",
+"tier": "lower"
+},
+"2706": {
+"abbreviation": "WVUT",
+"displayName": "WVU Tech Golden Bears",
+"location": "WVU Tech",
+"name": "Golden Bears",
+"nickname": "WVU Tech",
+"shortDisplayName": "WVU Tech",
+"tier": "lower"
+},
+"2707": {
+"abbreviation": "WVSU",
+"displayName": "West Virginia State Yellow Jackets",
+"location": "West Virginia State",
+"name": "Yellow Jackets",
+"nickname": "W Virginia St",
+"shortDisplayName": "W Virginia St",
+"tier": "lower"
+},
+"271": {
+"abbreviation": "UWO",
+"displayName": "Wisconsin Oshkosh Titans",
+"location": "Wisconsin Oshkosh",
+"name": "Titans",
+"nickname": "UW-Oshkosh",
+"shortDisplayName": "UW-Oshkosh",
+"tier": "lower"
+},
+"2710": {
+"abbreviation": "WIU",
+"displayName": "Western Illinois Leathernecks",
+"location": "Western Illinois",
+"name": "Leathernecks",
+"nickname": "W Illinois",
+"shortDisplayName": "W Illinois",
+"tier": "FCS"
+},
+"2711": {
+"abbreviation": "WMU",
+"displayName": "Western Michigan Broncos",
+"location": "Western Michigan",
+"name": "Broncos",
+"nickname": "W Michigan",
+"shortDisplayName": "W Michigan",
+"tier": "FBS"
+},
+"2714": {
+"abbreviation": "WCOL",
+"displayName": "Western Colorado Mountaineers",
+"location": "Western Colorado",
+"name": "Mountaineers",
+"nickname": "W Colorado",
+"shortDisplayName": "W Colorado",
+"tier": "lower"
+},
+"2717": {
+"abbreviation": "WCU",
+"displayName": "Western Carolina Catamounts",
+"location": "Western Carolina",
+"name": "Catamounts",
+"nickname": "W Carolina",
+"shortDisplayName": "W Carolina",
+"tier": "FCS"
+},
+"272": {
+"abbreviation": "UWP",
+"displayName": "Wisconsin Platteville Pioneers",
+"location": "Wisconsin Platteville",
+"name": "Pioneers",
+"nickname": "UW-Platteville",
+"shortDisplayName": "UW-Platteville",
+"tier": "lower"
+},
+"2721": {
+"abbreviation": "WHIW",
+"displayName": "Whitworth Pirates",
+"location": "Whitworth",
+"name": "Pirates",
+"nickname": "Whitworth",
+"shortDisplayName": "Whitworth",
+"tier": "lower"
+},
+"2723": {
+"abbreviation": "UWRF",
+"displayName": "Wisconsin River Falls Falcons",
+"location": "Wisconsin River Falls",
+"name": "Falcons",
+"nickname": "UW-River Falls",
+"shortDisplayName": "UW-River Falls",
+"tier": "lower"
+},
+"2725": {
+"abbreviation": "WIDE",
+"displayName": "Widener Pride",
+"location": "Widener",
+"name": "Pride",
+"nickname": "Widener",
+"shortDisplayName": "Widener",
+"tier": "lower"
+},
+"2729": {
+"abbreviation": "W&M",
+"displayName": "William & Mary Tribe",
+"location": "William & Mary",
+"name": "Tribe",
+"nickname": "William & Mary",
+"shortDisplayName": "William & Mary",
+"tier": "FCS"
+},
+"2731": {
+"abbreviation": "WLM",
+"displayName": "Williams Ephs",
+"location": "Williams",
+"name": "Ephs",
+"nickname": "Williams",
+"shortDisplayName": "Williams",
+"tier": "lower"
+},
+"2733": {
+"abbreviation": "WCOH",
+"displayName": "Wilmington (OH) Fightin' Quakers",
+"location": "Wilmington (OH)",
+"name": "Fightin' Quakers",
+"nickname": "Wilmington OH",
+"shortDisplayName": "Wilmington OH",
+"tier": "lower"
+},
+"2736": {
+"abbreviation": "WSSU",
+"displayName": "Winston-Salem State Rams",
+"location": "Winston-Salem State",
+"name": "Rams",
+"nickname": "Winston-Salem",
+"shortDisplayName": "Winston-Salem",
+"tier": "lower"
+},
+"2738": {
+"abbreviation": "UWEC",
+"displayName": "Wisconsin Eau Claire Blugolds",
+"location": "Wisconsin Eau Claire",
+"name": "Blugolds",
+"nickname": "UW-Eau Claire",
+"shortDisplayName": "UW-Eau Claire",
+"tier": "lower"
+},
+"274": {
+"abbreviation": "UMMA",
+"displayName": "Maine Maritime Mariners",
+"location": "Maine Maritime",
+"name": "Mariners",
+"nickname": "Maine Maritime",
+"shortDisplayName": "Maine Maritime",
+"tier": "lower"
+},
+"2740": {
+"abbreviation": "UWL",
+"displayName": "Wisconsin La Crosse Eagles",
+"location": "Wisconsin La Crosse",
+"name": "Eagles",
+"nickname": "UW-La Crosse",
+"shortDisplayName": "UW-La Crosse",
+"tier": "lower"
+},
+"2741": {
+"abbreviation": "WLC",
+"displayName": "Wisconsin Lutheran Warriors",
+"location": "Wisconsin Lutheran",
+"name": "Warriors",
+"nickname": "Wisc Lutheran",
+"shortDisplayName": "Wisc Lutheran",
+"tier": "lower"
+},
+"2743": {
+"abbreviation": "UWSP",
+"displayName": "Wisconsin Stevens Point Pointers",
+"location": "Wisconsin Stevens Point",
+"name": "Pointers",
+"nickname": "UW-Stevens Pt",
+"shortDisplayName": "UW-Stevens Pt",
+"tier": "lower"
+},
+"2744": {
+"abbreviation": "UWST",
+"displayName": "Wisconsin Stout Blue Devils",
+"location": "Wisconsin Stout",
+"name": "Blue Devils",
+"nickname": "UW-Stout",
+"shortDisplayName": "UW-Stout",
+"tier": "lower"
+},
+"2745": {
+"abbreviation": "UWW",
+"displayName": "Wisconsin Whitewater Warhawks",
+"location": "Wisconsin Whitewater",
+"name": "Warhawks",
+"nickname": "UW-Whitewater",
+"shortDisplayName": "UW-Whitewater",
+"tier": "lower"
+},
+"2746": {
+"abbreviation": "WITT",
+"displayName": "Wittenberg Tigers",
+"location": "Wittenberg",
+"name": "Tigers",
+"nickname": "Wittenberg",
+"shortDisplayName": "Wittenberg",
+"tier": "lower"
+},
+"2747": {
+"abbreviation": "WOF",
+"displayName": "Wofford Terriers",
+"location": "Wofford",
+"name": "Terriers",
+"nickname": "Wofford",
+"shortDisplayName": "Wofford",
+"tier": "FCS"
+},
+"2748": {
+"abbreviation": "WOO",
+"displayName": "Wooster Fighting Scots",
+"location": "Wooster",
+"name": "Fighting Scots",
+"nickname": "Wooster",
+"shortDisplayName": "Wooster",
+"tier": "lower"
+},
+"2749": {
+"abbreviation": "WPI",
+"displayName": "WPI Engineers",
+"location": "WPI",
+"name": "Engineers",
+"nickname": "WPI",
+"shortDisplayName": "WPI",
+"tier": "lower"
+},
+"275": {
+"abbreviation": "WIS",
+"displayName": "Wisconsin Badgers",
+"location": "Wisconsin",
+"name": "Badgers",
+"nickname": "Wisconsin",
+"shortDisplayName": "Wisconsin",
+"tier": "FBS"
+},
+"2751": {
+"abbreviation": "WYO",
+"displayName": "Wyoming Cowboys",
+"location": "Wyoming",
+"name": "Cowboys",
+"nickname": "Wyoming",
+"shortDisplayName": "Wyoming",
+"tier": "FBS"
+},
+"2754": {
+"abbreviation": "YSU",
+"displayName": "Youngstown State Penguins",
+"location": "Youngstown State",
+"name": "Penguins",
+"nickname": "Youngstown St",
+"shortDisplayName": "Youngstown St",
+"tier": "FCS"
+},
+"2755": {
+"abbreviation": "GRAM",
+"displayName": "Grambling Tigers",
+"location": "Grambling",
+"name": "Tigers",
+"nickname": "Grambling",
+"shortDisplayName": "Grambling",
+"tier": "FCS"
+},
+"2757": {
+"abbreviation": "BERR",
+"displayName": "Berry Vikings",
+"location": "Berry",
+"name": "Vikings",
+"nickname": "Berry",
+"shortDisplayName": "Berry",
+"tier": "lower"
+},
+"2758": {
+"abbreviation": "HWPU",
+"displayName": "Howard Payne Yellow Jackets",
+"location": "Howard Payne",
+"name": "Yellow Jackets",
+"nickname": "Howard Payne",
+"shortDisplayName": "Howard Payne",
+"tier": "lower"
+},
+"276": {
+"abbreviation": "MRSH",
+"displayName": "Marshall Thundering Herd",
+"location": "Marshall",
+"name": "Thundering Herd",
+"nickname": "Marshall",
+"shortDisplayName": "Marshall",
+"tier": "FBS"
+},
+"277": {
+"abbreviation": "WVU",
+"displayName": "West Virginia Mountaineers",
+"location": "West Virginia",
+"name": "Mountaineers",
+"nickname": "West Virginia",
+"shortDisplayName": "West Virginia",
+"tier": "FBS"
+},
+"2770": {
+"abbreviation": "MB",
+"displayName": "MANITOBA",
+"location": "Manitoba",
+"name": "MANITOBA",
+"nickname": "Manitoba",
+"shortDisplayName": "Manitoba",
+"tier": "lower"
+},
+"2771": {
+"abbreviation": "MRMK",
+"displayName": "Merrimack Warriors",
+"location": "Merrimack",
+"name": "Warriors",
+"nickname": "Merrimack",
+"shortDisplayName": "Merrimack",
+"tier": "FCS"
+},
+"2776": {
+"abbreviation": "SALV",
+"displayName": "Salve Regina Seahawks",
+"location": "Salve Regina",
+"name": "Seahawks",
+"nickname": "Salve Regina",
+"shortDisplayName": "Salve Regina",
+"tier": "lower"
+},
+"2779": {
+"abbreviation": "USL",
+"displayName": "St. Lawrence Saints",
+"location": "St. Lawrence",
+"name": "Saints",
+"nickname": "St Lawrence",
+"shortDisplayName": "St Lawrence",
+"tier": "lower"
+},
+"278": {
+"abbreviation": "FRES",
+"displayName": "Fresno State Bulldogs",
+"location": "Fresno State",
+"name": "Bulldogs",
+"nickname": "Fresno St",
+"shortDisplayName": "Fresno St",
+"tier": "FBS"
+},
+"2781": {
+"abbreviation": "BRO",
+"displayName": "Brockport Golden Eagles",
+"location": "Brockport",
+"name": "Golden Eagles",
+"nickname": "Brockport",
+"shortDisplayName": "Brockport",
+"tier": "lower"
+},
+"2782": {
+"abbreviation": "NYCL",
+"displayName": "SUNY Cortland Red Dragons",
+"location": "SUNY Cortland",
+"name": "Red Dragons",
+"nickname": "SUNY Cortland",
+"shortDisplayName": "SUNY Cortland",
+"tier": "lower"
+},
+"2790": {
+"abbreviation": "ALBI",
+"displayName": "Albion Britons",
+"location": "Albion",
+"name": "Britons",
+"nickname": "Albion",
+"shortDisplayName": "Albion",
+"tier": "lower"
+},
+"2800": {
+"abbreviation": "ALMA",
+"displayName": "Alma Scots",
+"location": "Alma",
+"name": "Scots",
+"nickname": "Alma",
+"shortDisplayName": "Alma",
+"tier": "lower"
+},
+"2802": {
+"abbreviation": "BUMN",
+"displayName": "Bethel (MN) Royals",
+"location": "Bethel (MN)",
+"name": "Royals",
+"nickname": "Bethel (MN)",
+"shortDisplayName": "Bethel (MN)",
+"tier": "lower"
+},
+"2803": {
+"abbreviation": "BRY",
+"displayName": "Bryant Bulldogs",
+"location": "Bryant",
+"name": "Bulldogs",
+"nickname": "Bryant",
+"shortDisplayName": "Bryant",
+"tier": "FCS"
+},
+"2804": {
+"abbreviation": "CWAN",
+"displayName": "Chowan Hawks",
+"location": "Chowan",
+"name": "Hawks",
+"nickname": "Chowan",
+"shortDisplayName": "Chowan",
+"tier": "lower"
+},
+"2805": {
+"abbreviation": "CKGA",
+"displayName": "Clark Atlanta Panthers",
+"location": "Clark Atlanta",
+"name": "Panthers",
+"nickname": "Clark (GA)",
+"shortDisplayName": "Clark (GA)",
+"tier": "lower"
+},
+"2808": {
+"abbreviation": "DVU",
+"displayName": "Delaware Valley Aggies",
+"location": "Delaware Valley",
+"name": "Aggies",
+"nickname": "Del Val",
+"shortDisplayName": "Del Val",
+"tier": "lower"
+},
+"2810": {
+"abbreviation": "HSU",
+"displayName": "Hardin Simmons Cowboys",
+"location": "Hardin Simmons",
+"name": "Cowboys",
+"nickname": "Hardin Simmons",
+"shortDisplayName": "Hardin Simmons",
+"tier": "lower"
+},
+"2812": {
+"abbreviation": "HOPE",
+"displayName": "Hope Flying Dutchmen",
+"location": "Hope",
+"name": "Flying Dutchmen",
+"nickname": "Hope",
+"shortDisplayName": "Hope",
+"tier": "lower"
+},
+"2815": {
+"abbreviation": "LIN",
+"displayName": "Lindenwood Lions",
+"location": "Lindenwood",
+"name": "Lions",
+"nickname": "Lindenwood",
+"shortDisplayName": "Lindenwood",
+"tier": "FCS"
+},
+"2816": {
+"abbreviation": "MCK",
+"displayName": "McKendree Bearcats",
+"location": "McKendree",
+"name": "Bearcats",
+"nickname": "McKendree",
+"shortDisplayName": "McKendree",
+"tier": "lower"
+},
+"2817": {
+"abbreviation": "MSUM",
+"displayName": "Minnesota St Moorhead Dragons",
+"location": "Minnesota St Moorhead",
+"name": "Dragons",
+"nickname": "Minn Moorhead",
+"shortDisplayName": "Minn Moorhead",
+"tier": "lower"
+},
+"2818": {
+"abbreviation": "MCST",
+"displayName": "Montclair State Red Hawks",
+"location": "Montclair State",
+"name": "Red Hawks",
+"nickname": "Montclair",
+"shortDisplayName": "Montclair",
+"tier": "lower"
+},
+"282": {
+"abbreviation": "INST",
+"displayName": "Indiana State Sycamores",
+"location": "Indiana State",
+"name": "Sycamores",
+"nickname": "Indiana St",
+"shortDisplayName": "Indiana St",
+"tier": "FCS"
+},
+"2822": {
+"abbreviation": "NGU",
+"displayName": "North Greenville Trailblazers",
+"location": "North Greenville",
+"name": "Trailblazers",
+"nickname": "N Greenville",
+"shortDisplayName": "N Greenville",
+"tier": "lower"
+},
+"2823": {
+"abbreviation": "NWOK",
+"displayName": "Northwestern (OK) Rangers",
+"location": "Northwestern (OK)",
+"name": "Rangers",
+"nickname": "N'Western (OK)",
+"shortDisplayName": "N'Western (OK)",
+"tier": "lower"
+},
+"2824": {
+"abbreviation": "OPSU",
+"displayName": "Oklahoma Panhandle Aggies",
+"location": "Oklahoma Panhandle",
+"name": "Aggies",
+"nickname": "OK Panhandle",
+"shortDisplayName": "OK Panhandle",
+"tier": "lower"
+},
+"2825": {
+"abbreviation": "QUI",
+"displayName": "Quincy Hawks",
+"location": "Quincy",
+"name": "Hawks",
+"nickname": "Quincy",
+"shortDisplayName": "Quincy",
+"tier": "lower"
+},
+"2827": {
+"abbreviation": "ROW",
+"displayName": "Rowan Profs",
+"location": "Rowan",
+"name": "Profs",
+"nickname": "Rowan",
+"shortDisplayName": "Rowan",
+"tier": "lower"
+},
+"2828": {
+"abbreviation": "SHEN",
+"displayName": "Shenandoah Hornets",
+"location": "Shenandoah",
+"name": "Hornets",
+"nickname": "Shenandoah",
+"shortDisplayName": "Shenandoah",
+"tier": "lower"
+},
+"2830": {
+"abbreviation": "SANS",
+"displayName": "Saint Anselm Hawks",
+"location": "Saint Anselm",
+"name": "Hawks",
+"nickname": "Saint Anselm",
+"shortDisplayName": "Saint Anselm",
+"tier": "lower"
+},
+"2831": {
+"abbreviation": "SFIN",
+"displayName": "Saint Francis (IN) Cougars",
+"location": "Saint Francis (IN)",
+"name": "Cougars",
+"nickname": "St Francis IN",
+"shortDisplayName": "St Francis IN",
+"tier": "lower"
+},
+"2832": {
+"abbreviation": "STNC",
+"displayName": "St. Norbert Green Knights",
+"location": "St. Norbert",
+"name": "Green Knights",
+"nickname": "St Norbert",
+"shortDisplayName": "St Norbert",
+"tier": "lower"
+},
+"2834": {
+"abbreviation": "SRST",
+"displayName": "Sul Ross State Lobos",
+"location": "Sul Ross State",
+"name": "Lobos",
+"nickname": "Sul Ross St",
+"shortDisplayName": "Sul Ross St",
+"tier": "lower"
+},
+"2837": {
+"abbreviation": "ETAM",
+"displayName": "East Texas A&M Lions",
+"location": "East Texas A&M",
+"name": "Lions",
+"nickname": "East Texas A&M",
+"shortDisplayName": "East Texas A&M",
+"tier": "FCS"
+},
+"2838": {
+"abbreviation": "TIFF",
+"displayName": "Tiffin Dragons",
+"location": "Tiffin",
+"name": "Dragons",
+"nickname": "Tiffin",
+"shortDisplayName": "Tiffin",
+"tier": "lower"
+},
+"2839": {
+"abbreviation": "TUSC",
+"displayName": "Tusculum Pioneers",
+"location": "Tusculum",
+"name": "Pioneers",
+"nickname": "Tusculum",
+"shortDisplayName": "Tusculum",
+"tier": "lower"
+},
+"284": {
+"abbreviation": "STO",
+"displayName": "Stonehill Skyhawks",
+"location": "Stonehill",
+"name": "Skyhawks",
+"nickname": "Stonehill",
+"shortDisplayName": "Stonehill",
+"tier": "FCS"
+},
+"2842": {
+"abbreviation": "UVAW",
+"displayName": "UVA Wise Cavaliers",
+"location": "UVA Wise",
+"name": "Cavaliers",
+"nickname": "UVA Wise",
+"shortDisplayName": "UVA Wise",
+"tier": "lower"
+},
+"2843": {
+"abbreviation": "WCSU",
+"displayName": "Western Connecticut State Wolves",
+"location": "Western Connecticut State",
+"name": "Wolves",
+"nickname": "WestConn",
+"shortDisplayName": "WestConn",
+"tier": "lower"
+},
+"2844": {
+"abbreviation": "WSNE",
+"displayName": "Wayne State (NE) Wildcats",
+"location": "Wayne State (NE)",
+"name": "Wildcats",
+"nickname": "Wayne St (NE)",
+"shortDisplayName": "Wayne St (NE)",
+"tier": "lower"
+},
+"2845": {
+"abbreviation": "WAYN",
+"displayName": "Waynesburg Yellow Jackets",
+"location": "Waynesburg",
+"name": "Yellow Jackets",
+"nickname": "Waynesburg",
+"shortDisplayName": "Waynesburg",
+"tier": "lower"
+},
+"2848": {
+"abbreviation": "WORU",
+"displayName": "Western Oregon Wolves",
+"location": "Western Oregon",
+"name": "Wolves",
+"nickname": "West Oregon",
+"shortDisplayName": "West Oregon",
+"tier": "lower"
+},
+"2849": {
+"abbreviation": "WCPA",
+"displayName": "Westminster (PA) Titans",
+"location": "Westminster (PA)",
+"name": "Titans",
+"nickname": "Westminster PA",
+"shortDisplayName": "Westminster PA",
+"tier": "lower"
+},
+"2850": {
+"abbreviation": "WHTR",
+"displayName": "Whittier Poets",
+"location": "Whittier",
+"name": "Poets",
+"nickname": "Whittier",
+"shortDisplayName": "Whittier",
+"tier": "lower"
+},
+"2851": {
+"abbreviation": "WNST",
+"displayName": "Winona State Warriors",
+"location": "Winona State",
+"name": "Warriors",
+"nickname": "Winona St",
+"shortDisplayName": "Winona St",
+"tier": "lower"
+},
+"2858": {
+"abbreviation": "CAPA",
+"displayName": "California (PA) Vulcans",
+"location": "California (PA)",
+"name": "Vulcans",
+"nickname": "Cal (PA)",
+"shortDisplayName": "Cal (PA)",
+"tier": "lower"
+},
+"286": {
+"abbreviation": "NCW",
+"displayName": "North Carolina Wesleyan Battling Bishops",
+"location": "North Carolina Wesleyan",
+"name": "Battling Bishops",
+"nickname": "NC Wesleyan",
+"shortDisplayName": "NC Wesleyan",
+"tier": "lower"
+},
+"2860": {
+"abbreviation": "CDF",
+"displayName": "Central Methodist Eagles",
+"location": "Central Methodist",
+"name": "Eagles",
+"nickname": "C Methodst",
+"shortDisplayName": "C Methodst",
+"tier": "lower"
+},
+"2865": {
+"abbreviation": "EVA",
+"displayName": "Evangel University Crusaders",
+"location": "Evangel University",
+"name": "Crusaders",
+"nickname": "Evangel",
+"shortDisplayName": "Evangel",
+"tier": "lower"
+},
+"2871": {
+"abbreviation": "KEAN",
+"displayName": "Kean Cougars",
+"location": "Kean",
+"name": "Cougars",
+"nickname": "Kean",
+"shortDisplayName": "Kean",
+"tier": "lower"
+},
+"2876": {
+"abbreviation": "LNMO",
+"displayName": "Lincoln (MO) Blue Tigers",
+"location": "Lincoln (MO)",
+"name": "Blue Tigers",
+"nickname": "Lincoln (MO)",
+"shortDisplayName": "Lincoln (MO)",
+"tier": "lower"
+},
+"2877": {
+"abbreviation": "LWU",
+"displayName": "Lindsey Wilson LINDSEY",
+"location": "Lindsey Wilson",
+"name": "LINDSEY",
+"nickname": "Lindsey Wilson",
+"shortDisplayName": "Lindsey Wilson",
+"tier": "lower"
+},
+"2880": {
+"abbreviation": "MOBU",
+"displayName": "Missouri Baptist Spartans",
+"location": "Missouri Baptist",
+"name": "Spartans",
+"nickname": "Missouri Bapt",
+"shortDisplayName": "Missouri Bapt",
+"tier": "lower"
+},
+"2882": {
+"abbreviation": "UNCP",
+"displayName": "UNC Pembroke Braves",
+"location": "UNC Pembroke",
+"name": "Braves",
+"nickname": "UNC Pembroke",
+"shortDisplayName": "UNC Pembroke",
+"tier": "lower"
+},
+"2884": {
+"abbreviation": "NICC",
+"displayName": "Nichols Bison",
+"location": "Nichols",
+"name": "Bison",
+"nickname": "Nichols",
+"shortDisplayName": "Nichols",
+"tier": "lower"
+},
+"2886": {
+"abbreviation": "NWD",
+"displayName": "Northwood Timberwolves",
+"location": "Northwood",
+"name": "Timberwolves",
+"nickname": "Northwood",
+"shortDisplayName": "Northwood",
+"tier": "lower"
+},
+"2888": {
+"abbreviation": "OBU",
+"displayName": "Ouachita Baptist Tigers",
+"location": "Ouachita Baptist",
+"name": "Tigers",
+"nickname": "Ouachita Bapt",
+"shortDisplayName": "Ouachita Bapt",
+"tier": "lower"
+},
+"2890": {
+"abbreviation": "RHDT",
+"displayName": "Reinhardt Eagles",
+"location": "Reinhardt",
+"name": "Eagles",
+"nickname": "Reinhardt",
+"shortDisplayName": "Reinhardt",
+"tier": "lower"
+},
+"2891": {
+"abbreviation": "RIP",
+"displayName": "Ripon Red Hawks",
+"location": "Ripon",
+"name": "Red Hawks",
+"nickname": "Ripon",
+"shortDisplayName": "Ripon",
+"tier": "lower"
+},
+"2894": {
+"abbreviation": "SFU",
+"displayName": "Sioux Falls Cougars",
+"location": "Sioux Falls",
+"name": "Cougars",
+"nickname": "Sioux Falls",
+"shortDisplayName": "Sioux Falls",
+"tier": "lower"
+},
+"2896": {
+"abbreviation": "SOVA",
+"displayName": "Southern Virginia Knights",
+"location": "Southern Virginia",
+"name": "Knights",
+"nickname": "S Virginia",
+"shortDisplayName": "S Virginia",
+"tier": "lower"
+},
+"29": {
+"abbreviation": "REDL",
+"displayName": "Redlands Bulldogs",
+"location": "Redlands",
+"name": "Bulldogs",
+"nickname": "Redlands",
+"shortDisplayName": "Redlands",
+"tier": "lower"
+},
+"290": {
+"abbreviation": "GASO",
+"displayName": "Georgia Southern Eagles",
+"location": "Georgia Southern",
+"name": "Eagles",
+"nickname": "GA Southern",
+"shortDisplayName": "GA Southern",
+"tier": "FBS"
+},
+"2900": {
+"abbreviation": "STMN",
+"displayName": "St. Thomas Tommies",
+"location": "St. Thomas",
+"name": "Tommies",
+"nickname": "St Thomas",
+"shortDisplayName": "St Thomas",
+"tier": "FCS"
+},
+"2904": {
+"abbreviation": "NEL",
+"displayName": "Nelson (TX) Lions",
+"location": "Nelson (TX)",
+"name": "Lions",
+"nickname": "Nelson",
+"shortDisplayName": "Nelson",
+"tier": "lower"
+},
+"2909": {
+"abbreviation": "WFST",
+"displayName": "Westfield State Owls",
+"location": "Westfield State",
+"name": "Owls",
+"nickname": "Westfield St",
+"shortDisplayName": "Westfield St",
+"tier": "lower"
+},
+"291": {
+"abbreviation": "MU",
+"displayName": "Methodist Monarchs",
+"location": "Methodist",
+"name": "Monarchs",
+"nickname": "Methodist",
+"shortDisplayName": "Methodist",
+"tier": "lower"
+},
+"2911": {
+"abbreviation": "WJC",
+"displayName": "William Jewell Cardinals",
+"location": "William Jewell",
+"name": "Cardinals",
+"nickname": "William Jewell",
+"shortDisplayName": "William Jewell",
+"tier": "lower"
+},
+"2912": {
+"abbreviation": "WPEN",
+"displayName": "William Penn Statesmen",
+"location": "William Penn",
+"name": "Statesmen",
+"nickname": "William Penn",
+"shortDisplayName": "William Penn",
+"tier": "lower"
+},
+"2913": {
+"abbreviation": "BRE",
+"displayName": "Brevard Tornados",
+"location": "Brevard",
+"name": "Tornados",
+"nickname": "Brevard",
+"shortDisplayName": "Brevard",
+"tier": "lower"
+},
+"2916": {
+"abbreviation": "UIW",
+"displayName": "Incarnate Word Cardinals",
+"location": "Incarnate Word",
+"name": "Cardinals",
+"nickname": "Incarnate Word",
+"shortDisplayName": "Incarnate Word",
+"tier": "FCS"
+},
+"2919": {
+"abbreviation": "MNIL",
+"displayName": "Monmouth (IL) Fighting Scots",
+"location": "Monmouth (IL)",
+"name": "Fighting Scots",
+"nickname": "Monmouth (IL)",
+"shortDisplayName": "Monmouth (IL)",
+"tier": "lower"
+},
+"2923": {
+"abbreviation": "POPI",
+"displayName": "Pomona Pitzer Sagehens",
+"location": "Pomona Pitzer",
+"name": "Sagehens",
+"nickname": "Pomona Pitzer",
+"shortDisplayName": "Pomona Pitzer",
+"tier": "lower"
+},
+"2927": {
+"abbreviation": "SOSU",
+"displayName": "Southwestern Oklahoma State Bulldogs",
+"location": "Southwestern Oklahoma State",
+"name": "Bulldogs",
+"nickname": "SW Oklahoma St",
+"shortDisplayName": "SW Oklahoma St",
+"tier": "lower"
+},
+"293": {
+"abbreviation": "VTSC",
+"displayName": "Vermont State Castleton Spartans",
+"location": "Vermont State Castleton",
+"name": "Spartans",
+"nickname": "VTSU Castleton",
+"shortDisplayName": "VTSU Castleton",
+"tier": "lower"
+},
+"2930": {
+"abbreviation": "WLMT",
+"displayName": "Willamette Bearcats",
+"location": "Willamette",
+"name": "Bearcats",
+"nickname": "Willamette",
+"shortDisplayName": "Willamette",
+"tier": "lower"
+},
+"2938": {
+"abbreviation": "HNTC",
+"displayName": "Huntingdon Hawks",
+"location": "Huntingdon",
+"name": "Hawks",
+"nickname": "Huntingdon",
+"shortDisplayName": "Huntingdon",
+"tier": "lower"
+},
+"2939": {
+"abbreviation": "UJ",
+"displayName": "Jamestown Jimmies",
+"location": "Jamestown",
+"name": "Jimmies",
+"nickname": "Jamestown",
+"shortDisplayName": "Jamestown",
+"tier": "lower"
+},
+"2940": {
+"abbreviation": "LIV",
+"displayName": "Livingstone Blue Bears",
+"location": "Livingstone",
+"name": "Blue Bears",
+"nickname": "Livingstone",
+"shortDisplayName": "Livingstone",
+"tier": "lower"
+},
+"295": {
+"abbreviation": "ODU",
+"displayName": "Old Dominion Monarchs",
+"location": "Old Dominion",
+"name": "Monarchs",
+"nickname": "Old Dominion",
+"shortDisplayName": "Old Dominion",
+"tier": "FBS"
+},
+"2951": {
+"abbreviation": "NYMT",
+"displayName": "SUNY Maritime Privateers",
+"location": "SUNY Maritime",
+"name": "Privateers",
+"nickname": "SUNY Maritime",
+"shortDisplayName": "SUNY Maritime",
+"tier": "lower"
+},
+"2963": {
+"abbreviation": "CWRU",
+"displayName": "Case Western Reserve Spartans",
+"location": "Case Western Reserve",
+"name": "Spartans",
+"nickname": "Case Western",
+"shortDisplayName": "Case Western",
+"tier": "lower"
+},
+"2964": {
+"abbreviation": "CNTC",
+"displayName": "Central College Dutch",
+"location": "Central College",
+"name": "Dutch",
+"nickname": "Central Col",
+"shortDisplayName": "Central Col",
+"tier": "lower"
+},
+"2967": {
+"abbreviation": "FRSU",
+"displayName": "Framingham State Rams",
+"location": "Framingham State",
+"name": "Rams",
+"nickname": "Framingham St",
+"shortDisplayName": "Framingham St",
+"tier": "lower"
+},
+"2968": {
+"abbreviation": "GAC",
+"displayName": "Gustavus Adolphus Golden Gusties",
+"location": "Gustavus Adolphus",
+"name": "Golden Gusties",
+"nickname": "Gustavus",
+"shortDisplayName": "Gustavus",
+"tier": "lower"
+},
+"2969": {
+"abbreviation": "MISE",
+"displayName": "Misericordia Cougars",
+"location": "Misericordia",
+"name": "Cougars",
+"nickname": "Misericordia",
+"shortDisplayName": "Misericordia",
+"tier": "lower"
+},
+"297": {
+"abbreviation": "HSC",
+"displayName": "Hampden Sydney Tigers",
+"location": "Hampden Sydney",
+"name": "Tigers",
+"nickname": "Hampden Sydney",
+"shortDisplayName": "Hampden Sydney",
+"tier": "lower"
+},
+"2970": {
+"abbreviation": "WPU",
+"displayName": "William Paterson Pioneers",
+"location": "William Paterson",
+"name": "Pioneers",
+"nickname": "Wm Paterson",
+"shortDisplayName": "Wm Paterson",
+"tier": "lower"
+},
+"2972": {
+"abbreviation": "PLYM",
+"displayName": "Plymouth State Panthers",
+"location": "Plymouth State",
+"name": "Panthers",
+"nickname": "Plymouth St",
+"shortDisplayName": "Plymouth St",
+"tier": "lower"
+},
+"2974": {
+"abbreviation": "SHEP",
+"displayName": "Shepherd Rams",
+"location": "Shepherd",
+"name": "Rams",
+"nickname": "Shepherd",
+"shortDisplayName": "Shepherd",
+"tier": "lower"
+},
+"2977": {
+"abbreviation": "TCCT",
+"displayName": "Trinity (CT) Bantams",
+"location": "Trinity (CT)",
+"name": "Bantams",
+"nickname": "Trinity (CT)",
+"shortDisplayName": "Trinity (CT)",
+"tier": "lower"
+},
+"2980": {
+"abbreviation": "OWU",
+"displayName": "Ohio Wesleyan Battling Bishops",
+"location": "Ohio Wesleyan",
+"name": "Battling Bishops",
+"nickname": "Ohio Wesleyan",
+"shortDisplayName": "Ohio Wesleyan",
+"tier": "lower"
+},
+"2985": {
+"abbreviation": "CONCMI",
+"displayName": "Concordia-Michigan Cardinals",
+"location": "Concordia-Michigan",
+"name": "Cardinals",
+"nickname": "Cncrdia MI",
+"shortDisplayName": "Cncrdia MI",
+"tier": "lower"
+},
+"2986": {
+"abbreviation": "FMSU",
+"displayName": "Fairmont State Falcons",
+"location": "Fairmont State",
+"name": "Falcons",
+"nickname": "Fairmont St",
+"shortDisplayName": "Fairmont St",
+"tier": "lower"
+},
+"30": {
+"abbreviation": "USC",
+"displayName": "USC Trojans",
+"location": "USC",
+"name": "Trojans",
+"nickname": "USC",
+"shortDisplayName": "USC",
+"tier": "FBS"
+},
+"301": {
+"abbreviation": "USD",
+"displayName": "San Diego Toreros",
+"location": "San Diego",
+"name": "Toreros",
+"nickname": "San Diego",
+"shortDisplayName": "San Diego",
+"tier": "FCS"
+},
+"302": {
+"abbreviation": "UCD",
+"displayName": "UC Davis Aggies",
+"location": "UC Davis",
+"name": "Aggies",
+"nickname": "UC Davis",
+"shortDisplayName": "UC Davis",
+"tier": "FCS"
+},
+"304": {
+"abbreviation": "IDST",
+"displayName": "Idaho State Bengals",
+"location": "Idaho State",
+"name": "Bengals",
+"nickname": "Idaho St",
+"shortDisplayName": "Idaho St",
+"tier": "FCS"
+},
+"306": {
+"abbreviation": "ILWU",
+"displayName": "Illinois Wesleyan Titans",
+"location": "Illinois Wesleyan",
+"name": "Titans",
+"nickname": "IL Wesleyan",
+"shortDisplayName": "IL Wesleyan",
+"tier": "lower"
+},
+"3066": {
+"abbreviation": "CSP",
+"displayName": "Concordia St. Paul Golden Bears",
+"location": "Concordia St. Paul",
+"name": "Golden Bears",
+"nickname": "Concordia St P",
+"shortDisplayName": "Concordia St P",
+"tier": "lower"
+},
+"3071": {
+"abbreviation": "NCC",
+"displayName": "North Central (IL) Cardinals",
+"location": "North Central (IL)",
+"name": "Cardinals",
+"nickname": "N Central (IL)",
+"shortDisplayName": "N Central (IL)",
+"tier": "lower"
+},
+"3077": {
+"abbreviation": "KYCHR",
+"displayName": "Kentucky Christian Knights",
+"location": "Kentucky Christian",
+"name": "Knights",
+"nickname": "KCU",
+"shortDisplayName": "KCU",
+"tier": "lower"
+},
+"308": {
+"abbreviation": "ASH",
+"displayName": "Ashland Eagles",
+"location": "Ashland",
+"name": "Eagles",
+"nickname": "Ashland",
+"shortDisplayName": "Ashland",
+"tier": "lower"
+},
+"3080": {
+"abbreviation": "WLDF",
+"displayName": "Waldorf Warriors",
+"location": "Waldorf",
+"name": "Warriors",
+"nickname": "Waldorf",
+"shortDisplayName": "Waldorf",
+"tier": "lower"
+},
+"309": {
+"abbreviation": "UL",
+"displayName": "Louisiana Ragin' Cajuns",
+"location": "Louisiana",
+"name": "Ragin' Cajuns",
+"nickname": "Louisiana",
+"shortDisplayName": "Louisiana",
+"tier": "FBS"
+},
+"3100": {
+"abbreviation": "MITE",
+"displayName": "Monterrey Tech Borregos",
+"location": "Monterrey Tech",
+"name": "Borregos",
+"nickname": "Monterrey Tech",
+"shortDisplayName": "Monterrey Tech",
+"tier": "lower"
+},
+"3101": {
+"abbreviation": "UTU",
+"displayName": "Utah Tech Trailblazers",
+"location": "Utah Tech",
+"name": "Trailblazers",
+"nickname": "Utah Tech",
+"shortDisplayName": "Utah Tech",
+"tier": "FCS"
+},
+"311": {
+"abbreviation": "ME",
+"displayName": "Maine Black Bears",
+"location": "Maine",
+"name": "Black Bears",
+"nickname": "Maine",
+"shortDisplayName": "Maine",
+"tier": "FCS"
+},
+"3110": {
+"abbreviation": "NYMS",
+"displayName": "SUNY Morrisville Mustangs",
+"location": "SUNY Morrisville",
+"name": "Mustangs",
+"nickname": "SUNY Morrisvle",
+"shortDisplayName": "SUNY Morrisvle",
+"tier": "lower"
+},
+"3111": {
+"abbreviation": "APPRE",
+"displayName": "Apprentice School Builders",
+"location": "Apprentice School",
+"name": "Builders",
+"nickname": "Apprentice",
+"shortDisplayName": "Apprentice",
+"tier": "lower"
+},
+"3112": {
+"abbreviation": "CNU",
+"displayName": "Christopher Newport Captains",
+"location": "Christopher Newport",
+"name": "Captains",
+"nickname": "Chris Newport",
+"shortDisplayName": "Chris Newport",
+"tier": "lower"
+},
+"3130": {
+"abbreviation": "WMSN",
+"displayName": "Williamson Mechanics",
+"location": "Williamson",
+"name": "Mechanics",
+"nickname": "Williamson",
+"shortDisplayName": "Williamson",
+"tier": "lower"
+},
+"316": {
+"abbreviation": "DIC",
+"displayName": "Dickinson State University Blue Hawks",
+"location": "Dickinson State University",
+"name": "Blue Hawks",
+"nickname": "Dicknsn St",
+"shortDisplayName": "Dicknsn St",
+"tier": "lower"
+},
+"3161": {
+"abbreviation": "OSU",
+"displayName": "Ohio State Newark Titans",
+"location": "Ohio State Newark",
+"name": "Titans",
+"nickname": "Osunewark",
+"shortDisplayName": "Osunewark",
+"tier": "lower"
+},
+"3162": {
+"abbreviation": "AFST",
+"displayName": "Alfred State Pioneers",
+"location": "Alfred State",
+"name": "Pioneers",
+"nickname": "Alfred St",
+"shortDisplayName": "Alfred St",
+"tier": "lower"
+},
+"317": {
+"abbreviation": "MRTT",
+"displayName": "Marietta Pioneers",
+"location": "Marietta",
+"name": "Pioneers",
+"nickname": "Marietta",
+"shortDisplayName": "Marietta",
+"tier": "lower"
+},
+"3178": {
+"abbreviation": "AVE M",
+"displayName": "Ave Maria University Gyrenes",
+"location": "Ave Maria University",
+"name": "Gyrenes",
+"nickname": "Ave Maria",
+"shortDisplayName": "Ave Maria",
+"tier": "lower"
+},
+"3179": {
+"abbreviation": "POINT",
+"displayName": "Point University Skyhawks",
+"location": "Point University",
+"name": "Skyhawks",
+"nickname": "Point",
+"shortDisplayName": "Point",
+"tier": "lower"
+},
+"319": {
+"abbreviation": "OKBU",
+"displayName": "Oklahoma Baptist Bison",
+"location": "Oklahoma Baptist",
+"name": "Bison",
+"nickname": "OK Baptist",
+"shortDisplayName": "OK Baptist",
+"tier": "lower"
+},
+"32": {
+"abbreviation": "CRU",
+"displayName": "Carroll (WI) Pioneers",
+"location": "Carroll (WI)",
+"name": "Pioneers",
+"nickname": "Carroll (WI)",
+"shortDisplayName": "Carroll (WI)",
+"tier": "lower"
+},
+"3209": {
+"abbreviation": "LINB",
+"displayName": "Lindenwood Belleville Lynx",
+"location": "Lindenwood Belleville",
+"name": "Lynx",
+"nickname": "Lind Bellv",
+"shortDisplayName": "Lind Bellv",
+"tier": "lower"
+},
+"3210": {
+"abbreviation": "COLE",
+"displayName": "Cole College Jaguars",
+"location": "Cole College",
+"name": "Jaguars",
+"nickname": "Cole",
+"shortDisplayName": "Cole",
+"tier": "lower"
+},
+"3211": {
+"abbreviation": "FAI",
+"displayName": "West Memphis Crusaders",
+"location": "West Memphis",
+"name": "Crusaders",
+"nickname": "C of Faith",
+"shortDisplayName": "C of Faith",
+"tier": "lower"
+},
+"3212": {
+"abbreviation": "UNAM",
+"displayName": "University of Mexico MEXICO U",
+"location": "University of Mexico",
+"name": "MEXICO U",
+"nickname": "U of Mexico",
+"shortDisplayName": "U of Mexico",
+"tier": "lower"
+},
+"3214": {
+"abbreviation": "TBIB",
+"displayName": "Trinity Bible Lions",
+"location": "Trinity Bible",
+"name": "Lions",
+"nickname": "Trinity Bible",
+"shortDisplayName": "Trinity Bible",
+"tier": "lower"
+},
+"322": {
+"abbreviation": "LAF",
+"displayName": "Lafayette Leopards",
+"location": "Lafayette",
+"name": "Leopards",
+"nickname": "Lafayette",
+"shortDisplayName": "Lafayette",
+"tier": "FCS"
+},
+"323": {
+"abbreviation": "MOR",
+"displayName": "Moravian Greyhounds",
+"location": "Moravian",
+"name": "Greyhounds",
+"nickname": "Moravian",
+"shortDisplayName": "Moravian",
+"tier": "lower"
+},
+"3236": {
+"abbreviation": "NYER",
+"displayName": "SUNY Erie Kats",
+"location": "SUNY Erie",
+"name": "Kats",
+"nickname": "SUNY Erie",
+"shortDisplayName": "SUNY Erie",
+"tier": "lower"
+},
+"3237": {
+"abbreviation": "HVCC",
+"displayName": "Troy Vikings",
+"location": "Troy",
+"name": "Vikings",
+"nickname": "Hudson",
+"shortDisplayName": "Hudson",
+"tier": "lower"
+},
+"324": {
+"abbreviation": "CCU",
+"displayName": "Coastal Carolina Chanticleers",
+"location": "Coastal Carolina",
+"name": "Chanticleers",
+"nickname": "Coastal",
+"shortDisplayName": "Coastal",
+"tier": "FBS"
+},
+"3253": {
+"abbreviation": "COLLE",
+"displayName": "Charlotte Saints",
+"location": "Charlotte",
+"name": "Saints",
+"nickname": "Faith NC",
+"shortDisplayName": "Faith NC",
+"tier": "lower"
+},
+"3254": {
+"abbreviation": "UFFL",
+"displayName": "St. Petersburg Glory Eagles",
+"location": "St. Petersburg",
+"name": "Glory Eagles",
+"nickname": "U of Faith",
+"shortDisplayName": "U of Faith",
+"tier": "lower"
+},
+"326": {
+"abbreviation": "TXST",
+"displayName": "Texas State Bobcats",
+"location": "Texas State",
+"name": "Bobcats",
+"nickname": "Texas St",
+"shortDisplayName": "Texas St",
+"tier": "FBS"
+},
+"328": {
+"abbreviation": "USU",
+"displayName": "Utah State Aggies",
+"location": "Utah State",
+"name": "Aggies",
+"nickname": "Utah State",
+"shortDisplayName": "Utah State",
+"tier": "FBS"
+},
+"33": {
+"abbreviation": "CLBY",
+"displayName": "Colby White Mules",
+"location": "Colby",
+"name": "White Mules",
+"nickname": "Colby",
+"shortDisplayName": "Colby",
+"tier": "lower"
+},
+"330": {
+"abbreviation": "VSU",
+"displayName": "Virginia State Trojans",
+"location": "Virginia State",
+"name": "Trojans",
+"nickname": "Virginia St",
+"shortDisplayName": "Virginia St",
+"tier": "lower"
+},
+"331": {
+"abbreviation": "EWU",
+"displayName": "Eastern Washington Eagles",
+"location": "Eastern Washington",
+"name": "Eagles",
+"nickname": "E Washington",
+"shortDisplayName": "E Washington",
+"tier": "FCS"
+},
+"332": {
+"abbreviation": "MSK",
+"displayName": "Muskingum Fighting Muskies",
+"location": "Muskingum",
+"name": "Fighting Muskies",
+"nickname": "Muskingum",
+"shortDisplayName": "Muskingum",
+"tier": "lower"
+},
+"333": {
+"abbreviation": "ALA",
+"displayName": "Alabama Crimson Tide",
+"location": "Alabama",
+"name": "Crimson Tide",
+"nickname": "Alabama",
+"shortDisplayName": "Alabama",
+"tier": "FBS"
+},
+"336": {
+"abbreviation": "WSCT",
+"displayName": "Wesleyan (CT) Cardinals",
+"location": "Wesleyan (CT)",
+"name": "Cardinals",
+"nickname": "Wesleyan (CT)",
+"shortDisplayName": "Wesleyan (CT)",
+"tier": "lower"
+},
+"338": {
+"abbreviation": "KENN",
+"displayName": "Kennesaw State Owls",
+"location": "Kennesaw State",
+"name": "Owls",
+"nickname": "Kennesaw St",
+"shortDisplayName": "Kennesaw St",
+"tier": "FBS"
+},
+"340": {
+"abbreviation": "BOW",
+"displayName": "Bowdoin Polar Bears",
+"location": "Bowdoin",
+"name": "Polar Bears",
+"nickname": "Bowdoin",
+"shortDisplayName": "Bowdoin",
+"tier": "lower"
+},
+"341": {
+"abbreviation": "FSTU",
+"displayName": "Frostburg State Bobcats",
+"location": "Frostburg State",
+"name": "Bobcats",
+"nickname": "Frostburg St",
+"shortDisplayName": "Frostburg St",
+"tier": "lower"
+},
+"344": {
+"abbreviation": "MSST",
+"displayName": "Mississippi State Bulldogs",
+"location": "Mississippi State",
+"name": "Bulldogs",
+"nickname": "Mississippi St",
+"shortDisplayName": "Mississippi St",
+"tier": "FBS"
+},
+"348": {
+"abbreviation": "HAM",
+"displayName": "Hamilton Continentals",
+"location": "Hamilton",
+"name": "Continentals",
+"nickname": "Hamilton",
+"shortDisplayName": "Hamilton",
+"tier": "lower"
+},
+"349": {
+"abbreviation": "ARMY",
+"displayName": "Army Black Knights",
+"location": "Army",
+"name": "Black Knights",
+"nickname": "Army",
+"shortDisplayName": "Army",
+"tier": "FBS"
+},
+"351": {
+"abbreviation": "WINU",
+"displayName": "Wingate Bulldogs",
+"location": "Wingate",
+"name": "Bulldogs",
+"nickname": "Wingate",
+"shortDisplayName": "Wingate",
+"tier": "lower"
+},
+"352": {
+"abbreviation": "KNY",
+"displayName": "Kenyon Owls",
+"location": "Kenyon",
+"name": "Owls",
+"nickname": "Kenyon",
+"shortDisplayName": "Kenyon",
+"tier": "lower"
+},
+"354": {
+"abbreviation": "UOO",
+"displayName": "Olivet Comets",
+"location": "Olivet",
+"name": "Comets",
+"nickname": "Olivet",
+"shortDisplayName": "Olivet",
+"tier": "lower"
+},
+"356": {
+"abbreviation": "ILL",
+"displayName": "Illinois Fighting Illini",
+"location": "Illinois",
+"name": "Fighting Illini",
+"nickname": "Illinois",
+"shortDisplayName": "Illinois",
+"tier": "FBS"
+},
+"359": {
+"abbreviation": "OTTB",
+"displayName": "Otterbein Cardinals",
+"location": "Otterbein",
+"name": "Cardinals",
+"nickname": "Otterbein",
+"shortDisplayName": "Otterbein",
+"tier": "lower"
+},
+"36": {
+"abbreviation": "CSU",
+"displayName": "Colorado State Rams",
+"location": "Colorado State",
+"name": "Rams",
+"nickname": "Colorado St",
+"shortDisplayName": "Colorado St",
+"tier": "FBS"
+},
+"365": {
+"abbreviation": "ALFR",
+"displayName": "Alfred Saxons",
+"location": "Alfred",
+"name": "Saxons",
+"nickname": "Alfred",
+"shortDisplayName": "Alfred",
+"tier": "lower"
+},
+"366": {
+"abbreviation": "FC",
+"displayName": "Ferrum Panthers",
+"location": "Ferrum",
+"name": "Panthers",
+"nickname": "Ferrum",
+"shortDisplayName": "Ferrum",
+"tier": "lower"
+},
+"367": {
+"abbreviation": "GANN",
+"displayName": "Gannon Golden Knights",
+"location": "Gannon",
+"name": "Golden Knights",
+"nickname": "Gannon",
+"shortDisplayName": "Gannon",
+"tier": "lower"
+},
+"374": {
+"abbreviation": "STJF",
+"displayName": "St. John Fisher Cardinals",
+"location": "St. John Fisher",
+"name": "Cardinals",
+"nickname": "St John Fisher",
+"shortDisplayName": "St John Fisher",
+"tier": "lower"
+},
+"375": {
+"abbreviation": "CSS",
+"displayName": "St. Scholastica Saints",
+"location": "St. Scholastica",
+"name": "Saints",
+"nickname": "St Scholastica",
+"shortDisplayName": "St Scholastica",
+"tier": "lower"
+},
+"379": {
+"abbreviation": "MDAR",
+"displayName": "UMass Dartmouth Corsairs",
+"location": "UMass Dartmouth",
+"name": "Corsairs",
+"nickname": "UMass Dartmth",
+"shortDisplayName": "UMass Dartmth",
+"tier": "lower"
+},
+"38": {
+"abbreviation": "COLO",
+"displayName": "Colorado Buffaloes",
+"location": "Colorado",
+"name": "Buffaloes",
+"nickname": "Colorado",
+"shortDisplayName": "Colorado",
+"tier": "FBS"
+},
+"386": {
+"abbreviation": "TUTX",
+"displayName": "Trinity (TX) Tigers",
+"location": "Trinity (TX)",
+"name": "Tigers",
+"nickname": "Trinity (TX)",
+"shortDisplayName": "Trinity (TX)",
+"tier": "lower"
+},
+"388": {
+"abbreviation": "LVC",
+"displayName": "Lebanon Valley Flying Dutchmen",
+"location": "Lebanon Valley",
+"name": "Flying Dutchmen",
+"nickname": "Lebanon Valley",
+"shortDisplayName": "Lebanon Valley",
+"tier": "lower"
+},
+"389": {
+"abbreviation": "UIU",
+"displayName": "Upper Iowa Peacocks",
+"location": "Upper Iowa",
+"name": "Peacocks",
+"nickname": "Upper Iowa",
+"shortDisplayName": "Upper Iowa",
+"tier": "lower"
+},
+"390": {
+"abbreviation": "UTIC",
+"displayName": "Utica Pioneers",
+"location": "Utica",
+"name": "Pioneers",
+"nickname": "Utica",
+"shortDisplayName": "Utica",
+"tier": "lower"
+},
+"391": {
+"abbreviation": "OBE",
+"displayName": "Oberlin Yeomen",
+"location": "Oberlin",
+"name": "Yeomen",
+"nickname": "Oberlin",
+"shortDisplayName": "Oberlin",
+"tier": "lower"
+},
+"396": {
+"abbreviation": "WCIL",
+"displayName": "Wheaton (IL) Thunder",
+"location": "Wheaton (IL)",
+"name": "Thunder",
+"nickname": "Wheaton (IL)",
+"shortDisplayName": "Wheaton (IL)",
+"tier": "lower"
+},
+"398": {
+"abbreviation": "WILK",
+"displayName": "Wilkes Colonels",
+"location": "Wilkes",
+"name": "Colonels",
+"nickname": "Wilkes",
+"shortDisplayName": "Wilkes",
+"tier": "lower"
+},
+"399": {
+"abbreviation": "UALB",
+"displayName": "UAlbany Great Danes",
+"location": "UAlbany",
+"name": "Great Danes",
+"nickname": "UAlbany",
+"shortDisplayName": "UAlbany",
+"tier": "FCS"
+},
+"40": {
+"abbreviation": "CC",
+"displayName": "Curry Colonels",
+"location": "Curry",
+"name": "Colonels",
+"nickname": "Curry",
+"shortDisplayName": "Curry",
+"tier": "lower"
+},
+"402": {
+"abbreviation": "WORC",
+"displayName": "Worcester State Lancers",
+"location": "Worcester State",
+"name": "Lancers",
+"nickname": "Worcester St",
+"shortDisplayName": "Worcester St",
+"tier": "lower"
+},
+"409": {
+"abbreviation": "CUW",
+"displayName": "Concordia (WI) Falcons",
+"location": "Concordia (WI)",
+"name": "Falcons",
+"nickname": "Concordia (WI)",
+"shortDisplayName": "Concordia (WI)",
+"tier": "lower"
+},
+"41": {
+"abbreviation": "CONN",
+"displayName": "UConn Huskies",
+"location": "UConn",
+"name": "Huskies",
+"nickname": "UConn",
+"shortDisplayName": "UConn",
+"tier": "FBS"
+},
+"411": {
+"abbreviation": "CHAP",
+"displayName": "Chapman Panthers",
+"location": "Chapman",
+"name": "Panthers",
+"nickname": "Chapman",
+"shortDisplayName": "Chapman",
+"tier": "lower"
+},
+"415": {
+"abbreviation": "GFU",
+"displayName": "George Fox Bruins",
+"location": "George Fox",
+"name": "Bruins",
+"nickname": "George Fox",
+"shortDisplayName": "George Fox",
+"tier": "lower"
+},
+"417": {
+"abbreviation": "GLDT",
+"displayName": "Gallaudet Bison",
+"location": "Gallaudet",
+"name": "Bison",
+"nickname": "Gallaudet",
+"shortDisplayName": "Gallaudet",
+"tier": "lower"
+},
+"418": {
+"abbreviation": "HDX",
+"displayName": "Hendrix Warriors",
+"location": "Hendrix",
+"name": "Warriors",
+"nickname": "Hendrix",
+"shortDisplayName": "Hendrix",
+"tier": "lower"
+},
+"424": {
+"abbreviation": "CAPU",
+"displayName": "Capital Comets",
+"location": "Capital",
+"name": "Comets",
+"nickname": "Capital",
+"shortDisplayName": "Capital",
+"tier": "lower"
+},
+"425": {
+"abbreviation": "NSU",
+"displayName": "Northern State Wolves",
+"location": "Northern State",
+"name": "Wolves",
+"nickname": "Northern St",
+"shortDisplayName": "Northern St",
+"tier": "lower"
+},
+"426": {
+"abbreviation": "UMU",
+"displayName": "Mount Union Purple Raiders",
+"location": "Mount Union",
+"name": "Purple Raiders",
+"nickname": "Mt Union",
+"shortDisplayName": "Mt Union",
+"tier": "lower"
+},
+"427": {
+"abbreviation": "OHNU",
+"displayName": "Ohio Northern Polar Bears",
+"location": "Ohio Northern",
+"name": "Polar Bears",
+"nickname": "Ohio Northern",
+"shortDisplayName": "Ohio Northern",
+"tier": "lower"
+},
+"43": {
+"abbreviation": "YALE",
+"displayName": "Yale Bulldogs",
+"location": "Yale",
+"name": "Bulldogs",
+"nickname": "Yale",
+"shortDisplayName": "Yale",
+"tier": "FCS"
+},
+"433": {
+"abbreviation": "WCMO",
+"displayName": "Westminster (MO) Blue Jays",
+"location": "Westminster (MO)",
+"name": "Blue Jays",
+"nickname": "Westminster MO",
+"shortDisplayName": "Westminster MO",
+"tier": "lower"
+},
+"437": {
+"abbreviation": "LKER",
+"displayName": "Lake Erie Storm",
+"location": "Lake Erie",
+"name": "Storm",
+"nickname": "Lake Erie",
+"shortDisplayName": "Lake Erie",
+"tier": "lower"
+},
+"446": {
+"abbreviation": "MLC",
+"displayName": "Martin Luther Knights",
+"location": "Martin Luther",
+"name": "Knights",
+"nickname": "Martin Luther",
+"shortDisplayName": "Martin Luther",
+"tier": "lower"
+},
+"452": {
+"abbreviation": "ENDC",
+"displayName": "Endicott Gulls",
+"location": "Endicott",
+"name": "Gulls",
+"nickname": "Endicott",
+"shortDisplayName": "Endicott",
+"tier": "lower"
+},
+"455": {
+"abbreviation": "WVWC",
+"displayName": "West Virginia Wesleyan Bobcats",
+"location": "West Virginia Wesleyan",
+"name": "Bobcats",
+"nickname": "WV Wesleyan",
+"shortDisplayName": "WV Wesleyan",
+"tier": "lower"
+},
+"46": {
+"abbreviation": "GTWN",
+"displayName": "Georgetown Hoyas",
+"location": "Georgetown",
+"name": "Hoyas",
+"nickname": "Georgetown",
+"shortDisplayName": "Georgetown",
+"tier": "FCS"
+},
+"47": {
+"abbreviation": "HOW",
+"displayName": "Howard Bison",
+"location": "Howard",
+"name": "Bison",
+"nickname": "Howard",
+"shortDisplayName": "Howard",
+"tier": "FCS"
+},
+"471": {
+"abbreviation": "STVS",
+"displayName": "Stevenson Mustangs",
+"location": "Stevenson",
+"name": "Mustangs",
+"nickname": "Stevenson",
+"shortDisplayName": "Stevenson",
+"tier": "lower"
+},
+"48": {
+"abbreviation": "DEL",
+"displayName": "Delaware Blue Hens",
+"location": "Delaware",
+"name": "Blue Hens",
+"nickname": "Delaware",
+"shortDisplayName": "Delaware",
+"tier": "FBS"
+},
+"488": {
+"abbreviation": "BAK",
+"displayName": "Baker University Baker",
+"location": "Baker University",
+"name": "Baker",
+"nickname": "Baker",
+"shortDisplayName": "Baker",
+"tier": "lower"
+},
+"49": {
+"abbreviation": "DBQ",
+"displayName": "Dubuque Spartans",
+"location": "Dubuque",
+"name": "Spartans",
+"nickname": "Dubuque",
+"shortDisplayName": "Dubuque",
+"tier": "lower"
+},
+"490": {
+"abbreviation": "BEN",
+"displayName": "Benedict Tigers",
+"location": "Benedict",
+"name": "Tigers",
+"nickname": "Benedict",
+"shortDisplayName": "Benedict",
+"tier": "lower"
+},
+"492": {
+"abbreviation": "BYKS",
+"displayName": "Bethany (KS) Swedes",
+"location": "Bethany (KS)",
+"name": "Swedes",
+"nickname": "Bethany (KS)",
+"shortDisplayName": "Bethany (KS)",
+"tier": "lower"
+},
+"495": {
+"abbreviation": "BLU",
+"displayName": "BLUEFIELD Ramblin' Rams",
+"location": "BLUEFIELD",
+"name": "Ramblin' Rams",
+"nickname": "Bluefield",
+"shortDisplayName": "Bluefield",
+"tier": "lower"
+},
+"5": {
+"abbreviation": "UAB",
+"displayName": "UAB Blazers",
+"location": "UAB",
+"name": "Blazers",
+"nickname": "UAB",
+"shortDisplayName": "UAB",
+"tier": "FBS"
+},
+"50": {
+"abbreviation": "FAMU",
+"displayName": "Florida A&M Rattlers",
+"location": "Florida A&M",
+"name": "Rattlers",
+"nickname": "Florida A&M",
+"shortDisplayName": "Florida A&M",
+"tier": "FCS"
+},
+"507": {
+"abbreviation": "CONCONE",
+"displayName": "Concordia University Nebraska Clippers",
+"location": "Concordia University Nebraska",
+"name": "Clippers",
+"nickname": "Cncrdia NE",
+"shortDisplayName": "Cncrdia NE",
+"tier": "lower"
+},
+"509": {
+"abbreviation": "CRWN",
+"displayName": "Crown Polars",
+"location": "Crown",
+"name": "Polars",
+"nickname": "Crown",
+"shortDisplayName": "Crown",
+"tier": "lower"
+},
+"510": {
+"abbreviation": "CULVE",
+"displayName": "Culver-Stockton College Wildcats",
+"location": "Culver-Stockton College",
+"name": "Wildcats",
+"nickname": "Culvr-Stck",
+"shortDisplayName": "Culvr-Stck",
+"tier": "lower"
+},
+"511": {
+"abbreviation": "CMBS",
+"displayName": "Cumberlands Indians",
+"location": "Cumberlands",
+"name": "Indians",
+"nickname": "Cumberlands",
+"shortDisplayName": "Cumberlands",
+"tier": "lower"
+},
+"512": {
+"abbreviation": "DAKOT",
+"displayName": "Dakota State University Trojans",
+"location": "Dakota State University",
+"name": "Trojans",
+"nickname": "Dakota St",
+"shortDisplayName": "Dakota St",
+"tier": "lower"
+},
+"513": {
+"abbreviation": "DWU",
+"displayName": "Dakota Wesleyan Tigers",
+"location": "Dakota Wesleyan",
+"name": "Tigers",
+"nickname": "Dakota Wes",
+"shortDisplayName": "Dakota Wes",
+"tier": "lower"
+},
+"52": {
+"abbreviation": "FSU",
+"displayName": "Florida State Seminoles",
+"location": "Florida State",
+"name": "Seminoles",
+"nickname": "Florida St",
+"shortDisplayName": "Florida St",
+"tier": "FBS"
+},
+"527": {
+"abbreviation": "FRIE",
+"displayName": "Friends University Friends",
+"location": "Friends University",
+"name": "Friends",
+"nickname": "Friends",
+"shortDisplayName": "Friends",
+"tier": "lower"
+},
+"530": {
+"abbreviation": "GRC",
+"displayName": "Graceland University Graceland",
+"location": "Graceland University",
+"name": "Graceland",
+"nickname": "Graceland",
+"shortDisplayName": "Graceland",
+"tier": "lower"
+},
+"535": {
+"abbreviation": "HASKELL",
+"displayName": "Haskell Indian Nations Univ Jayhawks",
+"location": "Haskell Indian Nations Univ",
+"name": "Jayhawks",
+"nickname": "Haskell",
+"shortDisplayName": "Haskell",
+"tier": "lower"
+},
+"547": {
+"abbreviation": "KANSA",
+"displayName": "Kansas Wesleyan Ks Wesleyan",
+"location": "Kansas Wesleyan",
+"name": "Ks Wesleyan",
+"nickname": "KS Weslyan",
+"shortDisplayName": "KS Weslyan",
+"tier": "lower"
+},
+"548": {
+"abbreviation": "LGC",
+"displayName": "LaGrange Panthers",
+"location": "LaGrange",
+"name": "Panthers",
+"nickname": "LaGrange",
+"shortDisplayName": "LaGrange",
+"tier": "lower"
+},
+"55": {
+"abbreviation": "JXST",
+"displayName": "Jacksonville State Gamecocks",
+"location": "Jacksonville State",
+"name": "Gamecocks",
+"nickname": "Jax State",
+"shortDisplayName": "Jax State",
+"tier": "FBS"
+},
+"559": {
+"abbreviation": "MARY",
+"displayName": "University of Mary Marauders",
+"location": "University of Mary",
+"name": "Marauders",
+"nickname": "UMary",
+"shortDisplayName": "UMary",
+"tier": "lower"
+},
+"56": {
+"abbreviation": "STET",
+"displayName": "Stetson Hatters",
+"location": "Stetson",
+"name": "Hatters",
+"nickname": "Stetson",
+"shortDisplayName": "Stetson",
+"tier": "FCS"
+},
+"561": {
+"abbreviation": "MYSU",
+"displayName": "Mayville State Comets",
+"location": "Mayville State",
+"name": "Comets",
+"nickname": "Mayville St",
+"shortDisplayName": "Mayville St",
+"tier": "lower"
+},
+"565": {
+"abbreviation": "MIDL",
+"displayName": "Midland MIDLAND LUTHERAN",
+"location": "Midland",
+"name": "MIDLAND LUTHERAN",
+"nickname": "Midland",
+"shortDisplayName": "Midland",
+"tier": "lower"
+},
+"568": {
+"abbreviation": "MINS",
+"displayName": "Minot State Beavers",
+"location": "Minot State",
+"name": "Beavers",
+"nickname": "Minot St",
+"shortDisplayName": "Minot St",
+"tier": "lower"
+},
+"57": {
+"abbreviation": "FLA",
+"displayName": "Florida Gators",
+"location": "Florida",
+"name": "Gators",
+"nickname": "Florida",
+"shortDisplayName": "Florida",
+"tier": "FBS"
+},
+"58": {
+"abbreviation": "USF",
+"displayName": "South Florida Bulls",
+"location": "South Florida",
+"name": "Bulls",
+"nickname": "South Florida",
+"shortDisplayName": "South Florida",
+"tier": "FBS"
+},
+"583": {
+"abbreviation": "UNW",
+"displayName": "Northwestern (MN) Eagles",
+"location": "Northwestern (MN)",
+"name": "Eagles",
+"nickname": "N'Western (MN)",
+"shortDisplayName": "N'Western (MN)",
+"tier": "lower"
+},
+"59": {
+"abbreviation": "GT",
+"displayName": "Georgia Tech Yellow Jackets",
+"location": "Georgia Tech",
+"name": "Yellow Jackets",
+"nickname": "Georgia Tech",
+"shortDisplayName": "Georgia Tech",
+"tier": "FBS"
+},
+"599": {
+"abbreviation": "RSVT",
+"displayName": "Roosevelt Lakers",
+"location": "Roosevelt",
+"name": "Lakers",
+"nickname": "Roosevelt",
+"shortDisplayName": "Roosevelt",
+"tier": "lower"
+},
+"6": {
+"abbreviation": "USA",
+"displayName": "South Alabama Jaguars",
+"location": "South Alabama",
+"name": "Jaguars",
+"nickname": "South Alabama",
+"shortDisplayName": "South Alabama",
+"tier": "FBS"
+},
+"60": {
+"abbreviation": "MRHO",
+"displayName": "Morehouse Maroon Tigers",
+"location": "Morehouse",
+"name": "Maroon Tigers",
+"nickname": "Morehouse",
+"shortDisplayName": "Morehouse",
+"tier": "lower"
+},
+"61": {
+"abbreviation": "UGA",
+"displayName": "Georgia Bulldogs",
+"location": "Georgia",
+"name": "Bulldogs",
+"nickname": "Georgia",
+"shortDisplayName": "Georgia",
+"tier": "FBS"
+},
+"611": {
+"abbreviation": "SEHI",
+"displayName": "Seton Hill Griffins",
+"location": "Seton Hill",
+"name": "Griffins",
+"nickname": "Seton Hill",
+"shortDisplayName": "Seton Hill",
+"tier": "lower"
+},
+"613": {
+"abbreviation": "SDMT",
+"displayName": "South Dakota Mines Hardrockers",
+"location": "South Dakota Mines",
+"name": "Hardrockers",
+"nickname": "SD Mines",
+"shortDisplayName": "SD Mines",
+"tier": "lower"
+},
+"616": {
+"abbreviation": "SWKS",
+"displayName": "Southwestern (KS) Moundbuilders",
+"location": "Southwestern (KS)",
+"name": "Moundbuilders",
+"nickname": "SW Col (KS)",
+"shortDisplayName": "SW Col (KS)",
+"tier": "lower"
+},
+"618": {
+"abbreviation": "STLG",
+"displayName": "Sterling STERLING KS",
+"location": "Sterling",
+"name": "STERLING KS",
+"nickname": "Sterling",
+"shortDisplayName": "Sterling",
+"tier": "lower"
+},
+"62": {
+"abbreviation": "HAW",
+"displayName": "Hawai'i Rainbow Warriors",
+"location": "Hawai'i",
+"name": "Rainbow Warriors",
+"nickname": "Hawai'i",
+"shortDisplayName": "Hawai'i",
+"tier": "FBS"
+},
+"620": {
+"abbreviation": "TLRU",
+"displayName": "Taylor Trojans",
+"location": "Taylor",
+"name": "Trojans",
+"nickname": "Taylor",
+"shortDisplayName": "Taylor",
+"tier": "lower"
+},
+"628": {
+"abbreviation": "VCSU",
+"displayName": "Valley City State Vikings",
+"location": "Valley City State",
+"name": "Vikings",
+"nickname": "Valley City St",
+"shortDisplayName": "Valley City St",
+"tier": "lower"
+},
+"63": {
+"abbreviation": "BVU",
+"displayName": "Buena Vista Beavers",
+"location": "Buena Vista",
+"name": "Beavers",
+"nickname": "Buena Vista",
+"shortDisplayName": "Buena Vista",
+"tier": "lower"
+},
+"630": {
+"abbreviation": "WYBU",
+"displayName": "Wayland Baptist Pioneers",
+"location": "Wayland Baptist",
+"name": "Pioneers",
+"nickname": "Wylnd Baptist",
+"shortDisplayName": "Wylnd Baptist",
+"tier": "lower"
+},
+"6353": {
+"abbreviation": "LKLD",
+"displayName": "Lakeland Muskies",
+"location": "Lakeland",
+"name": "Muskies",
+"nickname": "Lakeland",
+"shortDisplayName": "Lakeland",
+"tier": "lower"
+},
+"65": {
+"abbreviation": "GRNL",
+"displayName": "Grinnell Pioneers",
+"location": "Grinnell",
+"name": "Pioneers",
+"nickname": "Grinnell",
+"shortDisplayName": "Grinnell",
+"tier": "lower"
+},
+"66": {
+"abbreviation": "ISU",
+"displayName": "Iowa State Cyclones",
+"location": "Iowa State",
+"name": "Cyclones",
+"nickname": "Iowa State",
+"shortDisplayName": "Iowa State",
+"tier": "FBS"
+},
+"67": {
+"abbreviation": "LUTH",
+"displayName": "Luther Norse",
+"location": "Luther",
+"name": "Norse",
+"nickname": "Luther",
+"shortDisplayName": "Luther",
+"tier": "lower"
+},
+"68": {
+"abbreviation": "BOIS",
+"displayName": "Boise State Broncos",
+"location": "Boise State",
+"name": "Broncos",
+"nickname": "Boise St",
+"shortDisplayName": "Boise St",
+"tier": "FBS"
+},
+"6845": {
+"abbreviation": "NWU",
+"displayName": "Nebraska Wesleyan Prairie Wolves",
+"location": "Nebraska Wesleyan",
+"name": "Prairie Wolves",
+"nickname": "NE Wesleyan",
+"shortDisplayName": "NE Wesleyan",
+"tier": "lower"
+},
+"7": {
+"abbreviation": "AMH",
+"displayName": "Amherst Mammoths",
+"location": "Amherst",
+"name": "Mammoths",
+"nickname": "Amherst",
+"shortDisplayName": "Amherst",
+"tier": "lower"
+},
+"70": {
+"abbreviation": "IDHO",
+"displayName": "Idaho Vandals",
+"location": "Idaho",
+"name": "Vandals",
+"nickname": "Idaho",
+"shortDisplayName": "Idaho",
+"tier": "FCS"
+},
+"72": {
+"abbreviation": "ELMH",
+"displayName": "Elmhurst Bluejays",
+"location": "Elmhurst",
+"name": "Bluejays",
+"nickname": "Elmhurst",
+"shortDisplayName": "Elmhurst",
+"tier": "lower"
+},
+"74": {
+"abbreviation": "MILK",
+"displayName": "Millikin Big Blue",
+"location": "Millikin",
+"name": "Big Blue",
+"nickname": "Millikin",
+"shortDisplayName": "Millikin",
+"tier": "lower"
+},
+"75": {
+"abbreviation": "NPU",
+"displayName": "North Park Vikings",
+"location": "North Park",
+"name": "Vikings",
+"nickname": "North Park",
+"shortDisplayName": "North Park",
+"tier": "lower"
+},
+"77": {
+"abbreviation": "NU",
+"displayName": "Northwestern Wildcats",
+"location": "Northwestern",
+"name": "Wildcats",
+"nickname": "Northwestern",
+"shortDisplayName": "Northwestern",
+"tier": "FBS"
+},
+"79": {
+"abbreviation": "SIU",
+"displayName": "Southern Illinois Salukis",
+"location": "Southern Illinois",
+"name": "Salukis",
+"nickname": "S Illinois",
+"shortDisplayName": "S Illinois",
+"tier": "FCS"
+},
+"8": {
+"abbreviation": "ARK",
+"displayName": "Arkansas Razorbacks",
+"location": "Arkansas",
+"name": "Razorbacks",
+"nickname": "Arkansas",
+"shortDisplayName": "Arkansas",
+"tier": "FBS"
+},
+"80": {
+"abbreviation": "CHI",
+"displayName": "Chicago Maroons",
+"location": "Chicago",
+"name": "Maroons",
+"nickname": "Chicago",
+"shortDisplayName": "Chicago",
+"tier": "lower"
+},
+"81": {
+"abbreviation": "SPR",
+"displayName": "Springfield Pride",
+"location": "Springfield",
+"name": "Pride",
+"nickname": "Springfield",
+"shortDisplayName": "Springfield",
+"tier": "lower"
+},
+"83": {
+"abbreviation": "DPU",
+"displayName": "DePauw Tigers",
+"location": "DePauw",
+"name": "Tigers",
+"nickname": "DePauw",
+"shortDisplayName": "DePauw",
+"tier": "lower"
+},
+"84": {
+"abbreviation": "IU",
+"displayName": "Indiana Hoosiers",
+"location": "Indiana",
+"name": "Hoosiers",
+"nickname": "Indiana",
+"shortDisplayName": "Indiana",
+"tier": "FBS"
+},
+"86": {
+"abbreviation": "RHIT",
+"displayName": "Rose Hulman Fightin' Engineers",
+"location": "Rose Hulman",
+"name": "Fightin' Engineers",
+"nickname": "Rose Hulman",
+"shortDisplayName": "Rose Hulman",
+"tier": "lower"
+},
+"87": {
+"abbreviation": "ND",
+"displayName": "Notre Dame Fighting Irish",
+"location": "Notre Dame",
+"name": "Fighting Irish",
+"nickname": "Notre Dame",
+"shortDisplayName": "Notre Dame",
+"tier": "FBS"
+},
+"89": {
+"abbreviation": "WAB",
+"displayName": "Wabash Little Giants",
+"location": "Wabash",
+"name": "Little Giants",
+"nickname": "Wabash",
+"shortDisplayName": "Wabash",
+"tier": "lower"
+},
+"9": {
+"abbreviation": "ASU",
+"displayName": "Arizona State Sun Devils",
+"location": "Arizona State",
+"name": "Sun Devils",
+"nickname": "Arizona St",
+"shortDisplayName": "Arizona St",
+"tier": "FBS"
+},
+"90": {
+"abbreviation": "PTSU",
+"displayName": "Pittsburg State Gorillas",
+"location": "Pittsburg State",
+"name": "Gorillas",
+"nickname": "Pittsburg St",
+"shortDisplayName": "Pittsburg St",
+"tier": "lower"
+},
+"93": {
+"abbreviation": "MUR",
+"displayName": "Murray State Racers",
+"location": "Murray State",
+"name": "Racers",
+"nickname": "Murray St",
+"shortDisplayName": "Murray St",
+"tier": "FCS"
+},
+"95": {
+"abbreviation": "PIKEV",
+"displayName": "Pikeville Bears",
+"location": "Pikeville",
+"name": "Bears",
+"nickname": "Pikeville",
+"shortDisplayName": "Pikeville",
+"tier": "lower"
+},
+"96": {
+"abbreviation": "UK",
+"displayName": "Kentucky Wildcats",
+"location": "Kentucky",
+"name": "Wildcats",
+"nickname": "Kentucky",
+"shortDisplayName": "Kentucky",
+"tier": "FBS"
+},
+"97": {
+"abbreviation": "LOU",
+"displayName": "Louisville Cardinals",
+"location": "Louisville",
+"name": "Cardinals",
+"nickname": "Louisville",
+"shortDisplayName": "Louisville",
+"tier": "FBS"
+},
+"98": {
+"abbreviation": "WKU",
+"displayName": "Western Kentucky Hilltoppers",
+"location": "Western Kentucky",
+"name": "Hilltoppers",
+"nickname": "Western KY",
+"shortDisplayName": "Western KY",
+"tier": "FBS"
+},
+"99": {
+"abbreviation": "LSU",
+"displayName": "LSU Tigers",
+"location": "LSU",
+"name": "Tigers",
+"nickname": "LSU",
+"shortDisplayName": "LSU",
+"tier": "FBS"
+}
+},
+"NFL": {
+"1": {
+"abbreviation": "ATL",
+"displayName": "Atlanta Falcons",
+"location": "Atlanta",
+"name": "Falcons",
+"nickname": "Falcons",
+"shortDisplayName": "Falcons"
+},
+"10": {
+"abbreviation": "TEN",
+"displayName": "Tennessee Titans",
+"location": "Tennessee",
+"name": "Titans",
+"nickname": "Titans",
+"shortDisplayName": "Titans"
+},
+"11": {
+"abbreviation": "IND",
+"displayName": "Indianapolis Colts",
+"location": "Indianapolis",
+"name": "Colts",
+"nickname": "Colts",
+"shortDisplayName": "Colts"
+},
+"12": {
+"abbreviation": "KC",
+"displayName": "Kansas City Chiefs",
+"location": "Kansas City",
+"name": "Chiefs",
+"nickname": "Chiefs",
+"shortDisplayName": "Chiefs"
+},
+"13": {
+"abbreviation": "LV",
+"displayName": "Las Vegas Raiders",
+"location": "Las Vegas",
+"name": "Raiders",
+"nickname": "Raiders",
+"shortDisplayName": "Raiders"
+},
+"14": {
+"abbreviation": "LAR",
+"displayName": "Los Angeles Rams",
+"location": "Los Angeles",
+"name": "Rams",
+"nickname": "Rams",
+"shortDisplayName": "Rams"
+},
+"15": {
+"abbreviation": "MIA",
+"displayName": "Miami Dolphins",
+"location": "Miami",
+"name": "Dolphins",
+"nickname": "Dolphins",
+"shortDisplayName": "Dolphins"
+},
+"16": {
+"abbreviation": "MIN",
+"displayName": "Minnesota Vikings",
+"location": "Minnesota",
+"name": "Vikings",
+"nickname": "Vikings",
+"shortDisplayName": "Vikings"
+},
+"17": {
+"abbreviation": "NE",
+"displayName": "New England Patriots",
+"location": "New England",
+"name": "Patriots",
+"nickname": "Patriots",
+"shortDisplayName": "Patriots"
+},
+"18": {
+"abbreviation": "NO",
+"displayName": "New Orleans Saints",
+"location": "New Orleans",
+"name": "Saints",
+"nickname": "Saints",
+"shortDisplayName": "Saints"
+},
+"19": {
+"abbreviation": "NYG",
+"displayName": "New York Giants",
+"location": "New York",
+"name": "Giants",
+"nickname": "Giants",
+"shortDisplayName": "Giants"
+},
+"2": {
+"abbreviation": "BUF",
+"displayName": "Buffalo Bills",
+"location": "Buffalo",
+"name": "Bills",
+"nickname": "Bills",
+"shortDisplayName": "Bills"
+},
+"20": {
+"abbreviation": "NYJ",
+"displayName": "New York Jets",
+"location": "New York",
+"name": "Jets",
+"nickname": "Jets",
+"shortDisplayName": "Jets"
+},
+"21": {
+"abbreviation": "PHI",
+"displayName": "Philadelphia Eagles",
+"location": "Philadelphia",
+"name": "Eagles",
+"nickname": "Eagles",
+"shortDisplayName": "Eagles"
+},
+"22": {
+"abbreviation": "ARI",
+"displayName": "Arizona Cardinals",
+"location": "Arizona",
+"name": "Cardinals",
+"nickname": "Cardinals",
+"shortDisplayName": "Cardinals"
+},
+"23": {
+"abbreviation": "PIT",
+"displayName": "Pittsburgh Steelers",
+"location": "Pittsburgh",
+"name": "Steelers",
+"nickname": "Steelers",
+"shortDisplayName": "Steelers"
+},
+"24": {
+"abbreviation": "LAC",
+"displayName": "Los Angeles Chargers",
+"location": "Los Angeles",
+"name": "Chargers",
+"nickname": "Chargers",
+"shortDisplayName": "Chargers"
+},
+"25": {
+"abbreviation": "SF",
+"displayName": "San Francisco 49ers",
+"location": "San Francisco",
+"name": "49ers",
+"nickname": "49ers",
+"shortDisplayName": "49ers"
+},
+"26": {
+"abbreviation": "SEA",
+"displayName": "Seattle Seahawks",
+"location": "Seattle",
+"name": "Seahawks",
+"nickname": "Seahawks",
+"shortDisplayName": "Seahawks"
+},
+"27": {
+"abbreviation": "TB",
+"displayName": "Tampa Bay Buccaneers",
+"location": "Tampa Bay",
+"name": "Buccaneers",
+"nickname": "Buccaneers",
+"shortDisplayName": "Buccaneers"
+},
+"28": {
+"abbreviation": "WSH",
+"displayName": "Washington Commanders",
+"location": "Washington",
+"name": "Commanders",
+"nickname": "Commanders",
+"shortDisplayName": "Commanders"
+},
+"29": {
+"abbreviation": "CAR",
+"displayName": "Carolina Panthers",
+"location": "Carolina",
+"name": "Panthers",
+"nickname": "Panthers",
+"shortDisplayName": "Panthers"
+},
+"3": {
+"abbreviation": "CHI",
+"displayName": "Chicago Bears",
+"location": "Chicago",
+"name": "Bears",
+"nickname": "Bears",
+"shortDisplayName": "Bears"
+},
+"30": {
+"abbreviation": "JAX",
+"displayName": "Jacksonville Jaguars",
+"location": "Jacksonville",
+"name": "Jaguars",
+"nickname": "Jaguars",
+"shortDisplayName": "Jaguars"
+},
+"33": {
+"abbreviation": "BAL",
+"displayName": "Baltimore Ravens",
+"location": "Baltimore",
+"name": "Ravens",
+"nickname": "Ravens",
+"shortDisplayName": "Ravens"
+},
+"34": {
+"abbreviation": "HOU",
+"displayName": "Houston Texans",
+"location": "Houston",
+"name": "Texans",
+"nickname": "Texans",
+"shortDisplayName": "Texans"
+},
+"4": {
+"abbreviation": "CIN",
+"displayName": "Cincinnati Bengals",
+"location": "Cincinnati",
+"name": "Bengals",
+"nickname": "Bengals",
+"shortDisplayName": "Bengals"
+},
+"5": {
+"abbreviation": "CLE",
+"displayName": "Cleveland Browns",
+"location": "Cleveland",
+"name": "Browns",
+"nickname": "Browns",
+"shortDisplayName": "Browns"
+},
+"6": {
+"abbreviation": "DAL",
+"displayName": "Dallas Cowboys",
+"location": "Dallas",
+"name": "Cowboys",
+"nickname": "Cowboys",
+"shortDisplayName": "Cowboys"
+},
+"7": {
+"abbreviation": "DEN",
+"displayName": "Denver Broncos",
+"location": "Denver",
+"name": "Broncos",
+"nickname": "Broncos",
+"shortDisplayName": "Broncos"
+},
+"8": {
+"abbreviation": "DET",
+"displayName": "Detroit Lions",
+"location": "Detroit",
+"name": "Lions",
+"nickname": "Lions",
+"shortDisplayName": "Lions"
+},
+"9": {
+"abbreviation": "GB",
+"displayName": "Green Bay Packers",
+"location": "Green Bay",
+"name": "Packers",
+"nickname": "Packers",
+"shortDisplayName": "Packers"
+}
+}
+}

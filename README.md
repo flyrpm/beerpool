@@ -91,3 +91,16 @@ engine's hand-tuned key-number model on 2022+ games it never saw. As of Nov 2026
 model wins on both spreads (Brier 0.2433 vs 0.2435–0.2438) and totals (0.2465 vs 0.2472–0.2475),
 so the engine keeps it. NFL totals spread of 13 also beat Fable's 10.5 on the same test.
 Re-run it each off-season.
+
+## Engine settings, reproducibility, team identity
+
+- **Settings:** every tunable lives in `beerpool.Config`. Live cards use `Config.production()`
+  (calibration table plus the 5-pt sweet-spot rule), and `--legacy` reproduces the first merged
+  engine. The backtest builds one `Config` per variant, so variants can't leak into each other.
+- **Run archive:** each `./run.sh` saves `runs/<date_time>/board.json` + `card.txt`. The card
+  header shows the market timestamp and the settings that produced it.
+- **Team identity:** `teams.py` resolves every source's spelling to an ESPN team id
+  (`models/teams.json`, refreshed with `python3 teams.py refresh`). FBS/FCS programs win over
+  lower-division namesakes, and it never guesses: an ambiguous name returns None with a reason.
+  The live board and backtest matchers will move onto it next. (A first try at the backtest
+  matcher dropped 21 games; parked until the tier fix is verified.)

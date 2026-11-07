@@ -131,23 +131,19 @@ def pool_points(xlsx: str) -> dict:
 
 
 # --------------------------------------------------------------------- engine settings
-def configure(total_shrink: float, spread_shrink: float, big_move_caps: bool,
-              huge_edge_p: float | None = None, calibration: dict | None = None,
-              five_rule: bool = False):
-    bp.TOTAL_SHRINK, bp.SPREAD_SHRINK, bp.BIG_MOVE_CAPS = total_shrink, spread_shrink, big_move_caps
-    bp.HUGE_EDGE_P = huge_edge_p
-    bp.CALIBRATION = calibration
-    bp.FIVE_MIN_EDGE = 1.5 if five_rule else None
-
-
-PRIOR = 40  # pseudo-picks pulling each bucket's cover rate toward the model's own mean
+RAW = bp.Config.legacy().with_(big_move_caps=False)   # unshrunk, uncalibrated model p
+PRIOR = 40  # pseudo-picks pulling each bucket's cover rate toward its prior
 
 
 def fit_calibration(weeks: dict) -> dict:
-    """Cover rate by market type x edge bucket, from RAW model p (no shrinks)."""
-    configure(1.0, 1.0, False)
+    """Cover rate by market type x edge bucket, from RAW model p (no shrinks).
+
+    Each bucket is shrunk toward a prior with PRIOR pseudo-picks. The prior is the model's
+    own mean for the bucket, except the thin 3.5+ bucket, which shrinks toward the fitted
+    2-3 bucket instead: the backtest shows huge edges are NOT better than 2-3 pt edges,
+    so the model's optimism there is the wrong prior."""
     cells = {}
-    for pairs in candidates_by_week(weeks).values():
+    for pairs in candidates_by_week(weeks, RAW).values():
         for c, w in pairs:
             kind = "total" if c.side in ("OVER", "UNDER") else "spread"
             cell = cells.setdefault(kind, {}).setdefault(bp.edge_bucket(c.number_edge), [0, 0, 0.0])
@@ -155,20 +151,27 @@ def fit_calibration(weeks: dict) -> dict:
             cell[1] += 1
             cell[2] += c.p
     out = {}
+    order = [b for b, _, _ in bp.EDGE_BUCKETS]
     for kind, buckets in cells.items():
-        for b, (w, n, ps) in buckets.items():
+        for b in order:
+            if b not in buckets:
+                continue
+            w, n, ps = buckets[b]
             mean_p = ps / n
-            out.setdefault(kind, {})[b] = {"rate": round((w + PRIOR * mean_p) / (n + PRIOR), 4),
+            prior = mean_p
+            if b == "3.5+" and "2-3" in out.get(kind, {}):
+                prior = out[kind]["2-3"]["rate"]
+            out.setdefault(kind, {})[b] = {"rate": round((w + PRIOR * prior) / (n + PRIOR), 4),
                                            "mean_p": round(mean_p, 4), "n": n,
                                            "raw_rate": round(w / n, 4)}
     return out
 
 
-def candidates_by_week(weeks: dict) -> dict:
+def candidates_by_week(weeks: dict, cfg: bp.Config) -> dict:
     out = {}
     for key, gs in weeks.items():
         idx = {g["num"]: g for g in gs}
-        cands, _ = bp.build_candidates(board_for(gs), None, [])
+        cands, _ = bp.build_candidates(board_for(gs), None, [], cfg)
         out[key] = [(c, grade(c, idx[c.game])) for c in cands]
     return out
 
@@ -185,8 +188,9 @@ def fit(weeks: dict) -> tuple[float, float]:
     for kind in ("total", "spread"):
         scores = []
         for k in grid:
-            configure(k if kind == "total" else 1.0, k if kind == "spread" else 1.0, True)
-            pairs = [p for v in candidates_by_week(weeks).values() for p in v]
+            cfg = bp.Config.legacy().with_(total_shrink=k if kind == "total" else 1.0,
+                                           spread_shrink=k if kind == "spread" else 1.0)
+            pairs = [p for v in candidates_by_week(weeks, cfg).values() for p in v]
             scores.append((brier(pairs, kind), k))
         best[kind] = min(scores)[1]
         print(f"  fit {kind:<6}: " + "  ".join(f"{k:.1f}:{s:.4f}" for s, k in scores))
@@ -227,11 +231,11 @@ def report_pricing(cbw: dict, title: str):
         print(f"   {k:<30} n={n:>4}  cover {w / n:.3f}  (±{1.96 * (0.25 / n) ** 0.5:.3f})")
 
 
-def run_cards(cbw: dict) -> dict:
+def run_cards(cbw: dict, cfg: bp.Config) -> dict:
     out = {}
     for key, pairs in cbw.items():
         res = dict((id(c), w) for c, w in pairs)
-        card, thin, _ = bp.build_card([c for c, _ in pairs])
+        card, thin, _ = bp.build_card([c for c, _ in pairs], cfg=cfg)
         pts = sum((5 if i <= 2 else 3) * res[id(c)] for i, c in enumerate(card, 1))
         exp = sum((5 if i <= 2 else 3) * c.p for i, c in enumerate(card, 1))
         wl = [res[id(c)] for c in card]
@@ -242,7 +246,7 @@ def run_cards(cbw: dict) -> dict:
 
 
 def wkey(k):
-    return (k[0], k[1].zfill(3))
+    return (k[0], "000" if k[1] == "A" else k[1].zfill(3))   # Week A opens the season
 
 
 def main():
@@ -291,19 +295,21 @@ def main():
         json.dump({**cal, "_meta": {"train_season": a.train, "prior": PRIOR}}, open(path, "w"), indent=1)
         print(f"  saved -> {path}")
 
-    variants = {"baseline": (1.0, 1.0, True), "tuned": (ts, ss, False),
-                "tuned+cap": (ts, ss, False, 0.52),
-                "calibrated": (ts, ss, False, None, cal),
-                "calib+5pt": (ts, ss, False, None, cal, True)}
+    legacy = bp.Config.legacy()
+    tuned = legacy.with_(total_shrink=ts, spread_shrink=ss, big_move_caps=False)
+    variants = {"baseline": legacy,
+                "tuned": tuned,
+                "tuned+cap": tuned.with_(huge_edge_p=0.52),
+                "calibrated": tuned.with_(calibration=cal),
+                "calib+5pt": tuned.with_(calibration=cal, five_min_edge=1.5)}
     cards = {}
     for name, cfg in variants.items():
-        configure(*cfg)
-        cbw = candidates_by_week(weeks)
+        cbw = candidates_by_week(weeks, cfg)
         for season in sorted({k[0] for k in weeks}):
             sub = {k: v for k, v in cbw.items() if k[0] == season}
             tag = "train" if season == a.train else "TEST (out of sample)" if season == a.test else ""
             report_pricing(sub, f"{name} / {season} {tag}")
-        cards[name] = run_cards(cbw)
+        cards[name] = run_cards(cbw, cfg)
 
     print("\n== SEASON TOTALS BY VARIANT (points, record) ==")
     for season in sorted({k[0] for k in weeks}):
