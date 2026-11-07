@@ -7,3 +7,4 @@ board.txt
 __pycache__/
 cache/
 board.json
+backtest/cache/

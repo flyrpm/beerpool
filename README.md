@@ -41,3 +41,19 @@ the card, or `OVER` / `UNDER`):
 - `mega`: `{"game": 49}` fires the MEGA on that game.
 
 Requires `pdftotext` (poppler-utils) and Python 3.9+. Nothing to pip install.
+
+## Backtest
+
+```bash
+python3 backtest/extract_boards.py path/to/Beer_Pool_2026-27.xlsx > backtest/cache/boards.json
+python3 backtest/fetch_results.py backtest/cache/boards.json > backtest/cache/results.json
+python3 backtest/run_backtest.py backtest/cache/results.json path/to/Beer_Pool_2026-27.xlsx
+```
+
+Takes every board in the standings workbook (2026 Weeks A–9, plus last season's Weeks 10–21) and
+matches each game on ESPN. It pulls final scores plus the opening and closing lines (DraftKings,
+or ESPN BET when DK is missing). Every side is priced at the sheet number off the close and graded
+with push = loss, and the engine's weekly card is compared with the pool's actual points.
+The close comes after the Saturday-noon deadline, so treat the results as an upper bound.
+Everything is cached in `backtest/cache/`, which is git-ignored because the workbook holds the
+pool's private data.
