@@ -28,7 +28,7 @@ import json
 import os
 import re
 import sys
-from dataclasses import dataclass, fields
+from itertools import combinations
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -38,7 +38,7 @@ import beerpool as bp  # noqa: E402
 FIVE_MIN_P = 0.54
 CARD_MIN_P = 0.52
 BIG_DOG = 10.0          # spread underdogs at +10 or more never take a 5-point slot
-PICK1_TOLERANCE = 0.005
+PROB_EPS = 1e-12
 
 
 def five_bans(c: bp.Candidate) -> list[str]:
@@ -56,26 +56,33 @@ def five_bans(c: bp.Candidate) -> list[str]:
     return why
 
 
-@dataclass
-class GatedCandidate(bp.Candidate):
-    @property
-    def five_eligible(self) -> bool:  # type: ignore[override]
-        return not five_bans(self)
-
-
-def gated(cands: list[bp.Candidate]) -> list[GatedCandidate]:
-    return [GatedCandidate(**{f.name: getattr(c, f.name) for f in fields(c)}) for c in cands]
+def compatible(candidate, chosen):
+    return all(candidate.game != other.game and
+               not (candidate.thesis and candidate.thesis == other.thesis)
+               for other in chosen)
 
 
 def charter_card(cands: list[bp.Candidate], cfg: bp.Config) -> list[bp.Candidate]:
-    """The engine's optimizer with the charter's 5-slot bans, slots then ordered by p."""
-    g = gated([c for c in cands if c.p >= CARD_MIN_P])
-    card, _, _ = bp.build_card(g, cfg=cfg)
-    if len(card) < 5:
-        return []
-    fives = sorted(card[:2], key=lambda c: c.p, reverse=True)
-    threes = sorted(card[2:], key=lambda c: c.p, reverse=True)
-    return fives + threes
+    """Maximize five-slot probability first, then total expected points on a full card."""
+    ranked = sorted((c for c in cands if c.p >= CARD_MIN_P and c.side not in bp.BANNED_TEAMS),
+                    key=lambda c: -c.p)
+    eligible = [c for c in ranked if not five_bans(c)]
+    pairs = sorted(combinations(eligible, 2), key=lambda pair: -(pair[0].p + pair[1].p))
+    best, best_pair, best_rest = [], -1.0, -1.0
+    for a, b in pairs:
+        pair_p = a.p + b.p
+        if pair_p < best_pair - PROB_EPS:
+            break
+        if not compatible(b, [a]) or (a.env or f"game{a.game}") == (b.env or f"game{b.game}"):
+            continue
+        rest = [c for c in ranked if compatible(c, [a, b])]
+        for x, y, z in combinations(rest, 3):
+            rest_p = x.p + y.p + z.p
+            if rest_p <= best_rest + PROB_EPS:
+                continue
+            if compatible(y, [x]) and compatible(z, [x, y]):
+                best, best_pair, best_rest = [a, b, x, y, z], pair_p, rest_p
+    return best
 
 
 def final_section(board: dict, cands: list[bp.Candidate], cfg: bp.Config,
@@ -216,20 +223,13 @@ def check(card_text: str, cands: list[bp.Candidate],
     five = [c for s, c in matched if s <= 2]
     if len(five) == 2 and (five[0].env or f"game{five[0].game}") == (five[1].env or f"game{five[1].game}"):
         fails.append(f"both 5-pointers are in the same environment ({five[0].env})")
-    eligible = [c for c in cands if not five_bans(c)]
-    if eligible and matched:
-        best = max(eligible, key=lambda c: c.p)
-        p1 = next((c for s, c in matched if s == 1), None)
-        if p1 is not None and p1.p + PICK1_TOLERANCE < best.p:
-            fails.append(f"Pick 1 is {p1.game} {p1.label} (p={p1.p:.3f}) but the best "
-                         f"5-eligible pick is {best.game} {best.label} (p={best.p:.3f})")
-    fives = [c for s, c in matched if s <= 2]
-    threes = [c for s, c in matched if s > 2]
-    if fives and threes and max(c.p for c in threes) > min(c.p for c in fives) + PICK1_TOLERANCE:
-        top3 = max(threes, key=lambda c: c.p)
-        if not five_bans(top3):
-            fails.append(f"{top3.game} {top3.label} (p={top3.p:.3f}) sits in a 3 slot but "
-                         "outranks a 5-pointer")
+    if len(five) == 2:
+        if five[1].p > five[0].p + PROB_EPS:
+            fails.append("Put the higher probability five-pointer in slot 1")
+        preferred = charter_card(cands, bp.Config.production())
+        if preferred and sum(c.p for c in preferred[:2]) > sum(c.p for c in five) + PROB_EPS:
+            names = " / ".join(c.label for c in preferred[:2])
+            fails.append(f"A stronger legal five-point pair can complete the card: {names}")
     exp = sum((5 if s <= 2 else 3) * c.p for s, c in matched)
     lines.append(f"  Expected points: {exp:.2f}")
     head = "GATE: PASS" if not fails else "GATE: FAIL"
@@ -254,7 +254,6 @@ def main(argv=None):
         ok, rep = check(text, cands, board)
         print("\n".join(rep))
         sys.exit(0 if ok else 1)
-    card = charter_card(cands, cfg)
     ok, out = final_section(board, cands, cfg)
     print(out)
     sys.exit(0 if ok else 1)

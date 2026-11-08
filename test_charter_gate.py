@@ -82,6 +82,17 @@ def _c(game, side, p, line=3.0, **kw):
 class GenerationAndCorrelation(unittest.TestCase):
     CFG = bp.Config.production().with_(five_min_edge=None)
 
+    def test_pick_two_competes_against_omitted_candidates(self):
+        board = [_c(i, f"T{i}", p) for i, p in enumerate(
+            [.61, .60, .59, .58, .57, .56], 1)]
+        board[1].market_line = board[1].sheet_line  # Outside the legacy edge band.
+        card = cg.charter_card(board, bp.Config.production())
+        self.assertEqual([c.game for c in card[:2]], [1, 2])
+        weaker = bp.submission_block("Test", [board[i] for i in (0, 2, 3, 4, 5)])
+        ok, report = cg.check(weaker, board)
+        self.assertFalse(ok)
+        self.assertTrue(any("stronger legal" in line for line in report))
+
     def test_low_probability_board_is_not_sendable(self):  # review P2 (#2)
         cands = [_c(i, f"T{i}", p) for i, p in enumerate((0.60, 0.59, 0.53, 0.51, 0.50), 1)]
         ok, out = cg.final_section({"week": "Week X"}, cands, self.CFG)
