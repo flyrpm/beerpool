@@ -77,6 +77,7 @@ def main(argv=None):
     ap.add_argument("--now")
     ap.add_argument("--save-run", metavar="DIR")
     ap.add_argument("--no-context", action="store_true")
+    ap.add_argument("--notes", help="weekly notes JSON (for leader_picks and pick tags in the gate check)")
     a = ap.parse_args(argv)
     with open(a.board) as f:
         board = json.load(f)
@@ -86,11 +87,24 @@ def main(argv=None):
     text = bp.report(board, now, a.pdf, cfg)
 
     fb, notes = guard(board, now, cfg)
+    weekly_notes = {}
+    if a.notes:
+        with open(a.notes) as f:
+            weekly_notes = json.load(f)
     if fb:
         text += "\n\n== LIVE GUARD: FALLBACK CARD ==\n" + "\n".join(notes)
         text += "\n```\n" + bp.submission_block(board.get("week", "Week ?"), fb) + "\n```"
         if a.pdf:
             text += "\n" + "\n".join(bp.verify_against_pdf(fb, a.pdf))
+
+    # Gate check on the final card (docs/LESSONS_2026_WK09.md): flags only, human decides.
+    import gate
+    gcands, _ = bp.build_candidates(board, now, [], cfg)
+    gcard = fb or bp.build_card(gcands, cfg=cfg)[0]
+    pdf_check = bp.verify_against_pdf(gcard, a.pdf) if (a.pdf and gcard) else None
+    text += "\n\n" + gate.section(gcard, gcands, weekly_notes, pdf_check)
+    text += ("\n\nThis is the ONE final card. Revise only for new information "
+             "(injury news, a real line move, a verified error); never send alternates.")
 
     if not a.no_context:
         try:
