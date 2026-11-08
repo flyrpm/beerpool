@@ -244,6 +244,16 @@ class Config:
     five_spreads_only: bool = True
     # Weekly-notes probability nudges are clamped to +/- this.
     note_adj_cap: float = 0.02
+    # Charter (Bert's Three Locks, after Week 9). Off by default so frozen configs
+    # (ronnie-v1) rebuild exactly; production() turns it on.
+    #   5-pt slots never hold: a spread dog of +five_max_dog or more, a pick under
+    #   five_min_p, or an unverified big line move. No pick under card_min_p at all.
+    #   Slots are ordered by probability, and every card is gated before it is shown
+    #   as sendable (see gate_card).
+    charter: bool = False
+    five_max_dog: float = 10.0
+    five_min_p: float = 0.54
+    card_min_p: float = 0.52
 
     @staticmethod
     def production() -> "Config":
@@ -251,7 +261,7 @@ class Config:
         if os.path.exists(CALIBRATION_PATH):
             with open(CALIBRATION_PATH) as f:
                 cal = json.load(f)
-        return Config(calibration=cal)
+        return Config(calibration=cal, charter=True)
 
     @staticmethod
     def legacy() -> "Config":
@@ -268,6 +278,9 @@ class Config:
         if self.huge_edge_p is not None:
             bits.append(f"huge-edge cap {self.huge_edge_p}")
         bits.append("big moves cap" if self.big_move_caps else "big moves warn")
+        if self.charter:
+            bits.append(f"charter (no +{self.five_max_dog:g} dog / <{self.five_min_p:.0%} / "
+                        f"unverified move in 5 slots; card >= {self.card_min_p:.0%})")
         return ", ".join(bits)
 
 
@@ -357,6 +370,21 @@ class Candidate:
     def five_eligible(self) -> bool:
         blocking = NO_FIVE_TAGS if self.big_move_caps else NO_FIVE_TAGS - {"big_move"}
         return not (self.tags & blocking)
+
+
+def five_bans(c: "Candidate", cfg: "Config") -> list[str]:
+    """Why this candidate may not hold a 5-point slot under cfg (empty = allowed)."""
+    why = []
+    if not c.five_eligible:
+        why.append("flag: " + ",".join(sorted(c.tags & NO_FIVE_TAGS)))
+    if cfg.charter:
+        if c.side not in ("OVER", "UNDER") and c.sheet_line >= cfg.five_max_dog:
+            why.append(f"dog +{c.sheet_line:g} (>= +{cfg.five_max_dog:g})")
+        if c.p < cfg.five_min_p:
+            why.append(f"p={c.p:.3f} < {cfg.five_min_p}")
+        if "big_move" in c.tags and not c.big_move_caps:
+            why.append("unverified big line move")
+    return why
 
 
 def shrink(p: float, k: float) -> float:
@@ -502,6 +530,7 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53, cfg: Config
     cfg = cfg or Config.production()
     ranked = sorted(cands, key=lambda c: c.p, reverse=True)
     thin = not ranked or ranked[0].p < thin_threshold
+    pool = [c for c in ranked if c.p >= cfg.card_min_p] if cfg.charter else ranked
 
     def sweet(c):
         return (cfg.five_min_edge is not None
@@ -513,7 +542,7 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53, cfg: Config
                    for x in chosen)
 
     # First seek a full card. Only an infeasible full board permits fewer slots.
-    fives = [c for c in ranked if c.five_eligible]
+    fives = [c for c in pool if not five_bans(c, cfg)]
     for size in range(5, 1, -1):
         best, best_ev = None, float("-inf")
         best_sweet = -1
@@ -526,7 +555,7 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53, cfg: Config
                 ns = int(sweet(a)) + int(sweet(b))
                 if ns < best_sweet:
                     continue
-                rest = [c for c in ranked if compatible(c, [a, b])]
+                rest = [c for c in pool if compatible(c, [a, b])]
                 need = size - 2
                 base = 5 * (a.p + b.p)
 
@@ -549,6 +578,11 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53, cfg: Config
 
                 search(0, [], base)
         if best is not None:
+            if cfg.charter:
+                if len(best) < 5:
+                    return [], thin, ranked
+                best = (sorted(best[:2], key=lambda c: c.p, reverse=True)
+                        + sorted(best[2:], key=lambda c: c.p, reverse=True))
             return best, thin, ranked
     return [], thin, ranked
 
@@ -566,6 +600,150 @@ def submission_block(week: str, card: list[Candidate], mega_game: int | None = N
             s += " Mega-Pick"
         lines.append(s)
     return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
+# Card gate: every card (engine, another model, a hand swap) passes here before it
+# is shown as sendable.
+# ---------------------------------------------------------------------------
+
+CARD_LINE = re.compile(r"^\s*(\d+)\.\s*(\d+)\s+(.+?)\s*$")
+LINE_TAIL = re.compile(r"^(?P<team>.*?)\s*(?P<line>[-+]?\d+(?:\.\d+)?)$")
+
+
+def parse_card(text: str) -> list[tuple[int, int, str]]:
+    """'1. 37 MRSH +10.5' -> (slot, game, rest). Headers and 'Mega-Pick' are ignored."""
+    out = []
+    for line in text.splitlines():
+        m = CARD_LINE.match(line.replace("`", ""))
+        if m:
+            rest = re.sub(r"\s*mega-?pick\s*$", "", m.group(3), flags=re.I)
+            out.append((int(m.group(1)), int(m.group(2)), rest))
+    return out
+
+
+def _cnorm(s: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"[^A-Z0-9/+\-. ]", " ", s.upper())).strip()
+
+
+def _side_names(board: dict | None, game: int) -> dict[str, list[str]]:
+    g = next((g for g in (board or {}).get("games", []) if g.get("num") == game), None)
+    if not g:
+        return {}
+    out = {g["away"]: [g["away"]], g["home"]: [g["home"]]}
+    parts = re.split(r"\s+at\s+", g.get("names") or "", maxsplit=1)
+    if len(parts) == 2:
+        out[g["away"]].append(_cnorm(parts[0]))
+        out[g["home"]].append(_cnorm(parts[1]))
+    return out
+
+
+def side_matches(token: str, side: str, game: int, board: dict | None) -> bool:
+    """The card's team text must be the side's abbreviation or its sheet name. A single
+    word counts only if it is not in the opponent's name too (MICHIGAN != Michigan State)."""
+    tok = _cnorm(token)
+    if tok == side.upper():
+        return True
+    names = _side_names(board, game)
+    if side not in names:
+        return False
+    if tok in names[side][1:]:
+        return True
+    hit = any(re.search(rf"\b{re.escape(tok)}\b", n) for n in names[side][1:])
+    clash = any(re.search(rf"\b{re.escape(tok)}\b", n)
+                for s2, ns in names.items() if s2 != side for n in ns[1:])
+    return hit and not clash and len(tok) >= 4
+
+
+def match_pick(cands: list["Candidate"], game: int, rest: str,
+               board: dict | None = None) -> "Candidate | None":
+    """Requires an explicit line equal to the sheet line from that side's view, plus a
+    verified team identity (spreads) or OVER/UNDER (totals)."""
+    m = LINE_TAIL.match(_cnorm(rest))
+    if not m:
+        return None
+    team, line = m.group("team").strip(), float(m.group("line"))
+    words = team.split()
+    signed = re.search(r"[-+]\d", rest) is not None
+    for c in cands:
+        if c.game != game:
+            continue
+        if c.side in ("OVER", "UNDER"):
+            if c.side in words and abs(c.sheet_line - abs(line)) < 1e-9:
+                return c
+        elif ("OVER" not in words and "UNDER" not in words and signed
+              and abs(c.sheet_line - line) < 1e-9 and side_matches(team, c.side, game, board)):
+            return c
+    return None
+
+
+@dataclass
+class Gate:
+    passed: bool
+    problems: list[str]
+    picks: list[tuple[int, "Candidate"]]
+
+    def lines(self) -> list[str]:
+        out = ["GATE: PASS" if self.passed else "GATE: FAIL"]
+        out += [f"  x {p}" for p in self.problems]
+        exp = 0.0
+        for slot, c in self.picks:
+            pts = 5 if slot <= 2 else 3
+            exp += pts * c.p
+            out.append(f"  Pick {slot} ({pts}) {c.game} {c.label:<22} p={c.p:.3f}"
+                       f"  flags: {','.join(sorted(c.tags)) or '-'}")
+        out.append(f"  Expected points: {exp:.2f}")
+        return out
+
+
+def gate_card(card_text: str, cands: list["Candidate"], board: dict | None,
+              cfg: "Config") -> Gate:
+    """The pool rules (and, with cfg.charter, the Three Locks) applied to any card."""
+    probs: list[str] = []
+    entries = parse_card(card_text)
+    slots = [e[0] for e in entries]
+    if slots != [1, 2, 3, 4, 5]:
+        probs.append(f"slots must be 1-5 exactly once and in order (got {slots or 'none'})")
+    picks, games = [], set()
+    for slot, game, rest in entries:
+        c = match_pick(cands, game, rest, board)
+        if c is None:
+            probs.append(f"Pick {slot}: '{game} {rest}' is not a side on the board at that "
+                         "line (typo, wrong team or line, or game locked)")
+            continue
+        if game in games:
+            probs.append(f"Pick {slot}: game {game} used twice")
+        games.add(game)
+        if c.side == "DAL":
+            probs.append(f"Pick {slot}: Dallas pick (house rule)")
+        if cfg.charter and c.p < cfg.card_min_p:
+            probs.append(f"Pick {slot}: {game} {c.label} p={c.p:.3f} < {cfg.card_min_p}")
+        if slot <= 2:
+            bans = five_bans(c, cfg)
+            if bans:
+                probs.append(f"Pick {slot} (5 pts): {game} {c.label} can't be a 5-pointer: "
+                             + "; ".join(bans))
+        picks.append((slot, c))
+    for i, (sa, a) in enumerate(picks):
+        for sb, b in picks[i + 1:]:
+            if a.thesis and a.thesis == b.thesis:
+                probs.append(f"Picks {sa} and {sb} share a thesis ({a.thesis})")
+    five = [c for s, c in picks if s <= 2]
+    if len(five) == 2 and (five[0].env or f"game{five[0].game}") == (five[1].env or f"game{five[1].game}"):
+        probs.append(f"both 5-pointers are in the same environment ({five[0].env})")
+    if cfg.charter and picks:
+        eligible = [c for c in cands if c.p >= cfg.card_min_p and not five_bans(c, cfg)]
+        p1 = next((c for s, c in picks if s == 1), None)
+        if eligible and p1 is not None:
+            best = max(eligible, key=lambda c: c.p)
+            if p1.p + 0.005 < best.p:
+                probs.append(f"Pick 1 is {p1.game} {p1.label} (p={p1.p:.3f}); the best "
+                             f"5-eligible pick is {best.game} {best.label} (p={best.p:.3f})")
+        threes = [c for s, c in picks if s > 2 and not five_bans(c, cfg)]
+        if five and threes and max(c.p for c in threes) > min(c.p for c in five) + 0.005:
+            t = max(threes, key=lambda c: c.p)
+            probs.append(f"{t.game} {t.label} (p={t.p:.3f}) sits in a 3 slot but outranks a 5-pointer")
+    return Gate(not probs, probs, picks)
 
 
 # ---------------------------------------------------------------------------
@@ -593,7 +771,9 @@ def verify_against_pdf(card: list[Candidate], pdf_path: str) -> list[str]:
 # Reporting
 # ---------------------------------------------------------------------------
 
-def report(board: dict, now: datetime | None, pdf: str | None, cfg: Config | None = None) -> str:
+def report(board: dict, now: datetime | None, pdf: str | None, cfg: Config | None = None,
+           gate_out: list | None = None) -> str:
+    """The weekly report. If gate_out is a list, the Gate is appended to it."""
     cfg = cfg or Config.production()
     warnings: list[str] = list(board.get("warnings", []))
     cands, sweep = build_candidates(board, now, warnings, cfg)
@@ -655,17 +835,27 @@ def report(board: dict, now: datetime | None, pdf: str | None, cfg: Config | Non
         if req and req.get("game") in {c.game for c in card[:2]}:
             mega = req["game"]
 
-    out.append("\n== SUBMISSION ==")
-    out.append("```")
-    out.append(submission_block(board.get("week", "Week ?"), card, mega))
-    out.append("```")
+    block = submission_block(board.get("week", "Week ?"), card, mega)
+    gate = gate_card(block, cands, board, cfg) if card else Gate(False, ["no complete legal card"], [])
+    out.append("\n== GATE ==")
+    out.extend(gate.lines())
+    if gate.passed:
+        out.append("\n== SUBMISSION (gate passed) ==")
+        out.append("```")
+        out.append(block)
+        out.append("```")
+    else:
+        out.append("\n== SUBMISSION: NONE -- DO NOT SEND ==")
+        out.append("  No card passes the rules. Thin board: build by hand and run --check.")
 
-    if pdf:
+    if pdf and gate.passed:
         out.append("\n== PDF CHECK (sheet line -> our side) ==")
         out.extend(verify_against_pdf(card, pdf))
     if warnings:
         out.append("\n== WARNINGS ==")
         out.extend("  " + w for w in warnings)
+    if gate_out is not None:
+        gate_out.append(gate)
     return "\n".join(out)
 
 
@@ -676,6 +866,8 @@ def main(argv=None):
     ap.add_argument("--pdf")
     ap.add_argument("--now", help="ISO time for lock checks (default: board 'now' or real time)")
     ap.add_argument("--legacy", action="store_true", help="run the engine as first merged")
+    ap.add_argument("--check", metavar="CARD_TXT",
+                    help="gate any card (file, or '-' for stdin): prints GATE: PASS/FAIL, exit 1 on fail")
     ap.add_argument("--save-run", metavar="DIR",
                     help="archive board.json + card.txt under DIR/<timestamp>/ (reproducible)")
     a = ap.parse_args(argv)
@@ -685,7 +877,14 @@ def main(argv=None):
     now = parse_time(a.now or board.get("now")) or \
         datetime.now(ZoneInfo("America/New_York")).replace(tzinfo=None)
     cfg = Config.legacy() if a.legacy else Config.production()
-    text = report(board, now, a.pdf, cfg)
+    if a.check:
+        cands, _ = build_candidates(board, now, [], cfg)
+        txt = sys.stdin.read() if a.check == "-" else open(a.check).read()
+        g = gate_card(txt, cands, board, cfg)
+        print("\n".join(g.lines()))
+        sys.exit(0 if g.passed else 1)
+    gates: list = []
+    text = report(board, now, a.pdf, cfg, gates)
     print(text)
     if a.save_run:
         d = os.path.join(a.save_run, now.strftime("%Y-%m-%d_%H%M"))
@@ -693,6 +892,8 @@ def main(argv=None):
         json.dump(board, open(os.path.join(d, "board.json"), "w"), indent=1)
         open(os.path.join(d, "card.txt"), "w").write(text + "\n")
         print(f"\n(saved {d}/board.json + card.txt)")
+    if gates and not gates[0].passed:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

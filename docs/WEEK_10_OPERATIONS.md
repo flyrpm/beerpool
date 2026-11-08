@@ -47,7 +47,19 @@ time. This document is not an installed automation.
 
 ## Capture and record before lock
 
-Run from the repository root. Choose a private local directory (not a public Git
+**Run the v1 recording from the pinned checkout, not from `main`.** As of Nov 8, `main`
+carries engine v2 (the charter). The v1 engine files are unchanged in the pinned checkout,
+and `record` refuses to run anywhere else:
+
+```bash
+python3 backtest/evaluation.py pin --baseline evaluation/baselines/ronnie-v1.json --dest ../beerpool-v1
+cd ../beerpool-v1
+```
+
+Bert's actual card for the week still comes from `main` (`./run.sh`, engine v2). The ledger
+records v1 for the forward test; the two are compared afterwards.
+
+Run from the pinned checkout's root. Choose a private local directory (not a public Git
 working tree); these example commands use an ignored directory as a staging area.
 Back it up to your private durable storage.
 

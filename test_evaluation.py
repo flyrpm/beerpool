@@ -45,7 +45,7 @@ class Evaluation(unittest.TestCase):
 
     def test_committed_baseline_matches_pinned_sources(self):
         baseline = ev.read(ev.ROOT / 'evaluation/baselines/ronnie-v1.json')
-        ev.verify_baseline(baseline, check_sources=True)
+        ev.verify_baseline(baseline, check_sources='revision')
         self.assertEqual(baseline['payload']['id'], 'ronnie-v1-2026-11-07')
         output = self.fixture.root / 'baseline.json'
         pl.write_new(output, baseline)

@@ -89,8 +89,10 @@ What went wrong, in the code:
    real. At noon, an unexplained move toward a big dog is a coin flip at best. Re-test
    `big_move` on the odds snapshots (noon lines) before trusting it again.
 
-Fix shipped: `charter_gate.py` (the Three Locks), wired into `live.py`'s output as the
-"FINAL CARD (charter-gated)". 5-point slots are banned for spread dogs of +10 or more, picks
+Fix shipped (engine v2): the Three Locks live in the engine itself (`Config.charter`,
+`five_bans`, `gate_card` in `beerpool.py`), so the card the engine builds and the card a human
+or another model proposes go through the same rules. v1 stays frozen for the Week 10 test and
+runs from a pinned checkout. 5-point slots are banned for spread dogs of +10 or more, picks
 under 54%, unverified big moves and the existing 5-flags; slots are ordered by probability; any
 card (engine, another model, or a gut swap) must print `GATE: PASS` before it is sent.
 Replayed on Week 9 the gated card is `MICH / USA +8.5 / MRSH / WYO / UTEP` — Marshall drops to a
