@@ -26,6 +26,7 @@ See **LEARNINGS.md** for what the backtests have shown so far.
 | Pricing | `beerpool.py` | Fits a margin / total distribution with key-number mass (NFL 3/7/10/14…, CFB 3/7/10/14/17…) to the de-vigged market, then prices each side at the sheet number. A sheet -3 plays like -3.5. |
 | Flags | `beerpool.py` | **No call** if the books disagree by more than 1 point on a spread (1.5 on a total), ignoring one stale book at each end. **3-point max** for `big_move` (3+ points since open, cause unverified), `steam_against` (market moved 2+ points away from the side), `qb_uncertain`, `starter_uncertain` and `model_only`. |
 | Card | `beerpool.py` | Highest probabilities go to the 5-point slots if they're eligible. One pick per game, no shared thesis, 5-pointers in different environments, no Dallas, "thin board" warning under 53%. |
+| Gate | `charter_gate.py` | The Three Locks: no +10 dog, sub-54% pick or unverified big move in a 5 slot; slots ordered by probability; `--check card.txt` prints GATE: PASS/FAIL for any card. `live.py` prints the gated FINAL card. |
 | Output | `beerpool.py` | Submission block, MEGA EV (10p − 5; it only fires if `mega` is set in the notes), and every pick checked against the PDF text. |
 
 ## Weekly notes (`notes/YYYY-wkNN.json`)

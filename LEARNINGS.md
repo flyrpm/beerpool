@@ -71,6 +71,34 @@ calibration 119 → **calibration + 5-pt rule 123 (33-12, 73.3%)**. 2025, in-sam
 The 5-pt thresholds came from looking at both seasons, so part of that gain is in-sample.
 Refit the calibration each time a season's results are added.
 
+## Week 9 post-mortem (Nov 7 2026) — the engine's own card lost both 5-pointers
+
+The card Bert sent was the engine's card, unchanged:
+`1. 37 MRSH +10.5 (p .600) · 2. 55 MICH -12.5 (.595) · 3. 63 WYO +6.5 · 4. 61 UTEP +9.5 · 5. 58 NMSU +17.5`.
+Marshall lost 49-13; Michigan's offense was shut out by MSU. Tennessee -5.5 (a 1-pt edge and a
+direct swing against Stein's Kentucky +5.5) won 34-6 but never made the card.
+
+What went wrong, in the code:
+1. **Pick 1 was a double-digit dog whose whole edge was an unexplained 3-pt line move.** The
+   charter already banned that from 5-point slots; nothing in the code enforced it.
+2. **Three of five picks rested on unverified line moves** (MRSH, WYO, UTEP; notes literally say
+   "cause unverified"). The Nov 7 change made `big_move` a warning only, based on the backtest.
+3. **Suspected lookahead in that backtest finding.** The backtest measures the move to the
+   *close*, and the close includes Saturday news we can't see at noon. A pick whose line moved
+   our way by close looks great in the backtest precisely because the news that moved it was
+   real. At noon, an unexplained move toward a big dog is a coin flip at best. Re-test
+   `big_move` on the odds snapshots (noon lines) before trusting it again.
+
+Fix shipped: `charter_gate.py` (the Three Locks), wired into `live.py`'s output as the
+"FINAL CARD (charter-gated)". 5-point slots are banned for spread dogs of +10 or more, picks
+under 54%, unverified big moves and the existing 5-flags; slots are ordered by probability; any
+card (engine, another model, or a gut swap) must print `GATE: PASS` before it is sent.
+Replayed on Week 9 the gated card is `MICH / USA +8.5 / MRSH / WYO / UTEP` — Marshall drops to a
+3 slot. The gate is a floor, not a model fix: it would have saved ~2 points, not the week.
+
+Open: the engine still rates double-digit dogs with unexplained moves at 58–60%. Next step is
+the snapshot re-test above, then decide whether `big_move` toward a +10 dog caps at 3 again.
+
 ## Open questions / next steps
 
 - **Huge-edge cap** (`HUGE_EDGE_P`, off): superseded by the calibration layer; kept for
