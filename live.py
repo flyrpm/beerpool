@@ -92,23 +92,16 @@ def main(argv=None):
         if a.pdf:
             text += "\n" + "\n".join(bp.verify_against_pdf(fb, a.pdf))
 
+    gate_ok = False
     try:
         import charter_gate as cg
         gc, _ = bp.build_candidates(board, now, [], cfg)
-        gcard = cg.charter_card(gc, cfg)
-        text += "\n\n== FINAL CARD (charter-gated: send THIS one) ==\n"
-        if gcard:
-            block = bp.submission_block(board.get("week", "Week ?"), gcard)
-            ok, rep = cg.check(block, gc)
-            text += "```\n" + block + "\n```\n" + "\n".join(rep)
-            if a.pdf:
-                text += "\n" + "\n".join(bp.verify_against_pdf(gcard, a.pdf))
-        else:
-            text += "  THIN BOARD: no legal pair of 5-point picks under the charter."
+        gate_ok, section = cg.final_section(board, gc, cfg, a.pdf)
+        text += "\n\n" + section
         text += ("\n  Any other card: python3 charter_gate.py <board.json> --check card.txt "
                  "-> must print GATE: PASS before it is sent.")
     except Exception as e:  # the gate is mandatory; make a failure loud
-        text += f"\n\n== FINAL CARD ==\n  CHARTER GATE ERROR: {e} -- do not send until fixed"
+        text += f"\n\n== FINAL CARD: GATE ERROR -- DO NOT SEND ==\n  {e}"
 
     if not a.no_context:
         try:
@@ -130,6 +123,8 @@ def main(argv=None):
         with open(os.path.join(d, "card.txt"), "w") as f:
             f.write(text + "\n")
         print(f"\n(saved {d}/board.json + card.txt)")
+    if not gate_ok:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

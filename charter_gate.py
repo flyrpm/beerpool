@@ -69,13 +69,31 @@ def gated(cands: list[bp.Candidate]) -> list[GatedCandidate]:
 
 def charter_card(cands: list[bp.Candidate], cfg: bp.Config) -> list[bp.Candidate]:
     """The engine's optimizer with the charter's 5-slot bans, slots then ordered by p."""
-    g = gated(cands)
+    g = gated([c for c in cands if c.p >= CARD_MIN_P])
     card, _, _ = bp.build_card(g, cfg=cfg)
-    if not card:
+    if len(card) < 5:
         return []
     fives = sorted(card[:2], key=lambda c: c.p, reverse=True)
     threes = sorted(card[2:], key=lambda c: c.p, reverse=True)
     return fives + threes
+
+
+def final_section(board: dict, cands: list[bp.Candidate], cfg: bp.Config,
+                  pdf: str | None = None) -> tuple[bool, str]:
+    """The sendable FINAL card, or a loud DO NOT SEND. Never both."""
+    card = charter_card(cands, cfg)
+    if not card:
+        return False, ("== FINAL CARD: NONE -- DO NOT SEND ==\n  No complete card passes the "
+                       "charter (need 5 picks >= 52% and two legal 5-pointers). Thin board: "
+                       "build by hand and run --check.")
+    block = bp.submission_block(board.get("week", "Week ?"), card)
+    ok, rep = check(block, cands, board)
+    if not ok:
+        return False, ("== FINAL CARD: GATE FAILED -- DO NOT SEND ==\n" + "\n".join(rep))
+    text = "== FINAL CARD (charter-gated, GATE: PASS -- send THIS one) ==\n```\n" + block + "\n```\n" + "\n".join(rep)
+    if pdf:
+        text += "\n" + "\n".join(bp.verify_against_pdf(card, pdf))
+    return True, text
 
 
 LINE_RE = re.compile(r"^\s*(\d)\.\s*(\d+)\s+(.+?)\s*$")
@@ -93,47 +111,85 @@ def parse_card(text: str) -> list[tuple[int, int, str]]:
 
 
 def _norm(s: str) -> str:
-    return re.sub(r"\s+", " ", s.upper()).strip()
+    return re.sub(r"\s+", " ", re.sub(r"[^A-Z0-9/+\-. ]", " ", s.upper())).strip()
 
 
-def match(cands: list[bp.Candidate], game: int, rest: str) -> bp.Candidate | None:
-    """Find the candidate for a card line. Matches on game + side + line, so a spelled-out
-    team name ('63 WYOMING +6.5') still matches the engine's '63 WYO +6.5'."""
-    rest_n = _norm(rest)
-    nums = re.findall(r"[-+]?\d+(?:\.\d+)?", rest_n)
-    line = float(nums[-1]) if nums else None
-    side_hint = "UNDER" if "UNDER" in rest_n else "OVER" if "OVER" in rest_n else None
-    pool = [c for c in cands if c.game == game]
-    for c in pool:
-        if side_hint and c.side != side_hint:
+def _side_names(board: dict | None, game: int) -> dict[str, list[str]]:
+    """side abbr -> accepted spellings (abbr, full sheet name, and its unique words)."""
+    if not board:
+        return {}
+    g = next((g for g in board.get("games", []) if g.get("num") == game), None)
+    if not g:
+        return {}
+    out = {g["away"]: [g["away"]], g["home"]: [g["home"]]}
+    names = g.get("names") or ""
+    parts = re.split(r"\s+at\s+", names, maxsplit=1)
+    if len(parts) == 2:
+        for side, nm in ((g["away"], parts[0]), (g["home"], parts[1])):
+            out[side].append(_norm(nm))
+    return out
+
+
+def side_matches(token: str, side: str, game: int, board: dict | None) -> bool:
+    """Verified team identity: the card's team text must be the side's abbreviation or its
+    sheet name (spelled-out names like WYOMING / TENNESSEE are allowed). Nothing else."""
+    tok = _norm(token)
+    if tok == side.upper():
+        return True
+    names = _side_names(board, game)
+    if side not in names:
+        return False
+    if tok in names[side][1:]:
+        return True
+    # A unique word of this side's sheet name (TITANS for 'Tennessee Titans'), but only if
+    # the other team's name doesn't contain it ('MICHIGAN' must not match Michigan State).
+    other = [n for s2, ns in names.items() if s2 != side for n in ns[1:]]
+    mine = [n for n in names[side][1:]]
+    hit = any(re.search(rf"\b{re.escape(tok)}\b", n) for n in mine)
+    clash = any(re.search(rf"\b{re.escape(tok)}\b", n) for n in other)
+    return hit and not clash and len(tok) >= 4
+
+
+LINE_TAIL = re.compile(r"^(?P<team>.*?)\s*(?P<line>[-+]?\d+(?:\.\d+)?)$")
+
+
+def match(cands: list[bp.Candidate], game: int, rest: str,
+          board: dict | None = None) -> bp.Candidate | None:
+    """Find the candidate for a card line. Requires an explicit line that equals the sheet
+    line from that side's view, and a verified team identity (spreads) or OVER/UNDER."""
+    m = LINE_TAIL.match(_norm(rest))
+    if not m:
+        return None
+    team, line = m.group("team").strip(), float(m.group("line"))
+    words = team.split()
+    for c in cands:
+        if c.game != game:
             continue
-        if not side_hint and c.side in ("OVER", "UNDER"):
+        if c.side in ("OVER", "UNDER"):
+            if c.side in words and abs(c.sheet_line - abs(line)) < 1e-9:
+                return c
             continue
-        if line is not None and abs(abs(c.sheet_line) - abs(line)) > 1e-9:
+        if "OVER" in words or "UNDER" in words:
             continue
-        if not side_hint:
-            want_sign = 1 if line is not None and line > 0 else -1
-            have_sign = 1 if c.sheet_line > 0 else -1
-            if line is not None and want_sign != have_sign:
-                continue
-            word = rest_n.split()[0]
-            if not (word.startswith(c.side.upper()) or c.side.upper().startswith(word[:3])
-                    or _norm(c.label).split()[0] == word):
-                # last resort: only one side of the game has this sign
-                pass
-        return c
+        signed = line if re.search(r"[-+]\d", rest) else None
+        if signed is None or abs(c.sheet_line - signed) > 1e-9:
+            continue
+        if side_matches(team, c.side, game, board):
+            return c
     return None
 
 
-def check(card_text: str, cands: list[bp.Candidate]) -> tuple[bool, list[str]]:
+def check(card_text: str, cands: list[bp.Candidate],
+          board: dict | None = None) -> tuple[bool, list[str]]:
     """Gate any proposed card. Returns (passed, report lines)."""
     lines, fails = [], []
     picks = parse_card(card_text)
-    if len(picks) != 5:
-        fails.append(f"card has {len(picks)} picks, needs 5")
+    slots = [p[0] for p in picks]
+    if slots != [1, 2, 3, 4, 5]:
+        fails.append(f"slots must be 1-5 exactly once and in order (got {slots or 'none'})")
     matched, games = [], set()
     for slot, game, rest in picks:
-        c = match(cands, game, rest)
+        c = match(cands, game, rest, board)
         if c is None:
             fails.append(f"Pick {slot}: '{game} {rest}' not found on the board at that line "
                          "(typo, wrong side, or game locked)")
@@ -153,6 +209,13 @@ def check(card_text: str, cands: list[bp.Candidate]) -> tuple[bool, list[str]]:
         matched.append((slot, c))
         lines.append(f"  Pick {slot} ({5 if slot <= 2 else 3}) {game} {c.label:<22} p={c.p:.3f}"
                      f"  flags: {','.join(sorted(c.tags)) or '-'}")
+    for i, (sa, a) in enumerate(matched):
+        for sb, b in matched[i + 1:]:
+            if a.thesis and a.thesis == b.thesis:
+                fails.append(f"Picks {sa} and {sb} share a thesis ({a.thesis})")
+    five = [c for s, c in matched if s <= 2]
+    if len(five) == 2 and (five[0].env or f"game{five[0].game}") == (five[1].env or f"game{five[1].game}"):
+        fails.append(f"both 5-pointers are in the same environment ({five[0].env})")
     eligible = [c for c in cands if not five_bans(c)]
     if eligible and matched:
         best = max(eligible, key=lambda c: c.p)
@@ -188,18 +251,13 @@ def main(argv=None):
     cands, _ = bp.build_candidates(board, now, [], cfg)
     if a.check:
         text = sys.stdin.read() if a.check == "-" else open(a.check).read()
-        ok, rep = check(text, cands)
+        ok, rep = check(text, cands, board)
         print("\n".join(rep))
         sys.exit(0 if ok else 1)
     card = charter_card(cands, cfg)
-    if not card:
-        print("THIN BOARD: no legal pair of 5-point picks under the charter. Do not force one.")
-        sys.exit(1)
-    block = bp.submission_block(board.get("week", "Week ?"), card)
-    ok, rep = check(block, cands)
-    print("== FINAL CARD (charter-gated) ==")
-    print("```\n" + block + "\n```")
-    print("\n".join(rep))
+    ok, out = final_section(board, cands, cfg)
+    print(out)
+    sys.exit(0 if ok else 1)
 
 
 if __name__ == "__main__":
