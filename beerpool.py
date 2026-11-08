@@ -27,7 +27,7 @@ import os
 import re
 import subprocess
 import sys
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, field, fields, replace
 from functools import lru_cache
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -375,7 +375,7 @@ class Candidate:
 def five_bans(c: "Candidate", cfg: "Config") -> list[str]:
     """Why this candidate may not hold a 5-point slot under cfg (empty = allowed)."""
     why = []
-    if not c.five_eligible:
+    if not Candidate.five_eligible.fget(c):
         why.append("flag: " + ",".join(sorted(c.tags & NO_FIVE_TAGS)))
     if cfg.charter:
         if c.side not in ("OVER", "UNDER") and c.sheet_line >= cfg.five_max_dog:
@@ -530,7 +530,9 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53, cfg: Config
     cfg = cfg or Config.production()
     ranked = sorted(cands, key=lambda c: c.p, reverse=True)
     thin = not ranked or ranked[0].p < thin_threshold
-    pool = [c for c in ranked if c.p >= cfg.card_min_p] if cfg.charter else ranked
+    if cfg.charter:
+        return _charter_card(cands, thin_threshold, cfg)
+    pool = ranked
 
     def sweet(c):
         return (cfg.five_min_edge is not None
@@ -542,7 +544,7 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53, cfg: Config
                    for x in chosen)
 
     # First seek a full card. Only an infeasible full board permits fewer slots.
-    fives = [c for c in pool if not five_bans(c, cfg)]
+    fives = [c for c in pool if c.five_eligible]
     for size in range(5, 1, -1):
         best, best_ev = None, float("-inf")
         best_sweet = -1
@@ -578,13 +580,54 @@ def build_card(cands: list[Candidate], thin_threshold: float = 0.53, cfg: Config
 
                 search(0, [], base)
         if best is not None:
-            if cfg.charter:
-                if len(best) < 5:
-                    return [], thin, ranked
-                best = (sorted(best[:2], key=lambda c: c.p, reverse=True)
-                        + sorted(best[2:], key=lambda c: c.p, reverse=True))
             return best, thin, ranked
     return [], thin, ranked
+
+
+@dataclass
+class _Chartered(Candidate):
+    """A candidate whose 5-pt eligibility is the charter's (used inside build_card)."""
+    cfg: "Config | None" = None
+    orig: "Candidate | None" = None
+
+    @property
+    def five_eligible(self) -> bool:  # type: ignore[override]
+        return not five_bans(self, self.cfg)
+
+
+def _charter_card(cands: list[Candidate], thin_threshold: float, cfg: "Config"):
+    """The same exact optimizer, with the charter deciding 5-pt eligibility.
+
+    1. Picks >= card_min_p only. 2. If that can't fill five, all picks (thin board).
+    3. If no legal 5-pt pair exists at all, the best available five, labelled thin.
+    Never returns an empty card when five distinct games exist: a blank card scores 0.
+    Slots come out in probability order (5s, then 3s)."""
+    base = cfg.with_(charter=False)
+    ranked = sorted(cands, key=lambda c: c.p, reverse=True)
+    thin = not ranked or ranked[0].p < thin_threshold
+
+    def wrap(cs):
+        return [_Chartered(**{f.name: getattr(c, f.name) for f in fields(Candidate)},
+                           cfg=cfg, orig=c) for c in cs]
+
+    def order(card):
+        o = [w.orig for w in card]
+        return (sorted(o[:2], key=lambda c: c.p, reverse=True)
+                + sorted(o[2:], key=lambda c: c.p, reverse=True))
+
+    for pool, is_thin in (([c for c in cands if c.p >= cfg.card_min_p], thin), (cands, True)):
+        card, _, _ = build_card(wrap(pool), thin_threshold, base)
+        if len(card) == 5:
+            return order(card), is_thin, ranked
+    # No legal 5-pt pair anywhere: best available five, distinct games, labelled thin.
+    card, games = [], set()
+    for c in ranked:
+        if c.game not in games and not (c.thesis and any(c.thesis == x.thesis for x in card)):
+            card.append(c)
+            games.add(c.game)
+        if len(card) == 5:
+            break
+    return card, True, ranked
 
 
 def mega_gain(p: float) -> float:
@@ -682,10 +725,13 @@ class Gate:
     passed: bool
     problems: list[str]
     picks: list[tuple[int, "Candidate"]]
+    warnings: list[str] = field(default_factory=list)
 
     def lines(self) -> list[str]:
-        out = ["GATE: PASS" if self.passed else "GATE: FAIL"]
+        head = "GATE: FAIL" if not self.passed else ("GATE: PASS (THIN BOARD)" if self.warnings else "GATE: PASS")
+        out = [head]
         out += [f"  x {p}" for p in self.problems]
+        out += [f"  ! {w}" for w in self.warnings]
         exp = 0.0
         for slot, c in self.picks:
             pts = 5 if slot <= 2 else 3
@@ -700,6 +746,11 @@ def gate_card(card_text: str, cands: list["Candidate"], board: dict | None,
               cfg: "Config") -> Gate:
     """The pool rules (and, with cfg.charter, the Three Locks) applied to any card."""
     probs: list[str] = []
+    warns: list[str] = []
+    # A rule can only be enforced if the board offers a legal alternative. On a thin
+    # board the shortfall is a warning (you must still send five picks), never silence.
+    games_ok = {c.game for c in cands if c.p >= cfg.card_min_p}
+    fives_ok = {c.game for c in cands if c.p >= cfg.card_min_p and not five_bans(c, cfg)}
     entries = parse_card(card_text)
     slots = [e[0] for e in entries]
     if slots != [1, 2, 3, 4, 5]:
@@ -717,12 +768,18 @@ def gate_card(card_text: str, cands: list["Candidate"], board: dict | None,
         if c.side == "DAL":
             probs.append(f"Pick {slot}: Dallas pick (house rule)")
         if cfg.charter and c.p < cfg.card_min_p:
-            probs.append(f"Pick {slot}: {game} {c.label} p={c.p:.3f} < {cfg.card_min_p}")
+            msg = f"Pick {slot}: {game} {c.label} p={c.p:.3f} < {cfg.card_min_p}"
+            (warns if len(games_ok) < 5 else probs).append(
+                msg + (" (thin board: fewer than 5 games clear it)" if len(games_ok) < 5 else ""))
         if slot <= 2:
             bans = five_bans(c, cfg)
             if bans:
-                probs.append(f"Pick {slot} (5 pts): {game} {c.label} can't be a 5-pointer: "
-                             + "; ".join(bans))
+                msg = (f"Pick {slot} (5 pts): {game} {c.label} can't be a 5-pointer: "
+                       + "; ".join(bans))
+                if cfg.charter and len(fives_ok) < 2:
+                    warns.append(msg + " (thin board: no legal pair of 5-pointers exists)")
+                else:
+                    probs.append(msg)
         picks.append((slot, c))
     for i, (sa, a) in enumerate(picks):
         for sb, b in picks[i + 1:]:
@@ -743,7 +800,7 @@ def gate_card(card_text: str, cands: list["Candidate"], board: dict | None,
         if five and threes and max(c.p for c in threes) > min(c.p for c in five) + 0.005:
             t = max(threes, key=lambda c: c.p)
             probs.append(f"{t.game} {t.label} (p={t.p:.3f}) sits in a 3 slot but outranks a 5-pointer")
-    return Gate(not probs, probs, picks)
+    return Gate(not probs, probs, picks, warns)
 
 
 # ---------------------------------------------------------------------------

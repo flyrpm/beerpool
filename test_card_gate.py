@@ -106,10 +106,26 @@ def _c(game, side, p, line=3.0, **kw):
 class Synthetic(unittest.TestCase):
     CFG = bp.Config.production().with_(five_min_edge=None, calibration=None)
 
-    def test_low_probability_board_gives_no_card(self):
+    def test_thin_board_still_gets_five_labelled(self):
+        # A blank card scores 0; a thin board gets the best five and a loud THIN label.
         cands = [_c(i, f"T{i}", p) for i, p in enumerate((0.60, 0.59, 0.53, 0.51, 0.50), 1)]
+        card, thin, _ = bp.build_card(cands, cfg=self.CFG)
+        self.assertEqual(len(card), 5)
+        self.assertTrue(thin)
+        g = bp.gate_card(bp.submission_block("X", card), cands, None, self.CFG)
+        self.assertTrue(g.passed, g.problems)
+        self.assertTrue(g.warnings)
+        self.assertIn("THIN BOARD", g.lines()[0])
+
+    def test_banned_five_is_hard_fail_when_alternative_exists(self):
+        cands = [_c(1, "A", 0.60, line=12.0), _c(2, "B", 0.59), _c(3, "C", 0.58),
+                 _c(4, "D", 0.57), _c(5, "E", 0.56), _c(6, "F", 0.555)]
+        txt = "\n".join(f"{i}. {c.game} {c.label}" for i, c in enumerate(cands[:5], 1))
+        g = bp.gate_card(txt, cands, None, self.CFG)
+        self.assertFalse(g.passed)
         card, _, _ = bp.build_card(cands, cfg=self.CFG)
-        self.assertEqual(card, [])
+        self.assertNotIn(1, [c.game for c in card[:2]])
+        self.assertTrue(bp.gate_card(bp.submission_block("X", card), cands, None, self.CFG).passed)
 
     def test_report_withholds_submission_when_no_card(self):
         board = {"week": "Week X", "games": []}
