@@ -48,6 +48,12 @@ class Gate(unittest.TestCase):
         self.assertIn("37 MRSH +10.5 (60.0%)", g1[0])
         self.assertIn("Cost ~0.07 pts EV", g1[0])
 
+    def test_pick1_respects_charter_bans(self):
+        bans = lambda c: ["dog +10.5 (>= +10)"] if c.game == 37 else []  # noqa: E731
+        out = gate.check([MICH, UTEP, MRSH, WYO, NMSU], CANDS, five_bans=bans)
+        self.assertEqual(flags(out, "G1"), [])
+        self.assertTrue(any(l.startswith("INFO board's top pick 37 MRSH") for l in out))
+
     def test_probability_floor(self):
         low = cand(70, "MIA +6.5", "MIA", 6.5, 6.5, 0.505, ["football_case"])
         out = gate.check([WYO, TENN, UTEP, low, MICH], [WYO, TENN, UTEP, low, MICH])

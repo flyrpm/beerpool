@@ -49,9 +49,13 @@ We're 4th, 18 back of the leader with 12 weeks left. Goal = 1st place.
 
 ## How the rules are enforced in code
 
-`gate.py` runs on every live card (`run.sh` → `live.py`) and prints a **GATE CHECK**
-section. Each failure is one line with its cost, and nothing is changed automatically:
-the human decides.
+There are two layers on every live card (`run.sh` → `live.py`):
+
+1. **`charter_gate.py` (hard, PR #4)** builds the one FINAL card and blocks sending
+   without `GATE: PASS`. No +10 dog, no pick under 54% and no unverified big move can take a
+   5-point slot. Slots are ordered by probability. Every pick must be 52%+ and match the board.
+2. **`gate.py` (advisory, this PR)** then checks *that* FINAL card for what the charter gate
+   doesn't cover. Each failure is one line with its cost, and the human decides.
 
 | Rule | Check | How it's enforced |
 |---|---|---|
@@ -65,9 +69,12 @@ the human decides.
 | 4 | Within ~1%, take the side the leader doesn't have | R4 flags a card pick that matches the leader when an off-card pick within 1% doesn't; INFO lists swing picks opposite the leader's card and our overlap with it. The leader's card goes in the weekly notes as `"leader_picks": ["48 UK +5.5", ...]` |
 | 5 | 5-pointers need number edge + football case | R5: a 5-pointer needs a 1+ point edge **and** the notes tag `football_case`; either alone gets flagged as a 3-pointer |
 
-Replaying the Week 9 card (9:48 ET market, Stein's card as the leader) through the gate
-flags Marshall +10.5 at Pick 1 (G2), both 5-pointers for no stated football case (R5),
-and the two double-digit dogs' offenses as unverified (G3). It also lists
+Replaying the Week 9 card as it was sent (9:48 ET market, Stein's card as the leader) through
+`gate.py` flags Marshall +10.5 at Pick 1 (G2), both 5-pointers for no stated football case
+(R5), and the two double-digit dogs' offenses as unverified (G3). With both layers, the FINAL
+card becomes MICH / USA +8.5 / MRSH / WYO / UTEP: the charter gate moves Marshall to a 3-pt
+slot (shown as INFO), and `gate.py` still flags both 5-pointers for no stated football case
+and Marshall's offense as unverified. It also lists
 Tennessee -5.5 as a swing against Stein's Kentucky. By then the market had moved to
 -6, so the model priced it at 50.2%, under the 52% floor, and it is labelled that way.
 

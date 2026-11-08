@@ -97,14 +97,26 @@ def main(argv=None):
         if a.pdf:
             text += "\n" + "\n".join(bp.verify_against_pdf(fb, a.pdf))
 
-    # Gate check on the final card (docs/LESSONS_2026_WK09.md): flags only, human decides.
-    import gate
-    gcands, _ = bp.build_candidates(board, now, [], cfg)
-    gcard = fb or bp.build_card(gcands, cfg=cfg)[0]
-    pdf_check = bp.verify_against_pdf(gcard, a.pdf) if (a.pdf and gcard) else None
-    text += "\n\n" + gate.section(gcard, gcands, weekly_notes, pdf_check)
-    text += ("\n\nThis is the ONE final card. Revise only for new information "
-             "(injury news, a real line move, a verified error); never send alternates.")
+    gate_ok = False
+    try:
+        import charter_gate as cg
+        gc, _ = bp.build_candidates(board, now, [], cfg)
+        gate_ok, section = cg.final_section(board, gc, cfg, a.pdf)
+        text += "\n\n" + section
+        text += ("\n  Any other card: python3 charter_gate.py <board.json> --check card.txt "
+                 "-> must print GATE: PASS before it is sent.")
+        # Rule checks on THAT final card (docs/LESSONS_2026_WK09.md): advisory flags only.
+        # The charter gate hard-blocks; these add the checks it doesn't make (bottom-30
+        # offense on big dogs, football case for 5-pointers, leader swings, Pick 1 = best).
+        import gate
+        final = cg.charter_card(gc, cfg) if gate_ok else []
+        if final:
+            pdf_check = bp.verify_against_pdf(final, a.pdf) if a.pdf else None
+            text += "\n\n" + gate.section(final, gc, weekly_notes, pdf_check, cg.five_bans)
+        text += ("\n\nThe charter-gated FINAL card above is the ONE card. Revise only for new "
+                 "information (injury news, a real line move, a verified error); never send alternates.")
+    except Exception as e:  # the gate is mandatory; make a failure loud
+        text += f"\n\n== FINAL CARD: GATE ERROR -- DO NOT SEND ==\n  {e}"
 
     if not a.no_context:
         try:
@@ -126,6 +138,8 @@ def main(argv=None):
         with open(os.path.join(d, "card.txt"), "w") as f:
             f.write(text + "\n")
         print(f"\n(saved {d}/board.json + card.txt)")
+    if not gate_ok:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

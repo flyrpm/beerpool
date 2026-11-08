@@ -49,16 +49,22 @@ def leader_sides(notes: dict | None) -> dict[int, str]:
 
 
 def check(card: list, cands: list, notes: dict | None = None,
-          pdf_lines: list[str] | None = None) -> list[str]:
+          pdf_lines: list[str] | None = None, five_bans=None) -> list[str]:
     """Returns gate lines: 'PASS ...' or 'FLAG ...' (each FLAG with its cost)."""
     out: list[str] = []
     if not card:
         return ["FLAG no card to check"]
     slot_pts = [5, 5, 3, 3, 3]
 
-    # G1 -- Pick 1 is the board's best
-    best = max(cands, key=lambda c: c.p)
+    # G1 -- Pick 1 is the board's best. With the charter gate's `five_bans`, "best" means
+    # the best pick allowed in a 5-pt slot; a better pick the charter bars is reported as INFO.
     p1 = card[0]
+    pool = [c for c in cands if not five_bans or not five_bans(c)] or cands
+    best = max(pool, key=lambda c: c.p)
+    top = max(cands, key=lambda c: c.p)
+    if five_bans and top is not best and top.p > p1.p + 1e-9 and top.game != p1.game:
+        out.append(f"INFO board's top pick {top.game} {top.label} ({top.p:.1%}) is barred from 5-pt slots "
+                   f"by the charter ({'; '.join(five_bans(top))})")
     if best.p > p1.p + 1e-9 and best.game != p1.game:
         out.append(f"FLAG G1 Pick 1 {p1.game} {p1.label} ({p1.p:.1%}) is not the board's best: "
                    f"{best.game} {best.label} ({best.p:.1%}). Cost ~{5 * (best.p - p1.p):.2f} pts EV"
@@ -133,8 +139,8 @@ def check(card: list, cands: list, notes: dict | None = None,
     return out
 
 
-def section(card, cands, notes=None, pdf_lines=None) -> str:
-    lines = check(card, cands, notes, pdf_lines)
+def section(card, cands, notes=None, pdf_lines=None, five_bans=None) -> str:
+    lines = check(card, cands, notes, pdf_lines, five_bans)
     flags = sum(1 for l in lines if l.startswith("FLAG"))
     head = ("== GATE CHECK (final card) == " +
             (f"{flags} flag{'s' if flags != 1 else ''}: the human decides" if flags else "all checks pass"))
