@@ -71,7 +71,7 @@ calibration 119 → **calibration + 5-pt rule 123 (33-12, 73.3%)**. 2025, in-sam
 The 5-pt thresholds came from looking at both seasons, so part of that gain is in-sample.
 Refit the calibration each time a season's results are added.
 
-## Week 9 post-mortem (Nov 7 2026) — the engine's own card lost both 5-pointers
+## Week 9 post-mortem (Nov 7 2026) — full write-up: [docs/postmortems/2026-week09.md](docs/postmortems/2026-week09.md) — the engine's own card lost both 5-pointers
 
 The card Bert sent was the engine's card, unchanged:
 `1. 37 MRSH +10.5 (p .600) · 2. 55 MICH -12.5 (.595) · 3. 63 WYO +6.5 · 4. 61 UTEP +9.5 · 5. 58 NMSU +17.5`.
