@@ -92,6 +92,24 @@ def main(argv=None):
         if a.pdf:
             text += "\n" + "\n".join(bp.verify_against_pdf(fb, a.pdf))
 
+    try:
+        import charter_gate as cg
+        gc, _ = bp.build_candidates(board, now, [], cfg)
+        gcard = cg.charter_card(gc, cfg)
+        text += "\n\n== FINAL CARD (charter-gated: send THIS one) ==\n"
+        if gcard:
+            block = bp.submission_block(board.get("week", "Week ?"), gcard)
+            ok, rep = cg.check(block, gc)
+            text += "```\n" + block + "\n```\n" + "\n".join(rep)
+            if a.pdf:
+                text += "\n" + "\n".join(bp.verify_against_pdf(gcard, a.pdf))
+        else:
+            text += "  THIN BOARD: no legal pair of 5-point picks under the charter."
+        text += ("\n  Any other card: python3 charter_gate.py <board.json> --check card.txt "
+                 "-> must print GATE: PASS before it is sent.")
+    except Exception as e:  # the gate is mandatory; make a failure loud
+        text += f"\n\n== FINAL CARD ==\n  CHARTER GATE ERROR: {e} -- do not send until fixed"
+
     if not a.no_context:
         try:
             import context
