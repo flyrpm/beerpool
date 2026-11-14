@@ -50,7 +50,7 @@ NFL_ABBR = {
 # --------------------------------------------------------------------- board
 ROW = re.compile(
     r"^\s*(\d{1,3})\s+\w{3}, (\w{3}) (\d+), (\d{4})\s+(\d+):(\d+) ([AP]M)\s+(.+?)\s{2,}(?:at|vs)\s{2,}"
-    r"(.+?)\s{2,}(.+?)\s{2,}(\S+)\s+(PK|[+-]?\d+(?:\.\d)?)\s+(\d+(?:\.\d)?)\s*$")
+    r"(.+?)\s{2,}(.+?)\s{2,}(?:Line:\s*)?(\S+)\s+(PK|[+-]?\d+(?:\.\d)?)\s+(?:O/U:\s*)?(\d+(?:\.\d)?)\s*$")
 
 
 def parse_board(text: str) -> list[dict]:
@@ -158,6 +158,15 @@ def to_american(p: float) -> float:
     return round(-100 * p / (1 - p)) if p >= 0.5 else round(100 * (1 - p) / p)
 
 
+def median_american(prices) -> float:
+    """Median of American prices, taken in implied-probability space.
+
+    A plain median breaks at the -100/+100 boundary: the middle of -102 and +100
+    is not -1. Probabilities are continuous, so take the median there.
+    """
+    return float(to_american(statistics.median(implied(x) for x in prices)))
+
+
 def at_median(lines, p1, p2):
     """Median line plus the average no-vig-ready prices of books sitting on it."""
     vals = [x for x in lines if x is not None]
@@ -196,7 +205,7 @@ def market_for(g: dict, vi: dict) -> dict | None:
         ma = [cell(a, i, "price") or cell(a, i, "line") for i in BOOK_IDX]
         mh, ma = [x for x in mh if x], [x for x in ma if x]
         if mh and ma:
-            mkt.update(ml_home=statistics.median(mh), ml_away=statistics.median(ma))
+            mkt.update(ml_home=median_american(mh), ml_away=median_american(ma))
     tt = find(vi, "total", g)
     if tt:
         a, h = tt
@@ -222,14 +231,33 @@ def abbr_for(name: str, league: str, espn: list[tuple[str, str]]) -> str:
     return re.sub(r"[^A-Z]", "", name.upper())[:6]
 
 
-def build(pdf: str, notes: dict, cache: str | None, offline: bool) -> dict:
+def latest_snapshots(root: str | None = None) -> dict:
+    """Newest saved snapshot per league (data/snapshots), in vi_parse's shape."""
+    import glob
+    import gzip
+    root = root or os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "snapshots")
+    out = {}
+    for lg in ("NFL", "CFB"):
+        files = sorted(glob.glob(os.path.join(root, "*", f"*_{lg}_*.json.gz")),
+                       key=lambda f: (os.path.basename(os.path.dirname(f)), os.path.basename(f)))
+        if not files:
+            sys.exit(f"--snapshot: no {lg} snapshot under {root}")
+        with gzip.open(files[-1], "rt") as fh:
+            out[lg] = json.load(fh)
+    return out
+
+
+def build(pdf: str, notes: dict, cache: str | None, offline: bool,
+          snapshots: dict | None = None) -> dict:
     text = subprocess.run(["pdftotext", "-layout", pdf, "-"], capture_output=True,
                           text=True, check=True).stdout
     games = parse_board(text)
     if not games:
         sys.exit("no games parsed from the PDF; check the layout")
-    vis = {}
+    vis = dict(snapshots or {})
     for lg, k in (("NFL", "nfl"), ("CFB", "college-football")):
+        if lg in vis:
+            continue
         path = os.path.join(cache, f"vi_{k}.html") if cache else None
         vis[lg] = vi_parse.parse(fetch(VI_URL.format(k=k), path, offline))
     dates = {g["kickoff"][:10].replace("-", "") for g in games if g["league"] == "CFB"}
@@ -272,7 +300,9 @@ def build(pdf: str, notes: dict, cache: str | None, offline: bool) -> dict:
     if unmatched:
         print(f"warning: no market match for games {unmatched}", file=sys.stderr)
     return {"week": notes.get("week", "Week ?"), "default_lock": default_lock,
-            "mega": notes.get("mega"), "as_of": datetime.now().isoformat(timespec="minutes"),
+            "mega": notes.get("mega"),
+            "as_of": (min(v["taken_utc"] for v in snapshots.values())[:16] + "Z" if snapshots
+                      else datetime.now().isoformat(timespec="minutes")),
             "games": out_games}
 
 
@@ -283,11 +313,14 @@ def main():
     ap.add_argument("--notes", help="weekly notes JSON (football layer)")
     ap.add_argument("--cache", default="cache", help="where fetched pages are saved")
     ap.add_argument("--offline", action="store_true", help="reuse cached pages, no fetch")
+    ap.add_argument("--snapshot", action="store_true",
+                    help="market = newest saved odds snapshot (data/snapshots); no odds fetch")
     a = ap.parse_args()
     notes = json.load(open(a.notes)) if a.notes else {}
     if a.cache:
         os.makedirs(a.cache, exist_ok=True)
-    json.dump(build(a.pdf, notes, a.cache, a.offline), sys.stdout, indent=1)
+    snaps = latest_snapshots() if a.snapshot else None
+    json.dump(build(a.pdf, notes, a.cache, a.offline, snaps), sys.stdout, indent=1)
 
 
 if __name__ == "__main__":

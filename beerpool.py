@@ -807,6 +807,16 @@ def gate_card(card_text: str, cands: list["Candidate"], board: dict | None,
 # PDF verification
 # ---------------------------------------------------------------------------
 
+def pdf_row_matches(line: str, game: int, num: str) -> bool:
+    """True if this sheet row is game `game` and prints the line `num`.
+
+    The game number is the row's first field, and the line must not be the start
+    of a longer number: 10 must not match 10.5, nor game 38 a 38.5 total.
+    """
+    return bool(re.match(rf"\s*{game}\s", line) and
+                re.search(rf"(?<![\d.]){re.escape(num)}(?![\d.]|\.\d)", line))
+
+
 def verify_against_pdf(card: list[Candidate], pdf_path: str) -> list[str]:
     text = subprocess.run(["pdftotext", "-layout", pdf_path, "-"],
                           capture_output=True, text=True, check=True).stdout
@@ -815,8 +825,7 @@ def verify_against_pdf(card: list[Candidate], pdf_path: str) -> list[str]:
         num = fmt_line(abs(c.sheet_line), False)
         hit = None
         for line in text.splitlines():
-            if re.search(rf"(?<!\d){c.game}(?!\d)", line) and \
-               re.search(rf"(?<![\d.]){re.escape(num)}(?![\d])", line):
+            if pdf_row_matches(line, c.game, num):
                 hit = line.strip()
                 break
         status = "OK " if hit else "?? "
