@@ -301,7 +301,12 @@ def main():
                 "tuned": tuned,
                 "tuned+cap": tuned.with_(huge_edge_p=0.52),
                 "calibrated": tuned.with_(calibration=cal),
-                "calib+5pt": tuned.with_(calibration=cal, five_min_edge=1.5)}
+                "calib+5pt": tuned.with_(calibration=cal, five_min_edge=1.5),
+                # engine v2 (Nov 8): the charter on top of production; and with the
+                # big_move 3-pt cap restored, to test the Week 9 lookahead suspicion.
+                "v2-charter": tuned.with_(calibration=cal, five_min_edge=1.5, charter=True),
+                "v2+movecap": tuned.with_(calibration=cal, five_min_edge=1.5, charter=True,
+                                          big_move_caps=True)}
     cards = {}
     for name, cfg in variants.items():
         cbw = candidates_by_week(weeks, cfg)
@@ -320,8 +325,44 @@ def main():
             pts = sum(cards[name][k]["pts"] for k in ks)
             w = sum(sum(cards[name][k]["five"]) for k in ks)
             n = sum(len(cards[name][k]["picks"]) for k in ks)
-            line.append(f"{name} {pts} ({w}-{n - w}, {w / n:.1%})")
+            line.append(f"{name} {pts} ({w}-{n - w}, {w / max(1, n):.1%})")
         print(f"  {season} {tag:<5} " + " | ".join(line))
+
+    print("\n== v1 vs v2 (production calib+5pt vs charter) ==")
+    for season in sorted({k[0] for k in weeks}):
+        ks = sorted((k for k in weeks if k[0] == season), key=wkey)
+        row = []
+        for name in ("calib+5pt", "v2-charter", "v2+movecap"):
+            pts = [cards[name][k]["pts"] for k in ks]
+            empty = sum(1 for k in ks if not cards[name][k]["picks"])
+            f5 = sum(cards[name][k]["five"][0] for k in ks)
+            n5 = sum(min(2, len(cards[name][k]["picks"])) for k in ks)
+            row.append(f"{name} {sum(pts)} pts ({sum(pts) / max(1, len(ks)):.2f}/wk, 5-slots "
+                       f"{f5}-{n5 - f5}, worst wk {min(pts) if pts else 0}, no-card wks {empty})")
+        print(f"  {season}: " + " | ".join(row))
+    print("  Weeks where v2 and v1 differ:")
+    for k in sorted(weeks, key=wkey):
+        a1, a2 = cards["calib+5pt"][k], cards["v2-charter"][k]
+        if a1["picks"] != a2["picks"]:
+            print(f"    {k[0]}-{k[1]}: v1 {a1['pts']:>2} [{' ; '.join(a1['picks'][:2])}]  "
+                  f"v2 {a2['pts']:>2} [{' ; '.join(a2['picks'][:2])}]")
+
+    print("\n== DIAGNOSTIC: what the charter bans, graded (calibrated p >= .55) ==")
+    print("  Uses the CLOSE for the move, so big_move rows carry lookahead; treat as an upper bound.")
+    cbw = candidates_by_week(weeks, variants["calibrated"])
+    groups = defaultdict(lambda: [0, 0])
+    for key, pairs in cbw.items():
+        for c, w in pairs:
+            if c.p < 0.55:
+                continue
+            dog = c.side not in ("OVER", "UNDER") and c.sheet_line >= 10
+            mv = "big_move" in c.tags
+            g = ("dog+10 & move" if dog and mv else "dog+10 only" if dog
+                 else "big_move only" if mv else "neither")
+            groups[(key[0], g)][0] += int(w)
+            groups[(key[0], g)][1] += 1
+    for (season, g), (w, n) in sorted(groups.items()):
+        print(f"  {season} {g:<15} {w:>4}/{n:<4} {w / n:.1%}")
 
     print("\n== WEEKLY CARDS: engine vs Bert vs pool ==")
     print(f"{'week':<9} {'games':>5} {'base':>5} {'tuned':>6} {'+cap':>5} {'Bert':>5} {'avg':>5} {'best':>5}")

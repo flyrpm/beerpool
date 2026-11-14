@@ -66,6 +66,9 @@ def create_baseline(identifier):
 
 
 def verify_baseline(baseline, check_sources=False):
+    """check_sources=True: this checkout must BE the pinned engine (required to record).
+    check_sources='revision': only prove the pinned hashes belong to the pinned git commit
+    (used on main, where a newer engine version lives; run v1 from pinned_checkout())."""
     p = baseline['payload']
     if baseline['sha256'] != pl.digest(p) or p.get('schema') != 1:
         raise ValueError('baseline integrity check failed')
@@ -75,17 +78,51 @@ def verify_baseline(baseline, check_sources=False):
     if (p['model_config_sha256'] != pl.digest(cfg)
             or p['calibration_sha256'] != pl.digest(cfg['calibration'])
             or p['benchmark_config_sha256'] != pl.digest(p['benchmark_config'])
-            or p['benchmark_config'] != expected_benchmark):
+            or p['benchmark_config'] != {k: expected_benchmark.get(k) for k in p['benchmark_config']}
+            or any(expected_benchmark[k] != getattr(bp.Config(), k)
+                   for k in expected_benchmark if k not in p['benchmark_config'])):
         raise ValueError('baseline configuration hashes or benchmark mismatch')
     if check_sources:
-        if p['source_sha256'] != source_hashes():
-            raise ValueError('baseline source mismatch; use its pinned checkout')
+        if check_sources is True and p['source_sha256'] != source_hashes():
+            raise ValueError('baseline source mismatch; run from its pinned checkout: '
+                             'python3 backtest/evaluation.py pin --baseline <file> --dest <dir>')
         # Check that hashes really belong to the stated Git revision, not just to
         # the current working directory. Reading history does not mutate it.
         for name, sha in p['source_sha256'].items():
             raw = subprocess.check_output(['git', '-C', str(ROOT), 'show', f"{p['git_commit']}:{name}"])
             if hashlib.sha256(raw).hexdigest() != sha:
                 raise ValueError('baseline Git revision does not match sources')
+
+
+def frozen_commit(baseline, limit=500):
+    """Newest ancestor of HEAD whose pinned sources are byte-identical to the baseline:
+    the frozen engine with the newest operational tooling around it."""
+    want = baseline['payload']['source_sha256']
+    for rev in git('rev-list', '-n', str(limit), 'HEAD').split():
+        try:
+            ok = all(hashlib.sha256(subprocess.check_output(
+                ['git', '-C', str(ROOT), 'show', f'{rev}:{name}'], stderr=subprocess.DEVNULL)
+            ).hexdigest() == sha for name, sha in want.items())
+        except subprocess.CalledProcessError:
+            ok = False
+        if ok:
+            return rev
+    raise ValueError('no ancestor commit carries the baseline sources (shallow clone? fetch history)')
+
+
+def pinned_checkout(baseline, dest):
+    """A detached git worktree where this baseline's engine is the code that runs.
+    Recording v1 happens there; main may carry a newer engine version."""
+    verify_baseline(baseline, check_sources='revision')
+    rev = frozen_commit(baseline)
+    dest = Path(dest).resolve()
+    if not dest.exists():
+        subprocess.check_call(['git', '-C', str(ROOT), 'worktree', 'add', '--detach', '-q',
+                               str(dest), rev])
+    head = subprocess.check_output(['git', '-C', str(dest), 'rev-parse', 'HEAD'], text=True).strip()
+    if head != rev:
+        raise ValueError(f'{dest} is at {head}, not the frozen-engine commit {rev}')
+    return dest
 
 
 def record(baseline, board, snapshots, deadline, season, week):
@@ -235,6 +272,9 @@ def main():
     for name in ('baseline', 'board', 'deadline', 'season', 'week', 'ledger'):
         rec.add_argument('--' + name, required=True)
     rec.add_argument('--snapshots', default=str(ROOT / 'data/snapshots'))
+    pin = sub.add_parser('pin', help='create/verify the pinned checkout this baseline records from')
+    pin.add_argument('--baseline', required=True)
+    pin.add_argument('--dest', required=True)
     rep = sub.add_parser('report')
     for name in ('baseline', 'ledger', 'season', 'output', 'markdown'):
         rep.add_argument('--' + name, required=True)
@@ -243,6 +283,8 @@ def main():
     args = parser.parse_args()
     if args.command == 'freeze':
         pl.write_new(args.output, create_baseline(args.id))
+    elif args.command == 'pin':
+        print(pinned_checkout(read(args.baseline), args.dest))
     elif args.command == 'record':
         entry = record(read(args.baseline), read(args.board), args.snapshots, args.deadline, int(args.season), args.week)
         print(pl.save_entry(args.ledger, entry))
