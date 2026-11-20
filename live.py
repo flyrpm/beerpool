@@ -77,6 +77,7 @@ def main(argv=None):
     ap.add_argument("--now")
     ap.add_argument("--save-run", metavar="DIR")
     ap.add_argument("--no-context", action="store_true")
+    ap.add_argument("--notes", help="weekly notes JSON (for leader_picks and pick tags in the gate check)")
     a = ap.parse_args(argv)
     with open(a.board) as f:
         board = json.load(f)
@@ -86,6 +87,10 @@ def main(argv=None):
     text = bp.report(board, now, a.pdf, cfg)
 
     fb, notes = guard(board, now, cfg)
+    weekly_notes = {}
+    if a.notes:
+        with open(a.notes) as f:
+            weekly_notes = json.load(f)
     if fb:
         text += "\n\n== LIVE GUARD: FALLBACK CARD ==\n" + "\n".join(notes)
         text += "\n```\n" + bp.submission_block(board.get("week", "Week ?"), fb) + "\n```"
@@ -100,6 +105,16 @@ def main(argv=None):
         text += "\n\n" + section
         text += ("\n  Any other card: python3 charter_gate.py <board.json> --check card.txt "
                  "-> must print GATE: PASS before it is sent.")
+        # Rule checks on THAT final card (docs/LESSONS_2026_WK09.md): advisory flags only.
+        # The charter gate hard-blocks; these add the checks it doesn't make (bottom-30
+        # offense on big dogs, football case for 5-pointers, leader swings, Pick 1 = best).
+        import gate
+        final = cg.charter_card(gc, cfg) if gate_ok else []
+        if final:
+            pdf_check = bp.verify_against_pdf(final, a.pdf) if a.pdf else None
+            text += "\n\n" + gate.section(final, gc, weekly_notes, pdf_check, cg.five_bans)
+        text += ("\n\nThe charter-gated FINAL card above is the ONE card. Revise only for new "
+                 "information (injury news, a real line move, a verified error); never send alternates.")
     except Exception as e:  # the gate is mandatory; make a failure loud
         text += f"\n\n== FINAL CARD: GATE ERROR -- DO NOT SEND ==\n  {e}"
 
