@@ -108,15 +108,19 @@ class Optimizer(unittest.TestCase):
             self.assertAlmostEqual(ev(actual), ev(expected))
 
     def test_archived_optimal_card_unchanged(self):
+        """The pre-charter engine (charter off) still reproduces the archived Week 9 card.
+        The charter-on production card is tested in test_card_gate."""
         root = Path(__file__).parent
         board = json.loads((root / 'runs/2026-11-07_0948/board.json').read_text())
-        cfg = bp.Config.production()
+        cfg = bp.Config.production().with_(charter=False)
         cs, _ = bp.build_candidates(board, datetime(2026, 11, 7, 9, 48), [], cfg)
         card = bp.build_card(cs, cfg=cfg)[0]
         self.assertEqual([c.game for c in card], [37, 55, 63, 61, 58])
         text = bp.report(board, datetime(2026, 11, 7, 9, 48), None, cfg)
         archived = (root / 'runs/2026-11-07_0948/card.txt').read_text().split('\n== PDF CHECK')[0]
-        self.assertEqual(text.rstrip(), archived.rstrip())
+        # Everything up to the card is byte-identical; the gate section is new.
+        self.assertEqual(text.split('\n== GATE ==')[0].rstrip(),
+                         archived.split('\n== SUBMISSION ==')[0].rstrip())
 
 
 if __name__ == '__main__':

@@ -56,10 +56,27 @@ def html():
     return '<!-- SYNTHETIC ONLY -->' + ''.join(sections)
 
 
+def _run_pinned(baseline):
+    with tempfile.TemporaryDirectory(prefix='pinned-v1-') as tmp:
+        dest = ev.pinned_checkout(baseline, Path(tmp) / 'checkout')
+        try:
+            out = subprocess.check_output(
+                [sys.executable, '-c', 'import json; from backtest import certify; '
+                 'print(json.dumps(certify.run()))'], cwd=dest, text=True)
+        finally:
+            subprocess.call(['git', '-C', str(ROOT), 'worktree', 'remove', '--force', str(dest)])
+    summary = json.loads(out.strip().splitlines()[-1])
+    summary['ran_in'] = f"pinned checkout {baseline['payload']['git_commit'][:12]}"
+    return summary
+
+
 def run():
     if not shutil.which('pdftotext'):
         raise RuntimeError('pdftotext is required; rehearsal cannot certify PDF ingestion without it')
     baseline = ev.read(ROOT / 'evaluation/baselines/ronnie-v1.json')
+    if baseline['payload']['source_sha256'] != ev.source_hashes():
+        # main carries a newer engine; rehearse the frozen one where it actually runs.
+        return _run_pinned(baseline)
     ev.verify_baseline(baseline, check_sources=True)
     original_baseline = (ROOT / 'evaluation/baselines/ronnie-v1.json').read_bytes()
     with tempfile.TemporaryDirectory(prefix='SYNTHETIC-week10-') as tmp:

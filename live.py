@@ -8,7 +8,8 @@ fingerprinted by the frozen `ronnie-v1` evaluation baseline (evaluation/baseline
 Editing them would invalidate the Week 10 prospective evaluation. Everything here is
 additive and only affects the card Bert actually sends:
 
-1. Empty-card guard. The exact optimizer returns NO card when fewer than two picks are
+1. Empty-card guard (legacy configs only; under the charter the engine itself reports
+   DO NOT SEND instead of filling 5-point slots with banned picks). The exact optimizer returns NO card when fewer than two picks are
    5-point eligible (e.g. every candidate carries qb_uncertain). The charter says a thin
    board still gets five picks, labelled honestly. The guard builds that labelled
    fallback; the frozen evaluation keeps recording its own (empty) card.
@@ -57,7 +58,9 @@ def guard(board: dict, now: datetime | None, cfg: bp.Config) -> tuple[list[bp.Ca
     """Returns (fallback card or [], notes). Empty list = the engine's card stands."""
     cands, _ = bp.build_candidates(board, now, [], cfg)
     card, _, _ = bp.build_card(cands, cfg=cfg)
-    if card or not cands:
+    if card or not cands or cfg.charter:
+        # Under the charter a thin board is reported as DO NOT SEND by the engine;
+        # a fallback that overrides 5-pt bans is exactly what the charter forbids.
         return [], []
     fb = fallback_card(cands)
     notes = ["THIN / FLAGGED BOARD: the engine found no legal pair of 5-point picks "
@@ -83,7 +86,8 @@ def main(argv=None):
     now = bp.parse_time(a.now or board.get("now")) or \
         datetime.now(ZoneInfo("America/New_York")).replace(tzinfo=None)
     cfg = bp.Config.production()
-    text = bp.report(board, now, a.pdf, cfg)
+    gates: list = []
+    text = bp.report(board, now, a.pdf, cfg, gates)
 
     fb, notes = guard(board, now, cfg)
     if fb:
@@ -91,17 +95,6 @@ def main(argv=None):
         text += "\n```\n" + bp.submission_block(board.get("week", "Week ?"), fb) + "\n```"
         if a.pdf:
             text += "\n" + "\n".join(bp.verify_against_pdf(fb, a.pdf))
-
-    gate_ok = False
-    try:
-        import charter_gate as cg
-        gc, _ = bp.build_candidates(board, now, [], cfg)
-        gate_ok, section = cg.final_section(board, gc, cfg, a.pdf)
-        text += "\n\n" + section
-        text += ("\n  Any other card: python3 charter_gate.py <board.json> --check card.txt "
-                 "-> must print GATE: PASS before it is sent.")
-    except Exception as e:  # the gate is mandatory; make a failure loud
-        text += f"\n\n== FINAL CARD: GATE ERROR -- DO NOT SEND ==\n  {e}"
 
     if not a.no_context:
         try:
@@ -123,7 +116,7 @@ def main(argv=None):
         with open(os.path.join(d, "card.txt"), "w") as f:
             f.write(text + "\n")
         print(f"\n(saved {d}/board.json + card.txt)")
-    if not gate_ok:
+    if gates and not gates[0].passed and not fb:
         sys.exit(1)
 
 

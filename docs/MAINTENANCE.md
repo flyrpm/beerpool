@@ -1,6 +1,12 @@
 # BeerPool maintenance handoff
 
 Status: maintenance mode through the first genuine Week 10 evaluation.
+
+**Nov 8 2026 (Bert's decision): engine v2 on `main`, v1 frozen on a pinned checkout.** After
+Week 9 the charter (Three Locks) was built into the engine (`Config.charter`, `gate_card`).
+The `ronnie-v1` baseline is unchanged and records only from
+`python3 backtest/evaluation.py pin ...` (newest commit whose engine files match its
+fingerprint). Nothing below about v1 changes; it just runs from that checkout.
 No additional feature development, refitting, probability/calibration/threshold
 changes or selection-policy changes are authorized before that evaluation.
 Operate the frozen `ronnie-v1` baseline. Report newly discovered critical defects

@@ -7,6 +7,7 @@ notes on top, and builds the card under the pool rules.
 
 ```bash
 ./run.sh                                   # newest BP*.pdf in ~/Downloads + newest notes/*.json
+python3 beerpool.py runs/<run>/board.json --check card.txt   # gate any card before sending
 ./run.sh ~/Downloads/"BP Wk Niner.pdf" notes/2026-wk09.json
 NOW=2026-11-07T09:00 ./run.sh              # pretend it's a given time (lock checks)
 python3 -m unittest test_beerpool          # tests
@@ -26,8 +27,18 @@ See **LEARNINGS.md** for what the backtests have shown so far.
 | Pricing | `beerpool.py` | Fits a margin / total distribution with key-number mass (NFL 3/7/10/14…, CFB 3/7/10/14/17…) to the de-vigged market, then prices each side at the sheet number. A sheet -3 plays like -3.5. |
 | Flags | `beerpool.py` | **No call** if the books disagree by more than 1 point on a spread (1.5 on a total), ignoring one stale book at each end. **3-point max** for `big_move` (3+ points since open, cause unverified), `steam_against` (market moved 2+ points away from the side), `qb_uncertain`, `starter_uncertain` and `model_only`. |
 | Card | `beerpool.py` | Highest probabilities go to the 5-point slots if they're eligible. One pick per game, no shared thesis, 5-pointers in different environments, no Dallas, "thin board" warning under 53%. |
-| Gate | `charter_gate.py` | The Three Locks: no +10 dog, sub-54% pick or unverified big move in a 5 slot; slots ordered by probability; `--check card.txt` prints GATE: PASS/FAIL for any card. `live.py` prints the gated FINAL card. |
+| Charter + gate | `beerpool.py` (`Config.charter`, `five_bans`, `gate_card`) | Part of card construction, not a bolt-on. Production runs with the charter on: no +10 dog, sub-54% pick or unverified big move in a 5 slot, no pick under 52%, slots ordered by probability. Every card goes through `gate_card`; the report prints `GATE: PASS` and the submission, or `DO NOT SEND` with no submission (exit 1). `beerpool.py board.json --check card.txt` gates any card: another model's, or a hand swap. |
 | Output | `beerpool.py` | Submission block, MEGA EV (10p − 5; it only fires if `mega` is set in the notes), and every pick checked against the PDF text. |
+
+## Engine versions
+
+| Version | Where it runs | What |
+|---|---|---|
+| `ronnie-v1` (frozen Nov 7) | pinned checkout: `python3 backtest/evaluation.py pin --baseline evaluation/baselines/ronnie-v1.json --dest ../beerpool-v1` | The Week 10 prospective test. Its engine files are fingerprinted; it records only from that checkout. |
+| `ronnie-v2` (charter, Nov 8) | `main` (`./run.sh`) | The card Bert sends. v1 + the charter (Three Locks) in `Config` and the card gate. |
+
+`Config.charter` defaults to off, so a frozen v1 config rebuilds exactly; `Config.production()`
+turns it on.
 
 ## Weekly notes (`notes/YYYY-wkNN.json`)
 

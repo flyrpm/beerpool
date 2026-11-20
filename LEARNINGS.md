@@ -71,7 +71,7 @@ calibration 119 → **calibration + 5-pt rule 123 (33-12, 73.3%)**. 2025, in-sam
 The 5-pt thresholds came from looking at both seasons, so part of that gain is in-sample.
 Refit the calibration each time a season's results are added.
 
-## Week 9 post-mortem (Nov 7 2026) — the engine's own card lost both 5-pointers
+## Week 9 post-mortem (Nov 7 2026) — full write-up: [docs/postmortems/2026-week09.md](docs/postmortems/2026-week09.md) — the engine's own card lost both 5-pointers
 
 The card Bert sent was the engine's card, unchanged:
 `1. 37 MRSH +10.5 (p .600) · 2. 55 MICH -12.5 (.595) · 3. 63 WYO +6.5 · 4. 61 UTEP +9.5 · 5. 58 NMSU +17.5`.
@@ -89,8 +89,10 @@ What went wrong, in the code:
    real. At noon, an unexplained move toward a big dog is a coin flip at best. Re-test
    `big_move` on the odds snapshots (noon lines) before trusting it again.
 
-Fix shipped: `charter_gate.py` (the Three Locks), wired into `live.py`'s output as the
-"FINAL CARD (charter-gated)". 5-point slots are banned for spread dogs of +10 or more, picks
+Fix shipped (engine v2): the Three Locks live in the engine itself (`Config.charter`,
+`five_bans`, `gate_card` in `beerpool.py`), so the card the engine builds and the card a human
+or another model proposes go through the same rules. v1 stays frozen for the Week 10 test and
+runs from a pinned checkout. 5-point slots are banned for spread dogs of +10 or more, picks
 under 54%, unverified big moves and the existing 5-flags; slots are ordered by probability; any
 card (engine, another model, or a gut swap) must print `GATE: PASS` before it is sent.
 Replayed on Week 9 the gated card is `MICH / USA +8.5 / MRSH / WYO / UTEP` — Marshall drops to a

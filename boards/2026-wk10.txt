@@ -1,0 +1,89 @@
+                                       College Football - Week 11, November 10-14, 2026 - All times Eastern
+                                                         Schedule refreshed November 13, 2026.
+Game         Date          Time (ET)             Away Team                Site         Home Team                TV             Line             O/U
+  1    Tue, Nov 10, 2026    7:00 PM          Western Michigan              at               Akron             CBSSN
+  2    Tue, Nov 10, 2026    7:00 PM               Kent State               at         Bowling Green           ESPNU
+  3    Tue, Nov 10, 2026    8:00 PM                  Ohio                  at           Miami (OH)            ESPN2
+  4    Wed, Nov 11, 2026    7:30 PM                 Buffalo                at            Ball State           ESPN2
+  5    Wed, Nov 11, 2026    7:30 PM           Sacramento State             at        Central Michigan         ESPNU
+  6    Wed, Nov 11, 2026    7:30 PM             Massachusetts              at              Toledo             CBSSN
+  7    Thu, Nov 12, 2026    8:00 PM               Memphis                  at          South Florida           ESPN
+  8    Thu, Nov 12, 2026    9:00 PM               Louisiana                at           UL Monroe             ESPN2
+  9    Fri, Nov 13, 2026    7:00 PM              Florida State             at            Pittsburgh            ESPN          Line: PITT -3    O/U: 52.5
+ 10    Fri, Nov 13, 2026    9:00 PM                 Illinois               at               UCLA               FOX        Line: UCLA -10.5    O/U: 48.5
+ 11    Fri, Nov 13, 2026   10:15 PM                Houston                 at             Colorado             ESPN        Line: HOU -7.5     O/U: 52.5
+ 12    Sat, Nov 14, 2026   12:00 PM                  Duke                  at               Miami              ABC         Line: MIA -13.5    O/U: 54.5
+ 13    Sat, Nov 14, 2026   12:00 PM              Wake Forest               at               SMU                ESPN        Line: SMU -1.5     O/U: 60.5
+ 14    Sat, Nov 14, 2026   12:00 PM             Northwestern               at            Ohio State            FOX          Line: OSU -14    O/U: 44.5
+ 15    Sat, Nov 14, 2026   12:00 PM               Cincinnati               at            Iowa State            TNT           Line: ISU -3    O/U: 57.5
+ 16    Sat, Nov 14, 2026   12:00 PM                 Auburn                 at         Mississippi State       ESPN2        Line: AUB -2.5    O/U: 51.5
+ 17    Sat, Nov 14, 2026   12:00 PM                Syracuse                at             NC State          ACC Network      Line: SYR -3    O/U: 53.5
+ 18    Sat, Nov 14, 2026   12:00 PM               Wisconsin                at             Maryland              FS1         Line: WIS -8.5   O/U: 42.5
+ 19    Sat, Nov 14, 2026   12:00 PM            James Madison               at              UConn              CBSSN         Line: JMU -4.5   O/U: 57.5
+ 20    Sat, Nov 14, 2026   12:30 PM             Georgia Tech               at             Clemson               CW        Line: CLEM -14.5   O/U: 47.5
+ 21    Sat, Nov 14, 2026   12:30 PM               Nebraska                 at              Rutgers             BTN         Line: NEB -15.5   O/U: 51.5
+ 22    Sat, Nov 14, 2026   12:45 PM                Alabama                 at            Vanderbilt         SEC Network    Line: ALA -15.5   O/U: 49.5
+ 23    Sat, Nov 14, 2026    1:00 PM             East Carolina              at             Charlotte           ESPN+        Line: ECU -11.5   O/U: 45.5
+ 24    Sat, Nov 14, 2026    1:00 PM                  UAB                   at              Temple             ESPN+        Line: TEM -2.5    O/U: 47.5
+ 25    Sat, Nov 14, 2026    1:00 PM            Arkansas State              at         Coastal Carolina        ESPN+         Line: CCU -1.5   O/U: 52.5
+ 26    Sat, Nov 14, 2026    2:00 PM              Kansas State              at               TCU               ESPNU        Line: TCU -11.5   O/U: 44.5
+ 27    Sat, Nov 14, 2026    2:00 PM                 Tulane                 at                Rice             ESPN+        Line: RICE -2.5   O/U: 48.5
+ 28    Sat, Nov 14, 2026    2:00 PM            Kennesaw State              at          Sam Houston            ESPN+         Line: KENN -7    O/U: 46.5
+ 29    Sat, Nov 14, 2026    3:00 PM               Tennessee                at           Texas A&M              ESPN       Line: TENN -2.5    O/U: 43.5
+ 30    Sat, Nov 14, 2026    3:00 PM          New Mexico State              at          Missouri State         ESPN+       Line: MOST -1.5    O/U: 49.5
+ 31    Sat, Nov 14, 2026    3:00 PM         Florida International          at             Delaware            ESPN+         Line: DEL -3.5   O/U: 54.5
+ 32    Sat, Nov 14, 2026    3:30 PM                Missouri                at             Georgia              ABC         Line: UGA -16.5   O/U: 47.5
+ 33    Sat, Nov 14, 2026    3:30 PM            Boston College              at           Notre Dame             NBC          Line: ND -29.5   O/U: 51.5
+ 34    Sat, Nov 14, 2026    3:30 PM                  USC                   at              Indiana             CBS           Line: IU -9.5   O/U: 50.5
+ 35    Sat, Nov 14, 2026    3:30 PM                 Baylor                 at               BYU                FOX         Line: BYU -7.5    O/U: 50.5
+ 36    Sat, Nov 14, 2026    3:30 PM               Michigan                 at              Oregon               FS1        Line: ORE -10.5   O/U: 38.5
+ 37    Sat, Nov 14, 2026    3:30 PM             Arizona State              at                UCF              ESPN2          Line: UCF -3    O/U: 47.5
+ 38    Sat, Nov 14, 2026    3:30 PM               California               at             Virginia          ACC Network     Line: UVA -10    O/U: 46.5
+ 39    Sat, Nov 14, 2026    3:30 PM            Florida Atlantic            at               Tulsa             ESPN+        Line: TLSA -5.5   O/U: 73.5
+ 40    Sat, Nov 14, 2026    3:30 PM                 Nevada                 at         Northern Illinois        MW+           Line: NEV -6    O/U: 47.5
+ 41    Sat, Nov 14, 2026    3:30 PM          Georgia Southern              at          Georgia State          ESPN+         Line: GASO -6    O/U: 56.5
+ 42    Sat, Nov 14, 2026    3:30 PM          Jacksonville State            at        Western Kentucky         ESPN+        Line: JXST -7.5   O/U: 54.5
+ 43    Sat, Nov 14, 2026    3:30 PM          Middle Tennessee              at              Liberty            CBSSN          Line: LIB -21   O/U: 53.5
+ 44    Sat, Nov 14, 2026    4:00 PM              Fresno State              at           Texas State             CW         Line: TXST -9.5   O/U: 59.5
+ 45    Sat, Nov 14, 2026    4:15 PM                Ole Miss                at            Oklahoma           SEC Network      Line: OU -1.5   O/U: 49.5
+ 46    Sat, Nov 14, 2026    4:15 PM              Washington                at         Michigan State           BTN        Line: WASH -3.5    O/U: 44.5
+ 47    Sat, Nov 14, 2026    5:00 PM             Southern Miss              at         Louisiana Tech          ESPN+         Line: LT -17.5   O/U: 56.5
+ 48    Sat, Nov 14, 2026    5:30 PM                 Kansas                 at          West Virginia          ESPNU        Line: WVU -2.5    O/U: 67.5
+ 49    Sat, Nov 14, 2026    6:00 PM              Oregon State              at            Boise State        USA Network   Line: BOIS -14.5   O/U: 63.5
+ 50    Sat, Nov 14, 2026    6:00 PM               App State                at             Marshall            ESPN+         Line: APP -1.5   O/U: 54.5
+ 51    Sat, Nov 14, 2026    6:15 PM                 Florida                at             Kentucky             ESPN           Line: UK -3    O/U: 52.5
+ 52    Sat, Nov 14, 2026    7:00 PM               Louisville               at          North Carolina         ESPN2         Line: LOU -3.5   O/U: 57.5
+ 53    Sat, Nov 14, 2026    7:00 PM               Minnesota                at            Penn State             FS1         Line: PSU -9.5   O/U: 42.5
+ 54    Sat, Nov 14, 2026    7:00 PM             San Jose State             at             Air Force           CBSSN         Line: AF -12.5   O/U: 47.5
+ 55    Sat, Nov 14, 2026    7:00 PM                  Troy                  at         South Alabama           ESPN+          Line: USA -3    O/U: 55.5
+ 56    Sat, Nov 14, 2026    7:30 PM                  Utah                  at             Arizona              FOX        Line: UTAH -2.5    O/U: 55.5
+ 57    Sat, Nov 14, 2026    7:30 PM                  Texas                 at                LSU               ABC           Line: LSU -4    O/U: 46.5
+ 58    Sat, Nov 14, 2026    7:30 PM                 Purdue                 at               Iowa               NBC        Line: IOWA -17.5   O/U: 47.5
+ 59    Sat, Nov 14, 2026    7:30 PM                Stanford                at          Virginia Tech        ACC Network     Line: VT -15.5   O/U: 57.5
+ 60    Sat, Nov 14, 2026    7:30 PM                 UNLV                   at           New Mexico              CW        Line: UNM -14.5    O/U: 46.5
+ 61    Sat, Nov 14, 2026    7:45 PM            South Carolina              at             Arkansas          SEC Network      Line: SC -7.5   O/U: 51.5
+ 62    Sat, Nov 14, 2026    9:00 PM              North Texas               at               UTSA              ESPNU        Line: UNT -2.5    O/U: 75.5
+ 63    Sat, Nov 14, 2026    9:30 PM              Texas Tech                at         Oklahoma State           ESPN        Line: OKST -3.5   O/U: 73.5
+ 64    Sat, Nov 14, 2026    9:30 PM               Utah State               at         San Diego State       USA Network     Line: USU -2.5   O/U: 44.5
+ 65    Sat, Nov 14, 2026   10:00 PM               Wyoming                  at               UTEP                FS1        Line: WYO -7.5    O/U: 40.5
+ 66    Sat, Nov 14, 2026   10:30 PM            Colorado State              at        Washington State         CBSSN        Line: WSU -8.5    O/U: 66.5
+ 67    Sat, Nov 14, 2026   11:00 PM          North Dakota State            at              Hawai'i              CW        Line: NDSU -6.5    O/U: 38.5
+
+                                            NFL - Week 10, November 12-16, 2026 - All times Eastern
+                                                      Schedule refreshed November 13, 2026.
+Game         Date          Time (ET)           Away Team               Site         Home Team                 TV               Line             O/U
+ 68    Thu, Nov 12, 2026    8:15 PM      Washington Commanders          at        New York Giants         Prime Video
+ 69    Sun, Nov 15, 2026    9:30 AM       New England Patriots          vs          Detroit Lions            FOX           Line: DET -3       O/U: 49.5
+ 70    Sun, Nov 15, 2026    1:00 PM         Kansas City Chiefs          at         Atlanta Falcons            CBS           Line: KC -3       O/U: 47.5
+ 71    Sun, Nov 15, 2026    1:00 PM          Houston Texans             at        Cleveland Browns           FOX          Line: HOU -4.5      O/U: 40.5
+ 72    Sun, Nov 15, 2026    1:00 PM         Minnesota Vikings           at       Green Bay Packers           FOX            Line: GB -3       O/U: 42.5
+ 73    Sun, Nov 15, 2026    1:00 PM        Jacksonville Jaguars         at        Tennessee Titans           FOX          Line: JAX -10.5     O/U: 46.5
+ 74    Sun, Nov 15, 2026    1:00 PM          Miami Dolphins             at        Indianapolis Colts          CBS         Line: IND -3.5      O/U: 38.5
+ 75    Sun, Nov 15, 2026    1:00 PM         Carolina Panthers           at       New Orleans Saints          FOX           Line: NO -2.5      O/U: 48.5
+ 76    Sun, Nov 15, 2026    1:00 PM            Buffalo Bills            at          New York Jets             CBS         Line: BUF -8.5      O/U: 50.5
+ 77    Sun, Nov 15, 2026    4:05 PM          Seattle Seahawks           at        Las Vegas Raiders           CBS         Line: SEA -6.5      O/U: 40.5
+ 78    Sun, Nov 15, 2026    4:05 PM         Los Angeles Rams            at        Arizona Cardinals           CBS         Line: LAR -9.5      O/U: 39.5
+ 79    Sun, Nov 15, 2026    4:25 PM        San Francisco 49ers          at         Dallas Cowboys            FOX            Line: SF -3.5     O/U: 55.5
+ 80    Sun, Nov 15, 2026    8:20 PM         Pittsburgh Steelers         at        Cincinnati Bengals         NBC           Line: CIN -3.5     O/U: 49.5
+ 81    Mon, Nov 16, 2026    8:15 PM       Los Angeles Chargers          at        Baltimore Ravens           ESPN         Line: BAL -4.5      O/U: 38.5
+
